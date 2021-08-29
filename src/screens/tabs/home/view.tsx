@@ -1,36 +1,23 @@
-import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
-import SearchInput from '../../../components/general/Search';
-import styles from './style';
+import React from 'react';
+import { FlatList, ScrollView } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import SliderItem from './components/SliderItem';
-import { paddingVertical, windowWidth } from '../../../constants/sizes';
+import SearchInput from '../../../components/general/Search';
+import Text from '../../../components/general/Text';
 import { colors } from '../../../constants/colors';
+import { windowWidth } from '../../../constants/sizes';
+import { strings } from '../../../locales/locales';
+import ProductItem from './components/ProductItem';
+import SliderItem from './components/SliderItem';
+import styles from './style';
+import { products, data } from './data';
 
-export interface HomeViewProps {}
+export interface HomeViewProps {
+	width: number;
+	setActiveSlide: (e: number) => void;
+	activeSlide: number;
+}
 
-let data = [
-	{
-		url: 'https://www.warehousestationery.co.nz/on/demandware.static/-/Library-Sites-wsl-shared-library/default/dwcd375d89/Content/Category-Landing-Pages/technology/apple/fy21/s2455-iPhone-12mini-buy-now-988x494.jpg',
-	},
-	{
-		url: 'https://creativepool.com/files/candidate/portfolio/full/930803.jpg',
-	},
-	{
-		url: 'https://cdn.grabon.in/gograbon/images/web-images/uploads/1617801584557/apple-offers.jpg',
-	},
-	{
-		url: 'https://ossaimaenterprise.com/wp-content/uploads/2020/10/headersml-desk-apple-watch-series-6-860x360-1.jpg',
-	},
-	{
-		url: 'https://qmacstore.com/media/banner-macbook-air-chip-m1-qmac-store.png',
-	},
-];
-
-const HomeView = () => {
-	//TODO styles and move hooks to controller
-	let width = windowWidth - 2 * paddingVertical;
-	const [activeSlide, setActiveSlide] = useState(0);
+const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 	return (
 		<ScrollView
 			showsVerticalScrollIndicator={false}
@@ -63,6 +50,15 @@ const HomeView = () => {
 					paddingHorizontal: 0,
 					marginHorizontal: 2.5,
 				}}
+			/>
+			<Text style={styles.text}>{strings.recomendedForYou}</Text>
+			<FlatList
+				contentContainerStyle={styles.flatList}
+				snapToInterval={windowWidth / 2 - 5}
+				data={products}
+				horizontal
+				renderItem={ProductItem}
+				decelerationRate={'fast'}
 			/>
 		</ScrollView>
 	);
