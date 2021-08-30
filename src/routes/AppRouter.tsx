@@ -12,7 +12,13 @@ import {
 	ProfileIcon,
 } from '../assets/icons/icons';
 import { colors } from '../constants/colors';
-import { HomeScreen } from '../screens/tabs';
+import {
+	CartScreen,
+	CategoriesScreen,
+	FavoritesScreen,
+	HomeScreen,
+	ProfileScreen,
+} from '../screens/tabs';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +32,8 @@ let styles = StyleSheet.create({
 		borderTopRightRadius: 15,
 		alignItems: 'center',
 		justifyContent: 'center',
+		overflow: 'hidden',
+		paddingTop: 20,
 	},
 });
 
@@ -41,7 +49,10 @@ const AppRouter = () => {
 			}}
 		>
 			<NavigationContainer>
-				<Tab.Navigator barStyle={styles.bar}>
+				<Tab.Navigator
+					initialRouteName={'Categories'}
+					barStyle={styles.bar}
+				>
 					<Tab.Screen
 						options={{
 							tabBarIcon: ({ color, focused }) => {
@@ -65,7 +76,7 @@ const AppRouter = () => {
 							},
 						}}
 						name="Categories"
-						component={() => null}
+						component={CategoriesScreen}
 					/>
 					<Tab.Screen
 						options={{
@@ -76,7 +87,7 @@ const AppRouter = () => {
 							},
 						}}
 						name="Favorites"
-						component={() => null}
+						component={FavoritesScreen}
 					/>
 					<Tab.Screen
 						options={{
@@ -87,7 +98,7 @@ const AppRouter = () => {
 							},
 						}}
 						name="Cart"
-						component={() => null}
+						component={CartScreen}
 					/>
 					<Tab.Screen
 						options={{
@@ -101,7 +112,7 @@ const AppRouter = () => {
 							},
 						}}
 						name="Profile"
-						component={() => null}
+						component={ProfileScreen}
 					/>
 				</Tab.Navigator>
 			</NavigationContainer>

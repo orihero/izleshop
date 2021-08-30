@@ -59,6 +59,7 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 				horizontal
 				renderItem={ProductItem}
 				decelerationRate={'fast'}
+				showsHorizontalScrollIndicator={false}
 			/>
 		</ScrollView>
 	);

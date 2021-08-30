@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, ListRenderItemInfo, StyleSheet, View } from 'react-native';
-import { CartIcon, HeartIcon, StarIcon } from '../../../../assets/icons/icons';
+import { CartIcon, HeartIcon, CloseIcon } from '../../../../assets/icons/icons';
 import Text from '../../../../components/general/Text';
 import { colors } from '../../../../constants/colors';
 import { windowWidth } from '../../../../constants/sizes';
@@ -13,6 +13,9 @@ const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItem>) => {
 	return (
 		<View style={styles.productContainer}>
 			<View style={styles.container}>
+				<View style={styles.absolute}>
+					<CloseIcon color={colors.gray} size={15} />
+				</View>
 				<Image source={{ uri: item.photoUrl }} style={styles.image} />
 				<View style={styles.buttonsContainer}>
 					<CartIcon color={colors.blue} size={20} />
@@ -32,6 +35,12 @@ const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItem>) => {
 export default ProductItem;
 
 const styles = StyleSheet.create({
+	absolute: {
+		position: 'absolute',
+		right: 10,
+		zIndex: 20,
+		top: 10,
+	},
 	container: {
 		backgroundColor: colors.white,
 		padding: 15,
