@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { ChevronIcon } from 'assets/icons/icons';
-import { colors } from '../../constants/colors';
+import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 
 export interface MenuLinkProps {

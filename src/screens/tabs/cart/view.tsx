@@ -10,6 +10,7 @@ const CartView = () => {
 			<Header title={strings.cart} />
 			<View style={styles.totalContainer}>
 				<Text style={styles.totalPrice}></Text>
+				<Text style={styles.totalPrice}></Text>
 			</View>
 		</View>
 	);
