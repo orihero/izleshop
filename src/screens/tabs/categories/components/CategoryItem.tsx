@@ -6,7 +6,7 @@ import {
 	Text,
 	View,
 } from 'react-native';
-import { colors } from '../../../../constants/colors';
+import { colors } from 'constants/colors';
 import { categories } from '../data';
 let el = categories[0].subCategories[0];
 

@@ -10,15 +10,15 @@ import {
 	HeartIcon,
 	HomeIcon,
 	ProfileIcon,
-} from '../assets/icons/icons';
-import { colors } from '../constants/colors';
+} from 'assets/icons/icons';
+import { colors } from 'constants/colors';
 import {
 	CartScreen,
 	CategoriesScreen,
 	FavoritesScreen,
 	HomeScreen,
 	ProfileScreen,
-} from '../screens/tabs';
+} from 'screens/tabs';
 
 const Stack = createNativeStackNavigator();
 

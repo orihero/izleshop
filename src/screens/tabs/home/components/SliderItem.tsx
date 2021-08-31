@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import { AdditionalParallaxProps } from 'react-native-snap-carousel';
-import { paddingVertical, windowWidth } from '../../../../constants/sizes';
+import { paddingVertical, windowWidth } from 'constants/sizes';
 
 export interface SliderItemProps {
 	url: string;

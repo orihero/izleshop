@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../constants/colors';
-import { paddingVertical } from '../../../constants/sizes';
+import { colors } from 'constants/colors';
+import { paddingVertical } from 'constants/sizes';
 
 const styles = StyleSheet.create({
 	container: {

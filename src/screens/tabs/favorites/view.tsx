@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import Header from '../../../components/navigation/Header';
-import { strings } from '../../../locales/locales';
+import Header from 'components/navigation/Header';
+import { strings } from 'locales/locales';
 import ProductItem from '../home/components/ProductItem';
 import { products } from '../home/data';
 import { styles } from './style';

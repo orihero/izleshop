@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
-import Svg, { Path, Text } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 export interface IconProps {
 	color?: string;

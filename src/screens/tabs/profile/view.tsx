@@ -1,11 +1,11 @@
 import React from 'react';
 import { Image, View } from 'react-native';
-import Text from '../../../components/general/Text';
-import { strings } from '../../../locales/locales';
+import Text from 'components/general/Text';
+import { strings } from 'locales/locales';
 import { styles } from './style';
 //@ts-ignore
-import img from '../../../assets/images/user.png';
-import DefaultButton from '../../../components/general/DefaultButton';
+import img from 'assets/images/user.png';
+import DefaultButton from 'components/general/DefaultButton';
 import MenuLink from './components/MenuLink';
 
 const ProfileView = () => {

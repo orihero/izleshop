@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { paddingVertical, windowWidth } from '../../../constants/sizes';
+import { paddingVertical, windowWidth } from 'constants/sizes';
 import HomeView from './view';
 
 const HomeController = () => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
-import SearchInput from '../../../components/general/Search';
-import { colors } from '../../../constants/colors';
-import { windowWidth } from '../../../constants/sizes';
-import { strings } from '../../../locales/locales';
+import SearchInput from 'components/general/Search';
+import { colors } from 'constants/colors';
+import { windowWidth } from 'constants/sizes';
+import { strings } from 'locales/locales';
 import BrandsView from './components/BrandsView';
 import Categories from './components/CategoriewView';
 import { styles } from './style';

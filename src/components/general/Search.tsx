@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SearchIcon } from '../../assets/icons/icons';
-import { colors } from '../../constants/colors';
+import { colors } from 'constants/colors';
 import { windowWidth } from '../../constants/sizes';
 import { strings } from '../../locales/locales';
 import Text from './Text';
 
-export interface SearchInputProps { }
+export interface SearchInputProps {}
 
-const SearchInput = ({ }: SearchInputProps) => {
+const SearchInput = ({}: SearchInputProps) => {
 	return (
 		<View style={styles.container}>
 			<SearchIcon size={17} color={colors.gray} />
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 		width: windowWidth - 40,
 		padding: 15,
 		flexDirection: 'row',
-		marginHorizontal: 20
+		marginHorizontal: 20,
 	},
 	text: {
 		color: colors.gray,

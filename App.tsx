@@ -9,7 +9,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import AppRouter from './src/routes/AppRouter';
+import AppRouter from 'routes/AppRouter';
 
 const App = () => {
 	return (

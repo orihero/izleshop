@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
-import { StarIcon } from '../../../../assets/icons/icons';
-import { colors } from '../../../../constants/colors';
+import { StarIcon } from 'assets/icons/icons';
+import { colors } from 'constants/colors';
 
 export interface RatingProps {
 	count?: number;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Image, ListRenderItemInfo, StyleSheet, View } from 'react-native';
-import { CartIcon, HeartIcon, CloseIcon } from '../../../../assets/icons/icons';
-import Text from '../../../../components/general/Text';
-import { colors } from '../../../../constants/colors';
-import { windowWidth } from '../../../../constants/sizes';
+import { CartIcon, HeartIcon, CloseIcon } from 'assets/icons/icons';
+import Text from 'components/general/Text';
+import { colors } from 'constants/colors';
+import { windowWidth } from 'constants/sizes';
 import { products } from '../data';
 import Rating from './Rating';
 

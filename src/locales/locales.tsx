@@ -19,6 +19,7 @@ export let strings = new LocalizedStrings({
 		language: 'Язык',
 		aboutApp: 'О приложении',
 		authorize: 'Авторизоваться',
+		cart: 'Корзина',
 	},
 	uz: {},
 	en: {},
