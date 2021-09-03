@@ -5,7 +5,7 @@ import { RootState } from '../configureStore';
 let initialState: { [key: string]: any } = {};
 
 
-export const counterSlice = createSlice({
+export const favoritesSlice = createSlice({
     name: 'favorites',
     initialState,
     reducers: {
@@ -21,15 +21,15 @@ export const counterSlice = createSlice({
             }, {})
             return state;
         },
-        clearCart: () => { }
+        clearFavorites: () => { }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addItem, clearCart, removeItem } = counterSlice.actions
+export const { addItem, clearFavorites, removeItem } = favoritesSlice.actions
 // Other code such as selectors can use the imported `RootState` type
 export const selectFavorites = (state: RootState) => state.favorites
 export const selectFavoritesList = (state: RootState) => Object.keys(state.favorites).map((e) => state.favorites[e])
 
 
-export default counterSlice.reducer
+export default favoritesSlice.reducer

@@ -1,28 +1,30 @@
-import React from 'react';
-import { Image, ListRenderItemInfo, StyleSheet, View } from 'react-native';
 import {
 	CartIcon,
-	HeartIcon,
 	CloseIcon,
+	HeartIcon,
 	PressableIcon,
 } from 'assets/icons/icons';
 import Text from 'components/general/Text';
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
-import { products } from '../data';
-import Rating from './Rating';
-import { useAppDispatch, useAppSelector } from 'utils/hooks';
+import React from 'react';
+import { Image, ListRenderItemInfo, StyleSheet, View } from 'react-native';
+import { selectCart, addToCart, removeFromCart } from 'store/slices/cartSlice';
 import {
 	addItem,
 	removeItem,
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
-import reactotron from 'store/reactotron.config';
+import { useAppDispatch, useAppSelector } from 'utils/hooks';
+import { products } from '../data';
+import Rating from './Rating';
 
 export type ProductItemModel = typeof products[0];
 
 const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItemModel>) => {
 	let favorites = useAppSelector(selectFavorites);
+	let cart = useAppSelector(selectCart);
+	let isInCart = !!cart[item.id];
 	let isFavorite = !!favorites[item.id];
 	let dispatch = useAppDispatch();
 	let onHeartPress = () => {
@@ -30,6 +32,14 @@ const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItemModel>) => {
 			dispatch(removeItem(item.id.toString()));
 		} else {
 			dispatch(addItem(item));
+		}
+	};
+
+	let onCartPress = () => {
+		if (isInCart) {
+			dispatch(removeFromCart(item.id.toString()));
+		} else {
+			dispatch(addToCart(item));
 		}
 	};
 
@@ -41,7 +51,13 @@ const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItemModel>) => {
 				</View>
 				<Image source={{ uri: item.photoUrl }} style={styles.image} />
 				<View style={styles.buttonsContainer}>
-					<CartIcon color={colors.blue} size={20} />
+					<PressableIcon onPress={onCartPress}>
+						<CartIcon
+							active={isInCart}
+							color={colors.blue}
+							size={20}
+						/>
+					</PressableIcon>
 					<PressableIcon onPress={onHeartPress}>
 						<HeartIcon
 							active={isFavorite}
