@@ -17,6 +17,7 @@ export let data = [{
 
 export let products = [{
         rating: 4,
+        id: 1,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -24,6 +25,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 2,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -31,6 +33,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 3,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -38,6 +41,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 4,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -45,6 +49,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 5,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -52,6 +57,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 6,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -59,6 +65,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 7,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -66,6 +73,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 8,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -73,6 +81,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 9,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -80,6 +89,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 10,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -87,6 +97,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 11,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -94,6 +105,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 12,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -101,6 +113,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 13,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -108,6 +121,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 14,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',
@@ -115,6 +129,7 @@ export let products = [{
     },
     {
         rating: 4,
+        id: 15,
         name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
         oldPrice: '420 000 сум',
         newPrice: '300 000 сум',

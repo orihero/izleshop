@@ -1,24 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
 import AppRouter from 'routes/AppRouter';
+import { store, persistor } from 'store/configureStore';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const App = () => {
 	return (
-		<View style={{ flex: 1 }}>
-			<SafeAreaProvider>
-				<AppRouter />
-			</SafeAreaProvider>
-		</View>
+		<Provider store={store}>
+			<PersistGate loading={null} persistor={persistor}>
+				<SafeAreaProvider>
+					<AppRouter />
+				</SafeAreaProvider>
+			</PersistGate>
+		</Provider>
 	);
 };
 
 export default App;
+
+export { App };

@@ -42,6 +42,7 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 					backgroundColor: colors.blue,
 					paddingHorizontal: 2,
 				}}
+				dotColor={colors.blue}
 				inactiveDotColor={colors.gray}
 				inactiveDotStyle={{ backgroundColor: colors.gray }}
 				inactiveDotOpacity={0.5}
@@ -57,9 +58,10 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 				snapToInterval={windowWidth / 2 - 5}
 				data={products}
 				horizontal
-				renderItem={ProductItem}
+				renderItem={(props) => <ProductItem {...props} />}
 				decelerationRate={'fast'}
 				showsHorizontalScrollIndicator={false}
+				keyExtractor={(e) => e.id.toString()}
 			/>
 		</ScrollView>
 	);

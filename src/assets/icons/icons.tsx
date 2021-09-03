@@ -1,4 +1,9 @@
 import * as React from 'react';
+import {
+	GestureResponderEvent,
+	TouchableOpacity,
+	TouchableWithoutFeedback,
+} from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 export interface IconProps {
@@ -6,6 +11,7 @@ export interface IconProps {
 	active?: boolean;
 	size?: number;
 	style?: any;
+	onPress?: () => void;
 }
 
 export function ProfileIcon({ color = 'black', active, size }: IconProps) {
@@ -24,7 +30,21 @@ export function ProfileIcon({ color = 'black', active, size }: IconProps) {
 		</Svg>
 	);
 }
-export function HeartIcon({ color = 'black', active, size }: IconProps) {
+
+export interface PressableIconProps extends React.ComponentProps<any> {
+	onPress: ((event: GestureResponderEvent) => void) | undefined;
+}
+
+export let PressableIcon = ({ onPress, children }: PressableIconProps) => {
+	return <TouchableOpacity onPress={onPress}>{children}</TouchableOpacity>;
+};
+
+export function HeartIcon({
+	color = 'black',
+	active,
+	size,
+	onPress,
+}: IconProps) {
 	let iconProps = { fill: color, stroke: color, height: size, width: size };
 	if (active) {
 		return (

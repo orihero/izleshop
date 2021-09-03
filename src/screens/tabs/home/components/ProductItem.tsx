@@ -1,15 +1,38 @@
 import React from 'react';
 import { Image, ListRenderItemInfo, StyleSheet, View } from 'react-native';
-import { CartIcon, HeartIcon, CloseIcon } from 'assets/icons/icons';
+import {
+	CartIcon,
+	HeartIcon,
+	CloseIcon,
+	PressableIcon,
+} from 'assets/icons/icons';
 import Text from 'components/general/Text';
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 import { products } from '../data';
 import Rating from './Rating';
+import { useAppDispatch, useAppSelector } from 'utils/hooks';
+import {
+	addItem,
+	removeItem,
+	selectFavorites,
+} from 'store/slices/favoritesSlice';
+import reactotron from 'store/reactotron.config';
 
-export type ProductItem = typeof products[0];
+export type ProductItemModel = typeof products[0];
 
-const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItem>) => {
+const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItemModel>) => {
+	let favorites = useAppSelector(selectFavorites);
+	let isFavorite = !!favorites[item.id];
+	let dispatch = useAppDispatch();
+	let onHeartPress = () => {
+		if (isFavorite) {
+			dispatch(removeItem(item.id.toString()));
+		} else {
+			dispatch(addItem(item));
+		}
+	};
+
 	return (
 		<View style={styles.productContainer}>
 			<View style={styles.container}>
@@ -19,7 +42,14 @@ const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItem>) => {
 				<Image source={{ uri: item.photoUrl }} style={styles.image} />
 				<View style={styles.buttonsContainer}>
 					<CartIcon color={colors.blue} size={20} />
-					<HeartIcon color={colors.red} size={20} />
+					<PressableIcon onPress={onHeartPress}>
+						<HeartIcon
+							active={isFavorite}
+							color={colors.red}
+							size={20}
+							onPress={onHeartPress}
+						/>
+					</PressableIcon>
 				</View>
 			</View>
 			<Rating />
