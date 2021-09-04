@@ -19,6 +19,7 @@ import {
 	HomeScreen,
 	ProfileScreen,
 } from 'screens/tabs';
+import { store } from 'store/configureStore';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,23 +36,22 @@ let styles = StyleSheet.create({
 		overflow: 'hidden',
 		paddingTop: 20,
 	},
+	container: {
+		flex: 1,
+		backgroundColor: colors.lightBlue,
+	},
 });
 
 const AppRouter = () => {
 	const insets = useSafeAreaInsets();
 
 	return (
-		<View
-			style={{
-				paddingTop: insets.top,
-				flex: 1,
-				backgroundColor: colors.lightBlue,
-			}}
-		>
+		<View style={{ ...styles.container, paddingTop: insets.top }}>
 			<NavigationContainer>
 				<Tab.Navigator
 					initialRouteName={'Categories'}
 					barStyle={styles.bar}
+					key={Object.keys(store.getState().cart).length}
 				>
 					<Tab.Screen
 						options={{
@@ -96,6 +96,8 @@ const AppRouter = () => {
 									<CartIcon active={focused} color={color} />
 								);
 							},
+							tabBarBadge: Object.keys(store.getState().cart)
+								.length,
 						}}
 						name="Cart"
 						component={CartScreen}

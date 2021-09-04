@@ -10,6 +10,15 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 20,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		paddingVertical: 15,
 	},
-	totalPrice: {},
+	totalPrice: {
+		fontSize: 18,
+	},
+	absolute: {
+		position: 'absolute',
+		bottom: 20,
+		left: 0,
+		right: 0,
+	},
 });
