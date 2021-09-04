@@ -1,9 +1,5 @@
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
 	CartIcon,
 	CategoriesIcon,
@@ -12,16 +8,18 @@ import {
 	ProfileIcon,
 } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
-	CartScreen,
 	CategoriesScreen,
 	FavoritesScreen,
 	HomeScreen,
 	ProfileScreen,
 } from 'screens/tabs';
 import { store } from 'store/configureStore';
-
-const Stack = createNativeStackNavigator();
+import CartStack from './CartStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -99,8 +97,8 @@ const AppRouter = () => {
 							tabBarBadge: Object.keys(store.getState().cart)
 								.length,
 						}}
-						name="Cart"
-						component={CartScreen}
+						name={Routes.CART}
+						component={CartStack}
 					/>
 					<Tab.Screen
 						options={{
