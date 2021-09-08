@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {
-	GestureResponderEvent,
-	TouchableOpacity,
-	TouchableWithoutFeedback,
-} from 'react-native';
+import { GestureResponderEvent, TouchableOpacity } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 export interface IconProps {
@@ -170,6 +166,34 @@ export function ChevronIcon({
 	return (
 		<Svg viewBox="0 0 512 512" {...iconProps}>
 			<Path d="M367.954 213.588L160.67 5.872c-7.804-7.819-20.467-7.831-28.284-.029-7.819 7.802-7.832 20.465-.03 28.284l207.299 207.731c7.798 7.798 7.798 20.486-.015 28.299L132.356 477.873c-7.802 7.819-7.789 20.482.03 28.284A19.935 19.935 0 00146.513 512c5.125 0 10.25-1.958 14.157-5.873l207.269-207.701c23.394-23.394 23.394-61.459.015-84.838z" />
+		</Svg>
+	);
+}
+export function WalletIcon({
+	color = 'black',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let iconProps = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg viewBox="0 0 507.246 507.246" {...iconProps}>
+			<Path d="M331.898 289.906c0 22.786 18.537 41.323 41.322 41.323h134.025v-82.646H373.221c-22.785.001-41.323 18.538-41.323 41.323zm63.92 1.214c0 9.2-7.458 16.658-16.658 16.658s-16.658-7.458-16.658-16.658 7.458-16.658 16.658-16.658c9.2.001 16.658 7.459 16.658 16.658z" />
+			<Path d="M373.221 363.229c-40.43 0-73.322-32.893-73.322-73.323s32.893-73.323 73.322-73.323h134.025v-55.838c0-37.771-30.729-68.5-68.5-68.5H68.5c-37.771 0-68.5 30.729-68.5 68.5v256.333c0 37.771 30.729 68.5 68.5 68.5h370.247c37.771 0 68.5-30.729 68.5-68.5v-53.849zM68.5 60.246c402.455 0 373.612-.332 382.448.742-10.978-23.216-34.618-39.32-61.956-39.32H68.5c-36.779 0-66.868 29.139-68.424 65.541C18.03 70.491 42.089 60.246 68.5 60.246z" />
+		</Svg>
+	);
+}
+
+export function CreditCardIcon({
+	color = 'black',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let iconProps = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg viewBox="0 0 512 512" {...iconProps}>
+			<Path d="M512 163v-27c0-30.928-25.072-56-56-56H56c-30.928 0-56 25.072-56 56v27a5 5 0 005 5h502a5 5 0 005-5zM0 205v171c0 30.928 25.072 56 56 56h400c30.928 0 56-25.072 56-56V205a5 5 0 00-5-5H5a5 5 0 00-5 5zm128 131c0 8.836-7.164 16-16 16H96c-8.836 0-16-7.164-16-16v-16c0-8.836 7.164-16 16-16h16c8.836 0 16 7.164 16 16z" />
 		</Svg>
 	);
 }

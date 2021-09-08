@@ -9,4 +9,5 @@ export let colors = {
 	red: '#FF383F',
 	lightBlack: 'rgba(0,0,0,.8)',
 	lightGray: '#EEEEEE',
+	lightGray2: '#A2A6B0',
 };

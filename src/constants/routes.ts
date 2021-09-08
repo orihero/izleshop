@@ -14,4 +14,6 @@ export enum Routes {
 	FILTER = 'filter',
 	PRE_CHECKOUT = 'pre-checkout',
 	CHECKOUT = 'checkout',
+
+	TMP_SCREEN = 'tmp-screen',
 }

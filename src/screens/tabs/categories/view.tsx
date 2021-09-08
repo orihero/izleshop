@@ -1,10 +1,10 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
 import SearchInput from 'components/general/Search';
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
+import React from 'react';
+import { View } from 'react-native';
+import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
 import BrandsView from './components/BrandsView';
 import Categories from './components/CategoriewView';
 import { styles } from './style';
@@ -28,6 +28,7 @@ const CategoriesView = () => {
 				renderScene={renderScene}
 				onIndexChange={setIndex}
 				initialLayout={{ width: windowWidth }}
+				swipeEnabled={false}
 				renderTabBar={(props) => (
 					<TabBar
 						{...props}

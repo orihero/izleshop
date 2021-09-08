@@ -47,7 +47,7 @@ const AppRouter = () => {
 		<View style={{ ...styles.container, paddingTop: insets.top }}>
 			<NavigationContainer>
 				<Tab.Navigator
-					initialRouteName={'Categories'}
+					initialRouteName={'cart'}
 					barStyle={styles.bar}
 					key={Object.keys(store.getState().cart).length}
 				>
