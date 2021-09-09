@@ -10,18 +10,35 @@ interface ItemProps {
 	item: SliderItemProps;
 	index: number;
 	parallaxProps?: AdditionalParallaxProps;
+	contain?: boolean;
+	dwh?: boolean;
 }
 
-const SliderItem = ({ item }: ItemProps) => {
-	let width = windowWidth - 2 * paddingVertical;
-	return (
-		<Image
-			source={{ uri: item.url }}
-			style={{ width, height: width / 2, borderRadius: 7.5 }}
-		/>
-	);
-};
+const SliderItem = ({ item, contain, dwh }: ItemProps) => (
+	<Image
+		source={{ uri: item.url }}
+		style={[
+			styles.br,
+			contain ? styles.rc : null,
+			dwh ? styles.dwh : styles.oh,
+		]}
+	/>
+);
 
 export default SliderItem;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	br: {
+		borderRadius: 7.5,
+	},
+	dwh: {
+		width: windowWidth - 2 * paddingVertical,
+		height: (windowWidth - 2 * paddingVertical) / 2,
+	},
+	oh: {
+		height: (windowWidth - 2 * paddingVertical) / 2,
+	},
+	rc: {
+		resizeMode: 'contain',
+	},
+});

@@ -6,7 +6,6 @@ import reactotron from 'store/reactotron.config';
 import { selectFavoritesList } from 'store/slices/favoritesSlice';
 import { useAppSelector } from 'utils/hooks';
 import ProductItem from '../home/components/ProductItem';
-import { products } from '../home/data';
 import { styles } from './style';
 
 const FavoritesView = () => {

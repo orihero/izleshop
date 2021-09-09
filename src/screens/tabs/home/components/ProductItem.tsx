@@ -19,9 +19,24 @@ import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { products } from '../data';
 import Rating from './Rating';
 
-export type ProductItemModel = typeof products[0];
+export interface ProductItemModel {
+	id: number;
+	title: string;
+	rating: number;
+	oldPrice: string;
+	newPrice: string;
+	currency: string;
+	isFavorite?: boolean;
+	isInCart?: boolean;
+	img: any;
+}
 
-const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItemModel>) => {
+const ProductItem = ({
+	item,
+	index,
+	sizeChanged = false,
+	closeIcon = false,
+}: ListRenderItemInfo<ProductItemModel>) => {
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
 	let isInCart = !!cart[item.id];
@@ -46,10 +61,14 @@ const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItemModel>) => {
 	return (
 		<View style={styles.productContainer}>
 			<View style={styles.container}>
-				<View style={styles.absolute}>
-					<CloseIcon color={colors.gray} size={15} />
+				{closeIcon ? (
+					<View style={styles.absolute}>
+						<CloseIcon color={colors.gray} size={15} />
+					</View>
+				) : null}
+				<View style={{ backgroundColor: 'aqua' }}>
+					<Image source={item.img} style={styles.image} />
 				</View>
-				<Image source={{ uri: item.photoUrl }} style={styles.image} />
 				<View style={styles.buttonsContainer}>
 					<PressableIcon onPress={onCartPress}>
 						<CartIcon
@@ -70,10 +89,14 @@ const ProductItem = ({ item, index }: ListRenderItemInfo<ProductItemModel>) => {
 			</View>
 			<Rating />
 			<Text style={styles.text} numberOfLines={2}>
-				{item.name}
+				{item.title}
 			</Text>
-			<Text style={styles.oldPrice}>{item.oldPrice}</Text>
-			<Text style={styles.newPrice}>{item.newPrice}</Text>
+			<Text style={styles.oldPrice}>
+				{`${item.oldPrice} ${item.currency}`}
+			</Text>
+			<Text style={styles.newPrice}>
+				{`${item.newPrice} ${item.currency}`}
+			</Text>
 		</View>
 	);
 };
@@ -89,7 +112,7 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		backgroundColor: colors.white,
-		padding: 15,
+		// padding: 15,
 		borderRadius: 8,
 		marginLeft: 20,
 	},

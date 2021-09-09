@@ -12,14 +12,10 @@ import { Routes } from 'constants/routes';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import {
-	CategoriesScreen,
-	FavoritesScreen,
-	HomeScreen,
-	ProfileScreen,
-} from 'screens/tabs';
+import { CategoriesScreen, FavoritesScreen, ProfileScreen } from 'screens/tabs';
 import { store } from 'store/configureStore';
 import CartStack from './CartStack';
+import HomeStack from './HomeStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -47,7 +43,7 @@ const AppRouter = () => {
 		<View style={{ ...styles.container, paddingTop: insets.top }}>
 			<NavigationContainer>
 				<Tab.Navigator
-					initialRouteName={'cart'}
+					initialRouteName={'home'}
 					barStyle={styles.bar}
 					key={Object.keys(store.getState().cart).length}
 				>
@@ -60,7 +56,7 @@ const AppRouter = () => {
 							},
 						}}
 						name="Home"
-						component={HomeScreen}
+						component={HomeStack}
 					/>
 					<Tab.Screen
 						options={{

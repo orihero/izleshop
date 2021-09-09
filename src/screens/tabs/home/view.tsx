@@ -26,31 +26,22 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 			<SearchInput />
 			<Carousel
 				data={data}
-				renderItem={SliderItem}
+				renderItem={(props) => <SliderItem {...props} dwh />}
 				sliderWidth={width}
 				itemWidth={width}
 				containerCustomStyle={styles.carousel}
 				onSnapToItem={(index) => setActiveSlide(index)}
 			/>
 			<Pagination
-				dotsLength={data.length}
-				activeDotIndex={activeSlide}
-				dotStyle={{
-					width: 10,
-					height: 10,
-					borderRadius: 5,
-					backgroundColor: colors.blue,
-					paddingHorizontal: 2,
-				}}
 				dotColor={colors.blue}
+				dotStyle={styles.pdot}
+				dotsLength={data.length}
+				dotContainerStyle={styles.pdotcont}
+				inactiveDotScale={1}
+				inactiveDotOpacity={0.5}
+				activeDotIndex={activeSlide}
 				inactiveDotColor={colors.gray}
 				inactiveDotStyle={{ backgroundColor: colors.gray }}
-				inactiveDotOpacity={0.5}
-				inactiveDotScale={1}
-				dotContainerStyle={{
-					paddingHorizontal: 0,
-					marginHorizontal: 2.5,
-				}}
 			/>
 			<Text style={styles.text}>{strings.recomendedForYou}</Text>
 			<FlatList
@@ -58,7 +49,10 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 				snapToInterval={windowWidth / 2 - 5}
 				data={products}
 				horizontal
-				renderItem={(props) => <ProductItem {...props} />}
+				renderItem={(props) => <ProductItem
+					{...props}
+					closeIcon={true}
+				/>}
 				decelerationRate={'fast'}
 				showsHorizontalScrollIndicator={false}
 				keyExtractor={(e) => e.id.toString()}

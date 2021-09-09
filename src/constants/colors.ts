@@ -4,10 +4,12 @@ export let colors = {
 	lightBlue: '#E9EEF6',
 	white: '#fff',
 	gray: '#7E8389',
+	gray2: '#ADB5BF',
+	gray3: '#A2A6B0',
+	gray4: '#E5E5E5',
 	black: '#000',
 	yellow: '#FFD909',
 	red: '#FF383F',
 	lightBlack: 'rgba(0,0,0,.8)',
 	lightGray: '#EEEEEE',
-	lightGray2: '#A2A6B0',
 };

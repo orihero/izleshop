@@ -13,13 +13,13 @@ let Stack = createNativeStackNavigator();
 const CartStack = () => {
 	return (
 		<Stack.Navigator screenOptions={{ headerShown: false }}>
-			<Stack.Screen name={Routes.TMP_SCREEN} component={TmpScreen} />
 			<Stack.Screen name={Routes.CART} component={CartScreen} />
 			<Stack.Screen
 				name={Routes.PRE_CHECKOUT}
 				component={PreCheckoutScreen}
 			/>
 			<Stack.Screen name={Routes.CHECKOUT} component={CheckoutScreen} />
+			<Stack.Screen name={Routes.TMP_SCREEN} component={TmpScreen} />
 		</Stack.Navigator>
 	);
 };

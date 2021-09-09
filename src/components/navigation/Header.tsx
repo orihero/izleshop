@@ -5,11 +5,12 @@ import { colors } from 'constants/colors';
 
 export interface HeaderProps {
 	title?: string;
+	hasBorder?: boolean;
 }
 
-const Header = ({ title }: HeaderProps) => {
+const Header = ({ title, hasBorder }: HeaderProps) => {
 	return (
-		<View style={styles.container}>
+		<View style={[styles.container, hasBorder ? styles.bbw : null]}>
 			<BackIcon size={20} />
 			<Text style={styles.title}>{title}</Text>
 			<SearchIcon size={20} />
@@ -28,6 +29,11 @@ const styles = StyleSheet.create({
 		width: '100%',
 		paddingHorizontal: 20,
 		alignItems: 'center',
+	},
+	bbw: {
+		borderTopWidth: 1,
+		borderBottomWidth: 1,
+		borderColor: colors.gray4,
 	},
 	title: {
 		fontSize: 18,

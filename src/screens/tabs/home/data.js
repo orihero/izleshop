@@ -20,135 +20,166 @@ export let products = [
 	{
 		rating: 4,
 		id: 1,
-		name: 'Iphone 12 Pro Max 256/2 SIM/3GB RAM/ and other characteristics',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl: 'https://cdn.alzashop.com/Foto/f16/RI/RI035b1.jpg',
+		title: 'Iphone 12 Pro Max 256/2 SIM/3GB RAM/ and other characteristics',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://cdn.alzashop.com/Foto/f16/RI/RI035b1.jpg'
+		},
 	},
 	{
 		rating: 4,
 		id: 2,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 3,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 4,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 5,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 6,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 7,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 8,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 9,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 10,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 11,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 12,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 13,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 14,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 	{
 		rating: 4,
 		id: 15,
-		name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
-		oldPrice: '420 000 сум',
-		newPrice: '300 000 сум',
-		photoUrl:
-			'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+		title: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+		oldPrice: '420 000',
+		newPrice: '300 000',
+		currency: 'сум',
+		img: {
+			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		},
 	},
 ];

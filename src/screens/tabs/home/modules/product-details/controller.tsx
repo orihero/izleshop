@@ -1,9 +1,9 @@
-import React from 'react';
-import ChecoutView from './view';
+import React, { useState } from 'react';
+import ProductDetailsView from './view';
 
-const CheckoutController = () => {
-	return <ChecoutView />;
+const ProductDetailsController = () => {
+	const [activeSlide, setActiveSlide] = useState(0);
+	return <ProductDetailsView {...{ activeSlide, setActiveSlide }} />;
 };
 
-export default CheckoutController;
-
+export default ProductDetailsController;

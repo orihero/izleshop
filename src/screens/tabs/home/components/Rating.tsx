@@ -7,16 +7,24 @@ export interface RatingProps {
 	count?: number;
 	active?: number;
 	readOnly?: boolean;
+	styleChanged?: boolean;
 }
 
-const Rating = ({ count = 5, active = 3, readOnly = false }: RatingProps) => {
+const Rating = ({
+	count = 5,
+	active = 3,
+	readOnly = false,
+	styleChanged = false,
+}: RatingProps) => {
 	const [activeCount, setActiveCount] = useState(active);
 	let onStarPress = (count: number) => {
 		setActiveCount(count);
 	};
 	let arr = [...Array(count)];
 	return (
-		<View style={styles.container}>
+		<View
+			style={[styles.container, styleChanged ? styles.mt15 : styles.ds]}
+		>
 			{arr.map((_, i) => {
 				return (
 					<TouchableWithoutFeedback
@@ -26,12 +34,12 @@ const Rating = ({ count = 5, active = 3, readOnly = false }: RatingProps) => {
 						key={i}
 					>
 						<StarIcon
+							size={20}
+							active={i < activeCount}
+							style={styleChanged ? styles.mh3 : styles.mh1}
 							color={
 								i < activeCount ? colors.yellow : colors.gray
 							}
-							active={i < activeCount}
-							size={20}
-							style={styles.iconStyle}
 						/>
 					</TouchableWithoutFeedback>
 				);
@@ -45,11 +53,19 @@ export default Rating;
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
+	},
+	ds: {
 		alignSelf: 'center',
 		marginLeft: 20,
 		paddingTop: 8,
 	},
-	iconStyle: {
+	mt15: {
+		marginTop: 15,
+	},
+	mh1: {
 		marginHorizontal: 1,
+	},
+	mh3: {
+		marginHorizontal: 3,
 	},
 });

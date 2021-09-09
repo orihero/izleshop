@@ -1,14 +1,38 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableWithoutFeedback, ScrollView } from 'react-native';
+import {
+	View,
+	Text,
+	Image,
+	ScrollView,
+	TouchableWithoutFeedback,
+} from 'react-native';
 import Header from 'components/navigation/Header';
 import DefaultButton from 'components/general/DefaultButton';
 
 import { styles } from './style';
 import { strings } from 'locales/locales';
 import { colors } from 'constants/colors';
-import { CreditCardIcon, WalletIcon } from 'assets/icons/icons';
+import {
+	ButtonIcon,
+	CircleIcon,
+	CreditCardIcon,
+	CreditCardsPaymentIcon,
+	WalletIcon,
+} from 'assets/icons/icons';
 
-const arr = [1, 2];
+const paymeLogo = require('mockup/images/payme.png');
+const clickLogo = require('mockup/images/click.png');
+
+const arr = [
+	{
+		id: 1,
+		img: paymeLogo,
+	},
+	{
+		id: 2,
+		img: clickLogo,
+	},
+];
 
 const TmpScreenView = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -58,31 +82,26 @@ const TmpScreenView = () => {
 							color={
 								activeIndex === 0
 									? colors.blue
-									: colors.lightGray2
+									: colors.gray3
 							}
 						/>
 						<Text
 							style={{
 								...styles.text6,
-								marginLeft: 15 || undefined,
 								color:
 									activeIndex === 0
 										? colors.blue
-										: colors.lightGray2,
+										: colors.gray3,
 							}}
 						>
 							{strings.cash}
 						</Text>
 					</View>
-					<View
-						style={{
-							...styles.tmpBox1,
-							backgroundColor:
-								activeIndex === 0
-									? colors.blue
-									: colors.lightGray2,
-						}}
-					/>
+					{activeIndex === 0 ? (
+						<ButtonIcon size={20} color={colors.blue} />
+					) : (
+						<CircleIcon size={20} color={colors.gray3} />
+					)}
 				</View>
 			</TouchableWithoutFeedback>
 			<TouchableWithoutFeedback onPress={() => setActiveIndex(1)}>
@@ -91,87 +110,78 @@ const TmpScreenView = () => {
 						<CreditCardIcon
 							size={30}
 							color={
-								activeIndex === 0
+								activeIndex === 1
 									? colors.blue
-									: colors.lightGray2
+									: colors.gray3
 							}
 						/>
 						<Text
 							style={{
 								...styles.text6,
-								marginLeft: 15 || undefined,
 								color:
 									activeIndex === 1
 										? colors.blue
-										: colors.lightGray2,
+										: colors.gray3,
 							}}
 						>
 							{strings.terminal}
 						</Text>
 					</View>
-					<View
-						style={{
-							...styles.tmpBox1,
-							backgroundColor:
-								activeIndex === 1
-									? colors.blue
-									: colors.lightGray2,
-						}}
-					/>
+					{activeIndex === 1 ? (
+						<ButtonIcon size={20} color={colors.blue} />
+					) : (
+						<CircleIcon size={20} color={colors.gray3} />
+					)}
 				</View>
 			</TouchableWithoutFeedback>
 			<TouchableWithoutFeedback onPress={() => setActiveIndex(2)}>
 				<View style={styles.payBox}>
 					<View style={styles.rowItemsCenter}>
-						<View
-							style={{
-								...styles.tmpBox2,
-								backgroundColor:
-									activeIndex === 2
-										? colors.blue
-										: colors.lightGray2,
-							}}
+						<CreditCardsPaymentIcon
+							size={30}
+							color={
+								activeIndex === 2
+									? colors.blue
+									: colors.gray3
+							}
 						/>
 						<Text
 							style={{
 								...styles.text6,
-								marginLeft: 15 || undefined,
 								color:
 									activeIndex === 2
 										? colors.blue
-										: colors.lightGray2,
+										: colors.gray3,
 							}}
 						>
 							{strings.onlinePayment}
 						</Text>
 					</View>
-					<View
-						style={{
-							...styles.tmpBox1,
-							backgroundColor:
-								activeIndex === 2
-									? colors.blue
-									: colors.lightGray2,
-						}}
-					/>
+					{activeIndex === 2 ? (
+						<ButtonIcon size={20} color={colors.blue} />
+					) : (
+						<CircleIcon size={20} color={colors.gray3} />
+					)}
 				</View>
 			</TouchableWithoutFeedback>
-			<View style={{ marginVertical: 25 }}>
+			<View style={styles.mv25}>
 				{activeIndex === 2 ? (
 					<View style={styles.inbox}>
 						{arr.map((e, i) => (
-							<View key={i} style={styles.inboxChild} />
+							<View key={i} style={styles.inboxChild}>
+								<Image source={e.img} />
+							</View>
 						))}
 					</View>
 				) : null}
 			</View>
 			<DefaultButton text={strings.order} onPress={onPress} />
 			<View style={styles.bottom}>
-				<View style={{ borderBottomWidth: 1 }}>
+				<View style={styles.bbw1}>
 					<Text style={styles.text7}>{strings.backToShopping}</Text>
 				</View>
 			</View>
-			<View style={{ marginBottom: 30 }} />
+			<View style={styles.mb30} />
 		</ScrollView>
 	);
 };

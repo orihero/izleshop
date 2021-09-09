@@ -68,6 +68,7 @@ export const styles = StyleSheet.create({
 	text6: {
 		fontSize: 16,
 		lineHeight: 20,
+		marginLeft: 15,
 		fontWeight: '600',
 	},
 	inbox: {
@@ -80,6 +81,8 @@ export const styles = StyleSheet.create({
 		height: 70,
 		backgroundColor: colors.white,
 		borderRadius: 6,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	text7: {
 		fontSize: 18,
@@ -91,12 +94,13 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		marginTop: 20,
 	},
-	tmpBox1: {
-		width: 15,
-		height: 15,
+	mv25: {
+		marginVertical: 25,
 	},
-	tmpBox2: {
-		width: 30,
-		height: 25,
+	mb30: {
+		marginBottom: 30,
+	},
+	bbw1: {
+		borderBottomWidth: 1,
 	},
 });
