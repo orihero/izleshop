@@ -60,13 +60,13 @@ const ProductItem = ({
 
 	return (
 		<View style={styles.productContainer}>
-			<View style={styles.container}>
+			<View style={[styles.container, !sizeChanged ? styles.ml20 : null]}>
 				{closeIcon ? (
 					<View style={styles.absolute}>
 						<CloseIcon color={colors.gray} size={15} />
 					</View>
 				) : null}
-				<View style={{ backgroundColor: 'aqua' }}>
+				<View style={styles.center}>
 					<Image source={item.img} style={styles.image} />
 				</View>
 				<View style={styles.buttonsContainer}>
@@ -112,13 +112,17 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		backgroundColor: colors.white,
-		// padding: 15,
+		padding: 15,
 		borderRadius: 8,
-		marginLeft: 20,
+	},
+	center: {
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	image: {
 		width: (windowWidth - 40 - 30 - 40) / 2,
 		height: (windowWidth - 40 - 30 - 40) / 2,
+		resizeMode: 'contain',
 	},
 	buttonsContainer: {
 		flexDirection: 'row',
@@ -129,6 +133,7 @@ const styles = StyleSheet.create({
 	},
 	productContainer: {
 		width: windowWidth / 2 - 5,
+		// backgroundColor: 'aqua',
 	},
 	text: {
 		fontSize: 16,
@@ -154,5 +159,8 @@ const styles = StyleSheet.create({
 		fontWeight: '800',
 		textAlign: 'center',
 		marginBottom: 20,
+	},
+	ml20: {
+		marginLeft: 20,
 	},
 });

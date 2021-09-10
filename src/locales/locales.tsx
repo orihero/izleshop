@@ -38,6 +38,34 @@ export let strings = new LocalizedStrings({
 		byInstallments: 'В рассрочку',
 		information: 'Информация',
 		characteristic: 'Характеристика',
+
+		monthlyPayment: 'Ежемесячный платеж',
+		termInMonths: 'Срок в месяцах',
+		model: 'Модель',
+		manufacturer: 'Производитель',
+		availability: 'Наличие',
+		inStock: 'Есть в наличие',
+		typeOf: 'Тип',
+		degreeOfProtection: 'Степень защиты',
+		numberOfSimCards: 'Количество SIM-карт',
+		simCardType: 'Тип SIM-карты',
+		screen: 'Экран',
+		screenType: 'Тип экрана',
+		imageSize: 'Размер изображения',
+		aspectRatio: 'Соотношение сторон',
+		multimediaCapabilities: 'Мультимедийные возможности',
+		photoFlash: 'Фотовспышка',
+
+		mainRearCameras: 'Основные (тыловые) камеры',
+		mainRearCameraFunctions: 'Функции основной (тыловой) фотокамеры',
+
+		forQuestionsAboutReceivingGoodsByInstallmentsCall:
+			'По вопросам получения товаров в рассрочку, звоните по номеру',
+		beforeBuyingCheckWithTheSellerForSpecificationsAndConfiguration:
+			'Перед покупкой уточняйте характеристики и комплектацию у продавца.',
+		theSmartphoneIsRegisteredInTheUzimeiSystem:
+			'Сматрфон зарегистрирован в системе Uzimei',
+		detailedSpecifications: 'Подробные характеристики',
 	},
 	uz: {},
 	en: {},

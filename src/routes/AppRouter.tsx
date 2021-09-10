@@ -43,7 +43,7 @@ const AppRouter = () => {
 		<View style={{ ...styles.container, paddingTop: insets.top }}>
 			<NavigationContainer>
 				<Tab.Navigator
-					initialRouteName={'home'}
+					initialRouteName={Routes.CART_STACK}
 					barStyle={styles.bar}
 					key={Object.keys(store.getState().cart).length}
 				>
@@ -93,7 +93,7 @@ const AppRouter = () => {
 							tabBarBadge: Object.keys(store.getState().cart)
 								.length,
 						}}
-						name={Routes.CART}
+						name={Routes.CART_STACK}
 						component={CartStack}
 					/>
 					<Tab.Screen

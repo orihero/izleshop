@@ -35,8 +35,8 @@ const Rating = ({
 					>
 						<StarIcon
 							size={20}
+							style={styles.mh3}
 							active={i < activeCount}
-							style={styleChanged ? styles.mh3 : styles.mh1}
 							color={
 								i < activeCount ? colors.yellow : colors.gray
 							}

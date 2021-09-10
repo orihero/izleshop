@@ -1,5 +1,20 @@
-import React from 'react';
-import { Text, View, ScrollView, FlatList } from 'react-native';
+import React, { useState } from 'react';
+
+import { useAppDispatch, useAppSelector } from 'utils/hooks';
+import { selectCart, addToCart, removeFromCart } from 'store/slices/cartSlice';
+import {
+	addItem,
+	removeItem,
+	selectFavorites,
+} from 'store/slices/favoritesSlice';
+
+import {
+	Text,
+	View,
+	FlatList,
+	ScrollView,
+	TouchableWithoutFeedback,
+} from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import DefaultButton from 'components/general/DefaultButton';
@@ -9,28 +24,65 @@ import Rating from '../../components/Rating';
 import ProductItem from '../../components/ProductItem';
 
 import { styles } from './style';
-import { item, items } from 'mockup/data';
+import { item, accordionItems } from 'mockup/data';
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
+import { products } from '../../data';
+import {
+	CartIcon,
+	ChevronIcon,
+	HeartIcon,
+	PressableIcon,
+} from 'assets/icons/icons';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
 	activeSlide: number;
 }
 
-const longText =
-	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam vel quam elementum pulvinar etiam non quam. Ac auctor augue mauris augue neque. Vel risus commodo viverra maecenas accumsan lacus vel. Euismod elementum nisi quis eleifend. Imperdiet proin fermentum leo vel orci porta non pulvinar neque. Ut sem viverra aliquet eget. Aliquet eget sit amet tellus cras adipiscing enim eu. Bibendum neque egestas congue quisque egestas diam in arcu cursus. Nibh sed pulvinar proin gravida hendrerit lectus. Pretium quam vulputate dignissim suspendisse in est. Nec ultrices dui sapien eget mi proin. Vulputate enim nulla aliquet porttitor lacus. Enim ut tellus elementum sagittis vitae et.Ultricies tristique nulla aliquet enim tortor. Vestibulum lorem sed risus ultricies tristique. Neque laoreet suspendisse interdum consectetur. Tellus molestie nunc non blandit. Mauris augue neque gravida in fermentum. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Urna duis convallis convallis tellus id interdum velit laoreet id. Cras semper auctor neque vitae tempus quam pellentesque nec. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Sit amet mauris commodo quis. In arcu cursus euismod quis viverra. Augue lacus viverra vitae congue eu consequat ac felis. Fermentum dui faucibus in ornare quam. Mi eget mauris pharetra et ultrices neque ornare aenean euismod. Sit amet mattis vulputate enim nulla aliquet porttitor. Vitae ultricies leo integer malesuada nunc vel risus. Vel turpis nunc eget lorem dolor sed viverra ipsum. Commodo viverra maecenas accumsan lacus vel facilisis volutpat. Id ornare arcu odio ut sem. Massa tincidunt dui ut ornare lectus sit. Cras fermentum odio eu feugiat pretium nibh. Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Malesuada proin libero nunc consequat interdum varius sit amet. Eget duis at tellus at urna condimentum mattis. Tristique et egestas quis ipsum. Ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Vel elit scelerisque mauris pellentesque pulvinar. Amet tellus cras adipiscing enim eu turpis. Mattis molestie a iaculis at erat pellentesque adipiscing commodo elit. Malesuada fames ac turpis egestas integer eget aliquet. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula. Pretium fusce id velit ut tortor pretium. Duis at consectetur lorem donec massa sapien. Vitae suscipit tellus mauris a diam maecenas sed enim. Sit amet consectetur adipiscing elit pellentesque habitant morbi. Imperdiet proin fermentum leo vel orci porta non. Cursus turpis massa tincidunt dui ut ornare lectus sit amet. At elementum eu facilisis sed odio. Lectus sit amet est placerat. Id diam vel quam elementum pulvinar etiam non quam lacus. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Vitae turpis massa sed elementum tempus egestas sed sed risus.';
-
 const ProductDetailsView = ({
 	setActiveSlide,
 	activeSlide,
 }: ProductDetailsViewProps) => {
+	const [openedContent, setOpenedContent] = useState(0);
+
+	let favorites = useAppSelector(selectFavorites);
+	let cart = useAppSelector(selectCart);
+	let isInCart = !!cart[item.id];
+	let isFavorite = !!favorites[item.id];
+	let dispatch = useAppDispatch();
+
 	const onPress = () => console.log('onPressed');
+
+	let onHeartPress = () => {
+		if (isFavorite) {
+			dispatch(removeItem(item.id.toString()));
+		} else {
+			dispatch(addItem(item));
+		}
+	};
+
+	let onCartPress = () => {
+		if (isInCart) {
+			dispatch(removeFromCart(item.id.toString()));
+		} else {
+			dispatch(addToCart(item));
+		}
+	};
+
+	let onCloseOpenContent = (index: number) => {
+		if (openedContent === index) {
+			setOpenedContent(0);
+			return;
+		}
+
+		setOpenedContent(index);
+	};
 
 	return (
 		<View style={styles.container}>
-			<Header hasBorder title={'Text'} />
+			<Header hasCartIcon hasBorder title={'Смартфон'} />
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.bgw}>
 					<Carousel
@@ -44,7 +96,13 @@ const ProductDetailsView = ({
 						onSnapToItem={(index) => setActiveSlide(index)}
 					/>
 					<View style={styles.row}>
-						<View style={styles.tmpBox} />
+						<PressableIcon onPress={onCartPress}>
+							<CartIcon
+								active={isInCart}
+								color={colors.blue}
+								size={20}
+							/>
+						</PressableIcon>
 						<Pagination
 							dotColor={colors.blue}
 							dotStyle={styles.pdot}
@@ -57,7 +115,14 @@ const ProductDetailsView = ({
 							containerStyle={{ paddingVertical: 0 || undefined }}
 							inactiveDotStyle={{ backgroundColor: colors.gray }}
 						/>
-						<View style={styles.tmpBox} />
+						<PressableIcon onPress={onHeartPress}>
+							<HeartIcon
+								active={isFavorite}
+								color={colors.red}
+								size={20}
+								onPress={onHeartPress}
+							/>
+						</PressableIcon>
 					</View>
 				</View>
 				<View style={styles.main}>
@@ -71,23 +136,203 @@ const ProductDetailsView = ({
 							{`${item.newPrice} ${item.currency}`}
 						</Text>
 					</View>
-					<Text style={styles.text4}>{strings.similarProducts}</Text>
-					<View style={styles.mt20}>
-						<ProductItem item={items[0]} />
-						{/* <FlatList
-							contentContainerStyle={styles.flatList}
-							snapToInterval={windowWidth / 2 - 5}
-							data={items}
-							horizontal
-							renderItem={(props) => <ProductItem {...props} />}
-							decelerationRate={'fast'}
-							showsHorizontalScrollIndicator={false}
-							keyExtractor={(e) => e.id.toString()}
-						/> */}
-						<Text>text</Text>
-					</View>
-					{/* <Text>{longText}</Text> */}
 				</View>
+				<View style={[styles.mt20, styles.mh20]}>
+					<View style={styles.accordion}>
+						{accordionItems.map((e, i) => (
+							<View key={i}>
+								<TouchableWithoutFeedback
+									onPress={() => onCloseOpenContent(i + 1)}
+								>
+									<View style={styles.accordionItem}>
+										<Text style={styles.text5}>
+											{e.title}
+										</Text>
+										<View
+											style={
+												openedContent === i + 1
+													? styles.iconOpened
+													: styles.iconClosed
+											}
+										>
+											<ChevronIcon
+												size={20}
+												color={
+													openedContent === i + 1
+														? colors.blue
+														: colors.black
+												}
+											/>
+										</View>
+										{/* <View style={styles.tmpBox} /> */}
+									</View>
+								</TouchableWithoutFeedback>
+								{openedContent === i + 1 ? (
+									<View style={styles.accordionContent}>
+										{e.content.items.map((ee, ii) => (
+											<View key={ii}>
+												{ee.preTitle ? (
+													<Text
+														style={[
+															styles.accordionText1,
+															styles[
+																ee.preTitle
+																	.style
+															],
+															ii
+																? styles.mt20
+																: null,
+														]}
+													>
+														{ee.preTitle.text || ''}
+													</Text>
+												) : null}
+												{ee.content
+													? ee.content.items.map(
+															(eee, iii) =>
+																eee.isRow ? (
+																	<View
+																		style={[
+																			styles.accordionRow,
+																			iii
+																				? styles.mt10
+																				: i ===
+																				  2
+																				? styles.mt20
+																				: null,
+																		]}
+																	>
+																		<View
+																			style={
+																				styles.accordionRowLeft
+																			}
+																		>
+																			<Text
+																				style={[
+																					styles.accordionText2,
+																					styles[
+																						eee
+																							.title
+																							.style
+																					],
+																				]}
+																			>
+																				{
+																					eee
+																						.title
+																						.text
+																				}
+																			</Text>
+																		</View>
+																		<View
+																			style={
+																				styles.accordionRowRight
+																			}
+																		>
+																			<Text
+																				style={[
+																					styles.accordionText2,
+																					styles[
+																						eee
+																							.data
+																							.style
+																					],
+																				]}
+																			>
+																				{
+																					eee
+																						.data
+																						.text
+																				}
+																			</Text>
+																		</View>
+																	</View>
+																) : (
+																	<View
+																		style={
+																			iii
+																				? styles.mt10
+																				: styles.mt20
+																		}
+																	>
+																		<Text
+																			style={[
+																				styles.accordionText2,
+																				styles[
+																					eee
+																						.title
+																						.style
+																				],
+																			]}
+																		>
+																			{
+																				eee
+																					.title
+																					.text
+																			}
+																		</Text>
+																		<Text
+																			style={[
+																				styles.accordionText2,
+																				styles[
+																					eee
+																						.data
+																						.style
+																				],
+																			]}
+																		>
+																			{
+																				eee
+																					.data
+																					.text
+																			}
+																		</Text>
+																	</View>
+																)
+													  )
+													: null}
+											</View>
+										))}
+										{e.content.finally ? (
+											<View style={styles.mt14}>
+												<Text
+													style={[
+														styles.accordionText2,
+														styles[
+															e.content.finally
+																?.style
+														],
+														styles[
+															e.content.finally
+																?.position
+														],
+													]}
+												>
+													{`${e.content.finally?.text} +99871 123 45 67`}
+												</Text>
+											</View>
+										) : null}
+									</View>
+								) : null}
+							</View>
+						))}
+					</View>
+				</View>
+				<Text style={[styles.text4, styles.ml20]}>
+					{strings.similarProducts}
+				</Text>
+				<View style={styles.mt20}>
+					<FlatList
+						snapToInterval={windowWidth / 2 - 5}
+						data={products}
+						horizontal
+						renderItem={(props) => <ProductItem {...props} />}
+						decelerationRate={'fast'}
+						showsHorizontalScrollIndicator={false}
+						keyExtractor={(e) => e.id.toString()}
+					/>
+				</View>
+				<View style={styles.mb60} />
 			</ScrollView>
 			<View style={styles.btnCont}>
 				<DefaultButton onPress={onPress} text={strings.addToCart} />

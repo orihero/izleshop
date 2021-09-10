@@ -7,8 +7,15 @@ import {
 	PreCheckoutScreen,
 	TmpScreen,
 } from 'screens/tabs';
+import { enableScreens } from 'react-native-screens'
 
-let Stack = createNativeStackNavigator();
+export type CartStackParamList = {
+	Cart: undefined;
+	PreCheckout: undefined;
+};
+
+enableScreens();
+let Stack = createNativeStackNavigator<CartStackParamList>();
 
 const CartStack = () => {
 	return (
@@ -18,8 +25,8 @@ const CartStack = () => {
 				name={Routes.PRE_CHECKOUT}
 				component={PreCheckoutScreen}
 			/>
-			<Stack.Screen name={Routes.CHECKOUT} component={CheckoutScreen} />
-			<Stack.Screen name={Routes.TMP_SCREEN} component={TmpScreen} />
+			{/* <Stack.Screen name={Routes.CHECKOUT} component={CheckoutScreen} />
+			<Stack.Screen name={Routes.TMP_SCREEN} component={TmpScreen} /> */}
 		</Stack.Navigator>
 	);
 };

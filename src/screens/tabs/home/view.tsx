@@ -49,10 +49,7 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 				snapToInterval={windowWidth / 2 - 5}
 				data={products}
 				horizontal
-				renderItem={(props) => <ProductItem
-					{...props}
-					closeIcon={true}
-				/>}
+				renderItem={(props) => <ProductItem {...props} />}
 				decelerationRate={'fast'}
 				showsHorizontalScrollIndicator={false}
 				keyExtractor={(e) => e.id.toString()}

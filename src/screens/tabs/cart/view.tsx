@@ -7,10 +7,22 @@ import { selectCartList, selectCartTotal } from 'store/slices/cartSlice';
 import { useAppSelector } from 'utils/hooks';
 import CartItem from './components/CartItem';
 import DefaultButton from 'components/general/DefaultButton';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { Routes } from 'constants/routes';
+import { CartStackParamList } from 'routes/CartStack';
 
-const CartView = () => {
+// type CartViewProps = NativeStackScreenProps<CartStackParamList, Routes.CART>;
+
+type CartViewProps = NativeStackScreenProps<CartStackParamList, Routes.CART>;
+
+const CartView = ({ navigation }: CartViewProps) => {
 	let total = useAppSelector(selectCartTotal);
 	let cartItems = useAppSelector(selectCartList);
+
+	const onPress = () => {
+		console.log('navigation: ', navigation);
+	};
+
 	return (
 		<View style={styles.container}>
 			<Header title={strings.cart} />
@@ -25,7 +37,7 @@ const CartView = () => {
 			/>
 			{cartItems.length > 0 && (
 				<View style={styles.absolute}>
-					<DefaultButton text={strings.order} />
+					<DefaultButton text={strings.order} onPress={onPress} />
 				</View>
 			)}
 		</View>
