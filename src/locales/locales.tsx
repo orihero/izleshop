@@ -55,6 +55,8 @@ export let strings = new LocalizedStrings({
 		aspectRatio: 'Соотношение сторон',
 		multimediaCapabilities: 'Мультимедийные возможности',
 		photoFlash: 'Фотовспышка',
+		phoneNumber: 'Номер телефона',
+		enterPassword: 'Введите пароль',
 
 		mainRearCameras: 'Основные (тыловые) камеры',
 		mainRearCameraFunctions: 'Функции основной (тыловой) фотокамеры',

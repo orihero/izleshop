@@ -1,20 +1,14 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { Routes } from 'constants/routes';
-import {
-	CartScreen,
-	CheckoutScreen,
-	PreCheckoutScreen,
-	TmpScreen,
-} from 'screens/tabs';
-import { enableScreens } from 'react-native-screens'
+import { CartScreen, CheckoutScreen, PreCheckoutScreen } from 'screens/tabs';
 
 export type CartStackParamList = {
-	Cart: undefined;
-	PreCheckout: undefined;
+	[Routes.CART]: undefined;
+	[Routes.PRE_CHECKOUT]: undefined;
+	[Routes.CHECKOUT]: undefined;
 };
 
-enableScreens();
 let Stack = createNativeStackNavigator<CartStackParamList>();
 
 const CartStack = () => {
@@ -25,8 +19,7 @@ const CartStack = () => {
 				name={Routes.PRE_CHECKOUT}
 				component={PreCheckoutScreen}
 			/>
-			{/* <Stack.Screen name={Routes.CHECKOUT} component={CheckoutScreen} />
-			<Stack.Screen name={Routes.TMP_SCREEN} component={TmpScreen} /> */}
+			<Stack.Screen name={Routes.CHECKOUT} component={CheckoutScreen} />
 		</Stack.Navigator>
 	);
 };

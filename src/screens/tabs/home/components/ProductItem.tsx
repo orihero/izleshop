@@ -1,22 +1,29 @@
+import { useNavigation } from '@react-navigation/core';
 import {
 	CartIcon,
 	CloseIcon,
 	HeartIcon,
-	PressableIcon,
+	PressableIcon
 } from 'assets/icons/icons';
 import Text from 'components/general/Text';
 import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
 import { windowWidth } from 'constants/sizes';
 import React from 'react';
-import { Image, ListRenderItemInfo, StyleSheet, View } from 'react-native';
-import { selectCart, addToCart, removeFromCart } from 'store/slices/cartSlice';
+import {
+	Image,
+	ListRenderItemInfo,
+	StyleSheet,
+	TouchableWithoutFeedback,
+	View
+} from 'react-native';
+import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
 	addItem,
 	removeItem,
-	selectFavorites,
+	selectFavorites
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
-import { products } from '../data';
 import Rating from './Rating';
 
 export interface ProductItemModel {
@@ -42,6 +49,7 @@ const ProductItem = ({
 	let isInCart = !!cart[item.id];
 	let isFavorite = !!favorites[item.id];
 	let dispatch = useAppDispatch();
+	let naviation = useNavigation();
 	let onHeartPress = () => {
 		if (isFavorite) {
 			dispatch(removeItem(item.id.toString()));
@@ -58,46 +66,57 @@ const ProductItem = ({
 		}
 	};
 
+	let onItemPress = () => {
+		naviation.navigate(Routes.PRODUCT_DETAILS);
+	};
+
 	return (
-		<View style={styles.productContainer}>
-			<View style={[styles.container, !sizeChanged ? styles.ml20 : null]}>
-				{closeIcon ? (
-					<View style={styles.absolute}>
-						<CloseIcon color={colors.gray} size={15} />
+		<TouchableWithoutFeedback onPress={onItemPress}>
+			<View style={styles.productContainer}>
+				<View
+					style={[
+						styles.container,
+						!sizeChanged ? styles.ml20 : null,
+					]}
+				>
+					{closeIcon ? (
+						<View style={styles.absolute}>
+							<CloseIcon color={colors.gray} size={15} />
+						</View>
+					) : null}
+					<View style={styles.center}>
+						<Image source={item.img} style={styles.image} />
 					</View>
-				) : null}
-				<View style={styles.center}>
-					<Image source={item.img} style={styles.image} />
+					<View style={styles.buttonsContainer}>
+						<PressableIcon onPress={onCartPress}>
+							<CartIcon
+								active={isInCart}
+								color={colors.blue}
+								size={20}
+							/>
+						</PressableIcon>
+						<PressableIcon onPress={onHeartPress}>
+							<HeartIcon
+								active={isFavorite}
+								color={colors.red}
+								size={20}
+								onPress={onHeartPress}
+							/>
+						</PressableIcon>
+					</View>
 				</View>
-				<View style={styles.buttonsContainer}>
-					<PressableIcon onPress={onCartPress}>
-						<CartIcon
-							active={isInCart}
-							color={colors.blue}
-							size={20}
-						/>
-					</PressableIcon>
-					<PressableIcon onPress={onHeartPress}>
-						<HeartIcon
-							active={isFavorite}
-							color={colors.red}
-							size={20}
-							onPress={onHeartPress}
-						/>
-					</PressableIcon>
-				</View>
+				<Rating />
+				<Text style={styles.text} numberOfLines={2}>
+					{item.title}
+				</Text>
+				<Text style={styles.oldPrice}>
+					{`${item.oldPrice} ${item.currency}`}
+				</Text>
+				<Text style={styles.newPrice}>
+					{`${item.newPrice} ${item.currency}`}
+				</Text>
 			</View>
-			<Rating />
-			<Text style={styles.text} numberOfLines={2}>
-				{item.title}
-			</Text>
-			<Text style={styles.oldPrice}>
-				{`${item.oldPrice} ${item.currency}`}
-			</Text>
-			<Text style={styles.newPrice}>
-				{`${item.newPrice} ${item.currency}`}
-			</Text>
-		</View>
+		</TouchableWithoutFeedback>
 	);
 };
 

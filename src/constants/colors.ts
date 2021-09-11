@@ -1,7 +1,5 @@
 export let colors = {
 	blue: '#008DFF',
-	darkBlue: '#0074D1',
-	lightBlue: '#E9EEF6',
 	white: '#fff',
 	gray: '#7E8389',
 	gray2: '#ADB5BF',
@@ -11,5 +9,8 @@ export let colors = {
 	yellow: '#FFD909',
 	red: '#FF383F',
 	lightBlack: 'rgba(0,0,0,.8)',
+	lightBlue: '#E9EEF6',
 	lightGray: '#EEEEEE',
+	lightBrown: '#827878',
+	darkBlue: '#0074D1',
 };

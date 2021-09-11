@@ -7,20 +7,19 @@ import { selectCartList, selectCartTotal } from 'store/slices/cartSlice';
 import { useAppSelector } from 'utils/hooks';
 import CartItem from './components/CartItem';
 import DefaultButton from 'components/general/DefaultButton';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { CartScreenNavigationProp } from './controller';
 import { Routes } from 'constants/routes';
-import { CartStackParamList } from 'routes/CartStack';
 
-// type CartViewProps = NativeStackScreenProps<CartStackParamList, Routes.CART>;
+interface ICartViewProps {
+	navigation: CartScreenNavigationProp;
+};
 
-type CartViewProps = NativeStackScreenProps<CartStackParamList, Routes.CART>;
-
-const CartView = ({ navigation }: CartViewProps) => {
+const CartView = ({ navigation }: ICartViewProps) => {
 	let total = useAppSelector(selectCartTotal);
 	let cartItems = useAppSelector(selectCartList);
 
 	const onPress = () => {
-		console.log('navigation: ', navigation);
+		navigation.navigate(Routes.PRE_CHECKOUT);
 	};
 
 	return (

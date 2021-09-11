@@ -20,7 +20,7 @@ import {
 	WalletIcon,
 } from 'assets/icons/icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { CartStackParamList } from 'routes/CartStack';
+import { CartStackParamList } from 'src/routes/tabs/CartStack';
 import { Routes } from 'constants/routes';
 
 const paymeLogo = require('mockup/images/payme.png');
