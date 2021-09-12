@@ -16,6 +16,7 @@ import { CategoriesScreen, FavoritesScreen, ProfileScreen } from 'screens/tabs';
 import { store } from 'store/configureStore';
 import CartStack from './CartStack';
 import HomeStack from './HomeStack';
+import ProfileStack from './ProfileStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -43,17 +44,24 @@ const Tabs = () => {
 		<View style={{ ...styles.container, paddingTop: insets.top }}>
 			{/* <NavigationContainer> */}
 			<Tab.Navigator
-				initialRouteName={Routes.CART_STACK}
+				initialRouteName={Routes.HOME_STACK}
+				labeled={false}
 				barStyle={styles.bar}
 				key={Object.keys(store.getState().cart).length}
 			>
 				<Tab.Screen
 					options={{
 						tabBarIcon: ({ color, focused }) => {
-							return <HomeIcon active={focused} color={color} />;
+							return (
+								<HomeIcon
+									size={28}
+									active={focused}
+									color={color}
+								/>
+							);
 						},
 					}}
-					name="Home"
+					name={Routes.HOME_STACK}
 					component={HomeStack}
 				/>
 				<Tab.Screen
@@ -61,6 +69,7 @@ const Tabs = () => {
 						tabBarIcon: ({ color, focused }) => {
 							return (
 								<CategoriesIcon
+									size={28}
 									active={focused}
 									color={color}
 								/>
@@ -73,7 +82,13 @@ const Tabs = () => {
 				<Tab.Screen
 					options={{
 						tabBarIcon: ({ color, focused }) => {
-							return <HeartIcon active={focused} color={color} />;
+							return (
+								<HeartIcon
+									size={28}
+									active={focused}
+									color={color}
+								/>
+							);
 						},
 					}}
 					name="Favorites"
@@ -82,7 +97,13 @@ const Tabs = () => {
 				<Tab.Screen
 					options={{
 						tabBarIcon: ({ color, focused }) => {
-							return <CartIcon active={focused} color={color} />;
+							return (
+								<CartIcon
+									size={28}
+									active={focused}
+									color={color}
+								/>
+							);
 						},
 						tabBarBadge: Object.keys(store.getState().cart).length,
 					}}
@@ -93,12 +114,16 @@ const Tabs = () => {
 					options={{
 						tabBarIcon: ({ color, focused }) => {
 							return (
-								<ProfileIcon active={focused} color={color} />
+								<ProfileIcon
+									size={28}
+									active={focused}
+									color={color}
+								/>
 							);
 						},
 					}}
-					name="Profile"
-					component={ProfileScreen}
+					name={Routes.PROFILE_STACK}
+					component={ProfileStack}
 				/>
 			</Tab.Navigator>
 			{/* </NavigationContainer> */}

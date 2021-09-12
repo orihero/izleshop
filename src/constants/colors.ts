@@ -6,6 +6,7 @@ export let colors = {
 	gray3: '#A2A6B0',
 	gray4: '#E5E5E5',
 	black: '#000',
+	brown: '#635757',
 	yellow: '#FFD909',
 	red: '#FF383F',
 	lightBlack: 'rgba(0,0,0,.8)',

@@ -8,7 +8,11 @@ import img from 'assets/images/user.png';
 import DefaultButton from 'components/general/DefaultButton';
 import MenuLink from './components/MenuLink';
 
-const ProfileView = () => {
+interface IProfileViewProps {
+	onCreate: () => void;
+}
+
+const ProfileView = ({ onCreate }: IProfileViewProps) => {
 	return (
 		<View style={styles.container}>
 			<ScrollView
@@ -22,7 +26,7 @@ const ProfileView = () => {
 						{strings.loginPrompt}
 					</Text>
 				</View>
-				<DefaultButton text={strings.create} />
+				<DefaultButton text={strings.create} onPress={onCreate} />
 				<Text style={styles.profileSettings}>
 					{strings.profileSettings}
 				</Text>

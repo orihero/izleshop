@@ -6,4 +6,3 @@ const CheckoutController = () => {
 };
 
 export default CheckoutController;
-

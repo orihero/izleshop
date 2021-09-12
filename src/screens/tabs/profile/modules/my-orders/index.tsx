@@ -1,1 +1,1 @@
-export { default as CheckoutScreen } from './controller';
+export { default as MyOrdersScreen } from './controller';

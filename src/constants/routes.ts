@@ -1,6 +1,8 @@
 export enum Routes {
 	AUTH = 'auth',
+	AUTHORIZATION = 'authorization',
 	TABS = 'tabs',
+	HOME_STACK = 'home-stack',
 	HOME = 'home',
 	PRODUCT_DETAILS = 'product-details',
 	CATEGORIES = 'categories',
@@ -10,12 +12,12 @@ export enum Routes {
 	PRE_CHECKOUT = 'pre-checkout',
 	CHECKOUT = 'checkout',
 	TMP_SCREEN = 'tmp-screen',
+	PROFILE_STACK = 'profile-stack',
 	PROFILE = 'profile',
-	AUTHORIZATION = 'authorization',
 	ABOUT_US = 'about-us',
 	LANGUAGE = 'language',
-	MY_PROFILE = 'my-profile',
 	MY_ORDERS = 'my-orders',
+	MY_PROFILE = 'my-profile',
 	CATEGORY_PRODUCTS = 'category-products',
 	FILTER = 'filter',
 }

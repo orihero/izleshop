@@ -1,9 +1,8 @@
 import React from 'react';
-import ChecoutView from './view';
+import MyOrdersView from './view';
 
-const CheckoutController = () => {
-	return <ChecoutView />;
+const MyOrdersController = () => {
+	return <MyOrdersView />;
 };
 
-export default CheckoutController;
-
+export default MyOrdersController;

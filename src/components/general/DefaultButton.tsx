@@ -2,15 +2,22 @@ import React from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { colors } from 'constants/colors';
 
-export interface DefaultButtonProps {
+export interface IDefaultButtonProps {
 	onPress?: () => {};
 	text?: string;
+	marginDisabled?: boolean;
 }
 
-const DefaultButton = ({ onPress, text }: DefaultButtonProps) => {
+const DefaultButton = ({
+	onPress,
+	text,
+	marginDisabled,
+}: IDefaultButtonProps) => {
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
-			<View style={styles.container}>
+			<View
+				style={[styles.container, marginDisabled ? null : styles.mh20]}
+			>
 				<Text style={styles.text}>{text}</Text>
 			</View>
 		</TouchableWithoutFeedback>
@@ -21,7 +28,6 @@ export default DefaultButton;
 
 const styles = StyleSheet.create({
 	container: {
-		marginHorizontal: 20,
 		backgroundColor: colors.darkBlue,
 		paddingVertical: 15,
 		borderRadius: 9,
@@ -30,5 +36,8 @@ const styles = StyleSheet.create({
 	text: {
 		color: colors.white,
 		fontSize: 18,
+	},
+	mh20: {
+		marginHorizontal: 20,
 	},
 });

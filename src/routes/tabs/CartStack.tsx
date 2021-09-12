@@ -1,7 +1,7 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { Routes } from 'constants/routes';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CartScreen, CheckoutScreen, PreCheckoutScreen } from 'screens/tabs';
+import { Routes } from 'constants/routes';
 
 export type CartStackParamList = {
 	[Routes.CART]: undefined;

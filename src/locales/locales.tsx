@@ -10,6 +10,8 @@ export let strings = new LocalizedStrings({
 		welcome: 'Добро пожаловать на izleshop',
 		loginPrompt:
 			'Войдите, чтобы создать объявление, ответить на сообщение или найдите то, что вам нужно. Нет профиля? Создайте его за минуты.',
+		registerPrompt:
+			'Регистрируясь на портале IzleShop.uz, я соглашаюсь с пользовательским соглашением и политикой конфиденциальности.',
 		create: 'Создать',
 		profileSettings: 'Профиль и настройки',
 		settings: 'Настройки',
@@ -35,10 +37,29 @@ export let strings = new LocalizedStrings({
 		onlinePayment: 'Онлайн оплата',
 		similarProducts: 'Похожие товары',
 		addToCart: 'В корзину',
+		phoneNumber: 'Номер телефона',
+		enterPassword: 'Введите пароль',
+		forgotPassword: 'Забыли пароль?',
+		toComeIn: 'Войти',
+		name: 'Имя',
+		pickPassword: 'Придумайте пароль',
+		repeatPassword: 'Повторите пароль',
+		show: 'показать',
+		hide: 'скрыть',
+		address: 'Адрес',
+		note: 'Заметка',
+		selectCity: 'Выберите город',
+		cityNotSelected: 'Город не выбран',
+		selectDistrict: 'Выберите район',
+		districtNotSelected: 'Район не выбран',
+		checkout: 'Оформить заказ',
+
+		byLoggingInYouAgreeToOur: 'При входе вы соглашаетесь с нашими',
+		termsOfUse: 'Условиями использования.',
+
 		byInstallments: 'В рассрочку',
 		information: 'Информация',
-		characteristic: 'Характеристика',
-
+		characteristic: 'Характеристика', //
 		monthlyPayment: 'Ежемесячный платеж',
 		termInMonths: 'Срок в месяцах',
 		model: 'Модель',
@@ -55,11 +76,10 @@ export let strings = new LocalizedStrings({
 		aspectRatio: 'Соотношение сторон',
 		multimediaCapabilities: 'Мультимедийные возможности',
 		photoFlash: 'Фотовспышка',
-		phoneNumber: 'Номер телефона',
-		enterPassword: 'Введите пароль',
 
 		mainRearCameras: 'Основные (тыловые) камеры',
 		mainRearCameraFunctions: 'Функции основной (тыловой) фотокамеры',
+		detailedSpecifications: 'Подробные характеристики',
 
 		forQuestionsAboutReceivingGoodsByInstallmentsCall:
 			'По вопросам получения товаров в рассрочку, звоните по номеру',
@@ -67,7 +87,6 @@ export let strings = new LocalizedStrings({
 			'Перед покупкой уточняйте характеристики и комплектацию у продавца.',
 		theSmartphoneIsRegisteredInTheUzimeiSystem:
 			'Сматрфон зарегистрирован в системе Uzimei',
-		detailedSpecifications: 'Подробные характеристики',
 	},
 	uz: {},
 	en: {},

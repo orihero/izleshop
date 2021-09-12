@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+
+import { PreCheckoutScreenNavigationProps } from './controller';
+import { Routes } from 'constants/routes';
+
 import {
 	View,
 	Text,
@@ -19,9 +23,6 @@ import {
 	CreditCardsPaymentIcon,
 	WalletIcon,
 } from 'assets/icons/icons';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { CartStackParamList } from 'src/routes/tabs/CartStack';
-import { Routes } from 'constants/routes';
 
 const paymeLogo = require('mockup/images/payme.png');
 const clickLogo = require('mockup/images/click.png');
@@ -37,15 +38,14 @@ const arr = [
 	},
 ];
 
-type ProCheckoutViewProps = NativeStackScreenProps<
-	CartStackParamList,
-	Routes.PRE_CHECKOUT
->;
+interface IPreCheckoutViewProps {
+	navigation: PreCheckoutScreenNavigationProps;
+}
 
-const PreCheckoutView = ({ navigation }: ProCheckoutViewProps) => {
+const PreCheckoutView = ({ navigation }: IPreCheckoutViewProps) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 
-	const onPress = () => console.log('Hi!');
+	const onPress = () => navigation.navigate(Routes.CHECKOUT);
 
 	return (
 		<ScrollView
