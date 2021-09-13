@@ -1,18 +1,23 @@
 import React from 'react';
+
 import { Image, ScrollView, View } from 'react-native';
 import Text from 'components/general/Text';
+import DefaultButton from 'components/general/DefaultButton';
+import Pressable from 'components/general/Pressable';
+import MenuLink from './components/MenuLink';
+
 import { strings } from 'locales/locales';
 import { styles } from './style';
 //@ts-ignore
 import img from 'assets/images/user.png';
-import DefaultButton from 'components/general/DefaultButton';
-import MenuLink from './components/MenuLink';
+import { Routes } from 'constants/routes';
 
 interface IProfileViewProps {
 	onCreate: () => void;
+	onPress: (route: string) => void;
 }
 
-const ProfileView = ({ onCreate }: IProfileViewProps) => {
+const ProfileView = ({ onCreate, onPress }: IProfileViewProps) => {
 	return (
 		<View style={styles.container}>
 			<ScrollView
@@ -30,13 +35,27 @@ const ProfileView = ({ onCreate }: IProfileViewProps) => {
 				<Text style={styles.profileSettings}>
 					{strings.profileSettings}
 				</Text>
-				<MenuLink text={strings.settings} />
-				<MenuLink text={strings.myOrders} />
-				<MenuLink text={strings.news} />
-				<MenuLink text={strings.aboutUs} />
-				<MenuLink text={strings.language} />
-				<MenuLink text={strings.aboutApp} />
-				<MenuLink text={strings.authorize} />
+				<Pressable to onPress={() => onPress(Routes.SETTINGS)}>
+					<MenuLink text={strings.settings} />
+				</Pressable>
+				<Pressable to onPress={() => onPress(Routes.MY_ORDERS)}>
+					<MenuLink text={strings.myOrders} />
+				</Pressable>
+				<Pressable to onPress={() => onPress(Routes.ABOUT_US)}>
+					<MenuLink text={strings.aboutUs} />
+				</Pressable>
+				<Pressable to onPress={() => onPress(Routes.NEWS)}>
+					<MenuLink text={strings.news} />
+				</Pressable>
+				<Pressable to onPress={() => onPress(Routes.LANGUAGE)}>
+					<MenuLink text={strings.language} />
+				</Pressable>
+				<Pressable to onPress={() => onPress(Routes.ABOUT_APP)}>
+					<MenuLink text={strings.aboutApp} />
+				</Pressable>
+				<Pressable to onPress={() => onPress(Routes.AUTHORIZATION)}>
+					<MenuLink text={strings.authorize} />
+				</Pressable>
 			</ScrollView>
 		</View>
 	);

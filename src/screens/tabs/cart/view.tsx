@@ -9,10 +9,11 @@ import CartItem from './components/CartItem';
 import DefaultButton from 'components/general/DefaultButton';
 import { CartScreenNavigationProp } from './controller';
 import { Routes } from 'constants/routes';
+import { SearchIcon } from 'assets/icons/icons';
 
 interface ICartViewProps {
 	navigation: CartScreenNavigationProp;
-};
+}
 
 const CartView = ({ navigation }: ICartViewProps) => {
 	let total = useAppSelector(selectCartTotal);
@@ -24,7 +25,10 @@ const CartView = ({ navigation }: ICartViewProps) => {
 
 	return (
 		<View style={styles.container}>
-			<Header title={strings.cart} />
+			<Header
+				title={strings.cart}
+				rightEdge={() => <SearchIcon size={20} />}
+			/>
 			<View style={styles.totalContainer}>
 				<Text style={styles.totalPrice}>{strings.total}</Text>
 				<Text style={styles.totalPrice}>{total}</Text>

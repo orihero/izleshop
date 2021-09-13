@@ -21,6 +21,7 @@ import {
 	CircleIcon,
 	CreditCardIcon,
 	CreditCardsPaymentIcon,
+	SearchIcon,
 	WalletIcon,
 } from 'assets/icons/icons';
 
@@ -52,7 +53,10 @@ const PreCheckoutView = ({ navigation }: IPreCheckoutViewProps) => {
 			style={styles.container}
 			showsVerticalScrollIndicator={false}
 		>
-			<Header title={strings.cart} />
+			<Header
+				title={strings.cart}
+				rightEdge={() => <SearchIcon size={20} />}
+			/>
 			<View style={styles.top}>
 				<View style={styles.topChild}>
 					<Text style={styles.text1}>{strings.yourOrder}</Text>

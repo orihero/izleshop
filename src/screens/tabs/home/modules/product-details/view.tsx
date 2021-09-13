@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useNavigation } from '@react-navigation/core';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { selectCart, addToCart, removeFromCart } from 'store/slices/cartSlice';
 import {
@@ -12,8 +13,9 @@ import { Text, View, FlatList, ScrollView } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import DefaultButton from 'components/general/DefaultButton';
-import Header from 'components/navigation/Header';
 import Accordion from 'components/general/Accordion';
+import Pressable from 'components/general/Pressable';
+import Header from 'components/navigation/Header';
 import SliderItem from '../../components/SliderItem';
 import Rating from '../../components/Rating';
 import ProductItem from '../../components/ProductItem';
@@ -25,6 +27,7 @@ import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
 import { products } from '../../data';
 import { CartIcon, HeartIcon, PressableIcon } from 'assets/icons/icons';
+import { Routes } from 'constants/routes';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
@@ -35,6 +38,7 @@ const ProductDetailsView = ({
 	setActiveSlide,
 	activeSlide,
 }: ProductDetailsViewProps) => {
+	let navigation = useNavigation();
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
 	let isInCart = !!cart[item.id];
@@ -59,9 +63,27 @@ const ProductDetailsView = ({
 		}
 	};
 
+	let onCartIconPress = () => {
+		navigation.navigate(Routes.CART);
+	};
+
 	return (
 		<View style={styles.container}>
-			<Header hasCartIcon hasBorder title={'Смартфон'} />
+			<Header
+				hasBorder
+				hasCartIcon
+				title={'Смартфон'}
+				rightEdge={() => (
+					<Pressable onPress={onCartIconPress}>
+						<View>
+							<View style={styles.badge}>
+								<Text style={styles.badgeText}>{'2'}</Text>
+							</View>
+							<CartIcon size={20} />
+						</View>
+					</Pressable>
+				)}
+			/>
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.bgw}>
 					<Carousel

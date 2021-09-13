@@ -1,9 +1,11 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { ReactChild } from 'react';
 import { useNavigation } from '@react-navigation/core';
+
+import { StyleSheet, Text, View } from 'react-native';
+import Pressable from '../general/Pressable';
+
 import { colors } from 'constants/colors';
-import { Routes } from 'constants/routes';
-import { BackIcon, CartIcon, SearchIcon } from '../../assets/icons/icons';
+import { BackIcon } from '../../assets/icons/icons';
 
 export interface HeaderProps {
 	title?: string;
@@ -11,14 +13,14 @@ export interface HeaderProps {
 	hasCartIcon?: boolean;
 	hideRightIcon?: boolean;
 	disableGoBack?: boolean;
+	rightEdge?: () => ReactChild;
 }
 
 const Header = ({
 	title,
 	hasBorder,
-	hasCartIcon,
-	hideRightIcon,
 	disableGoBack,
+	rightEdge = () => <View />,
 }: HeaderProps) => {
 	const navigation = useNavigation();
 
@@ -27,33 +29,19 @@ const Header = ({
 			navigation.goBack();
 		}
 	};
-	let onCartPress = () => {
-		navigation.navigate(Routes.CART);
-	};
 	return (
 		<View style={[styles.container, hasBorder ? styles.bbw : null]}>
-			<View>
+			<View style={styles.leftEdge}>
 				{disableGoBack ? null : (
-					<TouchableOpacity onPress={onBackPressed}>
+					<Pressable to onPress={onBackPressed}>
 						<BackIcon size={20} />
-					</TouchableOpacity>
+					</Pressable>
 				)}
 			</View>
-			<Text style={styles.title}>{title}</Text>
 			<View>
-				{hideRightIcon ? null : hasCartIcon ? (
-					<TouchableOpacity onPress={onCartPress}>
-						<View>
-							<View style={styles.badge}>
-								<Text style={styles.badgeText}>2</Text>
-							</View>
-							<CartIcon size={20} />
-						</View>
-					</TouchableOpacity>
-				) : (
-					<SearchIcon size={20} />
-				)}
+				<Text style={styles.title}>{title}</Text>
 			</View>
+			<View style={styles.rightEdge}>{rightEdge()}</View>
 		</View>
 	);
 };
@@ -64,7 +52,7 @@ const styles = StyleSheet.create({
 	container: {
 		height: 60,
 		flexDirection: 'row',
-		justifyContent: 'space-between',
+		justifyContent: 'center',
 		backgroundColor: colors.white,
 		width: '100%',
 		paddingHorizontal: 20,
@@ -75,27 +63,16 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		borderColor: colors.gray4,
 	},
+	leftEdge: {
+		left: 20,
+		position: 'absolute',
+	},
+	rightEdge: {
+		right: 20,
+		position: 'absolute',
+	},
 	title: {
 		fontSize: 18,
 		color: colors.black,
-	},
-	badge: {
-		width: 15,
-		height: 15,
-		position: 'absolute',
-		right: -8,
-		top: -8,
-		zIndex: 1,
-		padding: 3,
-		borderRadius: 10,
-		backgroundColor: colors.red,
-	},
-	badgeText: {
-		fontSize: 8,
-		textAlign: 'center',
-		textAlignVertical: 'center',
-		lineHeight: 10,
-		fontWeight: '700',
-		color: colors.white,
 	},
 });

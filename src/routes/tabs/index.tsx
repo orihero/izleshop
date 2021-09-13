@@ -1,6 +1,5 @@
 import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
 import {
 	CartIcon,
 	CategoriesIcon,
@@ -16,7 +15,6 @@ import { CategoriesScreen, FavoritesScreen, ProfileScreen } from 'screens/tabs';
 import { store } from 'store/configureStore';
 import CartStack from './CartStack';
 import HomeStack from './HomeStack';
-import ProfileStack from './ProfileStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -42,9 +40,8 @@ const Tabs = () => {
 
 	return (
 		<View style={{ ...styles.container, paddingTop: insets.top }}>
-			{/* <NavigationContainer> */}
 			<Tab.Navigator
-				initialRouteName={Routes.HOME_STACK}
+				initialRouteName={Routes.PROFILE_STACK}
 				labeled={false}
 				barStyle={styles.bar}
 				key={Object.keys(store.getState().cart).length}
@@ -123,10 +120,9 @@ const Tabs = () => {
 						},
 					}}
 					name={Routes.PROFILE_STACK}
-					component={ProfileStack}
+					component={ProfileScreen}
 				/>
 			</Tab.Navigator>
-			{/* </NavigationContainer> */}
 			<View
 				style={{
 					height: insets.bottom,

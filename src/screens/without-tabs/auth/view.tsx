@@ -1,39 +1,32 @@
 import React from 'react';
 
 import { View } from 'react-native';
-import Login from './modules/login';
-import Register from './modules/register';
+import { LoginView, RegisterView } from './views';
 import Header from 'components/navigation/Header';
 import CustomTabView from 'components/general/CustomTabView';
 
-import { styles } from './styles';
+import { styles } from './style';
 import { strings } from 'locales/locales';
 import { EdgeInsets } from 'react-native-safe-area-context';
-import { AuthScreenRouteProp } from './controller';
 
 interface IAuthViewProps {
 	insets: EdgeInsets;
-	route: AuthScreenRouteProp;
 }
 
-const AuthView = ({ insets, route }: IAuthViewProps) => {
+const AuthView = ({ insets }: IAuthViewProps) => {
 	return (
 		<View style={[styles.preContainer, { paddingTop: insets.top }]}>
 			<View style={styles.container}>
-				<Header
-					hideRightIcon
-					disableGoBack={!route.params.cangoBack}
-					title={strings.welcome}
-				/>
+				<Header hideRightIcon title={strings.welcome} />
 				<CustomTabView
 					items={[
 						{
 							title: strings.toComeIn || '',
-							component: () => <Login />,
+							component: () => <LoginView />,
 						},
 						{
 							title: strings.create || '',
-							component: () => <Register />,
+							component: () => <RegisterView />,
 						},
 					]}
 				/>

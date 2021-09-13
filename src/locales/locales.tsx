@@ -16,6 +16,7 @@ export let strings = new LocalizedStrings({
 		profileSettings: 'Профиль и настройки',
 		settings: 'Настройки',
 		myOrders: 'Мои заказы',
+		myProfile: 'Мой профиль',
 		news: 'Новости',
 		aboutUs: 'О нас',
 		language: 'Язык',
@@ -53,40 +54,13 @@ export let strings = new LocalizedStrings({
 		selectDistrict: 'Выберите район',
 		districtNotSelected: 'Район не выбран',
 		checkout: 'Оформить заказ',
+		changeLanguage: 'Изменить язык',
+		cancel: 'Отмена',
+		apply: 'Применить',
+		personalData: 'Личные данные',
 
 		byLoggingInYouAgreeToOur: 'При входе вы соглашаетесь с нашими',
 		termsOfUse: 'Условиями использования.',
-
-		byInstallments: 'В рассрочку',
-		information: 'Информация',
-		characteristic: 'Характеристика', //
-		monthlyPayment: 'Ежемесячный платеж',
-		termInMonths: 'Срок в месяцах',
-		model: 'Модель',
-		manufacturer: 'Производитель',
-		availability: 'Наличие',
-		inStock: 'Есть в наличие',
-		typeOf: 'Тип',
-		degreeOfProtection: 'Степень защиты',
-		numberOfSimCards: 'Количество SIM-карт',
-		simCardType: 'Тип SIM-карты',
-		screen: 'Экран',
-		screenType: 'Тип экрана',
-		imageSize: 'Размер изображения',
-		aspectRatio: 'Соотношение сторон',
-		multimediaCapabilities: 'Мультимедийные возможности',
-		photoFlash: 'Фотовспышка',
-
-		mainRearCameras: 'Основные (тыловые) камеры',
-		mainRearCameraFunctions: 'Функции основной (тыловой) фотокамеры',
-		detailedSpecifications: 'Подробные характеристики',
-
-		forQuestionsAboutReceivingGoodsByInstallmentsCall:
-			'По вопросам получения товаров в рассрочку, звоните по номеру',
-		beforeBuyingCheckWithTheSellerForSpecificationsAndConfiguration:
-			'Перед покупкой уточняйте характеристики и комплектацию у продавца.',
-		theSmartphoneIsRegisteredInTheUzimeiSystem:
-			'Сматрфон зарегистрирован в системе Uzimei',
 	},
 	uz: {},
 	en: {},

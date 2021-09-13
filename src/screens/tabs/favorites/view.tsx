@@ -2,6 +2,7 @@ import Header from 'components/navigation/Header';
 import { strings } from 'locales/locales';
 import React from 'react';
 import { FlatList, View } from 'react-native';
+import { SearchIcon } from 'assets/icons/icons';
 import reactotron from 'store/reactotron.config';
 import { selectFavoritesList } from 'store/slices/favoritesSlice';
 import { useAppSelector } from 'utils/hooks';
@@ -14,7 +15,10 @@ const FavoritesView = () => {
 
 	return (
 		<View>
-			<Header title={strings.favorites} />
+			<Header
+				title={strings.favorites}
+				rightEdge={() => <SearchIcon size={20} />}
+			/>
 			<FlatList
 				extraData={[favorites]}
 				contentContainerStyle={styles.flatList}

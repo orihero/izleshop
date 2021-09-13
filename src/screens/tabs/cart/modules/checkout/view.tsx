@@ -80,7 +80,7 @@ const ChecoutView = () => {
 
 	return (
 		<View style={styles.container}>
-			<Header hideRightIcon title={strings.checkout} />
+			<Header title={strings.checkout} />
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.ph20}>
 					<View style={styles.mt20}>
