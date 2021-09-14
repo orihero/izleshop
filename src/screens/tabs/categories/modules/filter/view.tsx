@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const ChecoutView = () => {
+const FilterView = () => {
 	return (
 		<View>
-			<Text></Text>
+			<Text>FilterView</Text>
 		</View>
 	);
 };
 
-export default ChecoutView;
+export default FilterView;

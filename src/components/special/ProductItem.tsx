@@ -1,36 +1,40 @@
-import { useNavigation } from '@react-navigation/core';
-import {
-	CartIcon,
-	CloseIcon,
-	HeartIcon,
-	PressableIcon
-} from 'assets/icons/icons';
-import Text from 'components/general/Text';
-import { colors } from 'constants/colors';
-import { Routes } from 'constants/routes';
-import { windowWidth } from 'constants/sizes';
 import React from 'react';
+
+import { useNavigation } from '@react-navigation/core';
+
+import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
+import {
+	addItem,
+	removeItem,
+	selectFavorites,
+} from 'store/slices/favoritesSlice';
+import { useAppDispatch, useAppSelector } from 'utils/hooks';
+
 import {
 	Image,
 	ListRenderItemInfo,
 	StyleSheet,
 	TouchableWithoutFeedback,
-	View
+	View,
 } from 'react-native';
-import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
+import Rating from 'components/special/Rating';
+import Text from 'components/general/Text';
+
+import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
+import { windowWidth } from 'constants/sizes';
 import {
-	addItem,
-	removeItem,
-	selectFavorites
-} from 'store/slices/favoritesSlice';
-import { useAppDispatch, useAppSelector } from 'utils/hooks';
-import Rating from './Rating';
+	CartIcon,
+	CloseIcon,
+	HeartIcon,
+	PressableIcon,
+} from 'assets/icons/icons';
 
 export interface ProductItemModel {
 	id: number;
 	title: string;
-	rating: number;
-	oldPrice: string;
+	rating?: number;
+	oldPrice?: string;
 	newPrice: string;
 	currency: string;
 	isFavorite?: boolean;
@@ -89,19 +93,23 @@ const ProductItem = ({
 					</View>
 					<View style={styles.buttonsContainer}>
 						<PressableIcon onPress={onCartPress}>
-							<CartIcon
-								active={isInCart}
-								color={colors.blue}
-								size={20}
-							/>
+							<View style={styles.buttonCont}>
+								<CartIcon
+									size={20}
+									active={isInCart}
+									color={colors.blue}
+								/>
+							</View>
 						</PressableIcon>
 						<PressableIcon onPress={onHeartPress}>
-							<HeartIcon
-								active={isFavorite}
-								color={colors.red}
-								size={20}
-								onPress={onHeartPress}
-							/>
+							<View style={styles.buttonCont}>
+								<HeartIcon
+									size={20}
+									color={colors.red}
+									active={isFavorite}
+									onPress={onHeartPress}
+								/>
+							</View>
 						</PressableIcon>
 					</View>
 				</View>
@@ -144,11 +152,17 @@ const styles = StyleSheet.create({
 		resizeMode: 'contain',
 	},
 	buttonsContainer: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
+		height: 30,
 		marginTop: 20,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	},
+	buttonCont: {
+		width: 30,
 		height: 30,
 		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	productContainer: {
 		width: windowWidth / 2 - 5,

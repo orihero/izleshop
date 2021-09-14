@@ -1,13 +1,15 @@
 import React from 'react';
+
 import { FlatList, ScrollView } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import SearchInput from 'components/general/Search';
 import Text from 'components/general/Text';
+import ProductItem from 'components/special/ProductItem';
+import SliderItem from 'components/special/SliderItem';
+
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
-import ProductItem from './components/ProductItem';
-import SliderItem from './components/SliderItem';
 import styles from './style';
 import { products, data } from './data';
 

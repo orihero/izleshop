@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { View, Text, StyleSheet } from 'react-native';
-import Pressable from './Pressable';
+import Pressable from '../general/Pressable';
 
 import { colors } from 'constants/colors';
 import { paddingVertical } from 'constants/sizes';

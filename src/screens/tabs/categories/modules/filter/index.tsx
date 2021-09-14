@@ -1,1 +1,3 @@
-export { default as CheckoutScreen } from './controller';
+import FilterController from './controller';
+
+export default FilterController;

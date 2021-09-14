@@ -1,13 +1,17 @@
 import React from 'react';
-import { FlatList, Text, View } from 'react-native';
-import Header from 'components/navigation/Header';
-import { strings } from 'locales/locales';
-import { styles } from './style';
+
+import { CartScreenNavigationProp } from './controller';
+
 import { selectCartList, selectCartTotal } from 'store/slices/cartSlice';
 import { useAppSelector } from 'utils/hooks';
-import CartItem from './components/CartItem';
+
+import { FlatList, Text, View } from 'react-native';
+import Header from 'components/navigation/Header';
 import DefaultButton from 'components/general/DefaultButton';
-import { CartScreenNavigationProp } from './controller';
+import CartItem from 'components/special/CartItem';
+
+import { strings } from 'locales/locales';
+import { styles } from './style';
 import { Routes } from 'constants/routes';
 import { SearchIcon } from 'assets/icons/icons';
 
@@ -30,14 +34,17 @@ const CartView = ({ navigation }: ICartViewProps) => {
 				rightEdge={() => <SearchIcon size={20} />}
 			/>
 			<View style={styles.totalContainer}>
-				<Text style={styles.totalPrice}>{strings.total}</Text>
-				<Text style={styles.totalPrice}>{total}</Text>
+				<Text style={styles.totalPriceText1}>{strings.total}</Text>
+				<Text style={styles.totalPriceText2}>{total}</Text>
 			</View>
-			<FlatList
-				data={cartItems}
-				renderItem={(props) => <CartItem {...props} />}
-				keyExtractor={(e) => e.data.id.toString()}
-			/>
+			{cartItems ? (
+				<FlatList
+					data={cartItems}
+					style={styles.mh20}
+					keyExtractor={(e) => e.data.id.toString()}
+					renderItem={(props) => <CartItem {...props} />}
+				/>
+			) : null}
 			{cartItems.length > 0 && (
 				<View style={styles.absolute}>
 					<DefaultButton text={strings.order} onPress={onPress} />

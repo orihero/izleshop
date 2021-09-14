@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text as RNText, TextProps } from "react-native";
+import React from 'react';
+import { StyleSheet, Text as RNText, TextProps } from 'react-native';
 
 const Text = ({
 	children,
@@ -7,7 +7,7 @@ const Text = ({
 }: TextProps & { children: React.ReactNode }) => {
 	let { style, ...txtProps } = rest || {};
 	style = StyleSheet.compose(style, {
-		fontFamily: "Lato",
+		fontFamily: 'Lato',
 	});
 	return (
 		<RNText style={style} {...txtProps}>

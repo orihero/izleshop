@@ -58,6 +58,8 @@ export let strings = new LocalizedStrings({
 		cancel: 'Отмена',
 		apply: 'Применить',
 		personalData: 'Личные данные',
+		filter: 'Фильтр',
+		sort: 'Сортировать',
 
 		byLoggingInYouAgreeToOur: 'При входе вы соглашаетесь с нашими',
 		termsOfUse: 'Условиями использования.',

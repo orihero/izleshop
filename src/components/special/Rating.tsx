@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+
 import { StarIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 
@@ -8,6 +10,7 @@ export interface RatingProps {
 	active?: number;
 	readOnly?: boolean;
 	styleChanged?: boolean;
+	defaultStyle?: boolean;
 }
 
 const Rating = ({
@@ -15,6 +18,7 @@ const Rating = ({
 	active = 3,
 	readOnly = false,
 	styleChanged = false,
+	defaultStyle = false,
 }: RatingProps) => {
 	const [activeCount, setActiveCount] = useState(active);
 	let onStarPress = (count: number) => {
@@ -23,7 +27,10 @@ const Rating = ({
 	let arr = [...Array(count)];
 	return (
 		<View
-			style={[styles.container, styleChanged ? styles.mt15 : styles.ds]}
+			style={[
+				styles.container,
+				defaultStyle ? null : styleChanged ? styles.mt15 : styles.ds,
+			]}
 		>
 			{arr.map((_, i) => {
 				return (

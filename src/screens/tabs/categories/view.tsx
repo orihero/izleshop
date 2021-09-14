@@ -1,17 +1,18 @@
-import SearchInput from 'components/general/Search';
-import { colors } from 'constants/colors';
-import { windowWidth } from 'constants/sizes';
-import { strings } from 'locales/locales';
 import React from 'react';
+
 import { View } from 'react-native';
 import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
-import BrandsView from './components/BrandsView';
-import Categories from './components/CategoriewView';
+import SearchInput from 'components/general/Search';
+
+import { Categories, Brands } from './views';
+
+import { windowWidth } from 'constants/sizes';
+import { strings } from 'locales/locales';
 import { styles } from './style';
 
 const renderScene = SceneMap({
 	categories: Categories,
-	brands: BrandsView,
+	brands: Brands,
 });
 
 const CategoriesView = () => {
@@ -32,21 +33,9 @@ const CategoriesView = () => {
 				renderTabBar={(props) => (
 					<TabBar
 						{...props}
-						style={{
-							backgroundColor: colors.lightBlue,
-							borderWidth: 0,
-							shadowOpacity: 0,
-						}}
-						indicatorStyle={{
-							backgroundColor: colors.black,
-							width: '30%',
-							left: '10%',
-							bottom: '15%',
-						}}
-						labelStyle={{
-							textTransform: 'capitalize',
-							color: colors.black,
-						}}
+						style={styles.tabStyle}
+						labelStyle={styles.labelStyle}
+						indicatorStyle={styles.indicatorStyle}
 					/>
 				)}
 			/>

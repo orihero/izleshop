@@ -1,18 +1,18 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import { categories } from '../data';
-import CategoriesItem from './CategoriesItem';
+import Content from '../../components/Content';
+import { categories } from '../../data';
 
-const CategoriewView = () => {
+const CategoriesView = () => {
 	return (
 		<View>
 			<FlatList
 				data={categories}
-				renderItem={CategoriesItem}
+				renderItem={Content}
 				showsHorizontalScrollIndicator={false}
 			/>
 		</View>
 	);
 };
 
-export default CategoriewView;
+export default CategoriesView;

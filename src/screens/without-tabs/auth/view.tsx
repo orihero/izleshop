@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { LoginView, RegisterView } from './views';
 import Header from 'components/navigation/Header';
-import CustomTabView from 'components/general/CustomTabView';
+import CustomTabView from 'components/special/CustomTabView';
 
 import { styles } from './style';
 import { strings } from 'locales/locales';

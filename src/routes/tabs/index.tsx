@@ -1,5 +1,16 @@
 import React from 'react';
+
+import { store } from 'store/configureStore';
+
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import HomeStack from './HomeStack';
+import CategoriesStack from './CategoriesStack';
+import CartStack from './CartStack';
+import { FavoritesScreen, ProfileScreen } from 'screens/tabs';
+
+import { StyleSheet, View, Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 import {
 	CartIcon,
 	CategoriesIcon,
@@ -9,12 +20,6 @@ import {
 } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
-import { StyleSheet, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { CategoriesScreen, FavoritesScreen, ProfileScreen } from 'screens/tabs';
-import { store } from 'store/configureStore';
-import CartStack from './CartStack';
-import HomeStack from './HomeStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -27,7 +32,7 @@ let styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		overflow: 'hidden',
-		paddingTop: 20,
+		paddingTop: Platform.OS === 'ios' ? 20 : 0,
 	},
 	container: {
 		flex: 1,
@@ -41,7 +46,7 @@ const Tabs = () => {
 	return (
 		<View style={{ ...styles.container, paddingTop: insets.top }}>
 			<Tab.Navigator
-				initialRouteName={Routes.PROFILE_STACK}
+				initialRouteName={Routes.CATEGORIES_STACK}
 				labeled={false}
 				barStyle={styles.bar}
 				key={Object.keys(store.getState().cart).length}
@@ -73,8 +78,8 @@ const Tabs = () => {
 							);
 						},
 					}}
-					name="Categories"
-					component={CategoriesScreen}
+					name={Routes.CATEGORIES_STACK}
+					component={CategoriesStack}
 				/>
 				<Tab.Screen
 					options={{

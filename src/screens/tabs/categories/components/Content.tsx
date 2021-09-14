@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
 	FlatList,
 	ListRenderItemInfo,
@@ -6,16 +7,26 @@ import {
 	Text,
 	View,
 } from 'react-native';
+
 import { colors } from 'constants/colors';
 import { categories } from '../data';
-import CategoryItem from './CategoryItem';
+import CategoryItem from './Item';
 
-export type CategoriesItemProps = typeof categories[0];
+export type ContentItemProps = typeof categories[0];
 
-const CategoriesItem = ({ item }: ListRenderItemInfo<CategoriesItemProps>) => {
+type IContentItemProp = ListRenderItemInfo<ContentItemProps>;
+
+interface IContentProps {
+	item: IContentItemProp;
+	disableTitle?: boolean;
+}
+
+const Content = ({ item, disableTitle }: IContentProps) => {
 	return (
 		<View>
-			<Text style={styles.title}>{item.label}</Text>
+			{disableTitle ? null : (
+				<Text style={styles.title}>{item.label}</Text>
+			)}
 			<FlatList
 				horizontal
 				data={item.subCategories}
@@ -26,7 +37,7 @@ const CategoriesItem = ({ item }: ListRenderItemInfo<CategoriesItemProps>) => {
 	);
 };
 
-export default CategoriesItem;
+export default Content;
 
 const styles = StyleSheet.create({
 	title: {

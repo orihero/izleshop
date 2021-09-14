@@ -9,6 +9,7 @@ import { BackIcon } from '../../assets/icons/icons';
 
 export interface HeaderProps {
 	title?: string;
+	bold?: boolean;
 	hasBorder?: boolean;
 	hasCartIcon?: boolean;
 	hideRightIcon?: boolean;
@@ -20,6 +21,7 @@ const Header = ({
 	title,
 	hasBorder,
 	disableGoBack,
+	bold = false,
 	rightEdge = () => <View />,
 }: HeaderProps) => {
 	const navigation = useNavigation();
@@ -39,7 +41,9 @@ const Header = ({
 				)}
 			</View>
 			<View>
-				<Text style={styles.title}>{title}</Text>
+				<Text style={[styles.title, bold ? styles.bold : null]}>
+					{title}
+				</Text>
 			</View>
 			<View style={styles.rightEdge}>{rightEdge()}</View>
 		</View>
@@ -73,6 +77,11 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 18,
+		lineHeight: 18,
+		fontWeight: '400',
 		color: colors.black,
+	},
+	bold: {
+		fontWeight: '700',
 	},
 });

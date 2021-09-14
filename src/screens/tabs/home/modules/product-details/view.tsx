@@ -12,13 +12,13 @@ import {
 import { Text, View, FlatList, ScrollView } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
-import DefaultButton from 'components/general/DefaultButton';
-import Accordion from 'components/general/Accordion';
-import Pressable from 'components/general/Pressable';
 import Header from 'components/navigation/Header';
-import SliderItem from '../../components/SliderItem';
-import Rating from '../../components/Rating';
-import ProductItem from '../../components/ProductItem';
+import DefaultButton from 'components/general/DefaultButton';
+import Pressable from 'components/general/Pressable';
+import Accordion from 'components/special/Accordion';
+import SliderItem from 'components/special/SliderItem';
+import Rating from 'components/special/Rating';
+import ProductItem from 'components/special/ProductItem';
 
 import { styles } from './style';
 import { item, accordionData } from 'mockup/data';

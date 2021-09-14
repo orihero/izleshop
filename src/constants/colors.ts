@@ -14,4 +14,5 @@ export let colors = {
 	lightGray: '#EEEEEE',
 	lightBrown: '#827878',
 	darkBlue: '#0074D1',
+	darkGray2: '#757575',
 };

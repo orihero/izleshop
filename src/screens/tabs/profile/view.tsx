@@ -4,7 +4,7 @@ import { Image, ScrollView, View } from 'react-native';
 import Text from 'components/general/Text';
 import DefaultButton from 'components/general/DefaultButton';
 import Pressable from 'components/general/Pressable';
-import MenuLink from './components/MenuLink';
+import MenuLink from 'components/special/MenuLink';
 
 import { strings } from 'locales/locales';
 import { styles } from './style';

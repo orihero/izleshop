@@ -11,9 +11,6 @@ export let data = [
 	{
 		url: 'https://ossaimaenterprise.com/wp-content/uploads/2020/10/headersml-desk-apple-watch-series-6-860x360-1.jpg',
 	},
-	{
-		url: 'https://qmacstore.com/media/banner-macbook-air-chip-m1-qmac-store.png',
-	},
 ];
 
 export let products = [
