@@ -5,6 +5,30 @@ const paymeLogo = require('mockup/images/payme.png');
 const clickLogo = require('mockup/images/click.png');
 const img1 = require('mockup/images/phone1.png');
 const img2 = require('mockup/images/phone2.png');
+const img3 = require('mockup/images/washing-machine.png');
+
+export const orderItems = [
+	{
+		id: 1,
+		title: 'Кроссовки Nike air Light 38, 39, 40, .....',
+		newPrice: '180 000',
+		currency: 'сум',
+		ratingCount: 5,
+		rating: 2,
+		status: 'В ожидании',
+		img: img3,
+	},
+	{
+		id: 2,
+		title: 'Кроссовки Nike air Light 38, 39, 40, .....',
+		newPrice: '180 000',
+		currency: 'сум',
+		ratingCount: 5,
+		rating: 4,
+		status: 'В ожидании',
+		img: img1,
+	},
+];
 
 export interface IAccordionItem {
 	key: string;

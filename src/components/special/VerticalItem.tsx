@@ -30,33 +30,56 @@ import {
 	PressableIcon,
 } from 'assets/icons/icons';
 
-export interface ProductItemModel {
-	id: number;
-	title: string;
-	rating?: number;
+export interface IVerticalItemModel {
+	id?: number;
+	title?: string;
+	newPrice?: string;
 	oldPrice?: string;
-	newPrice: string;
-	currency: string;
+	currency?: string;
+	ratingCount?: number;
+	rating?: number;
+	status?: string;
 	isFavorite?: boolean;
 	isInCart?: boolean;
-	img: any;
+	img?: any;
 }
 
-const ProductItem = ({
-	item,
-	index,
-	sizeChanged = false,
-	closeIcon = false,
-}: ListRenderItemInfo<ProductItemModel>) => {
+type RenderedItemProps = ListRenderItemInfo<{
+	data: IVerticalItemModel;
+	count: number;
+}>;
+
+export interface IVerticalItemProps {
+	item: IVerticalItemModel;
+	bigSize?: boolean;
+	hasClose?: boolean;
+}
+
+const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
+	const {
+		id,
+		title,
+		newPrice,
+		oldPrice,
+		currency,
+		ratingCount,
+		rating,
+		status,
+		// isFavorite,
+		// isInCart,
+		img,
+	} = item || {};
+
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
-	let isInCart = item && !!cart[item.id];
-	let isFavorite = item && !!favorites[item.id];
+	let isInCart = item && !!cart[item && id];
+	let isFavorite = item && !!favorites[item && id];
 	let dispatch = useAppDispatch();
 	let naviation = useNavigation();
+
 	let onHeartPress = () => {
 		if (isFavorite) {
-			dispatch(removeItem(item.id.toString()));
+			dispatch(removeItem(id.toString()));
 		} else {
 			dispatch(addItem(item));
 		}
@@ -64,7 +87,7 @@ const ProductItem = ({
 
 	let onCartPress = () => {
 		if (isInCart) {
-			dispatch(removeFromCart(item.id.toString()));
+			dispatch(removeFromCart(id.toString()));
 		} else {
 			dispatch(addToCart(item));
 		}
@@ -76,37 +99,23 @@ const ProductItem = ({
 
 	return item ? (
 		<TouchableWithoutFeedback onPress={onItemPress}>
-			<View
-				style={
-					!sizeChanged
-						? styles.productContainer
-						: styles.changedProductContainer
-				}
-			>
-				<View
-					style={[
-						!sizeChanged
-							? styles.container
-							: styles.changedContainer,
-						!sizeChanged ? styles.ml20 : null,
-					]}
-				>
-					{closeIcon ? (
+			<View style={bigSize ? styles.width1 : styles.width2}>
+				<View style={bigSize ? styles.cont1 : styles.cont2}>
+					{hasClose ? (
 						<View style={styles.absolute}>
-							<CloseIcon color={colors.gray} size={15} />
+							<CloseIcon
+								color={colors.gray}
+								size={bigSize ? 15 : 12}
+							/>
 						</View>
 					) : null}
-					<View style={styles.center}>
+					<View style={bigSize ? styles.imgCont1 : styles.imgCont2}>
 						<Image
-							source={item.img}
-							style={
-								!sizeChanged
-									? styles.image
-									: styles.changedImage
-							}
+							source={img}
+							style={bigSize ? styles.imgS1 : styles.imgS2}
 						/>
 					</View>
-					<View style={styles.buttonsContainer}>
+					<View style={bigSize ? styles.btnRow1 : styles.btnRow2}>
 						<PressableIcon onPress={onCartPress}>
 							<View style={styles.buttonCont}>
 								<CartIcon
@@ -128,60 +137,65 @@ const ProductItem = ({
 						</PressableIcon>
 					</View>
 				</View>
-				<Rating />
+				<View style={styles.ratingRow}>
+					<Rating defaultStyle active={rating} count={ratingCount} />
+				</View>
 				<Text style={styles.text} numberOfLines={2}>
-					{item.title}
+					{title}
 				</Text>
-				<Text style={styles.oldPrice}>
-					{`${item.oldPrice} ${item.currency}`}
-				</Text>
-				<Text style={styles.newPrice}>
-					{`${item.newPrice} ${item.currency}`}
-				</Text>
+				<Text style={styles.oldPrice}>{`${oldPrice} ${currency}`}</Text>
+				<Text style={styles.newPrice}>{`${newPrice} ${currency}`}</Text>
 			</View>
 		</TouchableWithoutFeedback>
 	) : null;
 };
 
-export default ProductItem;
+export default VerticalItem;
 
 const styles = StyleSheet.create({
-	absolute: {
-		position: 'absolute',
-		right: 10,
-		zIndex: 20,
-		top: 10,
-	},
-	container: {
-		backgroundColor: colors.white,
+	cont1: {
 		padding: 15,
 		borderRadius: 8,
-	},
-	changedContainer: {
 		backgroundColor: colors.white,
-		padding: 12,
-		paddingVertical: 15,
+	},
+	cont2: {
 		borderRadius: 8,
+		paddingVertical: 15,
+		paddingHorizontal: 7.5,
+		backgroundColor: colors.white,
 	},
-	center: {
+	imgCont1: {
 		width: '100%',
-		height: 110,
-		justifyContent: 'center',
+		height: 100,
 		alignItems: 'center',
+		justifyContent: 'center',
 	},
-	image: {
-		width: (windowWidth - 40 - 30 - 40) / 2,
-		height: (windowWidth - 40 - 30 - 40) / 2,
+	imgCont2: {
+		width: '100%',
+		height: 100,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	imgS1: {
+		width: '100%',
+		height: '100%',
+		// width: (windowWidth - 40 - 30 - 40) / 2,
+		// height: (windowWidth - 40 - 30 - 40) / 2,
 		resizeMode: 'contain',
 	},
-	changedImage: {
+	imgS2: {
 		width: '100%',
 		height: '100%',
 		resizeMode: 'contain',
 	},
-	buttonsContainer: {
-		height: 30,
+	btnRow1: {
 		marginTop: 20,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	},
+	btnRow2: {
+		marginTop: 12,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
@@ -192,21 +206,17 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
-	productContainer: {
-		width: windowWidth / 2 - 5,
-		// backgroundColor: 'aqua',
-	},
-	changedProductContainer: {
-		width: windowWidth / 2 - 30,
+	ratingRow: {
+		marginTop: 5,
+		alignItems: 'center',
 	},
 	text: {
 		fontSize: 16,
+		marginTop: 5,
 		lineHeight: 19,
-		color: colors.black,
-		paddingHorizontal: 20,
 		fontWeight: '600',
-		paddingTop: 5,
-		textAlign: 'center',
+		color: colors.black,
+		textAlign: 'justify',
 	},
 	oldPrice: {
 		textDecorationLine: 'line-through',
@@ -222,7 +232,23 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		fontWeight: '800',
 		textAlign: 'center',
-		marginBottom: 20,
+	},
+	absolute: {
+		top: 5,
+		right: 5,
+		width: 25,
+		height: 25,
+		zIndex: 20,
+		alignItems: 'center',
+		position: 'absolute',
+		justifyContent: 'center',
+	},
+	width1: {
+		width: windowWidth / 2 - 30,
+		marginLeft: 20,
+	},
+	width2: {
+		width: windowWidth / 2 - 40,
 	},
 	ml20: {
 		marginLeft: 20,

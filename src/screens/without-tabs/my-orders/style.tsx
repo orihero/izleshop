@@ -15,4 +15,7 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 		color: colors.darkGray2,
 	},
+	mt10: {
+		marginTop: 10,
+	},
 });

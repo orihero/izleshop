@@ -31,4 +31,7 @@ export const styles = StyleSheet.create({
 	mh20: {
 		marginHorizontal: 20,
 	},
+	mt15: {
+		marginTop: 15,
+	},
 });

@@ -5,6 +5,7 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import SearchInput from 'components/general/Search';
 import Text from 'components/general/Text';
 import ProductItem from 'components/special/ProductItem';
+import VerticalItem from 'components/special/VerticalItem';
 import SliderItem from 'components/special/SliderItem';
 
 import { colors } from 'constants/colors';
@@ -51,7 +52,7 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 				snapToInterval={windowWidth / 2 - 5}
 				data={products}
 				horizontal
-				renderItem={(props) => <ProductItem {...props} />}
+				renderItem={(props) => <VerticalItem {...props} bigSize />}
 				decelerationRate={'fast'}
 				showsHorizontalScrollIndicator={false}
 				keyExtractor={(e) => e.id.toString()}

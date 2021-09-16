@@ -4,20 +4,24 @@ import { colors } from 'constants/colors';
 
 export interface ItemCounterProps {
 	count?: number;
-	decrement: () => void;
-	increment: () => void;
+	onDecrement: () => void;
+	onIncrement: () => void;
 }
 
-const ItemCounter = ({ count = 1, decrement, increment }: ItemCounterProps) => {
+const ItemCounter = ({
+	count = 1,
+	onDecrement,
+	onIncrement,
+}: ItemCounterProps) => {
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity onPress={decrement} style={styles.left}>
+			<TouchableOpacity onPress={onDecrement} style={styles.left}>
 				<Text style={styles.buttonText}>-</Text>
 			</TouchableOpacity>
 			<View style={styles.count}>
 				<Text>{count}</Text>
 			</View>
-			<TouchableOpacity onPress={increment} style={styles.right}>
+			<TouchableOpacity onPress={onIncrement} style={styles.right}>
 				<Text style={styles.buttonText}>+</Text>
 			</TouchableOpacity>
 		</View>

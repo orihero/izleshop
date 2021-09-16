@@ -5,7 +5,7 @@ import { useAppSelector } from 'utils/hooks';
 
 import { FlatList, View } from 'react-native';
 import Header from 'components/navigation/Header';
-import ProductItem from 'components/special/ProductItem';
+import VerticalItem from 'components/special/VerticalItem';
 
 import { SearchIcon } from 'assets/icons/icons';
 import { strings } from 'locales/locales';
@@ -23,10 +23,9 @@ const FavoritesView = () => {
 				rightEdge={() => <SearchIcon size={20} />}
 			/>
 			<FlatList
-				extraData={[favorites]}
 				contentContainerStyle={styles.flatList}
 				data={favorites}
-				renderItem={({ ...props }) => <ProductItem {...props} />}
+				renderItem={({ ...props }) => <VerticalItem {...props} />}
 				decelerationRate={'fast'}
 				showsVerticalScrollIndicator={false}
 				numColumns={2}

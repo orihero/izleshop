@@ -20,17 +20,25 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 14,
 		backgroundColor: colors.white,
 	},
-	flex1: {
-		flex: 1,
-	},
-	ph20: {
-		paddingHorizontal: 20,
-	},
 	text1: {
 		fontSize: 12,
 		lineHeight: 14,
 		marginLeft: 15,
 		fontWeight: '500',
 		color: colors.gray,
+	},
+	productRow: {
+		marginTop: 10,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+	},
+	flex1: {
+		flex: 1,
+	},
+	ph20: {
+		paddingHorizontal: 20,
+	},
+	mt10: {
+		marginTop: 10,
 	},
 });

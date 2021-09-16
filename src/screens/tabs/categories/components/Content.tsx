@@ -10,7 +10,8 @@ import {
 
 import { colors } from 'constants/colors';
 import { categories } from '../data';
-import CategoryItem from './Item';
+import Item from './Item';
+import { CategoriesNavigationProp } from '../controller';
 
 export type ContentItemProps = typeof categories[0];
 
@@ -19,9 +20,16 @@ type IContentItemProp = ListRenderItemInfo<ContentItemProps>;
 interface IContentProps {
 	item: IContentItemProp;
 	disableTitle?: boolean;
+	navigation: CategoriesNavigationProp;
+	fromPage: string;
 }
 
-const Content = ({ item, disableTitle }: IContentProps) => {
+const Content = ({
+	item,
+	disableTitle,
+	navigation,
+	fromPage,
+}: IContentProps) => {
 	return (
 		<View>
 			{disableTitle ? null : (
@@ -29,8 +37,14 @@ const Content = ({ item, disableTitle }: IContentProps) => {
 			)}
 			<FlatList
 				horizontal
+				renderItem={(props) => (
+					<Item
+						{...props}
+						navigation={navigation}
+						fromPage={fromPage}
+					/>
+				)}
 				data={item.subCategories}
-				renderItem={CategoryItem}
 				contentContainerStyle={{ paddingLeft: 15 }}
 			/>
 		</View>

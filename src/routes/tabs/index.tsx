@@ -46,7 +46,7 @@ const Tabs = () => {
 	return (
 		<View style={{ ...styles.container, paddingTop: insets.top }}>
 			<Tab.Navigator
-				initialRouteName={Routes.CATEGORIES_STACK}
+				initialRouteName={Routes.CART_STACK}
 				labeled={false}
 				barStyle={styles.bar}
 				key={Object.keys(store.getState().cart).length}
@@ -93,7 +93,7 @@ const Tabs = () => {
 							);
 						},
 					}}
-					name="Favorites"
+					name={Routes.FAVORITES}
 					component={FavoritesScreen}
 				/>
 				<Tab.Screen

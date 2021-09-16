@@ -23,7 +23,7 @@ interface OrderItemProps {
 }
 
 const OrderItem = ({ item }: OrderItemProps) => {
-	const { img } = item;
+	const { img } = item || {};
 
 	const onClose = () => {
 		console.log('onClosePress');
@@ -33,7 +33,7 @@ const OrderItem = ({ item }: OrderItemProps) => {
 		console.log('onLike');
 	};
 
-	return (
+	return item ? (
 		<View style={styles.container}>
 			<View style={styles.imgCont}>
 				<Image source={img} style={styles.image} />
@@ -70,7 +70,7 @@ const OrderItem = ({ item }: OrderItemProps) => {
 				</Pressable>
 			</View>
 		</View>
-	);
+	) : null;
 };
 
 export default OrderItem;

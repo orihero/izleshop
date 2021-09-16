@@ -9,6 +9,7 @@ import { FlatList, Text, View } from 'react-native';
 import Header from 'components/navigation/Header';
 import DefaultButton from 'components/general/DefaultButton';
 import CartItem from 'components/special/CartItem';
+import HorizontalItem from 'components/special/HorizontalItem';
 
 import { strings } from 'locales/locales';
 import { styles } from './style';
@@ -42,7 +43,11 @@ const CartView = ({ navigation }: ICartViewProps) => {
 					data={cartItems}
 					style={styles.mh20}
 					keyExtractor={(e) => e.data.id.toString()}
-					renderItem={(props) => <CartItem {...props} />}
+					renderItem={(props) => (
+						<View style={styles.mt15}>
+							<HorizontalItem hasCounter {...props} />
+						</View>
+					)}
 				/>
 			) : null}
 			{cartItems.length > 0 && (

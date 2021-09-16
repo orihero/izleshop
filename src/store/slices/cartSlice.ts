@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductItemModel } from 'components/special/ProductItem';
+import { IHorizontalItemModel } from 'src/components/special/HorizontalItem';
 import { RootState } from '../configureStore';
 
-let initialState: { [key: string]: { data: ProductItemModel; count: number } } =
-	{};
+let initialState: {
+	[key: string]: { data: IHorizontalItemModel; count: number };
+} = {};
 
 export const cartSlice = createSlice({
 	name: 'cart',

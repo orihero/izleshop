@@ -6,21 +6,48 @@ import {
 	Text,
 	View,
 } from 'react-native';
+import Pressable from 'components/general/Pressable';
 import { colors } from 'constants/colors';
 import { categories } from '../data';
+import { Routes } from 'constants/routes';
 let el = categories[0].subCategories[0];
 
-const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
-	return (
-		<View style={styles.parentContainer}>
-			<View style={styles.container}>
-				<Image source={{ uri: item.imgUrl }} style={styles.image} />
+const Item = ({
+	item,
+	navigation,
+	fromPage,
+}: ListRenderItemInfo<typeof el>) => {
+	const onPress = () => {
+		if (fromPage === 'categories') {
+			navigation.navigate(Routes.PRODUCTS, {
+				from: fromPage,
+				title: item.label,
+			});
+		}
+		if (fromPage === 'brands') {
+			navigation.navigate(Routes.PRODUCTS, {
+				from: fromPage,
+				title: item.label,
+			});
+		}
+	};
+
+	return item ? (
+		<Pressable onPress={onPress}>
+			<View style={styles.parentContainer}>
+				<View style={styles.container}>
+					<Image source={{ uri: item.imgUrl }} style={styles.image} />
+				</View>
+				<Text
+					lineBreakMode={'tail'}
+					numberOfLines={1}
+					style={styles.title}
+				>
+					{item.label}
+				</Text>
 			</View>
-			<Text lineBreakMode={'tail'} numberOfLines={1} style={styles.title}>
-				{item.label}
-			</Text>
-		</View>
-	);
+		</Pressable>
+	) : null;
 };
 
 export default Item;
