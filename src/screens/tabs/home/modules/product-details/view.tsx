@@ -17,7 +17,7 @@ import DefaultButton from 'components/general/DefaultButton';
 import Pressable from 'components/general/Pressable';
 import Accordion from 'components/special/Accordion';
 import SliderItem from 'components/special/SliderItem';
-import Rating from 'components/special/Rating';
+// import Rating from 'components/special/Rating';
 import ProductItem from 'components/special/ProductItem';
 
 import { styles } from './style';
@@ -28,6 +28,7 @@ import { strings } from 'locales/locales';
 import { products } from '../../data';
 import { CartIcon, HeartIcon, PressableIcon } from 'assets/icons/icons';
 import { Routes } from 'constants/routes';
+import VerticalItem from 'components/special/VerticalItem';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
@@ -128,7 +129,7 @@ const ProductDetailsView = ({
 				</View>
 				<View style={styles.main}>
 					<Text style={styles.text1}>{item.title}</Text>
-					<Rating styleChanged />
+					{/* <Rating styleChanged /> */}
 					<View style={styles.pr}>
 						<Text style={styles.text2}>
 							{`${item.oldPrice} ${item.currency}`}
@@ -147,7 +148,7 @@ const ProductDetailsView = ({
 						snapToInterval={windowWidth / 2 - 5}
 						data={products}
 						horizontal
-						renderItem={(props) => <ProductItem {...props} />}
+						renderItem={(props) => <VerticalItem {...props} />}
 						decelerationRate={'fast'}
 						showsHorizontalScrollIndicator={false}
 						keyExtractor={(e) => e.id.toString()}

@@ -120,25 +120,34 @@ const HorizontalItem = ({
 					>
 						{title}
 					</Text>
+
+				</View>
+				<View style={styles.plus}>
 					<Text
 						style={styles.text4}
-					>{`${newPrice} ${currency}`}</Text>
+					>{`${newPrice} ${currency}`}
+						{hasRating ? (
+							<Rating defaultStyle active={rating} count={ratingCount} />
+						) : null}
+						{hasCounter ? (
+							<ItemCounter
+								count={item.count}
+								onDecrement={onDecrement}
+								onIncrement={onIncrement}
+							/>
+						) : null}
+					</Text>
+
 				</View>
-				{hasRating ? (
-					<Rating defaultStyle active={rating} count={ratingCount} />
-				) : null}
-				{hasCounter ? (
-					<ItemCounter
-						count={item.count}
-						onDecrement={onDecrement}
-						onIncrement={onIncrement}
-					/>
-				) : null}
 			</View>
 			<View style={styles.rightEdge}>
 				<Pressable onPress={onRemove}>
 					<View style={styles.square}>
-						<CloseIcon size={15} color={'rgba(0,0,0,.3)'} />
+						<HeartIcon
+							size={20}
+							color={colors.leghtGrey1}
+							active={isFavorite}
+						/>
 					</View>
 				</Pressable>
 				<View style={styles.irow}>
@@ -155,11 +164,7 @@ const HorizontalItem = ({
 					) : null}
 					<Pressable onPress={onLike}>
 						<View style={styles.square}>
-							<HeartIcon
-								size={20}
-								color={colors.red}
-								active={isFavorite}
-							/>
+							<CloseIcon size={15} color={'rgba(0,0,0,.3)'} />
 						</View>
 					</Pressable>
 				</View>
@@ -216,23 +221,36 @@ const styles = StyleSheet.create({
 		lineHeight: 17,
 		fontWeight: '600',
 	},
+	plus: {
+		width: 350,
+		height: 40,
+		// paddingTop: 10,
+		alignItems: "flex-start",
+		justifyContent: "center",
+		flexDirection: "column",
+
+	},
 	text4: {
-		fontSize: 18,
-		marginTop: 3,
+		paddingTop: -20,
+		paddingRight: 10,
+		fontSize: 14,
 		lineHeight: 21,
 		fontWeight: '800',
 		color: colors.blue,
 	},
 	rightEdge: {
-		alignItems: 'flex-end',
-		justifyContent: 'space-between',
+		flexDirection: "row",
+		alignItems: 'flex-start',
+		justifyContent: 'center',
 	},
 	irow: {
-		flexDirection: 'row',
+		height: 5,
+		flexDirection: 'column',
 	},
 	square: {
 		width: 30,
-		height: 30,
+		height: 10,
+		paddingTop: 15,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

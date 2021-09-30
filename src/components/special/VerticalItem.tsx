@@ -17,7 +17,7 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
-import Rating from 'components/special/Rating';
+// import Rating from 'components/special/Rating';
 import Text from 'components/general/Text';
 
 import { colors } from 'constants/colors';
@@ -26,7 +26,6 @@ import { windowWidth } from 'constants/sizes';
 import {
 	CartIcon,
 	CloseIcon,
-	HeartIcon,
 	PressableIcon,
 } from 'assets/icons/icons';
 
@@ -34,10 +33,7 @@ export interface IVerticalItemModel {
 	id?: number;
 	title?: string;
 	newPrice?: string;
-	oldPrice?: string;
 	currency?: string;
-	ratingCount?: number;
-	rating?: number;
 	status?: string;
 	isFavorite?: boolean;
 	isInCart?: boolean;
@@ -60,13 +56,8 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 		id,
 		title,
 		newPrice,
-		oldPrice,
 		currency,
-		ratingCount,
-		rating,
 		status,
-		// isFavorite,
-		// isInCart,
 		img,
 	} = item || {};
 
@@ -77,13 +68,13 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 	let dispatch = useAppDispatch();
 	let naviation = useNavigation();
 
-	let onHeartPress = () => {
-		if (isFavorite) {
-			dispatch(removeItem(id.toString()));
-		} else {
-			dispatch(addItem(item));
-		}
-	};
+	// let onHeartPress = () => {
+	// 	if (isFavorite) {
+	// 		dispatch(removeItem(id.toString()));
+	// 	} else {
+	// 		dispatch(addItem(item));
+	// 	}
+	// };
 
 	let onCartPress = () => {
 		if (isInCart) {
@@ -125,27 +116,13 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 								/>
 							</View>
 						</PressableIcon>
-						<PressableIcon onPress={onHeartPress}>
-							<View style={styles.buttonCont}>
-								<HeartIcon
-									size={20}
-									color={colors.red}
-									active={isFavorite}
-									onPress={onHeartPress}
-								/>
-							</View>
-						</PressableIcon>
 					</View>
-				</View>
-				<View style={styles.ratingRow}>
-					<Rating defaultStyle active={rating} count={ratingCount} />
-				</View>
 				<Text style={styles.text} numberOfLines={2}>
 					{title}
 				</Text>
-				<Text style={styles.oldPrice}>{`${oldPrice} ${currency}`}</Text>
 				<Text style={styles.newPrice}>{`${newPrice} ${currency}`}</Text>
 			</View>
+				</View>
 		</TouchableWithoutFeedback>
 	) : null;
 };
@@ -192,7 +169,7 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: 'space-between',
+		justifyContent: 'flex-end',
 	},
 	btnRow2: {
 		marginTop: 12,
@@ -203,8 +180,19 @@ const styles = StyleSheet.create({
 	buttonCont: {
 		width: 30,
 		height: 30,
+		borderRadius: 30,
 		alignItems: 'center',
 		justifyContent: 'center',
+		backgroundColor: colors.white,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 3.84,
+
+		elevation: 5,
 	},
 	ratingRow: {
 		marginTop: 5,
@@ -218,20 +206,12 @@ const styles = StyleSheet.create({
 		color: colors.black,
 		textAlign: 'justify',
 	},
-	oldPrice: {
-		textDecorationLine: 'line-through',
-		color: colors.gray,
-		textDecorationColor: colors.gray,
-		fontSize: 18,
-		textAlign: 'center',
-		fontWeight: '600',
-		paddingTop: 10,
-	},
 	newPrice: {
+		paddingTop: 10,
+		fontSize: 15,
+		fontWeight: 'bold',
+		textAlign: 'left',
 		color: colors.blue,
-		fontSize: 20,
-		fontWeight: '800',
-		textAlign: 'center',
 	},
 	absolute: {
 		top: 5,

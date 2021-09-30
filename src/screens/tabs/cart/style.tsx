@@ -7,10 +7,17 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.lightBlue,
 	},
 	totalContainer: {
+		width: "90%",
+		marginBottom: 15,
+		marginLeft: 20,
 		paddingHorizontal: 20,
+		borderRadius: 10, 
+		display: "flex",
 		flexDirection: 'row',
+		alignItems: "center",
 		justifyContent: 'space-between',
 		paddingVertical: 15,
+		backgroundColor: colors.white,
 	},
 	totalPriceText1: {
 		fontSize: 18,
@@ -23,6 +30,7 @@ export const styles = StyleSheet.create({
 		fontWeight: '700',
 	},
 	absolute: {
+		// paddingTop: 500,
 		position: 'absolute',
 		bottom: 20,
 		left: 0,

@@ -34,10 +34,7 @@ const CartView = ({ navigation }: ICartViewProps) => {
 				title={strings.cart}
 				rightEdge={() => <SearchIcon size={20} />}
 			/>
-			<View style={styles.totalContainer}>
-				<Text style={styles.totalPriceText1}>{strings.total}</Text>
-				<Text style={styles.totalPriceText2}>{total}</Text>
-			</View>
+
 			{cartItems ? (
 				<FlatList
 					data={cartItems}
@@ -50,8 +47,13 @@ const CartView = ({ navigation }: ICartViewProps) => {
 					)}
 				/>
 			) : null}
+
 			{cartItems.length > 0 && (
 				<View style={styles.absolute}>
+					<View style={styles.totalContainer}>
+						<Text style={styles.totalPriceText1}>{strings.total}</Text>
+						<Text style={styles.totalPriceText2}>{total}</Text>
+					</View>
 					<DefaultButton text={strings.order} onPress={onPress} />
 				</View>
 			)}
