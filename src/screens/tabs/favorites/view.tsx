@@ -5,8 +5,9 @@ import { useAppSelector } from 'utils/hooks';
 
 import { FlatList, View } from 'react-native';
 import Header from 'components/navigation/Header';
-import VerticalItem from 'components/special/VerticalItem';
-
+import HorizontalItem from 'components/special/HorizontalItem';
+// import VerticalItem from 'components/special/VerticalItem';
+import  Rating from 'components/special/Rating'
 import { SearchIcon } from 'assets/icons/icons';
 import { strings } from 'locales/locales';
 import reactotron from 'store/reactotron.config';
@@ -25,11 +26,13 @@ const FavoritesView = () => {
 			<FlatList
 				contentContainerStyle={styles.flatList}
 				data={favorites}
-				renderItem={({ ...props }) => <VerticalItem {...props} />}
-				decelerationRate={'fast'}
+				renderItem={({ ...props }) => <HorizontalItem {...props} />}
+				decelerationRate={'normal'}
 				showsVerticalScrollIndicator={false}
 				numColumns={2}
+
 			/>
+			<Rating /> 
 		</View>
 	);
 };

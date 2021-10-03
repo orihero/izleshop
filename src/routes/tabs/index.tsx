@@ -21,14 +21,16 @@ import {
 import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
 
+
+
 const Tab = createMaterialBottomTabNavigator();
 
 let styles = StyleSheet.create({
 	bar: {
-		backgroundColor: colors.blue,
+		backgroundColor: colors.white,
 		height: 75,
-		borderTopLeftRadius: 15,
-		borderTopRightRadius: 15,
+		// borderTopLeftRadius: 15,
+		// borderTopRightRadius: 15,
 		alignItems: 'center',
 		justifyContent: 'center',
 		overflow: 'hidden',
@@ -39,7 +41,6 @@ let styles = StyleSheet.create({
 		backgroundColor: colors.lightBlue,
 	},
 });
-
 const Tabs = () => {
 	const insets = useSafeAreaInsets();
 
@@ -57,7 +58,7 @@ const Tabs = () => {
 							return (
 								<HomeIcon
 									size={28}
-									active={focused}
+									// active={focused}
 									color={color}
 								/>
 							);
@@ -72,7 +73,7 @@ const Tabs = () => {
 							return (
 								<CategoriesIcon
 									size={28}
-									active={focused}
+									// active={focused}
 									color={color}
 								/>
 							);
@@ -87,7 +88,7 @@ const Tabs = () => {
 							return (
 								<HeartIcon
 									size={28}
-									active={focused}
+									// active={focused}
 									color={color}
 								/>
 							);
@@ -102,7 +103,7 @@ const Tabs = () => {
 							return (
 								<CartIcon
 									size={28}
-									active={focused}
+									// active={focused}
 									color={color}
 								/>
 							);
@@ -118,7 +119,7 @@ const Tabs = () => {
 							return (
 								<ProfileIcon
 									size={28}
-									active={focused}
+									// active={focused}
 									color={color}
 								/>
 							);

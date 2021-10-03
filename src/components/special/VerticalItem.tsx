@@ -17,15 +17,15 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
-// import Rating from 'components/special/Rating';
 import Text from 'components/general/Text';
-
+// import Routes from 'constants/routes'
 import { colors } from 'constants/colors';
-import { Routes } from 'constants/routes';
+import {Routes}  from 'constants/routes';
 import { windowWidth } from 'constants/sizes';
 import {
 	CartIcon,
 	CloseIcon,
+	HeartIcon,
 	PressableIcon,
 } from 'assets/icons/icons';
 
@@ -34,6 +34,8 @@ export interface IVerticalItemModel {
 	title?: string;
 	newPrice?: string;
 	currency?: string;
+	ratingCount?: number;
+	rating?: number;
 	status?: string;
 	isFavorite?: boolean;
 	isInCart?: boolean;
@@ -57,6 +59,8 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 		title,
 		newPrice,
 		currency,
+		ratingCount,
+		rating,
 		status,
 		img,
 	} = item || {};
@@ -68,13 +72,13 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 	let dispatch = useAppDispatch();
 	let naviation = useNavigation();
 
-	// let onHeartPress = () => {
-	// 	if (isFavorite) {
-	// 		dispatch(removeItem(id.toString()));
-	// 	} else {
-	// 		dispatch(addItem(item));
-	// 	}
-	// };
+	let onHeartPress = () => {
+		if (isFavorite) {
+			dispatch(removeItem(id.toString()));
+		} else {
+			dispatch(addItem(item));
+		}
+	};
 
 	let onCartPress = () => {
 		if (isInCart) {
@@ -116,13 +120,25 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 								/>
 							</View>
 						</PressableIcon>
+						<PressableIcon onPress={onHeartPress}>
+							<View style={styles.buttonCont}>
+								<HeartIcon
+									size={20}
+									color={colors.red}
+									active={isFavorite}
+									onPress={onHeartPress}
+								/>
+							</View>
+						</PressableIcon>
 					</View>
-				<Text style={styles.text} numberOfLines={2}>
-					{title}
-				</Text>
-				<Text style={styles.newPrice}>{`${newPrice} ${currency}`}</Text>
-			</View>
+					<View style={styles.ratingRow}>
+					</View>
+					<Text style={styles.text} numberOfLines={2}>
+						{title}
+					</Text>
+					<Text style={styles.newPrice}>{`${newPrice} ${currency}`}</Text>
 				</View>
+			</View>
 		</TouchableWithoutFeedback>
 	) : null;
 };
@@ -130,6 +146,13 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 export default VerticalItem;
 
 const styles = StyleSheet.create({
+	width1: {
+		width: windowWidth / 2 - 30,
+		marginLeft: 20,
+	},
+	width2: {
+		width: windowWidth / 2 - 40,
+	},
 	cont1: {
 		padding: 15,
 		borderRadius: 8,
@@ -139,6 +162,7 @@ const styles = StyleSheet.create({
 		borderRadius: 8,
 		paddingVertical: 15,
 		paddingHorizontal: 7.5,
+		marginLeft: 10,
 		backgroundColor: colors.white,
 	},
 	imgCont1: {
@@ -175,7 +199,7 @@ const styles = StyleSheet.create({
 		marginTop: 12,
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: 'space-between',
+		justifyContent: 'flex-end',
 	},
 	buttonCont: {
 		width: 30,
@@ -222,13 +246,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		position: 'absolute',
 		justifyContent: 'center',
-	},
-	width1: {
-		width: windowWidth / 2 - 30,
-		marginLeft: 20,
-	},
-	width2: {
-		width: windowWidth / 2 - 40,
 	},
 	ml20: {
 		marginLeft: 20,
