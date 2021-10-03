@@ -59,4 +59,13 @@ export const styles = StyleSheet.create({
 	mb20: {
 		marginBottom: 20,
 	},
+	slider: {
+		backgroundColor: 'red',
+	},
+	thumb: {
+		width: 15,
+		height: 15,
+		backgroundColor: colors.blue,
+		borderRadius: 15,
+	},
 });

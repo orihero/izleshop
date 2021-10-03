@@ -41,7 +41,7 @@ const Rating = ({
 						key={i}
 					>
 						<StarIcon
-							size={20}
+							size={15}
 							style={styles.mh3}
 							active={i < activeCount}
 							color={

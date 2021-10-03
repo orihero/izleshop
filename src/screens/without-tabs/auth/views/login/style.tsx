@@ -3,8 +3,8 @@ import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		justifyContent: 'space-between',
+		// flex: 1,
+		// justifyContent: 'space-between',
 	},
 	top: {
 		flex: 0.4,
@@ -56,6 +56,6 @@ export const styles = StyleSheet.create({
 		marginTop: 12,
 	},
 	mt20: {
-		marginTop: 20,
+		marginVertical: 10,
 	},
 });

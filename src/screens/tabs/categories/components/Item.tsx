@@ -36,7 +36,7 @@ const Item = ({
 		<Pressable onPress={onPress}>
 			<View style={styles.parentContainer}>
 				<View style={styles.container}>
-					<Image source={{ uri: item.imgUrl }} style={styles.image} />
+					<Image source={item.img} style={styles.image} />
 				</View>
 				<Text
 					lineBreakMode={'tail'}
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 		width: 100,
 		height: 100,
 		marginHorizontal: 5,
-		marginTop: 10,
+		marginTop: 5,
 	},
 	title: {
 		fontWeight: '500',
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		color: colors.black,
 		paddingLeft: 20,
-		paddingVertical: 20,
+		// paddingVertical: 20,
+		paddingTop: 10,
 	},
 	parentContainer: {},
 	image: {

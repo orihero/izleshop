@@ -2,6 +2,9 @@ import LocalizedStrings from 'react-native-localization';
 
 export let strings = new LocalizedStrings({
 	ru: {
+		home: 'Главная',
+		profile: 'Профиль',
+		category: 'Категория',
 		search: 'Что вы ищете?',
 		recomendedForYou: 'Рекомендованное вам',
 		categories: 'Категории',
@@ -73,6 +76,4 @@ export let strings = new LocalizedStrings({
 		byLoggingInYouAgreeToOur: 'При входе вы соглашаетесь с нашими',
 		termsOfUse: 'Условиями использования.',
 	},
-	uz: {},
-	en: {},
 });

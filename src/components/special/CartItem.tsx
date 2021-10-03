@@ -151,12 +151,11 @@ const styles = StyleSheet.create({
 		textDecorationColor: colors.gray,
 		fontSize: 18,
 		textAlign: 'center',
-		fontWeight: '600',
 		paddingTop: 10,
 	},
 	newPrice: {
 		color: colors.blue,
 		fontSize: 20,
-		fontWeight: '800',
+		fontWeight: 'bold',
 	},
 });

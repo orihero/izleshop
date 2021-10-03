@@ -1,21 +1,15 @@
-import React from 'react';
-
-import { selectFavoritesList } from 'store/slices/favoritesSlice';
-import { useAppSelector } from 'utils/hooks';
-
-import { FlatList, View } from 'react-native';
+import { SearchIcon } from 'assets/icons/icons';
 import Header from 'components/navigation/Header';
 import VerticalItem from 'components/special/VerticalItem';
-
-import { SearchIcon } from 'assets/icons/icons';
 import { strings } from 'locales/locales';
-import reactotron from 'store/reactotron.config';
+import React from 'react';
+import { FlatList, View } from 'react-native';
+import { selectFavoritesList } from 'store/slices/favoritesSlice';
+import { useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
 const FavoritesView = () => {
 	let favorites = useAppSelector(selectFavoritesList);
-	reactotron.log(favorites);
-
 	return (
 		<View>
 			<Header

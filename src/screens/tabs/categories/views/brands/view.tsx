@@ -20,7 +20,7 @@ const BrandsView = () => {
 						navigation={navigation}
 					/>
 				)}
-				showsHorizontalScrollIndicator={false}
+				showsVerticalScrollIndicator={false}
 			/>
 		</View>
 	);

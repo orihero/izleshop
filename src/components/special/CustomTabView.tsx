@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
 	},
 	main: {
 		flex: 1,
-		paddingBottom: 2 * paddingVertical,
 		paddingHorizontal: paddingVertical,
 	},
 	activeBorder: {

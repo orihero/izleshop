@@ -97,14 +97,7 @@ const ProductItem = ({
 						</View>
 					) : null}
 					<View style={styles.center}>
-						<Image
-							source={item.img}
-							style={
-								!sizeChanged
-									? styles.image
-									: styles.changedImage
-							}
-						/>
+						<Image source={item.img} style={styles.image} />
 					</View>
 					<View style={styles.buttonsContainer}>
 						<PressableIcon onPress={onCartPress}>
@@ -214,13 +207,12 @@ const styles = StyleSheet.create({
 		textDecorationColor: colors.gray,
 		fontSize: 18,
 		textAlign: 'center',
-		fontWeight: '600',
 		paddingTop: 10,
 	},
 	newPrice: {
 		color: colors.blue,
 		fontSize: 20,
-		fontWeight: '800',
+		fontWeight: 'bold',
 		textAlign: 'center',
 		marginBottom: 20,
 	},

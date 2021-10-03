@@ -1,16 +1,4 @@
-import React from 'react';
-
-import { store } from 'store/configureStore';
-
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import HomeStack from './HomeStack';
-import CategoriesStack from './CategoriesStack';
-import CartStack from './CartStack';
-import { FavoritesScreen, ProfileScreen } from 'screens/tabs';
-
-import { StyleSheet, View, Platform } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 import {
 	CartIcon,
 	CategoriesIcon,
@@ -20,6 +8,15 @@ import {
 } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
+import React from 'react';
+import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { FavoritesScreen, ProfileScreen } from 'screens/tabs';
+import { strings } from 'locales/locales';
+import { store } from 'store/configureStore';
+import CartStack from './CartStack';
+import CategoriesStack from './CategoriesStack';
+import HomeStack from './HomeStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -40,89 +37,70 @@ let styles = StyleSheet.create({
 	},
 });
 
+// let renderIcon= Icon=>{
+// 	return (props:string | ((props: {
+// 		focused: boolean;
+// 		color: string;
+// 	}) => {
+
+// 	}
+// };
+
+let renderIcon = (Icon: typeof HomeIcon) => {
+	return ({ color, focused }: { focused: boolean; color: string }) => {
+		return <Icon active={focused} color={color} size={28} />;
+	};
+};
+
 const Tabs = () => {
 	const insets = useSafeAreaInsets();
 
 	return (
 		<View style={{ ...styles.container, paddingTop: insets.top }}>
 			<Tab.Navigator
-				initialRouteName={Routes.CART_STACK}
-				labeled={false}
 				barStyle={styles.bar}
 				key={Object.keys(store.getState().cart).length}
+				renderTouchable={(props) => <TouchableOpacity {...props} />}
+				shifting={false}
+				sceneAnimationEnabled={false}
 			>
 				<Tab.Screen
 					options={{
-						tabBarIcon: ({ color, focused }) => {
-							return (
-								<HomeIcon
-									size={28}
-									active={focused}
-									color={color}
-								/>
-							);
-						},
+						tabBarIcon: renderIcon(HomeIcon),
+						tabBarLabel: strings.home,
 					}}
 					name={Routes.HOME_STACK}
 					component={HomeStack}
 				/>
 				<Tab.Screen
 					options={{
-						tabBarIcon: ({ color, focused }) => {
-							return (
-								<CategoriesIcon
-									size={28}
-									active={focused}
-									color={color}
-								/>
-							);
-						},
+						tabBarIcon: renderIcon(CategoriesIcon),
+						tabBarLabel: strings.category,
 					}}
 					name={Routes.CATEGORIES_STACK}
 					component={CategoriesStack}
 				/>
 				<Tab.Screen
 					options={{
-						tabBarIcon: ({ color, focused }) => {
-							return (
-								<HeartIcon
-									size={28}
-									active={focused}
-									color={color}
-								/>
-							);
-						},
+						tabBarIcon: renderIcon(HeartIcon),
+						tabBarLabel: strings.favorites,
 					}}
 					name={Routes.FAVORITES}
 					component={FavoritesScreen}
 				/>
 				<Tab.Screen
 					options={{
-						tabBarIcon: ({ color, focused }) => {
-							return (
-								<CartIcon
-									size={28}
-									active={focused}
-									color={color}
-								/>
-							);
-						},
+						tabBarIcon: renderIcon(CartIcon),
 						tabBarBadge: Object.keys(store.getState().cart).length,
+						tabBarLabel: strings.cart,
 					}}
 					name={Routes.CART_STACK}
 					component={CartStack}
 				/>
 				<Tab.Screen
 					options={{
-						tabBarIcon: ({ color, focused }) => {
-							return (
-								<ProfileIcon
-									size={28}
-									active={focused}
-									color={color}
-								/>
-							);
-						},
+						tabBarIcon: renderIcon(ProfileIcon),
+						tabBarLabel: strings.profile,
 					}}
 					name={Routes.PROFILE_STACK}
 					component={ProfileScreen}

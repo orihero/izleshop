@@ -19,7 +19,7 @@ const CategoriesView = () => {
 						navigation={navigation}
 					/>
 				)}
-				showsHorizontalScrollIndicator={false}
+				showsVerticalScrollIndicator={false}
 			/>
 		</View>
 	);

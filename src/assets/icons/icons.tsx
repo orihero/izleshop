@@ -1,6 +1,12 @@
 import * as React from 'react';
-import { GestureResponderEvent, TouchableOpacity } from 'react-native';
+import {
+	Animated,
+	GestureResponderEvent,
+	TouchableOpacity,
+} from 'react-native';
 import Svg, { Path } from 'react-native-svg';
+
+let AnimatedPath = Animated.createAnimatedComponent(Path);
 
 export interface IconProps {
 	color?: string;

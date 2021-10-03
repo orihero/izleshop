@@ -46,6 +46,7 @@ const Content = ({
 				)}
 				data={item.subCategories}
 				contentContainerStyle={{ paddingLeft: 15 }}
+				showsHorizontalScrollIndicator={false}
 			/>
 		</View>
 	);
@@ -59,6 +60,6 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		color: colors.black,
 		paddingLeft: 20,
-		paddingTop: 20,
+		paddingTop: 10,
 	},
 });

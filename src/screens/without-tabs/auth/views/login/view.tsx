@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import DefaultInput from 'components/general/DefaultInput';
 import DefaultButton from 'components/general/DefaultButton';
 
@@ -23,7 +23,10 @@ const LoginView = ({
 	onPress,
 }: ILoginViewProps) => {
 	return (
-		<View style={styles.container}>
+		<ScrollView
+			style={styles.container}
+			showsVerticalScrollIndicator={false}
+		>
 			<View style={styles.top}>
 				<View style={styles.mt20}>
 					<Text
@@ -65,7 +68,7 @@ const LoginView = ({
 					<Text style={styles.text5}>{strings.termsOfUse}</Text>
 				</View>
 			</View>
-		</View>
+		</ScrollView>
 	);
 };
 

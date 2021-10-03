@@ -1,15 +1,16 @@
-import React from 'react';
-
 import { useNavigation } from '@react-navigation/core';
-
-import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
-	addItem,
-	removeItem,
-	selectFavorites,
-} from 'store/slices/favoritesSlice';
-import { useAppDispatch, useAppSelector } from 'utils/hooks';
-
+	CartIcon,
+	CloseIcon,
+	HeartIcon,
+	PressableIcon,
+} from 'assets/icons/icons';
+import Text from 'components/general/Text';
+import Rating from 'components/special/Rating';
+import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
+import { windowWidth } from 'constants/sizes';
+import React from 'react';
 import {
 	Image,
 	ListRenderItemInfo,
@@ -17,18 +18,13 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
-import Rating from 'components/special/Rating';
-import Text from 'components/general/Text';
-
-import { colors } from 'constants/colors';
-import { Routes } from 'constants/routes';
-import { windowWidth } from 'constants/sizes';
+import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
-	CartIcon,
-	CloseIcon,
-	HeartIcon,
-	PressableIcon,
-} from 'assets/icons/icons';
+	addItem,
+	removeItem,
+	selectFavorites,
+} from 'store/slices/favoritesSlice';
+import { useAppDispatch, useAppSelector } from 'utils/hooks';
 
 export interface IVerticalItemModel {
 	id?: number;
@@ -224,13 +220,12 @@ const styles = StyleSheet.create({
 		textDecorationColor: colors.gray,
 		fontSize: 18,
 		textAlign: 'center',
-		fontWeight: '600',
 		paddingTop: 10,
 	},
 	newPrice: {
 		color: colors.blue,
 		fontSize: 20,
-		fontWeight: '800',
+		fontWeight: 'bold',
 		textAlign: 'center',
 	},
 	absolute: {
@@ -249,6 +244,7 @@ const styles = StyleSheet.create({
 	},
 	width2: {
 		width: windowWidth / 2 - 40,
+		marginHorizontal: 10,
 	},
 	ml20: {
 		marginLeft: 20,

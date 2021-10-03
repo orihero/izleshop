@@ -1,33 +1,29 @@
-import React from 'react';
-
 import { useNavigation } from '@react-navigation/core';
-import { useAppDispatch, useAppSelector } from 'utils/hooks';
-import { selectCart, addToCart, removeFromCart } from 'store/slices/cartSlice';
+import { CartIcon, HeartIcon, PressableIcon } from 'assets/icons/icons';
+import DefaultButton from 'components/general/DefaultButton';
+import Pressable from 'components/general/Pressable';
+import Header from 'components/navigation/Header';
+import Accordion from 'components/special/Accordion';
+import ProductItem from 'components/special/ProductItem';
+import Rating from 'components/special/Rating';
+import SliderItem from 'components/special/SliderItem';
+import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
+import { windowWidth } from 'constants/sizes';
+import { strings } from 'locales/locales';
+import { accordionData, item } from 'mockup/data';
+import React from 'react';
+import { FlatList, ScrollView, Text, View } from 'react-native';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
 	addItem,
 	removeItem,
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
-
-import { Text, View, FlatList, ScrollView } from 'react-native';
-import Carousel, { Pagination } from 'react-native-snap-carousel';
-
-import Header from 'components/navigation/Header';
-import DefaultButton from 'components/general/DefaultButton';
-import Pressable from 'components/general/Pressable';
-import Accordion from 'components/special/Accordion';
-import SliderItem from 'components/special/SliderItem';
-import Rating from 'components/special/Rating';
-import ProductItem from 'components/special/ProductItem';
-
-import { styles } from './style';
-import { item, accordionData } from 'mockup/data';
-import { colors } from 'constants/colors';
-import { windowWidth } from 'constants/sizes';
-import { strings } from 'locales/locales';
+import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { products } from '../../data';
-import { CartIcon, HeartIcon, PressableIcon } from 'assets/icons/icons';
-import { Routes } from 'constants/routes';
+import { styles } from './style';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;

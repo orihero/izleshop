@@ -14,17 +14,17 @@ export let data = [
 ];
 
 export let products = [
-	{
-		rating: 4,
-		id: 1,
-		title: 'Iphone 12 Pro Max 256/2 SIM/3GB RAM/ and other characteristics',
-		oldPrice: '420 000',
-		newPrice: '300 000',
-		currency: 'сум',
-		img: {
-			uri: 'https://cdn.alzashop.com/Foto/f16/RI/RI035b1.jpg'
-		},
-	},
+	// {
+	// 	rating: 4,
+	// 	id: 1,
+	// 	title: 'Iphone 12 Pro Max 256/2 SIM/3GB RAM/ and other characteristics',
+	// 	oldPrice: '420 000',
+	// 	newPrice: '300 000',
+	// 	currency: 'сум',
+	// 	img: {
+	// 		uri: 'https://cdn.alzashop.com/Foto/f16/RI/RI035b1.jpg'
+	// 	},
+	// },
 	{
 		rating: 4,
 		id: 2,
