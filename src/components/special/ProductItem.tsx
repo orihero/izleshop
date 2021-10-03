@@ -17,7 +17,7 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
-import Rating from 'components/special/Rating';
+// import Rating from 'components/special/Rating';
 import Text from 'components/general/Text';
 
 import { colors } from 'constants/colors';
@@ -29,6 +29,7 @@ import {
 	HeartIcon,
 	PressableIcon,
 } from 'assets/icons/icons';
+import Rating from './Rating';
 
 export interface ProductItemModel {
 	id: number;

@@ -16,7 +16,7 @@ export interface IconProps {
 	onPress?: () => void;
 }
 
-export function ProfileIcon({ color = 'black', active, size }: IconProps) {
+export function ProfileIcon({ color = 'white', active, size }: IconProps) {
 	let iconProps = { fill: color, stroke: color, height: size, width: size };
 	if (active) {
 		return (
@@ -42,7 +42,7 @@ export let PressableIcon = ({ onPress, children }: PressableIconProps) => {
 };
 
 export function HeartIcon({
-	color = 'black',
+	color = 'white',
 	active,
 	size,
 	onPress,
@@ -77,7 +77,7 @@ export function CategoriesIcon({ color = 'black', active, size }: IconProps) {
 		</Svg>
 	);
 }
-export function HomeIcon({ color = 'black', active, size }: IconProps) {
+export function HomeIcon({ color = 'white', active, size }: IconProps) {
 	let iconProps = { fill: color, stroke: color, height: size, width: size };
 	if (active) {
 		return (

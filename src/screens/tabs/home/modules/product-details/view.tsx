@@ -4,9 +4,8 @@ import DefaultButton from 'components/general/DefaultButton';
 import Pressable from 'components/general/Pressable';
 import Header from 'components/navigation/Header';
 import Accordion from 'components/special/Accordion';
-import ProductItem from 'components/special/ProductItem';
-import Rating from 'components/special/Rating';
 import SliderItem from 'components/special/SliderItem';
+import VerticalItem from 'components/special/VerticalItem';
 import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
 import { windowWidth } from 'constants/sizes';
@@ -23,7 +22,6 @@ import {
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { products } from '../../data';
-import { styles } from './style';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
@@ -124,7 +122,7 @@ const ProductDetailsView = ({
 				</View>
 				<View style={styles.main}>
 					<Text style={styles.text1}>{item.title}</Text>
-					<Rating styleChanged />
+					{/* <Rating styleChanged /> */}
 					<View style={styles.pr}>
 						<Text style={styles.text2}>
 							{`${item.oldPrice} ${item.currency}`}
@@ -143,7 +141,7 @@ const ProductDetailsView = ({
 						snapToInterval={windowWidth / 2 - 5}
 						data={products}
 						horizontal
-						renderItem={(props) => <ProductItem {...props} />}
+						renderItem={(props) => <VerticalItem {...props} />}
 						decelerationRate={'fast'}
 						showsHorizontalScrollIndicator={false}
 						keyExtractor={(e) => e.id.toString()}

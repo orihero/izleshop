@@ -5,11 +5,6 @@ import {
 	HeartIcon,
 	PressableIcon,
 } from 'assets/icons/icons';
-import Text from 'components/general/Text';
-import Rating from 'components/special/Rating';
-import { colors } from 'constants/colors';
-import { Routes } from 'constants/routes';
-import { windowWidth } from 'constants/sizes';
 import React from 'react';
 import {
 	Image,
@@ -18,19 +13,27 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
-import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
+import Text from 'components/general/Text';
+// import Routes from 'constants/routes'
+import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
+import { windowWidth } from 'constants/sizes';
 import {
 	addItem,
 	removeItem,
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
+import {
+	addToCart,
+	removeFromCart,
+	selectCart,
+} from 'src/store/slices/cartSlice';
 
 export interface IVerticalItemModel {
 	id?: number;
 	title?: string;
 	newPrice?: string;
-	oldPrice?: string;
 	currency?: string;
 	ratingCount?: number;
 	rating?: number;
@@ -52,19 +55,8 @@ export interface IVerticalItemProps {
 }
 
 const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
-	const {
-		id,
-		title,
-		newPrice,
-		oldPrice,
-		currency,
-		ratingCount,
-		rating,
-		status,
-		// isFavorite,
-		// isInCart,
-		img,
-	} = item || {};
+	const { id, title, newPrice, currency, ratingCount, rating, status, img } =
+		item || {};
 
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
@@ -132,15 +124,14 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 							</View>
 						</PressableIcon>
 					</View>
+					<View style={styles.ratingRow}></View>
+					<Text style={styles.text} numberOfLines={2}>
+						{title}
+					</Text>
+					<Text
+						style={styles.newPrice}
+					>{`${newPrice} ${currency}`}</Text>
 				</View>
-				<View style={styles.ratingRow}>
-					<Rating defaultStyle active={rating} count={ratingCount} />
-				</View>
-				<Text style={styles.text} numberOfLines={2}>
-					{title}
-				</Text>
-				<Text style={styles.oldPrice}>{`${oldPrice} ${currency}`}</Text>
-				<Text style={styles.newPrice}>{`${newPrice} ${currency}`}</Text>
 			</View>
 		</TouchableWithoutFeedback>
 	) : null;
@@ -149,6 +140,13 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 export default VerticalItem;
 
 const styles = StyleSheet.create({
+	width1: {
+		width: windowWidth / 2 - 30,
+		marginLeft: 20,
+	},
+	width2: {
+		width: windowWidth / 2 - 40,
+	},
 	cont1: {
 		padding: 15,
 		borderRadius: 8,
@@ -158,6 +156,7 @@ const styles = StyleSheet.create({
 		borderRadius: 8,
 		paddingVertical: 15,
 		paddingHorizontal: 7.5,
+		marginLeft: 10,
 		backgroundColor: colors.white,
 	},
 	imgCont1: {
@@ -188,19 +187,30 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: 'space-between',
+		justifyContent: 'flex-end',
 	},
 	btnRow2: {
 		marginTop: 12,
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: 'space-between',
+		justifyContent: 'flex-end',
 	},
 	buttonCont: {
 		width: 30,
 		height: 30,
+		borderRadius: 30,
 		alignItems: 'center',
 		justifyContent: 'center',
+		backgroundColor: colors.white,
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 3.84,
+
+		elevation: 5,
 	},
 	ratingRow: {
 		marginTop: 5,
@@ -214,19 +224,12 @@ const styles = StyleSheet.create({
 		color: colors.black,
 		textAlign: 'justify',
 	},
-	oldPrice: {
-		textDecorationLine: 'line-through',
-		color: colors.gray,
-		textDecorationColor: colors.gray,
-		fontSize: 18,
-		textAlign: 'center',
-		paddingTop: 10,
-	},
 	newPrice: {
-		color: colors.blue,
-		fontSize: 20,
+		paddingTop: 10,
+		fontSize: 15,
 		fontWeight: 'bold',
-		textAlign: 'center',
+		textAlign: 'left',
+		color: colors.blue,
 	},
 	absolute: {
 		top: 5,
@@ -237,14 +240,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		position: 'absolute',
 		justifyContent: 'center',
-	},
-	width1: {
-		width: windowWidth / 2 - 30,
-		marginLeft: 20,
-	},
-	width2: {
-		width: windowWidth / 2 - 40,
-		marginHorizontal: 10,
 	},
 	ml20: {
 		marginLeft: 20,

@@ -22,10 +22,10 @@ const Tab = createMaterialBottomTabNavigator();
 
 let styles = StyleSheet.create({
 	bar: {
-		backgroundColor: colors.blue,
+		backgroundColor: colors.white,
 		height: 75,
-		borderTopLeftRadius: 15,
-		borderTopRightRadius: 15,
+		// borderTopLeftRadius: 15,
+		// borderTopRightRadius: 15,
 		alignItems: 'center',
 		justifyContent: 'center',
 		overflow: 'hidden',
