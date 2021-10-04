@@ -21,6 +21,13 @@ const ItemCounter = ({
 }: ItemCounterProps) => {
 	return (
 		<View style={styles.container}>
+			<View>
+				<TouchableOpacity onPress={onDecrement} style={styles.left}>
+					<View>
+						<Text style={styles.buttonText}>—</Text>
+					</View>
+				</TouchableOpacity>
+			</View>
 			<View style={styles.count}>
 				<Text style={styles.countText}>{count}</Text>
 			</View>
@@ -31,13 +38,6 @@ const ItemCounter = ({
 			>
 				<Text style={styles.buttonText}>+</Text>
 			</TouchableOpacity>
-			<View>
-				<TouchableOpacity onPress={onDecrement} style={styles.left}>
-					<View>
-						<Text style={styles.buttonText}>—</Text>
-					</View>
-				</TouchableOpacity>
-			</View>
 		</View>
 	);
 };
