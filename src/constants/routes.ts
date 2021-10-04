@@ -23,4 +23,5 @@ export enum Routes {
 	CHECKOUT = 'checkout',
 	PROFILE_STACK = 'profile-stack',
 	PROFILE = 'profile',
+	INTRO_SCREEN = 'intro-screen'
 }

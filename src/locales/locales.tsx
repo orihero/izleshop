@@ -72,8 +72,10 @@ export let strings = new LocalizedStrings({
 		startingFromLow: 'начиная с низкого',
 		manufacturers: 'Производители',
 		allBrands: 'Все бренды',
-
 		byLoggingInYouAgreeToOur: 'При входе вы соглашаетесь с нашими',
 		termsOfUse: 'Условиями использования.',
+		toGoToTheBazaar: 'Больше не нужно ходить на базар',
+		favorablePrices: 'У нас выгодные цены',
+		farther: 'Дальше',
 	},
 });

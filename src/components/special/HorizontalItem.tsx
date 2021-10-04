@@ -1,11 +1,13 @@
 import { CartIcon, HeartIcon, TrashIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
-import React from 'react';
+import React, { useState } from 'react';
 import {
 	Image,
 	ListRenderItemInfo,
 	StyleSheet,
 	Text,
+	Touchable,
+	TouchableOpacity,
 	View,
 } from 'react-native';
 import {
@@ -64,6 +66,8 @@ const HorizontalItem = ({
 
 	const dispatch = useAppDispatch();
 
+	const [isChecked, setIsChecked] = useState(false)
+
 	let favorites = useAppSelector(selectFavorites);
 	let cartItems = useAppSelector(selectCart);
 	let isFavorite = !!favorites[item.data?.id || id];
@@ -93,14 +97,17 @@ const HorizontalItem = ({
 	let onCartPress = () => {
 		dispatch(isInCart ? removeFromCart(id) : addToCart(item.data || item));
 	};
+	let onCheck = () => {
+		setIsChecked(!isChecked)
+	}
 	return (
-		<View style={styles.container}>
+		<TouchableOpacity onPress={onCheck} style={styles.container}>
 			<View style={styles.imgCont}>
 				<View style={styles.checkBox}>
-					<Image 
+					{isChecked && <Image
 						style={styles.imgCheck}
 						source={require('../../assets/images/check.png')}
-					/>
+					/>}
 				</View>
 				<Image source={img} style={styles.image} />
 			</View>
@@ -172,7 +179,7 @@ const HorizontalItem = ({
 					)}
 				</View>
 			</View>
-		</View>
+		</TouchableOpacity>
 	);
 };
 
