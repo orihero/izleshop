@@ -5,4 +5,7 @@ export const styles = StyleSheet.create({
 		paddingTop: 20,
 		paddingHorizontal: 20,
 	},
+	mt15: {
+		marginTop: 15,
+	},
 });

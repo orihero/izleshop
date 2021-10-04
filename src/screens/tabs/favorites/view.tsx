@@ -1,8 +1,6 @@
 import { SearchIcon } from 'assets/icons/icons';
 import Header from 'components/navigation/Header';
 import HorizontalItem from 'components/special/HorizontalItem';
-// import VerticalItem from 'components/special/VerticalItem';
-import Rating from 'components/special/Rating';
 import { strings } from 'locales/locales';
 import React from 'react';
 import { FlatList, View } from 'react-native';
@@ -21,12 +19,18 @@ const FavoritesView = () => {
 			<FlatList
 				contentContainerStyle={styles.flatList}
 				data={favorites}
-				renderItem={({ ...props }) => <HorizontalItem {...props} />}
+				renderItem={(props) => (
+					<View style={styles.mt15}>
+						<HorizontalItem
+							hasBasket={true}
+							hasRemove={false}
+							{...props}
+						/>
+					</View>
+				)}
 				decelerationRate={'normal'}
 				showsVerticalScrollIndicator={false}
-				numColumns={2}
 			/>
-			<Rating />
 		</View>
 	);
 };

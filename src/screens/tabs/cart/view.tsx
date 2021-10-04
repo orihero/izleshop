@@ -51,7 +51,9 @@ const CartView = ({ navigation }: ICartViewProps) => {
 			{cartItems.length > 0 && (
 				<View style={styles.absolute}>
 					<View style={styles.totalContainer}>
-						<Text style={styles.totalPriceText1}>{strings.total}</Text>
+						<Text style={styles.totalPriceText1}>
+							{strings.total}
+						</Text>
 						<Text style={styles.totalPriceText2}>{total}</Text>
 					</View>
 					<DefaultButton text={strings.order} onPress={onPress} />
