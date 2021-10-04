@@ -1,30 +1,29 @@
+import { CartIcon, HeartIcon, TrashIcon } from 'assets/icons/icons';
+import { colors } from 'constants/colors';
 import React from 'react';
-
 import {
-	StyleSheet,
 	Image,
-	View,
-	Text,
 	ListRenderItemInfo,
+	StyleSheet,
+	Text,
+	View,
 } from 'react-native';
-import Pressable from '../general/Pressable';
-import Rating from './Rating';
-
 import {
+	addToCart,
 	decrementCount,
 	incrementCount,
 	removeFromCart,
+	selectCart,
 } from 'store/slices/cartSlice';
-
-import { colors } from 'constants/colors';
-import { CloseIcon, HeartIcon, CartIcon, TrashIcon } from 'assets/icons/icons';
-import ItemCounter from './ItemCounter';
-import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import {
 	addItem,
 	removeItem,
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
+import { useAppDispatch, useAppSelector } from 'utils/hooks';
+import Pressable from '../general/Pressable';
+import ItemCounter from './ItemCounter';
+import Rating from './Rating';
 
 export interface IHorizontalItemModel {
 	id?: number;
@@ -50,6 +49,7 @@ export interface IHorizontalItemProps {
 	hasCounter?: boolean;
 	hasRating?: boolean;
 	hasBasket?: boolean;
+	hasRemove?: boolean;
 }
 
 const HorizontalItem = ({
@@ -57,28 +57,20 @@ const HorizontalItem = ({
 	hasCounter,
 	hasRating,
 	hasBasket,
+	hasRemove = true,
 }: IHorizontalItemProps) => {
-	const {
-		id,
-		title,
-		newPrice,
-		oldPrice,
-		currency,
-		ratingCount,
-		rating,
-		status,
-		// isFavorite,
-		isInCart,
-		img,
-	} = item.data || {};
+	const { id, title, newPrice, currency, ratingCount, rating, status, img } =
+		item.data || item;
 
 	const dispatch = useAppDispatch();
 
 	let favorites = useAppSelector(selectFavorites);
+	let cartItems = useAppSelector(selectCart);
 	let isFavorite = !!favorites[item.data?.id || id];
+	let isInCart = !!cartItems[item.data?.id || id];
 
 	let onLike = () => {
-		dispatch(!isFavorite ? addItem(item.data) : removeItem(item.data.id));
+		dispatch(!isFavorite ? addItem(item.data) : removeItem(id));
 	};
 
 	let onRemove = () => {
@@ -98,8 +90,10 @@ const HorizontalItem = ({
 			dispatch(decrementCount(id.toString()));
 		}
 	};
-
-	return item && item.data ? (
+	let onCartPress = () => {
+		dispatch(isInCart ? removeFromCart(id) : addToCart(item.data || item));
+	};
+	return (
 		<View style={styles.container}>
 			<View style={styles.imgCont}>
 				<View style={styles.checkBox}>
@@ -126,6 +120,7 @@ const HorizontalItem = ({
 						{title}
 					</Text>
 				</View>
+				{!hasRemove && <Rating count={5} active={4} />}
 				<View style={styles.plus}>
 					<Text style={styles.text4}>
 						{`${newPrice} ${currency}`}
@@ -158,7 +153,7 @@ const HorizontalItem = ({
 				</Pressable>
 				<View style={styles.irow}>
 					{hasBasket ? (
-						<Pressable onPress={onLike}>
+						<Pressable onPress={onCartPress}>
 							<View style={[styles.square, styles.mr10]}>
 								<CartIcon
 									size={20}
@@ -168,15 +163,17 @@ const HorizontalItem = ({
 							</View>
 						</Pressable>
 					) : null}
-					<Pressable onPress={onRemove}>
-						<View style={styles.square}>
-							<TrashIcon size={18} color={'rgba(0,0,0,.3)'} />
-						</View>
-					</Pressable>
+					{hasRemove && (
+						<Pressable onPress={onRemove}>
+							<View style={styles.square}>
+								<TrashIcon size={18} color={'rgba(0,0,0,.3)'} />
+							</View>
+						</Pressable>
+					)}
 				</View>
 			</View>
 		</View>
-	) : null;
+	);
 };
 
 export default HorizontalItem;
