@@ -33,6 +33,7 @@ export function ProfileIcon({ color = 'white', active, size }: IconProps) {
 	);
 }
 
+
 export interface PressableIconProps extends React.ComponentProps<any> {
 	onPress: ((event: GestureResponderEvent) => void) | undefined;
 }
