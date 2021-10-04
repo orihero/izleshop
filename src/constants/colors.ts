@@ -16,5 +16,7 @@ export let colors = {
 	darkBlue: '#0074D1',
 	darkGray2: '#757575',
 	leghtGrey: '#EBF0FF',
-	leghtGrey1: '#9098B1'
+	leghtGrey1: '#9098B1',
+	barGray: '#7B8794',
+	neutralDark: '#223263',
 };

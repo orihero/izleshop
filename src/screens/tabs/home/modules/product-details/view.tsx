@@ -22,6 +22,7 @@ import {
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { products } from '../../data';
+import { styles } from './style';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;

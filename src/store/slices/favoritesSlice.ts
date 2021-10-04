@@ -13,7 +13,7 @@ export const favoritesSlice = createSlice({
 		},
 		removeItem: (state, action: PayloadAction<string>) => {
 			state = Object.keys(state).reduce((p, c) => {
-				if (c === action.payload) {
+				if (c.toString() === action.payload.toString()) {
 					return p;
 				}
 				return { ...p, [c]: state[c] };

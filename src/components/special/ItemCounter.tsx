@@ -1,6 +1,12 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors } from 'constants/colors';
+import React from 'react';
+import {
+	Pressable,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 
 export interface ItemCounterProps {
 	count?: number;
@@ -15,15 +21,23 @@ const ItemCounter = ({
 }: ItemCounterProps) => {
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity onPress={onDecrement} style={styles.left}>
-				<Text style={styles.buttonText}>-</Text>
-			</TouchableOpacity>
 			<View style={styles.count}>
-				<Text>{count}</Text>
+				<Text style={styles.countText}>{count}</Text>
 			</View>
-			<TouchableOpacity onPress={onIncrement} style={styles.right}>
+			<TouchableOpacity
+				hitSlop={{ top: 30, bottom: 30, left: 30, right: 30 }}
+				onPress={onIncrement}
+				style={styles.right}
+			>
 				<Text style={styles.buttonText}>+</Text>
 			</TouchableOpacity>
+			<View>
+				<TouchableOpacity onPress={onDecrement} style={styles.left}>
+					<View>
+						<Text style={styles.buttonText}>—</Text>
+					</View>
+				</TouchableOpacity>
+			</View>
 		</View>
 	);
 };
@@ -34,17 +48,13 @@ const styles = StyleSheet.create({
 	container: {
 		width: 100,
 		height: 10,
-		paddingLeft: 20,
-		marginTop: 20,
-		marginLeft: 100,
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: "center"
+		justifyContent: 'center',
 	},
 	left: {
 		width: 30,
 		height: 24,
-		paddingTop: -20,
 		paddingVertical: 2,
 		paddingHorizontal: 7.5,
 		borderTopLeftRadius: 5,
@@ -53,33 +63,34 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 	},
 	buttonText: {
-		paddingTop: -60,
-		paddingLeft: 4,
-		fontWeight: "bold",
-		fontSize: 12,
+		fontWeight: 'bold',
+		fontSize: 18,
 		color: colors.leghtGrey1,
 	},
 	count: {
 		width: 30,
 		height: 24,
-		paddingTop: -20,
-		paddingLeft: 10,
-		marginHorizontal: 5,
 		borderColor: colors.leghtGrey,
 		backgroundColor: colors.leghtGrey,
 		borderWidth: 1,
-		paddingVertical: 3,
-		paddingHorizontal: 7.5,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	right: {
 		width: 30,
 		height: 24,
-		paddingTop: -20,
-		paddingVertical: 2,
-		paddingHorizontal: 7.5,
-		borderTopRightRadius: 5,
-		borderBottomRightRadius: 5,
 		borderColor: colors.leghtGrey,
 		borderWidth: 1,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderTopRightRadius: 5,
+		borderBottomRightRadius: 5,
+	},
+	countText: {
+		fontSize: 12,
+		fontWeight: '400',
+		color: colors.neutralDark,
 	},
 });

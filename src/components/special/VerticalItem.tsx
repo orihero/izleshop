@@ -24,11 +24,7 @@ import {
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
-import {
-	addToCart,
-	removeFromCart,
-	selectCart,
-} from 'src/store/slices/cartSlice';
+import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 
 export interface IVerticalItemModel {
 	id?: number;
@@ -113,7 +109,7 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 								/>
 							</View>
 						</PressableIcon>
-						<PressableIcon onPress={onHeartPress}>
+						{/* <PressableIcon onPress={onHeartPress}>
 							<View style={styles.buttonCont}>
 								<HeartIcon
 									size={20}
@@ -122,9 +118,9 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 									onPress={onHeartPress}
 								/>
 							</View>
-						</PressableIcon>
+						</PressableIcon> */}
 					</View>
-					<View style={styles.ratingRow}></View>
+					{/* <View style={styles.ratingRow}></View> */}
 					<Text style={styles.text} numberOfLines={2}>
 						{title}
 					</Text>

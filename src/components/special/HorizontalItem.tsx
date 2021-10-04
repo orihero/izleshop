@@ -17,7 +17,7 @@ import {
 } from 'store/slices/cartSlice';
 
 import { colors } from 'constants/colors';
-import { CloseIcon, HeartIcon, CartIcon } from 'assets/icons/icons';
+import { CloseIcon, HeartIcon, CartIcon, TrashIcon } from 'assets/icons/icons';
 import ItemCounter from './ItemCounter';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import {
@@ -75,24 +75,23 @@ const HorizontalItem = ({
 	const dispatch = useAppDispatch();
 
 	let favorites = useAppSelector(selectFavorites);
-	let isFavorite = !!favorites[item.data && id];
+	let isFavorite = !!favorites[item.data?.id || id];
 
 	let onLike = () => {
-		console.log('onLike');
+		dispatch(!isFavorite ? addItem(item.data) : removeItem(item.data.id));
 	};
 
 	let onRemove = () => {
-		console.log('onRemovePress');
 		dispatch(removeFromCart(id.toString()));
 	};
 
 	let onIncrement = () => {
-		console.log('onIncrementPress');
+		console.log('INC');
+
 		dispatch(incrementCount(id.toString()));
 	};
 
 	let onDecrement = () => {
-		console.log('onDecrementPress');
 		if (item.count - 1 <= 0) {
 			onRemove();
 		} else {
@@ -120,32 +119,33 @@ const HorizontalItem = ({
 					>
 						{title}
 					</Text>
-
 				</View>
 				<View style={styles.plus}>
-					<Text
-						style={styles.text4}
-					>{`${newPrice} ${currency}`}
-						{hasRating ? (
-							<Rating defaultStyle active={rating} count={ratingCount} />
-						) : null}
-						{hasCounter ? (
-							<ItemCounter
-								count={item.count}
-								onDecrement={onDecrement}
-								onIncrement={onIncrement}
-							/>
-						) : null}
+					<Text style={styles.text4}>
+						{`${newPrice} ${currency}`}
 					</Text>
-
+					{hasRating ? (
+						<Rating
+							defaultStyle
+							active={rating}
+							count={ratingCount}
+						/>
+					) : null}
+					{hasCounter ? (
+						<ItemCounter
+							count={item.count}
+							onDecrement={onDecrement}
+							onIncrement={onIncrement}
+						/>
+					) : null}
 				</View>
 			</View>
 			<View style={styles.rightEdge}>
-				<Pressable onPress={onRemove}>
+				<Pressable onPress={onLike}>
 					<View style={styles.square}>
 						<HeartIcon
 							size={20}
-							color={colors.leghtGrey1}
+							color={isFavorite ? colors.red : colors.leghtGrey1}
 							active={isFavorite}
 						/>
 					</View>
@@ -162,9 +162,9 @@ const HorizontalItem = ({
 							</View>
 						</Pressable>
 					) : null}
-					<Pressable onPress={onLike}>
+					<Pressable onPress={onRemove}>
 						<View style={styles.square}>
-							<CloseIcon size={15} color={'rgba(0,0,0,.3)'} />
+							<TrashIcon size={18} color={'rgba(0,0,0,.3)'} />
 						</View>
 					</Pressable>
 				</View>
@@ -178,7 +178,6 @@ export default HorizontalItem;
 const styles = StyleSheet.create({
 	container: {
 		padding: 15,
-		// marginTop: 10,
 		borderRadius: 15,
 		flexDirection: 'row',
 		backgroundColor: colors.white,
@@ -220,15 +219,14 @@ const styles = StyleSheet.create({
 		marginTop: 3,
 		lineHeight: 17,
 		fontWeight: '600',
+		color: colors.neutralDark,
 	},
 	plus: {
-		width: 350,
 		height: 40,
-		// paddingTop: 10,
-		alignItems: "flex-start",
-		justifyContent: "center",
-		flexDirection: "column",
-
+		flexDirection: 'row',
+		flexShrink: 1,
+		justifyContent: 'space-between',
+		alignItems: 'center',
 	},
 	text4: {
 		paddingTop: -20,
@@ -237,9 +235,12 @@ const styles = StyleSheet.create({
 		lineHeight: 21,
 		fontWeight: '800',
 		color: colors.blue,
+		flexDirection: 'row',
+		alignItems: 'center',
+		textAlignVertical: 'center',
 	},
 	rightEdge: {
-		flexDirection: "row",
+		flexDirection: 'row',
 		alignItems: 'flex-start',
 		justifyContent: 'center',
 	},
