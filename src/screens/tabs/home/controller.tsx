@@ -4,9 +4,9 @@ import HomeView from './view';
 
 const HomeController = () => {
 	//TODO styles and move hooks to controller
-	let width = windowWidth - 2 * paddingVertical;
+	let itemWidth = windowWidth - 2 * paddingVertical;
 	const [activeSlide, setActiveSlide] = useState(0);
-	return <HomeView {...{ width, setActiveSlide, activeSlide }} />;
+	return <HomeView {...{ width: itemWidth, setActiveSlide, activeSlide }} />;
 };
 
 export default HomeController;

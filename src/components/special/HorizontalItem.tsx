@@ -96,12 +96,14 @@ const HorizontalItem = ({
 	return (
 		<View style={styles.container}>
 			<View style={styles.imgCont}>
-				<View style={styles.checkBox}>
-					<Image 
-						style={styles.imgCheck}
-						source={require('../../assets/images/check.png')}
-					/>
-				</View>
+				{hasRemove && (
+					<View style={styles.checkBox}>
+						<Image
+							style={styles.imgCheck}
+							source={require('../../assets/images/check.png')}
+						/>
+					</View>
+				)}
 				<Image source={img} style={styles.image} />
 			</View>
 			<View style={styles.center}>
@@ -189,8 +191,8 @@ const styles = StyleSheet.create({
 	imgCont: {
 		width: 90,
 		height: 90,
-		justifyContent: "center",
-		flexDirection: "row"
+		justifyContent: 'center',
+		flexDirection: 'row',
 	},
 	image: {
 		width: '100%',
@@ -204,13 +206,13 @@ const styles = StyleSheet.create({
 		borderRadius: 30,
 		borderWidth: 3,
 		marginTop: 38,
-		justifyContent: "center",
+		justifyContent: 'center',
 		alignItems: 'center',
 		borderColor: 'rgba(170, 170, 204, 0.25)',
 	},
 	imgCheck: {
 		width: 10,
-		height: 10
+		height: 10,
 	},
 	center: {
 		flex: 1,

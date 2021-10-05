@@ -1,8 +1,30 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
-import { paddingVertical } from 'constants/sizes';
+import { paddingVertical, windowWidth } from 'constants/sizes';
 
 const styles = StyleSheet.create({
+	emptyBanner: {
+		width: windowWidth - 30,
+		height: windowWidth / 2 - 30,
+		alignSelf: 'center',
+		borderRadius: 7.5,
+		overflow: 'hidden',
+		marginHorizontal: 20,
+		marginTop: paddingVertical,
+	},
+	emptyContainer: {
+		// paddingHorizontal: 15,
+		flexDirection: 'row',
+	},
+	emptyCard: {
+		width: windowWidth / 2 - 30,
+		height: 250,
+		shadowOpacity: 0.2,
+		backgroundColor: colors.white,
+		borderRadius: 7.5,
+		elevation: 2,
+		marginLeft: 15,
+	},
 	container: {
 		backgroundColor: colors.lightBlue,
 		// paddingHorizontal: 20,

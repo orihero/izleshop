@@ -1,10 +1,10 @@
 import { useNavigation } from '@react-navigation/core';
-import {
-	CartIcon,
-	CloseIcon,
-	HeartIcon,
-	PressableIcon,
-} from 'assets/icons/icons';
+import { CartIcon, CloseIcon, PressableIcon } from 'assets/icons/icons';
+import Text from 'components/general/Text';
+// import Routes from 'constants/routes'
+import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
+import { windowWidth } from 'constants/sizes';
 import React from 'react';
 import {
 	Image,
@@ -13,18 +13,13 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
-import Text from 'components/general/Text';
-// import Routes from 'constants/routes'
-import { colors } from 'constants/colors';
-import { Routes } from 'constants/routes';
-import { windowWidth } from 'constants/sizes';
+import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
 	addItem,
 	removeItem,
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
-import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 
 export interface IVerticalItemModel {
 	id?: number;
@@ -135,7 +130,7 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 
 export default VerticalItem;
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
 	width1: {
 		width: windowWidth / 2 - 30,
 		marginLeft: 20,
