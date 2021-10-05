@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { Image, ScrollView, View } from 'react-native';
-import Text from 'components/general/Text';
+import { Image, ScrollView, View, Text, TouchableOpacity } from 'react-native';
 import DefaultButton from 'components/general/DefaultButton';
 import Pressable from 'components/general/Pressable';
 import MenuLink from 'components/special/MenuLink';
 
+import { ChevronIcon } from 'assets/icons/icons';
 import { strings } from 'locales/locales';
 import { styles } from './style';
 //@ts-ignore
-import img from 'assets/images/user.png';
+// import img from 'assets/images/image.png';
 import { Routes } from 'constants/routes';
 
 interface IProfileViewProps {
@@ -24,37 +24,42 @@ const ProfileView = ({ onCreate, onPress }: IProfileViewProps) => {
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={{ paddingBottom: 20 }}
 			>
-				<Text style={styles.welcomeText}>{strings.welcome}</Text>
 				<View style={styles.avatarContainer}>
-					<Image source={img} style={styles.avatar} />
+					<Text style={styles.welcomeText}>{strings.welcome}</Text>
 					<Text style={styles.loginPrompt}>
 						{strings.loginPrompt}
 					</Text>
 				</View>
 				<DefaultButton text={strings.create} onPress={onCreate} />
-				<Text style={styles.profileSettings}>
-					{strings.profileSettings}
-				</Text>
-				<Pressable to onPress={() => onPress(Routes.SETTINGS)}>
-					<MenuLink text={strings.settings} />
-				</Pressable>
-				<Pressable to onPress={() => onPress(Routes.MY_ORDERS)}>
-					<MenuLink text={strings.myOrders} />
+				<View style={styles.news}>
+					<View style={styles.component}>
+						<Text style={styles.textOne}>Что нового?</Text>
+						<TouchableOpacity style={styles.viewAll} onPress={() => onPress(Routes.VIEW_ALL)}>
+							<Text
+								style={styles.textView}>
+								{strings.viewAll}
+							</Text>
+							<ChevronIcon size={8}/>
+						</TouchableOpacity>
+					</View>
+					<Image 
+						source={require('../../../assets/images/image.png')}
+					/>
+				</View>
+				<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
+					<MenuLink text={strings.helpSupport} />
 				</Pressable>
 				<Pressable to onPress={() => onPress(Routes.ABOUT_US)}>
 					<MenuLink text={strings.aboutUs} />
 				</Pressable>
-				<Pressable to onPress={() => onPress(Routes.NEWS)}>
-					<MenuLink text={strings.news} />
-				</Pressable>
-				<Pressable to onPress={() => onPress(Routes.LANGUAGE)}>
-					<MenuLink text={strings.language} />
+				<Pressable to onPress={() => onPress(Routes.OUR_PARTNERS)}>
+					<MenuLink text={strings.ourPartners} />
 				</Pressable>
 				<Pressable to onPress={() => onPress(Routes.ABOUT_APP)}>
 					<MenuLink text={strings.aboutApp} />
 				</Pressable>
-				<Pressable to onPress={() => onPress(Routes.AUTHORIZATION)}>
-					<MenuLink text={strings.authorize} />
+				<Pressable to onPress={() => onPress(Routes.SING_ACCOUNT)}>
+					<MenuLink text={strings.singAccount} />
 				</Pressable>
 			</ScrollView>
 		</View>

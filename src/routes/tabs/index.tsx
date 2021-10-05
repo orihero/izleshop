@@ -35,7 +35,7 @@ let styles = StyleSheet.create({
 		textAlign: 'center',
 		fontSize: 10,
 		color: colors.barGray,
-		lineHeight: 20,
+		lineHeight: 13,
 		top: 8,
 	},
 });
