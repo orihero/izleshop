@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 	},
 	buttonText: {
+		marginTop: -5,
 		fontWeight: 'bold',
 		fontSize: 18,
 		color: colors.leghtGrey1,

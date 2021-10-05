@@ -77,5 +77,9 @@ export let strings = new LocalizedStrings({
 		toGoToTheBazaar: 'Больше не нужно ходить на базар',
 		favorablePrices: 'У нас выгодные цены',
 		farther: 'Дальше',
+		helpSupport: 'Справка и поддержка',
+		ourPartners: 'Наши партнеры',
+		singAccount: 'Выйти из аккаунта',
+		viewAll: 'Посмотреть все',
 	},
 });

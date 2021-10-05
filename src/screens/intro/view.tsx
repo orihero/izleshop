@@ -33,11 +33,10 @@ const IntroView = ({ }: IntroProps) => {
     return (
         <View style={styles.container}>
             <View style={styles.boxOne}>
-                <Carousel layout={'default'}
+                <Carousel
                     contentContainerCustomStyle={{ flex: 1, alignItems: 'center' }}
                     onSnapToItem={(index) => setActiveSlide(index)}
                     data={data}
-                    // ref={(c) => { this._carousel = c; }}
                     sliderWidth={300}
                     sliderHeight={385}
                     itemWidth={300}

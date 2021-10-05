@@ -23,5 +23,9 @@ export enum Routes {
 	CHECKOUT = 'checkout',
 	PROFILE_STACK = 'profile-stack',
 	PROFILE = 'profile',
-	INTRO_SCREEN = 'intro-screen'
+	INTRO_SCREEN = 'intro-screen',
+	HELP_SUPPORT = 'help-support',
+	OUR_PARTNERS = 'our-partners',
+	SING_ACCOUNT = 'sing-account',
+	VIEW_ALL = 'view-all'
 }
