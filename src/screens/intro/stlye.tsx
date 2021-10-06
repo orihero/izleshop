@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
         flex: 1
     },
     textOne: {
-        width: 240,
+        width: 256,
         marginTop: 22,
         fontSize: 24,
         fontWeight: 'bold',
@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
         color: colors.lightblacks,
     },
     textTwo: {
-        width: 140,
+        width: 180,
         marginTop: 20,
         fontSize: 18,
         lineHeight: 22,

@@ -4,6 +4,8 @@ import { strings } from 'locales/locales';
 import { styles } from './stlye';
 import { colors } from "constants/colors";
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+
+
 let image1 = require('assets/images/Group.png')
 let image2 = require('assets/images/Group.png')
 let image3 = require('assets/images/Group.png')
@@ -28,6 +30,7 @@ let data = [
 ]
 
 
+
 const IntroView = ({ }: IntroProps) => {
     const [activeSlide, setActiveSlide] = useState(0);
     return (
@@ -49,7 +52,7 @@ const IntroView = ({ }: IntroProps) => {
             <View style={styles.boxTwo}>
                 <Text style={styles.textOne}>{strings.toGoToTheBazaar}</Text>
                 <Text style={styles.textTwo}>{strings.favorablePrices}</Text>
-                <Pressable style={styles.button}>
+                <Pressable style={styles.button} >
                     <Text style={styles.buttonText}>{strings.farther}</Text>
                 </Pressable>
                 <Pagination

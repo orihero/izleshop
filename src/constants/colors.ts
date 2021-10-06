@@ -20,5 +20,6 @@ export let colors = {
 	barGray: '#7B8794',
 	neutralDark: '#223263',
 	lightblacks: '#383838',
-	gray5: '#616161'
+	gray5: '#616161',
+	grayLenght: 'rgba(0, 0, 0, 0.65)',
 };

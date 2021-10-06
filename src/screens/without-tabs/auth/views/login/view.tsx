@@ -1,11 +1,19 @@
 import React from 'react';
 
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import DefaultInput from 'components/general/DefaultInput';
 import DefaultButton from 'components/general/DefaultButton';
 
 import { styles } from './style';
 import { strings } from 'locales/locales';
+import { ChevronIcon } from 'assets/icons/icons';
+import navigation from 'components/navigation/Header'
+import { Routes } from 'constants/routes'
+
+
+// function onNextPress(){
+// 	{navigation.navigate(Routes.HOME_STACK)}
+// }
 
 interface ILoginViewProps {
 	phone: string;
@@ -13,6 +21,7 @@ interface ILoginViewProps {
 	password: string;
 	setPassword: (e: string) => void;
 	onPress: () => void;
+	navigate: () => void
 }
 
 const LoginView = ({
@@ -21,44 +30,33 @@ const LoginView = ({
 	password,
 	setPassword,
 	onPress,
+	navigate
 }: ILoginViewProps) => {
 	return (
 		<ScrollView
 			style={styles.container}
-			showsVerticalScrollIndicator={false}
 		>
 			<View style={styles.top}>
 				<View style={styles.mt20}>
-					<Text
-						style={styles.text1}
-					>{`${strings.phoneNumber}*`}</Text>
 					<View style={styles.mt12}>
 						<DefaultInput value={phone} onChange={setPhone} />
 					</View>
-				</View>
-				<View style={styles.mt20}>
-					<Text
-						style={styles.text1}
-					>{`${strings.enterPassword}*`}</Text>
-					<View style={styles.mt12}>
-						<DefaultInput
-							value={password}
-							onChange={setPassword}
-							isPassword
-						/>
-					</View>
-				</View>
-				<View style={styles.mt20}>
-					<Text style={styles.text2}>{strings.forgotPassword}</Text>
 				</View>
 			</View>
 			<View style={styles.center}>
 				<DefaultButton
 					text={strings.toComeIn}
 					marginDisabled
-					onPress={onPress}
+				// onPress={onNextPress}
 				/>
 			</View>
+			<TouchableOpacity style={styles.viewAll}>
+				<Text
+					style={styles.textView}>
+					{strings.skip}
+				</Text>
+				<ChevronIcon size={12} />
+			</TouchableOpacity>
 			<View style={styles.bottom}>
 				<Text style={styles.text3}>izle</Text>
 				<View>

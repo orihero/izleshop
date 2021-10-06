@@ -44,7 +44,7 @@ export let strings = new LocalizedStrings({
 		phoneNumber: 'Номер телефона',
 		enterPassword: 'Введите пароль',
 		forgotPassword: 'Забыли пароль?',
-		toComeIn: 'Войти',
+		toComeIn: 'Продолжить',
 		name: 'Имя',
 		pickPassword: 'Придумайте пароль',
 		repeatPassword: 'Повторите пароль',
@@ -81,5 +81,7 @@ export let strings = new LocalizedStrings({
 		ourPartners: 'Наши партнеры',
 		singAccount: 'Выйти из аккаунта',
 		viewAll: 'Посмотреть все',
+		authorization: 'Авторизация',
+		skip: 'Пропустить'
 	},
 });

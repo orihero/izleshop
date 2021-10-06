@@ -32,56 +32,11 @@ const Header = ({
 		}
 	};
 	return (
-		<View style={[styles.container, hasBorder ? styles.bbw : null]}>
-			<View style={styles.leftEdge}>
-				{disableGoBack ? null : (
-					<Pressable to onPress={onBackPressed}>
-						<BackIcon size={20} />
-					</Pressable>
-				)}
-			</View>
-			<View>
-				<Text style={[styles.title, bold ? styles.bold : null]}>
-					{title}
-				</Text>
-			</View>
-			<View style={styles.rightEdge}>{rightEdge()}</View>
-		</View>
+		<View></View>
 	);
 };
 
 export default Header;
 
 const styles = StyleSheet.create({
-	container: {
-		height: 60,
-		flexDirection: 'row',
-		justifyContent: 'center',
-		backgroundColor: colors.white,
-		width: '100%',
-		paddingHorizontal: 20,
-		alignItems: 'center',
-	},
-	bbw: {
-		borderTopWidth: 1,
-		borderBottomWidth: 1,
-		borderColor: colors.gray4,
-	},
-	leftEdge: {
-		left: 20,
-		position: 'absolute',
-	},
-	rightEdge: {
-		right: 20,
-		position: 'absolute',
-	},
-	title: {
-		fontSize: 18,
-		lineHeight: 18,
-		fontWeight: '400',
-		color: colors.black,
-	},
-	bold: {
-		fontWeight: '700',
-	},
 });

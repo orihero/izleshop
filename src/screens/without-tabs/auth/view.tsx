@@ -21,12 +21,8 @@ const AuthView = ({ insets }: IAuthViewProps) => {
 				<CustomTabView
 					items={[
 						{
-							title: strings.toComeIn || '',
+							title: strings.authorization || '',
 							component: () => <LoginView />,
-						},
-						{
-							title: strings.create || '',
-							component: () => <RegisterView />,
 						},
 					]}
 				/>

@@ -31,13 +31,7 @@ const CustomTabView = ({ items }: ICustomViewProps) => {
 							>
 								{e.title}
 							</Text>
-							<View
-								style={
-									activeContent === i
-										? styles.activeBorder
-										: styles.inActiveBorder
-								}
-							/>
+							<View />
 						</View>
 					</Pressable>
 				))}
@@ -57,20 +51,15 @@ const styles = StyleSheet.create({
 		marginTop: paddingVertical,
 		marginHorizontal: paddingVertical,
 		flexDirection: 'row',
-		justifyContent: 'space-evenly',
 	},
 	text1: {
-		fontSize: 18,
+		marginTop: 30,
+		fontSize: 25,
 		lineHeight: 22,
-		fontWeight: '600',
+		fontWeight: 'bold',
 		color: colors.black,
 	},
-	text2: {
-		fontSize: 18,
-		lineHeight: 22,
-		fontWeight: '600',
-		color: colors.lightBrown,
-	},
+	text2: {},
 	main: {
 		flex: 1,
 		paddingHorizontal: paddingVertical,

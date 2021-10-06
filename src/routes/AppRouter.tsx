@@ -19,7 +19,7 @@ let RootStack = createNativeStackNavigator<RootStackParamList>();
 const AppRouter = () => {
 	return (
 		<NavigationContainer>
-			<RootStack.Navigator screenOptions={{ headerShown: false }} initialRouteName={Routes.TABS}>
+			<RootStack.Navigator screenOptions={{ headerShown: false }} initialRouteName={Routes.TABS} >
 				<RootStack.Screen name={Routes.INTRO_SCREEN} component={IntroScreen} />
 				<RootStack.Screen name={Routes.TABS} component={Tabs} />
 				<RootStack.Screen

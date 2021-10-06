@@ -32,18 +32,12 @@ const DefaultInput = ({
 				multiline={isTextArea}
 				onChangeText={(e) => onChange(e)}
 				numberOfLines={isTextArea ? 3 : 1}
-				secureTextEntry={isPassword && !showPassword}
+				placeholder="Номер телефона 
++998 (99) 456-95-50"
+				placeholderTextColor= "gray"
+				secureTextEntry={isPassword}
 				style={isTextArea ? styles.textarea : styles.input}
 			/>
-			{isPassword ? (
-				<Pressable onPress={onPress}>
-					<View style={styles.absolute}>
-						<Text style={styles.text}>
-							{showPassword ? strings.hide : strings.show}
-						</Text>
-					</View>
-				</Pressable>
-			) : null}
 		</View>
 	);
 };
@@ -52,7 +46,9 @@ export default DefaultInput;
 
 const styles = StyleSheet.create({
 	input: {
-		padding: 14,
+		height: 55,
+		paddingLeft: 10,
+		paddingTop: -10,
 		borderRadius: 10,
 		backgroundColor: colors.white,
 	},
@@ -64,16 +60,16 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	text: {
-		fontSize: 12,
+		fontSize: 14,
 		lineHeight: 20,
 		fontWeight: '400',
 		color: colors.brown,
 	},
 	textarea: {
-		padding: 14,
-		paddingTop: 12,
 		height: 78,
 		borderRadius: 10,
+		fontSize: 14,
 		backgroundColor: colors.white,
 	},
+	text1: {}
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { colors } from 'constants/colors';
 
+
 export interface IDefaultButtonProps {
 	onPress?: () => {};
 	text?: string;
@@ -28,10 +29,11 @@ export default DefaultButton;
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: colors.darkBlue,
+		marginTop: 10,
 		paddingVertical: 15,
-		borderRadius: 9,
+		borderRadius: 30,
 		alignItems: 'center',
+		backgroundColor: colors.darkBlue,
 	},
 	text: {
 		color: colors.white,
