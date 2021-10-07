@@ -9,7 +9,7 @@ const ProfileController = () => {
 	const navigation = useNavigation<any>();
 
 	const onCreate = () => {
-		navigation.navigate(Routes.WITHOUT_TABS, { screen: Routes.AUTHORIZATION });
+		navigation.navigate(Routes.WITHOUT_TABS, { screen: Routes.LOGIN });
 	};
 
 	const onPress = (route: string) => {

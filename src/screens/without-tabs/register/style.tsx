@@ -3,15 +3,14 @@ import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
 	container: {
-		// flex: 1,
-		// justifyContent: 'space-between',
+		flex: 1,
 	},
 	top: {
 		flex: 0.4,
 	},
 	center: {
 		flex: 0.1,
-		justifyContent: 'center',
+		marginTop: -290,
 		borderRadius: 19
 	},
 	bottom: {
@@ -25,7 +24,7 @@ export const styles = StyleSheet.create({
 		color: 'rgba(0,0,0,.8)',
 	},
 	text3: {
-		marginTop: 250,
+		marginTop: 100,
 		opacity: 0.5,
 		fontSize: 144,
 		lineHeight: 173,
@@ -45,8 +44,8 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	mt12: {
-		
-		marginTop: 12,
+
+		marginTop: 40,
 	},
 	mt20: {
 		marginVertical: 10,
@@ -60,6 +59,14 @@ export const styles = StyleSheet.create({
 	textView: {
 		marginTop: -5,
 		fontSize: 12,
+		fontFamily: 'Lato',
+		fontWeight: 'bold',
+	},
+	textConfirmation: {
+		marginBottom: 20,
+		marginTop: -20,
+		marginLeft: 30,
+		fontSize: 25,
 		fontFamily: 'Lato',
 		fontWeight: 'bold',
 	},

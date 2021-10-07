@@ -82,6 +82,9 @@ export let strings = new LocalizedStrings({
 		singAccount: 'Выйти из аккаунта',
 		viewAll: 'Посмотреть все',
 		authorization: 'Авторизация',
-		skip: 'Пропустить'
+		skip: 'Пропустить',
+		confirmation: 'Подтверждение',
+		registration: 'Регистрация',
+		systemLanguage: 'Язык системы'
 	},
 });

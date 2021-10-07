@@ -9,11 +9,8 @@ import { strings } from 'locales/locales';
 import { ChevronIcon } from 'assets/icons/icons';
 import navigation from 'components/navigation/Header'
 import { Routes } from 'constants/routes'
+import { useNavigation } from '@react-navigation/core';
 
-
-// function onNextPress(){
-// 	{navigation.navigate(Routes.HOME_STACK)}
-// }
 
 interface ILoginViewProps {
 	phone: string;
@@ -32,6 +29,13 @@ const LoginView = ({
 	onPress,
 	navigate
 }: ILoginViewProps) => {
+	let navigation = useNavigation();
+	let onNextPress = () => {
+		navigation.navigate(Routes.VERIFICATION);
+	};
+	let onSkipPress = () => {
+		navigation.navigate(Routes.TABS);
+	};
 	return (
 		<ScrollView
 			style={styles.container}
@@ -39,6 +43,7 @@ const LoginView = ({
 			<View style={styles.top}>
 				<View style={styles.mt20}>
 					<View style={styles.mt12}>
+						<Text style={styles.textAuth}>{strings.authorization}</Text>
 						<DefaultInput value={phone} onChange={setPhone} />
 					</View>
 				</View>
@@ -47,11 +52,12 @@ const LoginView = ({
 				<DefaultButton
 					text={strings.toComeIn}
 					marginDisabled
-				// onPress={onNextPress}
+					onPress={onNextPress}
 				/>
 			</View>
 			<TouchableOpacity style={styles.viewAll}>
 				<Text
+					onPress={onSkipPress}
 					style={styles.textView}>
 					{strings.skip}
 				</Text>

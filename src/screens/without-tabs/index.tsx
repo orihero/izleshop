@@ -9,11 +9,13 @@ import NewsScreen from './news';
 import AboutUsScreen from './about-us';
 import LanguageScreen from './language';
 import AboutAppScreen from './about-app';
-import AuthScreen from './auth';
+import RegisterScreen from './register';
+import LoginScreen from './login';
 import HelpSupportScreen from './help-support';
 import OurPartnersController from './our-partners';
 import SingAccountController from './sing-account';
 import ViewAllController from './view-all';
+import VerificationScreen from './verification';
 
 import { Routes } from 'constants/routes';
 
@@ -26,11 +28,13 @@ export type WithoutStackParamList = {
 	[Routes.ABOUT_US]: undefined;
 	[Routes.LANGUAGE]: undefined;
 	[Routes.ABOUT_APP]: undefined;
-	[Routes.AUTHORIZATION]: undefined;
+	[Routes.REGISTER]: undefined;
 	[Routes.HELP_SUPPORT]: undefined;
 	[Routes.OUR_PARTNERS]: undefined;
 	[Routes.SING_ACCOUNT]: undefined;
 	[Routes.VIEW_ALL]: undefined;
+	[Routes.VERIFICATION]: undefined;
+	[Routes.LOGIN]: undefined;
 };
 
 let Stack = createNativeStackNavigator<WithoutStackParamList>();
@@ -49,7 +53,9 @@ const WithoutTabsStack = () => {
 			<Stack.Screen name={Routes.ABOUT_US} component={AboutUsScreen} />
 			<Stack.Screen name={Routes.LANGUAGE} component={LanguageScreen} />
 			<Stack.Screen name={Routes.ABOUT_APP} component={AboutAppScreen} />
-			<Stack.Screen name={Routes.AUTHORIZATION} component={AuthScreen} />
+			<Stack.Screen name={Routes.REGISTER} component={RegisterScreen} />
+			<Stack.Screen name={Routes.LOGIN} component={LoginScreen} />
+			<Stack.Screen name={Routes.VERIFICATION} component={VerificationScreen} />
 		</Stack.Navigator>
 	);
 };

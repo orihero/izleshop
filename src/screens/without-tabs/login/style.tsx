@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
 		color: 'rgba(0,0,0,.8)',
 	},
 	text3: {
-		marginTop: 250,
+		marginTop: 200,
 		opacity: 0.5,
 		fontSize: 144,
 		lineHeight: 173,
@@ -45,13 +45,13 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	mt12: {
-		
-		marginTop: 12,
+		// marginTop: 12,
 	},
 	mt20: {
 		marginVertical: 10,
 	},
 	viewAll: {
+		marginRight: 25,
 		marginTop: 16,
 		alignItems: 'center',
 		justifyContent: 'flex-end',
@@ -63,4 +63,12 @@ export const styles = StyleSheet.create({
 		fontFamily: 'Lato',
 		fontWeight: 'bold',
 	},
+	textAuth: {
+		marginBottom: 27,
+		marginTop: 50,
+		marginLeft: 30,
+		fontSize: 25,
+		fontFamily: 'Lato',
+		fontWeight: 'bold',
+	}
 });

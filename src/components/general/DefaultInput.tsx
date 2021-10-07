@@ -5,12 +5,14 @@ import Pressable from './Pressable';
 
 import { colors } from 'constants/colors';
 import { strings } from 'locales/locales';
+import RegisterView from 'src/screens/without-tabs/register/view';
 
 interface DefaultInputProps {
 	value: string;
 	onChange: (value: string) => void;
 	isPassword?: boolean;
 	isTextArea?: boolean;
+	placeholder?:string
 }
 
 const DefaultInput = ({
@@ -18,6 +20,8 @@ const DefaultInput = ({
 	onChange,
 	isPassword,
 	isTextArea,
+	placeholder = `Номер телефона 
+	+998 (99) 456-95-50`
 }: DefaultInputProps) => {
 	const [showPassword, setShowPassword] = useState(false);
 
@@ -32,12 +36,12 @@ const DefaultInput = ({
 				multiline={isTextArea}
 				onChangeText={(e) => onChange(e)}
 				numberOfLines={isTextArea ? 3 : 1}
-				placeholder="Номер телефона 
-+998 (99) 456-95-50"
-				placeholderTextColor= "gray"
+				placeholder={placeholder}
+				placeholderTextColor="gray"
 				secureTextEntry={isPassword}
 				style={isTextArea ? styles.textarea : styles.input}
 			/>
+
 		</View>
 	);
 };
@@ -46,7 +50,9 @@ export default DefaultInput;
 
 const styles = StyleSheet.create({
 	input: {
+		width: 335,
 		height: 55,
+		marginLeft: 30,
 		paddingLeft: 10,
 		paddingTop: -10,
 		borderRadius: 10,

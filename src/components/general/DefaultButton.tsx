@@ -29,6 +29,8 @@ export default DefaultButton;
 
 const styles = StyleSheet.create({
 	container: {
+		width: 335,
+		marginLeft: 30,
 		marginTop: 10,
 		paddingVertical: 15,
 		borderRadius: 30,
