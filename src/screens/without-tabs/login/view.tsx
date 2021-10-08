@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useNavigation } from '@react-navigation/core';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import DefaultInput from 'components/general/DefaultInput';
 import DefaultButton from 'components/general/DefaultButton';
@@ -9,12 +10,12 @@ import { strings } from 'locales/locales';
 import { ChevronIcon } from 'assets/icons/icons';
 import navigation from 'components/navigation/Header'
 import { Routes } from 'constants/routes'
-import { useNavigation } from '@react-navigation/core';
+import { useAppSelector } from 'utils/hooks';
+import { selectUser, setUserPhone } from 'store/slices/userSlice';
+import { useDispatch } from 'react-redux';
 
 
 interface ILoginViewProps {
-	phone: string;
-	setPhone: (e: string) => void;
 	password: string;
 	setPassword: (e: string) => void;
 	onPress: () => void;
@@ -22,14 +23,15 @@ interface ILoginViewProps {
 }
 
 const LoginView = ({
-	phone,
-	setPhone,
 	password,
 	setPassword,
 	onPress,
 	navigate
 }: ILoginViewProps) => {
 	let navigation = useNavigation();
+	let user = useAppSelector(selectUser);
+	let dispatch = useDispatch()
+	let setPhone = (num: string) => { dispatch(setUserPhone(num)) }
 	let onNextPress = () => {
 		navigation.navigate(Routes.VERIFICATION);
 	};
@@ -44,7 +46,7 @@ const LoginView = ({
 				<View style={styles.mt20}>
 					<View style={styles.mt12}>
 						<Text style={styles.textAuth}>{strings.authorization}</Text>
-						<DefaultInput value={phone} onChange={setPhone} />
+						<DefaultInput value={user.phone} onChange={setPhone} keyboardType={'numeric'} />
 					</View>
 				</View>
 			</View>

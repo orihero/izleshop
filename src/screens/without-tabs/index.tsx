@@ -41,7 +41,7 @@ let Stack = createNativeStackNavigator<WithoutStackParamList>();
 
 const WithoutTabsStack = () => {
 	return (
-		<Stack.Navigator screenOptions={{ headerShown: false }}>
+		<Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={Routes.MY_PROFILE}>
 			<Stack.Screen name={Routes.VIEW_ALL} component={ViewAllController} />
 			<Stack.Screen name={Routes.HELP_SUPPORT} component={HelpSupportScreen} />
 			<Stack.Screen name={Routes.OUR_PARTNERS} component={OurPartnersController} />

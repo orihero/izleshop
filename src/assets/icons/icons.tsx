@@ -211,6 +211,26 @@ export function WalletIcon({
 	);
 }
 
+export function LogoutIcon({
+	color = 'black',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+			viewBox="0 0 23 22"
+			{...props}
+		>
+			<Path
+				d="M20.448 22H9.354a2.455 2.455 0 01-2.466-2.444v-4.89H9V20h12V2H9v5.333H6.888V2.444A2.455 2.455 0 019.354 0h11.094a2.455 2.455 0 012.466 2.444v17.112A2.455 2.455 0 0120.448 22zm-8.629-6.111v-3.667H.725V9.778h11.094V6.11L17.983 11l-6.164 4.889z"
+				fill="#000"
+			/>
+		</Svg>
+	);
+}
+
 export function CreditCardIcon({
 	color = 'black',
 	active,

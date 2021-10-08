@@ -5,7 +5,7 @@ import DefaultButton from 'components/general/DefaultButton';
 import Pressable from 'components/general/Pressable';
 import MenuLink from 'components/special/MenuLink';
 
-import { ChevronIcon } from 'assets/icons/icons';
+import { ChevronIcon, LogoutIcon } from 'assets/icons/icons';
 import { strings } from 'locales/locales';
 import { styles } from './style';
 //@ts-ignore
@@ -59,7 +59,7 @@ const ProfileView = ({ onCreate, onPress }: IProfileViewProps) => {
 					<MenuLink text={strings.aboutApp} />
 				</Pressable>
 				<Pressable to onPress={() => onPress(Routes.SING_ACCOUNT)}>
-					<MenuLink text={strings.singAccount} />
+					<MenuLink text={strings.singAccount} Icon={LogoutIcon}/>
 				</Pressable>
 			</ScrollView>
 		</View>
