@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
 	pdotcont: {
 		paddingHorizontal: 0,
 		marginHorizontal: 2.5,
+		paddingVertical: 0,
+		marginVertical: 0,
+		height: 20,
 	},
 	pdot: {
 		width: 10,
@@ -54,7 +57,7 @@ const styles = StyleSheet.create({
 	},
 	flatList: {
 		paddingRight: 20,
-		paddingVertical: 20,
+		paddingVertical: 10,
 	},
 });
 

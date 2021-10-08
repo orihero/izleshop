@@ -11,9 +11,10 @@ import { styles } from './style';
 const FavoritesView = () => {
 	let favorites = useAppSelector(selectFavoritesList);
 	return (
-		<View>
+		<View style={styles.container}>
 			<Header
 				title={strings.favorites}
+				bold
 				rightEdge={() => <SearchIcon size={20} />}
 			/>
 			<FlatList

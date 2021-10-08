@@ -260,7 +260,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	text4: {
-		paddingTop: -20,
 		paddingRight: 10,
 		fontSize: 14,
 		lineHeight: 21,
@@ -269,6 +268,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		textAlignVertical: 'center',
+		// flex: 1,
 	},
 	rightEdge: {
 		flexDirection: 'row',

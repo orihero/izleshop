@@ -66,6 +66,7 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 					itemWidth={width}
 					containerCustomStyle={styles.carousel}
 					onSnapToItem={(index) => setActiveSlide(index)}
+					con
 				/>
 			)}
 			<Pagination
@@ -73,6 +74,7 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 				dotStyle={styles.pdot}
 				dotsLength={data.length}
 				dotContainerStyle={styles.pdotcont}
+				containerStyle={{ paddingVertical: 10 }}
 				inactiveDotScale={1}
 				inactiveDotOpacity={0.5}
 				activeDotIndex={activeSlide}

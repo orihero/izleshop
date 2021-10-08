@@ -5,6 +5,7 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
+import { colors } from 'src/constants/colors';
 
 let AnimatedPath = Animated.createAnimatedComponent(Path);
 
@@ -32,7 +33,6 @@ export function ProfileIcon({ color = 'white', active, size }: IconProps) {
 		</Svg>
 	);
 }
-
 
 export interface PressableIconProps extends React.ComponentProps<any> {
 	onPress: ((event: GestureResponderEvent) => void) | undefined;
@@ -79,7 +79,7 @@ export function CategoriesIcon({ color = 'black', active, size }: IconProps) {
 	);
 }
 export function HomeIcon({ color = 'white', active, size }: IconProps) {
-	let iconProps = { fill: color, stroke: color, height: size, width: size };
+	let iconProps = { fill: 'none', stroke: color, height: 40, width: 40 };
 	// if (active) {
 	// 	return (
 	// 		<Svg viewBox="0 0 512 512" {...iconProps}>
@@ -89,13 +89,9 @@ export function HomeIcon({ color = 'white', active, size }: IconProps) {
 	// 	);
 	// }
 	return (
-		<Svg
-			viewBox="0 0 463.937 463.937"
-			{...iconProps}
-			style={{ paddingBottom: 10 }}
-		>
-			<Path d="M460.414 216.518l-85.6-73.1c.1-.5.2-1 .3-1.6v-95.6c-.1-5.7-4.6-10.3-10.3-10.5h-47.8c-5.5 0-10 4.9-10 10.5v39.6l-68.5-58.4c-3.7-3.2-9.2-3.2-13 0l-221.9 189c-4.3 3.5-4.8 9.8-1.3 14.1s9.8 4.8 14.1 1.3l.2-.2 215.4-183.4 77.1 65.7 46.1 39.2 92.3 78.6c4.2 3.6 10.5 3.1 14.1-1.1 3.5-4.2 3-10.5-1.2-14.1zm-105.4-90l-28-23.6v-47.1h28v70.7z" />
-			<Path d="M416.314 236.718l-28.1-24-149.7-127.9c-3.7-3.2-9.2-3.2-13 0l-149.7 127.9-28.1 24c-4.2 3.6-4.7 9.9-1.1 14.1 3.5 4.2 9.7 4.7 13.8 1.2l.1-.1 12.5-10.8v187.5c.1 5.6 4.7 10.2 10.3 10.3h297.3c5.6-.1 10.2-4.6 10.3-10.3v-187.5l12.5 10.8c1.8 1.5 4 2.4 6.4 2.4 2.9 0 5.7-1.3 7.6-3.5 3.7-4.3 3.1-10.6-1.1-14.1zm-144.3 182.1h-80v-108h80v108zm20 0v-117.7c0-5.5-4.1-10.3-9.6-10.3h-100.8c-5.5 0-9.6 4.8-9.6 10.3v117.7h-79v-194.8l139-118.4 139 118.4v194.8h-79z" />
+		<Svg width={30} height={30} stroke={color} strokeWidth={2}>
+			<Path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+			<Path d="M9 22V12h6v10" />
 		</Svg>
 	);
 }
@@ -148,8 +144,14 @@ export function BackIcon({
 }: IconProps) {
 	let iconProps = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg viewBox="0 0 64 64" {...iconProps}>
-			<Path d="M54 30H14.101l15.278-14.552a2 2 0 10-2.759-2.897L9.172 29.171A3.978 3.978 0 008 32c0 1.068.417 2.073 1.207 2.862l17.414 16.586c.387.369.883.552 1.379.552a1.999 1.999 0 001.38-3.448L14.038 34H54a2 2 0 000-4z" />
+		<Svg {...iconProps} fill={'none'}>
+			<Path
+				d="M9 16.5L1 9l8-7.5"
+				stroke="#000"
+				strokeWidth={2}
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
 		</Svg>
 	);
 }

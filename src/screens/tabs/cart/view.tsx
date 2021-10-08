@@ -32,6 +32,7 @@ const CartView = ({ navigation }: ICartViewProps) => {
 		<View style={styles.container}>
 			<Header
 				title={strings.cart}
+				bold
 				rightEdge={() => <SearchIcon size={20} />}
 			/>
 

@@ -211,8 +211,8 @@ export const styles = StyleSheet.create({
 		fontSize: 16,
 		marginTop: 5,
 		lineHeight: 19,
-		fontWeight: '600',
-		color: colors.black,
+		fontWeight: 'bold',
+		color: colors.neutralDark,
 		textAlign: 'justify',
 	},
 	newPrice: {

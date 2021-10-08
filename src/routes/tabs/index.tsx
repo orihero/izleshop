@@ -24,7 +24,7 @@ const Tab = createMaterialBottomTabNavigator();
 let styles = StyleSheet.create({
 	bar: {
 		backgroundColor: colors.white,
-		height: 80,
+		height: 70,
 		overflow: 'visible',
 	},
 	container: {
