@@ -12,7 +12,8 @@ interface DefaultInputProps {
 	onChange: (value: string) => void;
 	isPassword?: boolean;
 	isTextArea?: boolean;
-	placeholder?:string
+	placeholder?: string;
+	keyboardType?: string;
 }
 
 const DefaultInput = ({
@@ -21,7 +22,8 @@ const DefaultInput = ({
 	isPassword,
 	isTextArea,
 	placeholder = `Номер телефона 
-	+998 (99) 456-95-50`
+	+998 (99) 456-95-50`,
+	keyboardType
 }: DefaultInputProps) => {
 	const [showPassword, setShowPassword] = useState(false);
 
@@ -40,6 +42,7 @@ const DefaultInput = ({
 				placeholderTextColor="gray"
 				secureTextEntry={isPassword}
 				style={isTextArea ? styles.textarea : styles.input}
+				keyboardType={keyboardType}
 			/>
 
 		</View>

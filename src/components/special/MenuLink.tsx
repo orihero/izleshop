@@ -1,19 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { ChevronIcon } from 'assets/icons/icons';
+import { ChevronIcon, IconProps } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 
 export interface MenuLinkProps {
 	text?: string;
 	onPress?: () => {};
+	Icon?: (props:IconProps)=>JSX.Element
 }
 
-const MenuLink = ({ onPress, text }: MenuLinkProps) => {
+const MenuLink = ({ onPress, text, Icon }: MenuLinkProps) => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.text}> {text}</Text>
-			<ChevronIcon />
+			{Icon===undefined? <ChevronIcon />: <Icon />}
 		</View>
 	);
 };

@@ -9,6 +9,9 @@ import { styles } from './stlye';
 import { strings } from 'locales/locales';
 import { useNavigation } from '@react-navigation/core';
 import { Routes } from 'constants/routes';
+import { useAppSelector } from 'utils/hooks';
+import { useDispatch } from 'react-redux';
+import { selectUser, setUserName } from 'store/slices/userSlice';
 
 
 interface ILanguageProps {
@@ -22,6 +25,9 @@ const VerificationView = ({
 	
 }: ILanguageProps) => {
 	let navigation = useNavigation();
+	let user = useAppSelector(selectUser);
+	let dispatch = useDispatch()
+	let setName = (name: string) => { dispatch(setUserName(name)) }
 	let onNextPress = () => {
 		navigation.navigate(Routes.REGISTER);
 	};
@@ -35,7 +41,7 @@ const VerificationView = ({
 				<View style={styles.mt20}>
 					<View style={styles.mt12}>
 						<Text style={styles.textConfirmation}>{strings.registration}</Text>
-						<DefaultInput placeholder={'ФИО пользователя'} value={phone} onChange={setPhone} />
+						<DefaultInput placeholder={'ФИО пользователя'} value={user.name} onChange={setName} />
 					</View>
 				</View>
 				<Text style={styles.textLanguage}>{strings.systemLanguage}</Text>
