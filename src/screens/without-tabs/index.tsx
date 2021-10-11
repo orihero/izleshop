@@ -9,18 +9,17 @@ import NewsScreen from './news';
 import AboutUsScreen from './about-us';
 import LanguageScreen from './language';
 import AboutAppScreen from './about-app';
-import RegisterScreen from './register';
+import VerificationScreen from './verification';
 import LoginScreen from './login';
 import HelpSupportScreen from './help-support';
 import OurPartnersController from './our-partners';
 import SingAccountController from './sing-account';
 import ViewAllController from './view-all';
-import VerificationScreen from './verification';
+import RegistrationScreen from './registration';
 import MyReviewsScreen from './my-reviews';
 import PhoneNumberScreen from './phone-number';
 
 import { Routes } from 'constants/routes';
-
 
 export type WithoutStackParamList = {
 	[Routes.MY_PROFILE]: undefined;
@@ -45,23 +44,53 @@ let Stack = createNativeStackNavigator<WithoutStackParamList>();
 
 const WithoutTabsStack = () => {
 	return (
-		<Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={Routes.MY_PROFILE}>
-			<Stack.Screen name={Routes.VIEW_ALL} component={ViewAllController} />
-			<Stack.Screen name={Routes.HELP_SUPPORT} component={HelpSupportScreen} />
-			<Stack.Screen name={Routes.OUR_PARTNERS} component={OurPartnersController} />
-			<Stack.Screen name={Routes.SING_ACCOUNT} component={SingAccountController} />
-			<Stack.Screen name={Routes.MY_PROFILE} component={MyProfileScreen}/>
+		<Stack.Navigator
+			screenOptions={{ headerShown: false }}
+			initialRouteName={Routes.MY_PROFILE}
+		>
+			<Stack.Screen
+				name={Routes.VIEW_ALL}
+				component={ViewAllController}
+			/>
+			<Stack.Screen
+				name={Routes.HELP_SUPPORT}
+				component={HelpSupportScreen}
+			/>
+			<Stack.Screen
+				name={Routes.OUR_PARTNERS}
+				component={OurPartnersController}
+			/>
+			<Stack.Screen
+				name={Routes.SING_ACCOUNT}
+				component={SingAccountController}
+			/>
+			<Stack.Screen
+				name={Routes.MY_PROFILE}
+				component={MyProfileScreen}
+			/>
 			<Stack.Screen name={Routes.SETTINGS} component={SettingsScreen} />
 			<Stack.Screen name={Routes.MY_ORDERS} component={MyOrdersScreen} />
 			<Stack.Screen name={Routes.NEWS} component={NewsScreen} />
 			<Stack.Screen name={Routes.ABOUT_US} component={AboutUsScreen} />
 			<Stack.Screen name={Routes.LANGUAGE} component={LanguageScreen} />
 			<Stack.Screen name={Routes.ABOUT_APP} component={AboutAppScreen} />
-			<Stack.Screen name={Routes.REGISTER} component={RegisterScreen} />
+			<Stack.Screen
+				name={Routes.REGISTER}
+				component={RegistrationScreen}
+			/>
 			<Stack.Screen name={Routes.LOGIN} component={LoginScreen} />
-			<Stack.Screen name={Routes.VERIFICATION} component={VerificationScreen} />
-			<Stack.Screen name={Routes.MY_REVIEWS} component={MyReviewsScreen} />
-			<Stack.Screen name={Routes.PHONE_NUMBER} component={PhoneNumberScreen} />
+			<Stack.Screen
+				name={Routes.VERIFICATION}
+				component={VerificationScreen}
+			/>
+			<Stack.Screen
+				name={Routes.MY_REVIEWS}
+				component={MyReviewsScreen}
+			/>
+			<Stack.Screen
+				name={Routes.PHONE_NUMBER}
+				component={PhoneNumberScreen}
+			/>
 		</Stack.Navigator>
 	);
 };

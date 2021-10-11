@@ -1,37 +1,35 @@
-import React from 'react';
-
 import { useNavigation } from '@react-navigation/core';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import DefaultInput from 'components/general/DefaultInput';
-import DefaultButton from 'components/general/DefaultButton';
-
-import { styles } from './style';
-import { strings } from 'locales/locales';
 import { ChevronIcon } from 'assets/icons/icons';
-import navigation from 'components/navigation/Header'
-import { Routes } from 'constants/routes'
-import { useAppSelector } from 'utils/hooks';
-import { selectUser, setUserPhone } from 'store/slices/userSlice';
+import DefaultButton from 'components/general/DefaultButton';
+import DefaultInput from 'components/general/DefaultInput';
+import { Routes } from 'constants/routes';
+import { strings } from 'locales/locales';
+import React from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-
+import { selectUser, setUserPhone } from 'store/slices/userSlice';
+import { useAppSelector } from 'utils/hooks';
+import { styles } from './style';
 
 interface ILoginViewProps {
 	password: string;
 	setPassword: (e: string) => void;
 	onPress: () => void;
-	navigate: () => void
+	navigate: () => void;
 }
 
 const LoginView = ({
 	password,
 	setPassword,
 	onPress,
-	navigate
+	navigate,
 }: ILoginViewProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
-	let dispatch = useDispatch()
-	let setPhone = (num: string) => { dispatch(setUserPhone(num)) }
+	let dispatch = useDispatch();
+	let setPhone = (num: string) => {
+		dispatch(setUserPhone(num));
+	};
 	let onNextPress = () => {
 		navigation.navigate(Routes.VERIFICATION);
 	};
@@ -39,16 +37,20 @@ const LoginView = ({
 		navigation.navigate(Routes.TABS);
 	};
 	console.log(user);
-	
+
 	return (
-		<ScrollView
-			style={styles.container}
-		>
+		<ScrollView style={styles.container}>
 			<View style={styles.top}>
 				<View style={styles.mt20}>
 					<View style={styles.mt12}>
-						<Text style={styles.textAuth}>{strings.authorization}</Text>
-						<DefaultInput value={user.phone} onChange={setPhone} keyboardType={'numeric'} />
+						<Text style={styles.textAuth}>
+							{strings.authorization}
+						</Text>
+						<DefaultInput
+							value={user.phone}
+							onChange={setPhone}
+							keyboardType={'numeric'}
+						/>
 					</View>
 				</View>
 			</View>
@@ -60,9 +62,7 @@ const LoginView = ({
 				/>
 			</View>
 			<TouchableOpacity style={styles.viewAll}>
-				<Text
-					onPress={onSkipPress}
-					style={styles.textView}>
+				<Text onPress={onSkipPress} style={styles.textView}>
 					{strings.skip}
 				</Text>
 				<ChevronIcon size={12} />

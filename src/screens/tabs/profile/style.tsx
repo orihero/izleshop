@@ -1,6 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
-import { windowWidth } from 'constants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	container: {
@@ -72,5 +71,124 @@ export const styles = StyleSheet.create({
 		fontSize: 8,
 		fontFamily: 'Lato',
 		fontWeight: 'bold',
+	},
+	myProfile: {
+		height: 50,
+		paddingHorizontal: 10,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		backgroundColor: colors.white,
+	},
+	profile: {
+		// paddingLeft: 10,
+		justifyContent: 'flex-end',
+		flexDirection: 'row',
+	},
+	textProfile: {
+		// width: 190,
+		fontFamily: 'Lato',
+		fontWeight: '600',
+		fontSize: 12,
+	},
+	imageFlag: {
+		width: 18,
+		height: 18,
+		position: 'absolute',
+		left: 325,
+	},
+	orders: {
+		width: 350,
+		height: 130,
+		marginLeft: 20,
+		marginTop: 10,
+		backgroundColor: colors.white,
+	},
+	myOrders: {
+		width: 350,
+		height: 30,
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		flexDirection: 'row',
+	},
+	textOrders: {
+		paddingLeft: 15,
+		fontSize: 14,
+		fontWeight: 'bold',
+		fontFamily: 'Lato',
+		alignItems: 'center',
+	},
+	orderView: {
+		paddingRight: 15,
+		paddingTop: 5,
+		fontSize: 8,
+		fontWeight: 'bold',
+		fontFamily: 'Lato',
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexDirection: 'row',
+	},
+	line: {
+		width: 340,
+		height: 1,
+		left: 5,
+		borderWidth: 1,
+		borderColor: colors.lightGray,
+	},
+	dispatch: {
+		width: 340,
+		height: 70,
+		flexDirection: 'row',
+		justifyContent: 'space-around',
+	},
+	payment: {
+		// width: 90,
+		paddingLeft: 5,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	textPayment: {
+		width: 60,
+		fontSize: 9,
+		paddingTop: 2,
+		fontFamily: 'Lato',
+		fontWeight: '400',
+		textAlign: 'center',
+	},
+	textPayments: {
+		width: 62,
+		paddingTop: 2,
+		fontSize: 9,
+		fontFamily: 'Lato',
+		fontWeight: '400',
+		textAlign: 'center',
+	},
+	payments: {
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	reviews: {
+		width: 300,
+		alignItems: 'center',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+	},
+	textReviews: {
+		paddingLeft: 5,
+		fontSize: 10,
+		fontWeight: 'bold',
+		fontFamily: 'Lato',
+	},
+	lol: {
+		width: 320,
+		height: 25,
+		paddingLeft: 15,
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		flexDirection: 'row',
+	},
+	chat: {
+		width: 15,
+		paddingTop: 4,
 	},
 });

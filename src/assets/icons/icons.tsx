@@ -221,10 +221,7 @@ export function LogoutIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 23 22"
-			{...props}
-		>
+		<Svg viewBox="0 0 23 22" {...props} strokeWidth={0.5}>
 			<Path
 				d="M20.448 22H9.354a2.455 2.455 0 01-2.466-2.444v-4.89H9V20h12V2H9v5.333H6.888V2.444A2.455 2.455 0 019.354 0h11.094a2.455 2.455 0 012.466 2.444v17.112A2.455 2.455 0 0120.448 22zm-8.629-6.111v-3.667H.725V9.778h11.094V6.11L17.983 11l-6.164 4.889z"
 				fill="#000"
@@ -299,10 +296,7 @@ export function SettingIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 19 19"
-			{...props}
-		>
+		<Svg viewBox="0 0 19 19" {...props}>
 			<Path
 				fillRule="evenodd"
 				clipRule="evenodd"
@@ -333,7 +327,6 @@ export function FilterIcon({
 	);
 }
 
-
 export function BirthdayIcon({
 	color = 'white',
 	active,
@@ -342,10 +335,7 @@ export function BirthdayIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 20 20"
-			{...props}
-		>
+		<Svg viewBox="0 0 20 20" {...props}>
 			<Path
 				d="M1 8.875h18M14.5 5.5V1m-9 4.5V1M1 3.25h18V19H1V3.25z"
 				stroke="#1779C8"
@@ -358,7 +348,6 @@ export function BirthdayIcon({
 	);
 }
 
-
 export function PhoneIcon({
 	color = 'white',
 	active,
@@ -367,21 +356,17 @@ export function PhoneIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-		viewBox="0 0 14 20"
-		{...props}
-	  >
-		<Path
-		  d="M12.625 1H1.375v18h11.25V1zM6.994 15.625h.011"
-		  stroke="#1779C8"
-		  strokeWidth={2}
-		  strokeLinecap="round"
-		  strokeLinejoin="round"
-		/>
-	  </Svg>
+		<Svg viewBox="0 0 14 20" {...props}>
+			<Path
+				d="M12.625 1H1.375v18h11.25V1zM6.994 15.625h.011"
+				stroke="#1779C8"
+				strokeWidth={2}
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</Svg>
 	);
 }
-
 
 export function LanguageIcon({
 	color = '#1779C8',
@@ -391,17 +376,14 @@ export function LanguageIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-      viewBox="0 0 24 24"
-      {...props}
-    >
-      <Path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M23.999 12.027a12 12 0 10-6.106 10.426l.1.022.02-.095A11.97 11.97 0 0024 12.027zm-22.235 0c.003-.866.117-1.728.338-2.565H5.73L10 13.019l-1.634 2.178a1.718 1.718 0 00.16 2.235l1.79 1.791v2.912a10.271 10.271 0 01-8.552-10.108zm7.97 4.196l2.608-3.478L6.35 7.751h-3.64a10.23 10.23 0 0115.204-4.117l-.517 1.551h-4.87L9.926 7.788l8 7.109-1.411 6.345a10.18 10.18 0 01-4.488 1.047v-3.774l-2.292-2.292zm8.822 3.715l1.037-4.67a1.71 1.71 0 00-.533-1.648l-6.643-5.906.819-.818h4.16c.737 0 1.39-.471 1.623-1.17l.302-.907a10.243 10.243 0 01-.765 15.119z"
-        fill="#1779C8"
-      />
-    </Svg>
+		<Svg viewBox="0 0 24 24" {...props}>
+			<Path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M23.999 12.027a12 12 0 10-6.106 10.426l.1.022.02-.095A11.97 11.97 0 0024 12.027zm-22.235 0c.003-.866.117-1.728.338-2.565H5.73L10 13.019l-1.634 2.178a1.718 1.718 0 00.16 2.235l1.79 1.791v2.912a10.271 10.271 0 01-8.552-10.108zm7.97 4.196l2.608-3.478L6.35 7.751h-3.64a10.23 10.23 0 0115.204-4.117l-.517 1.551h-4.87L9.926 7.788l8 7.109-1.411 6.345a10.18 10.18 0 01-4.488 1.047v-3.774l-2.292-2.292zm8.822 3.715l1.037-4.67a1.71 1.71 0 00-.533-1.648l-6.643-5.906.819-.818h4.16c.737 0 1.39-.471 1.623-1.17l.302-.907a10.243 10.243 0 01-.765 15.119z"
+				fill="#1779C8"
+			/>
+		</Svg>
 	);
 }
 

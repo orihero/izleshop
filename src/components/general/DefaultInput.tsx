@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
-
-import { StyleSheet, TextInput, View, Text } from 'react-native';
-import Pressable from './Pressable';
-
 import { colors } from 'constants/colors';
-import { strings } from 'locales/locales';
-import RegisterView from 'src/screens/without-tabs/register/view';
+import React, { useState } from 'react';
+import { KeyboardTypeOptions, StyleSheet, TextInput, View } from 'react-native';
 
 interface DefaultInputProps {
 	value: string;
@@ -13,7 +8,7 @@ interface DefaultInputProps {
 	isPassword?: boolean;
 	isTextArea?: boolean;
 	placeholder?: string;
-	keyboardType?: string;
+	keyboardType?: KeyboardTypeOptions | undefined;
 }
 
 const DefaultInput = ({
@@ -23,7 +18,7 @@ const DefaultInput = ({
 	isTextArea,
 	placeholder = `Номер телефона 
 	+998 (99) 456-95-50`,
-	keyboardType
+	keyboardType,
 }: DefaultInputProps) => {
 	const [showPassword, setShowPassword] = useState(false);
 
@@ -44,7 +39,6 @@ const DefaultInput = ({
 				style={isTextArea ? styles.textarea : styles.input}
 				keyboardType={keyboardType}
 			/>
-
 		</View>
 	);
 };
@@ -80,5 +74,5 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		backgroundColor: colors.white,
 	},
-	text1: {}
+	text1: {},
 });

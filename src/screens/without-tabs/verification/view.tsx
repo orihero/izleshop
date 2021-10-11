@@ -1,86 +1,50 @@
-import React, { useState } from 'react';
-import { Text, View, } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import DefaultButton from 'components/general/DefaultButton';
 import DefaultInput from 'components/general/DefaultInput';
-import Pressable from 'components/general/Pressable';
-
-
-import { styles } from './stlye';
-import { strings } from 'locales/locales';
-import { useNavigation } from '@react-navigation/core';
 import { Routes } from 'constants/routes';
+import { strings } from 'locales/locales';
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
+import { selectUser } from 'store/slices/userSlice';
 import { useAppSelector } from 'utils/hooks';
-import { useDispatch } from 'react-redux';
-import { selectUser, setUserName } from 'store/slices/userSlice';
+import { styles } from './style';
 
-
-interface ILanguageProps {
-	language: number;
-	setLanguage: (e: number) => void;
-	arr: string[];
-	onPress: () => {};
-}
-
-const VerificationView = ({
-	
-}: ILanguageProps) => {
+const VerificationView = () => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
-	let dispatch = useDispatch()
-	let setName = (name: string) => { dispatch(setUserName(name)) }
+	// let dispatch = useDispatch()
+	// let setPhone = (num: string) => { dispatch(setUserPhone(num)) }
 	let onNextPress = () => {
 		navigation.navigate(Routes.REGISTER);
 	};
-	const [language, setLanguage] = useState(0)
-	const arr = ['Русский', 'O’zbekcha', 'English'];
+	const [code, setCode] = useState('');
 
-	const [phone, setPhone] = useState('');
 	return (
 		<View style={styles.container}>
 			<View style={styles.top}>
 				<View style={styles.mt20}>
 					<View style={styles.mt12}>
-						<Text style={styles.textConfirmation}>{strings.registration}</Text>
-						<DefaultInput placeholder={'ФИО пользователя'} value={user.name} onChange={setName} />
+						<Text style={styles.textConfirmation}>
+							{strings.confirmation}
+						</Text>
+						<DefaultInput
+							placeholder={'Код с подтверждение'}
+							value={code}
+							onChange={setCode}
+							keyboardType={'numeric'}
+						/>
 					</View>
 				</View>
-				<Text style={styles.textLanguage}>{strings.systemLanguage}</Text>
-				<View style={styles.lbox}>
-					{arr.map((e, i) => (
-						<Pressable key={i} onPress={() => setLanguage(i)}>
-							<View style={styles.lrow}>
-								<Text
-									style={[
-										styles.ltext,
-										i === language
-											? styles.cblue
-											: styles.cblack,
-									]}
-								>
-									{e}
-								</Text>
-								<View
-									style={[
-										styles.lsquare,
-										i === language
-											? styles.bblue
-											: styles.bblack,
-									]}
-								/>
-							</View>
-						</Pressable>
-					))}
-				</View>
-				<View style={styles.center}>
-					<DefaultButton
-						text={strings.toComeIn}
-						marginDisabled
-					    onPress={onNextPress}
-					/>
-				</View>
-				<View style={styles.bottom}>
-					<Text style={styles.text3}>izle</Text>
-				</View>
+			</View>
+			<View style={styles.center}>
+				<DefaultButton
+					text={strings.toComeIn}
+					marginDisabled
+					onPress={onNextPress}
+				/>
+			</View>
+			<View style={styles.bottom}>
+				<Text style={styles.text3}>izle</Text>
 			</View>
 		</View>
 	);

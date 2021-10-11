@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { colors } from 'constants/colors';
 
 export interface IDefaultButtonProps {
-	onPress?: () => {};
+	onPress?: () => void;
 	text?: string;
 	marginDisabled?: boolean;
 }
