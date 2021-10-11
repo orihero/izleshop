@@ -18,7 +18,7 @@ interface ISettingViewProps {
 	navigate: () => void
 }
 
-const SettingsView = ({ onCreate, onPress }: ISettingViewProps) => {
+const SettingsView = ({ onCreate, }: ISettingViewProps) => {
 	let navigation = useNavigation();
 	let onNextPress = () => {
 		navigation.navigate(Routes.LANGUAGE);
@@ -26,12 +26,15 @@ const SettingsView = ({ onCreate, onPress }: ISettingViewProps) => {
 	let onCreatePress = () => {
 		navigation.navigate(Routes.PHONE_NUMBER);
 	};
+	let onPress = (route: Routes) => {
+		navigation.navigate(route)
+	}
 	return (
 		<ProfileLayout headerTitle={strings.settings || ''}>
 			<View style={styles.container}>
 				<View style={styles.profilePage}>
 					<ProfileIcon size={20} color={'#1779c8'} />
-					<TouchableOpacity style={styles.profile} onPress={() => onPress(Routes.PRE_CHECKOUT)}>
+					<TouchableOpacity style={styles.profile} onPress={() => onPress(Routes.NAME_PAGE)}>
 						<Text style={styles.textProfile}>
 							{strings.nameString}
 						</Text>
@@ -45,17 +48,17 @@ const SettingsView = ({ onCreate, onPress }: ISettingViewProps) => {
 							<Text style={styles.textbirthday}>
 								{strings.birthday}
 							</Text>
-							<Text style={styles.day}>{strings.dayMothYear}</Text>
+							<Text style={styles.day}>12-12-2000</Text>
 							<ChevronIcon size={15} />
 						</TouchableOpacity>
 					</View>
 					<View style={styles.phoneNumber}>
-						<PhoneIcon size={20} />
+						<PhoneIcon size={20}  />
 						<TouchableOpacity style={styles.phoneString} onPress={onCreatePress}>
 							<Text style={styles.textPhone}>
 								{strings.phoneNamber}
 							</Text>
-							<Text style={styles.number}>{strings.number}</Text>
+							<Text style={styles.number}>(99) 123-4565</Text>
 							<ChevronIcon size={15} />
 						</TouchableOpacity>
 					</View>
