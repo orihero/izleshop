@@ -20,7 +20,7 @@ const RegisterView = () => {
 	// let dispatch = useDispatch()
 	// let setPhone = (num: string) => { dispatch(setUserPhone(num)) }
 	let onNextPress = () => {
-		navigation.navigate(Routes.TABS);
+		navigation.navigate(Routes.MY_PROFILE);
 	};
 	const [code, setCode] = useState('');
 
