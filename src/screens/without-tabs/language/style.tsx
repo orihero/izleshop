@@ -5,6 +5,8 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		padding: 20,
+		marginTop: 5,
+		backgroundColor: colors.lightBlue,
 	},
 	title: {
 		fontSize: 14,
@@ -50,6 +52,23 @@ export const styles = StyleSheet.create({
 		fontSize: 144,
 		lineHeight: 172,
 		color: colors.darkBlue,
+	},
+	button: {
+		width: 355,
+		height: 57,
+		marginTop: 15,
+		marginRight: 20,
+		borderRadius: 5,
+		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: colors.blueLight
+	},
+	textCancel: {
+		fontSize: 14,
+		fontWeight: 'bold',
+		textAlign: 'center',
+		fontFamily: 'Poppins',
+		color: colors.white,
 	},
 	cblack: {
 		color: colors.black,

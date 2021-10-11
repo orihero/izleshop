@@ -30,5 +30,7 @@ export enum Routes {
 	VIEW_ALL = 'view-all',
 	VERIFICATION = 'verification',
 	LOGIN = 'login',
-	REGISTER = 'register'
+	REGISTER = 'register',
+	MY_REVIEWS = 'my-reviews',
+	PHONE_NUMBER ='phone-number',
 }

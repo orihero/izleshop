@@ -16,6 +16,8 @@ import OurPartnersController from './our-partners';
 import SingAccountController from './sing-account';
 import ViewAllController from './view-all';
 import VerificationScreen from './verification';
+import MyReviewsScreen from './my-reviews';
+import PhoneNumberScreen from './phone-number';
 
 import { Routes } from 'constants/routes';
 
@@ -35,6 +37,8 @@ export type WithoutStackParamList = {
 	[Routes.VIEW_ALL]: undefined;
 	[Routes.VERIFICATION]: undefined;
 	[Routes.LOGIN]: undefined;
+	[Routes.MY_REVIEWS]: undefined;
+	[Routes.PHONE_NUMBER]: undefined;
 };
 
 let Stack = createNativeStackNavigator<WithoutStackParamList>();
@@ -56,6 +60,8 @@ const WithoutTabsStack = () => {
 			<Stack.Screen name={Routes.REGISTER} component={RegisterScreen} />
 			<Stack.Screen name={Routes.LOGIN} component={LoginScreen} />
 			<Stack.Screen name={Routes.VERIFICATION} component={VerificationScreen} />
+			<Stack.Screen name={Routes.MY_REVIEWS} component={MyReviewsScreen} />
+			<Stack.Screen name={Routes.PHONE_NUMBER} component={PhoneNumberScreen} />
 		</Stack.Navigator>
 	);
 };

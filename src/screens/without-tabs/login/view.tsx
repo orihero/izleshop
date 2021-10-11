@@ -38,6 +38,8 @@ const LoginView = ({
 	let onSkipPress = () => {
 		navigation.navigate(Routes.TABS);
 	};
+	console.log(user);
+	
 	return (
 		<ScrollView
 			style={styles.container}

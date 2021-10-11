@@ -22,4 +22,5 @@ export let colors = {
 	lightblacks: '#383838',
 	gray5: '#616161',
 	grayLenght: 'rgba(0, 0, 0, 0.65)',
+	blueLight: '#40BFFF'
 };

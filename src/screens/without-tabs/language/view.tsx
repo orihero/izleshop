@@ -51,16 +51,17 @@ const LanguageView = ({
 						</Pressable>
 					))}
 				</View>
+				<View style={styles.button}>
+					{/* <DefaultButton
+						marginDisabled
+						onPress={onPress}
+						text={strings.cancel}
+					/> */}
+					<Text style={styles.textCancel} onPress={onPress}>{strings.cancel}</Text>
+				</View>
 				<View style={styles.content}>
 					<View style={styles.box}>
 						<Text style={styles.text}>{'izle'}</Text>
-					</View>
-					<View>
-						<DefaultButton
-							marginDisabled
-							onPress={onPress}
-							text={strings.cancel}
-						/>
 					</View>
 				</View>
 			</View>

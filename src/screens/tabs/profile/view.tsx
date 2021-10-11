@@ -8,8 +8,6 @@ import MenuLink from 'components/special/MenuLink';
 import { ChevronIcon, LogoutIcon } from 'assets/icons/icons';
 import { strings } from 'locales/locales';
 import { styles } from './style';
-//@ts-ignore
-// import img from 'assets/images/image.png';
 import { Routes } from 'constants/routes';
 
 interface IProfileViewProps {
