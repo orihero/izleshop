@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { colors } from 'constants/colors';
 
-
 export interface IDefaultButtonProps {
 	onPress?: () => {};
 	text?: string;
@@ -32,8 +31,8 @@ const styles = StyleSheet.create({
 		width: 335,
 		marginLeft: 30,
 		marginTop: 10,
-		paddingVertical: 15,
-		borderRadius: 30,
+		paddingVertical: 10,
+		borderRadius: 9,
 		alignItems: 'center',
 		backgroundColor: colors.darkBlue,
 	},

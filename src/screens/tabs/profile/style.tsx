@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
 		marginTop: 20,
 		fontSize: 12,
 		color: colors.lightBlack,
+		marginHorizontal: 40,
 	},
 	profileSettings: {
 		fontSize: 20,
@@ -45,7 +46,7 @@ export const styles = StyleSheet.create({
 		marginBottom: 15,
 		// justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
 	},
 	component: {
 		marginTop: 7,
