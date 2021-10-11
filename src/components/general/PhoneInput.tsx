@@ -1,17 +1,24 @@
-import { colors } from 'constants/colors';
 import React, { useState } from 'react';
-import { KeyboardTypeOptions, StyleSheet, TextInput, View } from 'react-native';
 
-interface DefaultInputProps {
+import { StyleSheet, TextInput, View, Text } from 'react-native';
+import Pressable from './Pressable';
+
+import { colors } from 'constants/colors';
+import { strings } from 'locales/locales';
+import RegisterView from 'src/screens/without-tabs/register/view';
+import { IconProps, PhoneIcon } from 'assets/icons/icons';
+
+interface PhoneInputProps {
 	value: string;
 	onChange: (value: string) => void;
 	isPassword?: boolean;
 	isTextArea?: boolean;
 	placeholder?: string;
-	keyboardType?: KeyboardTypeOptions | undefined;
+	keyboardType?: string;
+    Icon?: (props:IconProps)=> JSX.Element;
 }
 
-const DefaultInput = ({
+const PhoneInput = ({
 	value,
 	onChange,
 	isPassword,
@@ -19,7 +26,8 @@ const DefaultInput = ({
 	placeholder = `Номер телефона 
 	+998 (99) 456-95-50`,
 	keyboardType,
-}: DefaultInputProps) => {
+    Icon 
+}: PhoneInputProps) => {
 	const [showPassword, setShowPassword] = useState(false);
 
 	const onPress = () => {
@@ -27,7 +35,8 @@ const DefaultInput = ({
 	};
 
 	return (
-		<View>
+		<View style={isTextArea ? styles.textarea : styles.input}>
+            {Icon===undefined? null:<Icon/>}
 			<TextInput
 				value={value}
 				multiline={isTextArea}
@@ -36,23 +45,27 @@ const DefaultInput = ({
 				placeholder={placeholder}
 				placeholderTextColor="gray"
 				secureTextEntry={isPassword}
-				style={isTextArea ? styles.textarea : styles.input}
 				keyboardType={keyboardType}
-			/>
+			></TextInput>
+
 		</View>
 	);
 };
 
-export default DefaultInput;
+export default PhoneInput;
 
 const styles = StyleSheet.create({
 	input: {
-		width: 335,
+		width: 345,
 		height: 55,
-		marginLeft: 30,
+		marginLeft: 3,
+        marginTop: 12,
 		paddingLeft: 10,
-		paddingTop: 5,
-		borderRadius: 10,
+		borderRadius: 5,
+        borderWidth: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderColor: colors.blueLight,
 		backgroundColor: colors.white,
 	},
 	absolute: {
@@ -74,5 +87,5 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		backgroundColor: colors.white,
 	},
-	text1: {},
+	text1: {}
 });

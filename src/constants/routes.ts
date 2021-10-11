@@ -33,4 +33,5 @@ export enum Routes {
 	REGISTER = 'register',
 	MY_REVIEWS = 'my-reviews',
 	PHONE_NUMBER ='phone-number',
+	NAME_PAGE = 'name-page'
 }

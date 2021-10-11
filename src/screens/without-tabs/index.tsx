@@ -18,6 +18,7 @@ import ViewAllController from './view-all';
 import RegistrationScreen from './registration';
 import MyReviewsScreen from './my-reviews';
 import PhoneNumberScreen from './phone-number';
+import NamePageScreen from './name-page';
 
 import { Routes } from 'constants/routes';
 
@@ -38,6 +39,7 @@ export type WithoutStackParamList = {
 	[Routes.LOGIN]: undefined;
 	[Routes.MY_REVIEWS]: undefined;
 	[Routes.PHONE_NUMBER]: undefined;
+	[Routes.NAME_PAGE]: undefined;
 };
 
 let Stack = createNativeStackNavigator<WithoutStackParamList>();
@@ -91,6 +93,7 @@ const WithoutTabsStack = () => {
 				name={Routes.PHONE_NUMBER}
 				component={PhoneNumberScreen}
 			/>
+			<Stack.Screen name={Routes.NAME_PAGE} component={NamePageScreen} />
 		</Stack.Navigator>
 	);
 };

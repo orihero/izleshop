@@ -95,7 +95,8 @@ export let strings = new LocalizedStrings({
 		birthday: 'День рождения:',
 		phoneNamber: 'Телефон номер',
 		changeTheLanguage: 'Изменить язык',
-		dayMothYear: '12-12-2000',
-		number: '(99) 123-4565'
+		confirmationCode: 'Код с подтверждение',
+		setting: 'Настройка',
+		fio: 'ФИО',
 	},
 });

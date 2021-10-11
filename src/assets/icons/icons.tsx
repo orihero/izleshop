@@ -5,7 +5,7 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-import { colors } from 'src/constants/colors';
+import { colors } from 'constants/colors';
 
 let AnimatedPath = Animated.createAnimatedComponent(Path);
 
@@ -359,7 +359,7 @@ export function PhoneIcon({
 		<Svg viewBox="0 0 14 20" {...props}>
 			<Path
 				d="M12.625 1H1.375v18h11.25V1zM6.994 15.625h.011"
-				stroke="#1779C8"
+				stroke={colors.blueLight}
 				strokeWidth={2}
 				strokeLinecap="round"
 				strokeLinejoin="round"
