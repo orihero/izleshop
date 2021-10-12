@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
-    container: {
+	container: {
 		flex: 1,
 		padding: 20,
 		backgroundColor: colors.lightBlue,
@@ -10,11 +10,11 @@ export const styles = StyleSheet.create({
 	phoneInput: {},
 	text: {
 		marginLeft: 5,
-		fontFamily: 'Poppins',
+		// fontFamily: 'Poppins',
 		fontSize: 14,
-		fontWeight: 'bold'
+		fontWeight: 'bold',
 	},
 	codeInput: {
 		marginTop: 12,
-	}
-})
+	},
+});

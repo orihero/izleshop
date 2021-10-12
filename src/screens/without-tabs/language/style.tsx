@@ -61,13 +61,13 @@ export const styles = StyleSheet.create({
 		borderRadius: 5,
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: colors.blueLight
+		backgroundColor: colors.blueLight,
 	},
 	textCancel: {
 		fontSize: 14,
 		fontWeight: 'bold',
 		textAlign: 'center',
-		fontFamily: 'Poppins',
+		// fontFamily: 'Poppins',
 		color: colors.white,
 	},
 	cblack: {

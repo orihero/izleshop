@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		flexDirection: 'row',
 		borderBottomWidth: 1,
-		borderColor: colors.lightGray
+		borderColor: colors.lightGray,
 	},
 	birthdayString: {
 		alignItems: 'center',
@@ -54,9 +54,9 @@ export const styles = StyleSheet.create({
 		paddingLeft: 20,
 		paddingRight: 105,
 		fontWeight: 'bold',
-		fontFamily: 'Poppins',
+		// fontFamily: 'Poppins',
 		alignItems: 'center',
-		justifyContent: 'flex-end'
+		justifyContent: 'flex-end',
 	},
 	day: {
 		right: 15,
@@ -71,7 +71,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		flexDirection: 'row',
 		borderBottomWidth: 1,
-		borderColor: colors.lightGray
+		borderColor: colors.lightGray,
 	},
 	phoneString: {
 		alignItems: 'center',
@@ -82,7 +82,7 @@ export const styles = StyleSheet.create({
 		paddingLeft: 20,
 		paddingRight: 92,
 		fontWeight: 'bold',
-		fontFamily: 'Poppins',
+		// fontFamily: 'Poppins',
 		alignItems: 'center',
 	},
 	number: {
@@ -97,7 +97,7 @@ export const styles = StyleSheet.create({
 		paddingLeft: 20,
 
 		alignItems: 'center',
-		flexDirection: 'row'
+		flexDirection: 'row',
 	},
 	languageString: {
 		alignItems: 'center',
@@ -108,8 +108,8 @@ export const styles = StyleSheet.create({
 		paddingLeft: 20,
 		paddingRight: 170,
 		fontWeight: 'bold',
-		fontFamily: 'Poppins',
-		alignItems: 'center'
+		// fontFamily: 'Poppins',
+		alignItems: 'center',
 	},
 	flag: {
 		width: 18,
