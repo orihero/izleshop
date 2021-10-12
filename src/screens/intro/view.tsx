@@ -6,6 +6,7 @@ import { strings } from 'locales/locales';
 import React, { useState } from 'react';
 import { Image, Pressable, Text, View } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { windowWidth } from 'constants/sizes';
 import { styles } from './stlye';
 
 let image1 = require('assets/images/Group.png');
@@ -38,18 +39,20 @@ const IntroView = ({}: IntroProps) => {
 		<View style={styles.container}>
 			<View style={styles.boxOne}>
 				<Carousel
-					contentContainerCustomStyle={{
-						flex: 1,
-						alignItems: 'center',
-					}}
+					contentContainerCustomStyle={
+						{
+							// flex: 1,
+							// alignItems: 'center',
+						}
+					}
 					onSnapToItem={(index) => setActiveSlide(index)}
 					data={data}
-					sliderWidth={300}
+					sliderWidth={windowWidth}
 					sliderHeight={385}
-					itemWidth={300}
+					itemWidth={windowWidth}
 					itemHeight={385}
 					renderItem={({ item: { img } }) => (
-						<View>
+						<View style={styles.itemContainer}>
 							<Image style={styles.img} source={img} />
 						</View>
 					)}

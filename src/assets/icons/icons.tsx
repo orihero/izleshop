@@ -79,7 +79,7 @@ export function CategoriesIcon({ color = 'black', active, size }: IconProps) {
 	);
 }
 export function HomeIcon({ color = 'white', active, size }: IconProps) {
-	let iconProps = { fill: 'none', stroke: color, height: 40, width: 40 };
+	let props = { fill: 'none', stroke: color, height: 32, width: 32 };
 	// if (active) {
 	// 	return (
 	// 		<Svg viewBox="0 0 512 512" {...iconProps}>
@@ -89,7 +89,7 @@ export function HomeIcon({ color = 'white', active, size }: IconProps) {
 	// 	);
 	// }
 	return (
-		<Svg width={30} height={30} stroke={color} strokeWidth={2}>
+		<Svg viewBox="0 0 24 24" strokeWidth={2} {...props}>
 			<Path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
 			<Path d="M9 22V12h6v10" />
 		</Svg>

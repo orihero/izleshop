@@ -69,7 +69,12 @@ const Tabs = () => {
 				//@ts-ignore
 				renderLabel={(props) => {
 					return (
-						<Text style={styles.label}>
+						<Text
+							style={[
+								styles.label,
+								props.focused && { color: colors.blue },
+							]}
+						>
 							{/*@ts-ignore */}
 							{labelMapper[props.route.name]}
 						</Text>
