@@ -387,6 +387,143 @@ export function LanguageIcon({
 	);
 }
 
+
+export function CardIcon({
+	color = colors.iconBlue,
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+			viewBox="0 0 20 16"
+			{...props}
+		>
+			<Path
+				d="M18 16H2a2 2 0 01-2-2V2a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2zM2 7v7h16V7H2zm0-5v2.5h16V2H2zm9 10H4v-2h7v2z"
+				fill="#1779C8"
+			/>
+		</Svg>
+	);
+}
+
+
+export function BagIcon({
+	color = colors.iconBlue,
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+			viewBox="0 0 18 18"
+			{...props}
+		>
+			<Path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M1.387 2.678A2.328 2.328 0 013.7.667h10.6c1.163 0 2.156.849 2.314 2.01.215 1.584.538 4.162.646 6.079.106 1.887.076 4.438.042 6.029a2.306 2.306 0 01-2.135 2.253c-1.615.122-4.23.295-6.167.295-1.937 0-4.552-.173-6.167-.295A2.306 2.306 0 01.7 14.785c-.035-1.59-.064-4.142.042-6.029.108-1.917.43-4.495.646-6.078zm2.313-.73c-.53 0-.973.386-1.043.902-.215 1.583-.531 4.117-.636 5.978-.103 1.833-.075 4.34-.04 5.929.011.531.42.962.95 1.002 1.614.123 4.185.292 6.07.292 1.883 0 4.455-.169 6.07-.292.53-.04.938-.47.95-1.002.034-1.59.062-4.096-.041-5.93-.105-1.86-.422-4.394-.636-5.977a1.046 1.046 0 00-1.043-.901H3.7z"
+				fill="#1779C8"
+			/>
+			<Path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M5.582 4.085c.354 0 .64.287.64.641a2.778 2.778 0 105.556 0 .641.641 0 111.282 0 4.06 4.06 0 01-8.12 0c0-.354.287-.64.642-.64z"
+				fill="#1779C8"
+			/>
+		</Svg>
+	);
+}
+
+export function CarIcon({
+	color = colors.iconBlue,
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+			viewBox="0 0 23 16"
+			{...props}
+		>
+			<Path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M22.375 7.864l-2.344-5a.786.786 0 00-.718-.435h-2.344V.999c0-.394-.35-.713-.782-.713H1.345C.912.286.562.606.562 1v12.143c0 .394.35.714.782.714h1.672c.37 1.244 1.605 2.108 3.015 2.108 1.41 0 2.646-.864 3.016-2.108h4.906c.37 1.244 1.606 2.108 3.016 2.108s2.645-.864 3.015-2.108h1.672c.432 0 .782-.32.782-.714v-5a.663.663 0 00-.063-.279zm-5.406-4.007h1.828l1.672 3.571h-3.5v-3.57zM6.03 14.571c-.863 0-1.562-.64-1.562-1.428 0-.79.7-1.429 1.562-1.429.863 0 1.563.64 1.563 1.429s-.7 1.428-1.563 1.428zm7.922-2.143H9.047c-.37-1.244-1.605-2.107-3.016-2.107-1.41 0-2.646.863-3.015 2.107h-.891V1.714h13.281v8.972c-.718.38-1.241 1.008-1.453 1.742zm3.016 2.143c-.863 0-1.563-.64-1.563-1.428 0-.79.7-1.429 1.563-1.429s1.562.64 1.562 1.429-.7 1.428-1.562 1.428zm3.906-2.143h-.89c-.356-1.258-1.595-2.138-3.016-2.142V8.857h3.906v3.572z"
+				fill="#1779C8"
+			/>
+		</Svg>
+	);
+}
+
+
+export function ExitIcon({
+	color = 'grey',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+		viewBox="0 0 17 15"
+		{...props}
+	  >
+		<Path
+		  d="M9.46 7.501l6.5-6.152a.76.76 0 000-1.117.868.868 0 00-1.179 0L8.28 6.384 1.779.232a.868.868 0 00-1.18 0 .76.76 0 000 1.117L7.1 7.5.6 13.653a.76.76 0 000 1.117.868.868 0 001.18 0l6.5-6.153 6.502 6.153a.868.868 0 001.18 0 .76.76 0 000-1.117L9.46 7.501z"
+		  fill="#000"
+		  fillOpacity={0.3}
+		/>
+	  </Svg>	);
+}
+
+export function PenIcon({
+	color = colors.iconBlue,
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+			viewBox="0 0 19 17"
+			{...props}
+		>
+			<Path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M17.813 11.905v3.571H1.188V1.19H11.4V0H1.9C.85 0 0 .533 0 1.19v14.286c0 .658.85 1.19 1.9 1.19h15.2c1.05 0 1.9-.532 1.9-1.19v-3.571h-1.188zm.622-9.616L16.525.28a.893.893 0 00-1.297 0l-8.103 8.53v3.375h3.2l8.104-8.53c.353-.379.353-.986 0-1.365h.006zm-8.59 8.676H8.284V9.32l5.464-5.758 1.568 1.652-5.47 5.751zm4.718-8.262l1.568 1.651 1.314-1.383-1.569-1.65-1.313 1.382z"
+				fill="#1779C8"
+			/>
+		</Svg>
+	);
+}
+
+export function ChatIcon({
+	color = colors.iconBlue,
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+			viewBox="0 0 14 13"
+			{...props}
+		>
+			<Path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M7.761 12.125L7 11.687l1.75-3.062h2.625a.875.875 0 00.875-.875V2.5a.875.875 0 00-.875-.875h-8.75a.875.875 0 00-.875.875v5.25c0 .483.392.875.875.875h3.938V9.5H2.624a1.75 1.75 0 01-1.75-1.75V2.5c0-.966.784-1.75 1.75-1.75h8.75c.966 0 1.75.784 1.75 1.75v5.25a1.75 1.75 0 01-1.75 1.75H9.258L7.76 12.125zm2.739-8.75h-7v.875h7v-.875zM7.875 6H3.5v.875h4.375V6z"
+				fill="#1779C8"
+			/>
+		</Svg>
+	);
+}
+
 export function ArrowsIcon({
 	color = 'black',
 	active,

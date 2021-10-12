@@ -1,7 +1,12 @@
 import { useNavigation } from '@react-navigation/core';
 import {
+	BagIcon,
+	CardIcon,
+	CarIcon,
+	ChatIcon,
 	ChevronIcon,
 	LogoutIcon,
+	PenIcon,
 	ProfileIcon,
 	SettingIcon,
 } from 'assets/icons/icons';
@@ -86,33 +91,25 @@ const ProfileView = ({}: IProfileViewProps) => {
 							<Text style={styles.line} />
 							<View style={styles.dispatch}>
 								<View style={styles.payment}>
-									<Image
-										source={require('assets/images/coolico.png')}
-									/>
+									<CardIcon />
 									<Text style={styles.textPayment}>
 										{strings.paymentPending}
 									</Text>
 								</View>
 								<View style={styles.payment}>
-									<Image
-										source={require('assets/images/Vector.png')}
-									/>
+									 <BagIcon />
 									<Text style={styles.textPayment}>
 										{strings.awaitingDispatch}
 									</Text>
 								</View>
 								<View style={styles.payment}>
-									<Image
-										source={require('assets/images/Fill.png')}
-									/>
+								  <CarIcon />
 									<Text style={styles.textPayment}>
 										{strings.orderSent}
 									</Text>
 								</View>
 								<View style={styles.payments}>
-									<Image
-										source={require('assets/images/Fil.png')}
-									/>
+									<PenIcon />
 									<Text style={styles.textPayments}>
 										{strings.reviewAwaiteng}
 									</Text>
@@ -120,10 +117,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 							</View>
 							<Text style={styles.line} />
 							<View style={styles.lol}>
-								<Image
-									style={styles.chat}
-									source={require('assets/images/chat.png')}
-								/>
+								<ChatIcon size={14} />
 								<TouchableOpacity
 									style={styles.reviews}
 									onPress={() => onPress(Routes.MY_REVIEWS)}

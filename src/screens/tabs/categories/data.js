@@ -112,36 +112,36 @@ export let categories = [
 					uri: 'https://img.global.news.samsung.com/global/wp-content/uploads/2018/01/QuickDrive_WW6850N_washer_main_1.jpg',
 				},
 			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
 		],
 	},
 	{
@@ -165,36 +165,36 @@ export let categories = [
 					uri: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22?wid=1144&hei=1144&fmt=jpeg&qlt=80&.v=1591634795000'
 				},
 			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg'
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg'
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg'
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg'
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
 		],
 	},
 	{
@@ -218,36 +218,36 @@ export let categories = [
 					uri: 'https://img.global.news.samsung.com/global/wp-content/uploads/2018/01/QuickDrive_WW6850N_washer_main_1.jpg',
 				},
 			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
 		],
 	},
 	{
@@ -271,6 +271,41 @@ export let categories = [
 					uri: 'https://img.global.news.samsung.com/global/wp-content/uploads/2018/01/QuickDrive_WW6850N_washer_main_1.jpg',
 				},
 			},
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+			// {
+			// 	label: 'Телевизор',
+			// 	img: {
+			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+			// 	},
+			// },
+		],
+	},
+	{
+		label: 'Бытовая техника',
+		subCategories: [
 			{
 				label: 'Телевизор',
 				img: {
@@ -278,27 +313,15 @@ export let categories = [
 				},
 			},
 			{
-				label: 'Телевизор',
+				label: 'Пылесос',
 				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+					uri: 'https://m.media-amazon.com/images/I/61tH1osluML._SL1200_.jpg',
 				},
 			},
 			{
-				label: 'Телевизор',
+				label: 'Стиральная машина',
 				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+					uri: 'https://img.global.news.samsung.com/global/wp-content/uploads/2018/01/QuickDrive_WW6850N_washer_main_1.jpg',
 				},
 			},
 		],

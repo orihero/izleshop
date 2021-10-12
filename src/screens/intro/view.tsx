@@ -10,8 +10,8 @@ import { windowWidth } from 'constants/sizes';
 import { styles } from './stlye';
 
 let image1 = require('assets/images/Group.png');
-let image2 = require('assets/images/Group.png');
-let image3 = require('assets/images/Group.png');
+let image2 = require('assets/images/document.png');
+let image3 = require('assets/images/watch.png');
 
 export interface IntroProps {
 	navigation: NativeStackNavigationProp<any>;
@@ -19,13 +19,13 @@ export interface IntroProps {
 
 let data = [
 	{
-		img: image1,
+		img: image1,style:styles.img
 	},
 	{
-		img: image2,
+		img: image2, style:{width: 10}
 	},
 	{
-		img: image3,
+		img: image3, 
 	},
 ];
 
@@ -42,7 +42,6 @@ const IntroView = ({}: IntroProps) => {
 					contentContainerCustomStyle={
 						{
 							// flex: 1,
-							// alignItems: 'center',
 						}
 					}
 					onSnapToItem={(index) => setActiveSlide(index)}
@@ -53,7 +52,7 @@ const IntroView = ({}: IntroProps) => {
 					itemHeight={385}
 					renderItem={({ item: { img } }) => (
 						<View style={styles.itemContainer}>
-							<Image style={styles.img} source={img} />
+							<Image style={img.style } source={img} />
 						</View>
 					)}
 				/>
