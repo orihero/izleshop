@@ -34,9 +34,11 @@ export const styles = StyleSheet.create({
 	absolute: {
 		// paddingTop: 500,
 		position: 'absolute',
-		bottom: 20,
+		bottom: 0,
 		left: 0,
 		right: 0,
+		paddingBottom: 20,
+		backgroundColor:'white'
 	},
 	mh20: {
 		marginHorizontal: 20,

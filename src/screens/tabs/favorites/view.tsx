@@ -6,6 +6,7 @@ import React from 'react';
 import { FlatList, View } from 'react-native';
 import { selectFavoritesList } from 'store/slices/favoritesSlice';
 import { useAppSelector } from 'utils/hooks';
+import FavoriteItem from '../cart/components/FavoriteItem';
 import { styles } from './style';
 
 const FavoritesView = () => {
@@ -22,7 +23,7 @@ const FavoritesView = () => {
 				data={favorites}
 				renderItem={(props) => (
 					<View style={styles.mt15}>
-						<HorizontalItem
+						<FavoriteItem
 							hasBasket={true}
 							hasRemove={false}
 							{...props}

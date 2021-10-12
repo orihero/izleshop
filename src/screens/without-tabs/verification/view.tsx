@@ -1,51 +1,55 @@
-import { useNavigation } from '@react-navigation/core';
-import DefaultButton from 'components/general/DefaultButton';
-import DefaultInput from 'components/general/DefaultInput';
-import { Routes } from 'constants/routes';
-import { strings } from 'locales/locales';
-import React, { useState } from 'react';
-import { Text, View } from 'react-native';
-import { selectUser } from 'store/slices/userSlice';
-import { useAppSelector } from 'utils/hooks';
-import { styles } from './style';
+import React from 'react';
+import { Text, View, } from 'react-native';
 
-const VerificationView = () => {
+import ProfileLayout from '../ProfileLayout';
+import { styles } from './style';
+import { strings } from 'locales/locales';
+import DefaultInput from 'components/general/DefaultInput';
+import { useNavigation } from '@react-navigation/core';
+import { useAppSelector } from 'utils/hooks';
+import { useDispatch } from 'react-redux';
+import { selectUser, setUserName } from 'store/slices/userSlice';
+import DefaultButton from 'components/general/DefaultButton';
+
+import {Routes} from 'constants/routes'
+
+
+
+interface IVerificationProps {
+
+	arr: string[];
+	onPress: () => {};
+}
+
+const VerificationView = ({
+
+}: IVerificationProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
-	// let dispatch = useDispatch()
-	// let setPhone = (num: string) => { dispatch(setUserPhone(num)) }
+	let dispatch = useDispatch()
+	let setName = (name: string) => { dispatch(setUserName(name)) }
 	let onNextPress = () => {
+		//@ts-ignore
 		navigation.navigate(Routes.REGISTER);
 	};
-	const [code, setCode] = useState('');
-
 	return (
 		<View style={styles.container}>
-			<View style={styles.top}>
-				<View style={styles.mt20}>
-					<View style={styles.mt12}>
-						<Text style={styles.textConfirmation}>
-							{strings.confirmation}
-						</Text>
-						<DefaultInput
-							placeholder={'Код с подтверждение'}
-							value={code}
-							onChange={setCode}
-							keyboardType={'numeric'}
-						/>
-					</View>
-				</View>
+			<Text style={styles.text}>{strings.confirmation}</Text>
+
+			<View style={styles.input}>
+				<DefaultInput
+					placeholder={strings.confirmationCode}
+					value={user.name}
+					onChange={setName}
+				/>
 			</View>
-			<View style={styles.center}>
+			<View style={styles.buttom}>
 				<DefaultButton
 					text={strings.toComeIn}
-					marginDisabled
 					onPress={onNextPress}
 				/>
 			</View>
-			<View style={styles.bottom}>
-				<Text style={styles.text3}>izle</Text>
-			</View>
+			<Text style={styles.izle}>izle</Text>
 		</View>
 	);
 };

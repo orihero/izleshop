@@ -39,6 +39,7 @@ const CartView = ({ navigation }: ICartViewProps) => {
 			{cartItems ? (
 				<FlatList
 					data={cartItems}
+					// contentContainerStyle={{height: "80%"}}
 					style={styles.mh20}
 					keyExtractor={(e) => e.data.id.toString()}
 					renderItem={(props) => (

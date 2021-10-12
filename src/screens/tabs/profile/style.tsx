@@ -95,7 +95,7 @@ export const styles = StyleSheet.create({
 		width: 18,
 		height: 18,
 		position: 'absolute',
-		left: 325,
+		left: 335,
 	},
 	orders: {
 		width: 350,
