@@ -138,17 +138,19 @@ const ProductDetailsView = ({
 					<Accordion items={accordionData} />
 				</View>
 				<Text style={styles.text4}>{strings.similarProducts}</Text>
-				<View style={styles.mt20}>
-					<FlatList
-						snapToInterval={windowWidth / 2 - 5}
-						data={products}
-						horizontal
-						renderItem={(props) => <VerticalItem {...props} />}
-						decelerationRate={'fast'}
-						showsHorizontalScrollIndicator={false}
-						keyExtractor={(e) => e.id.toString()}
-					/>
-				</View>
+					<View style={styles.mt20}>
+						<FlatList
+							snapToInterval={windowWidth / 3 - 5}
+							data={products}
+							horizontal
+							renderItem={(props) => <View style={styles.margin}>
+								<VerticalItem {...props} />
+							</View>}
+							decelerationRate={'fast'}
+							showsHorizontalScrollIndicator={false}
+							keyExtractor={(e) => e.id.toString()}
+						/>
+					</View>
 				<View style={styles.mb60} />
 			</ScrollView>
 			<View style={styles.btnCont}>

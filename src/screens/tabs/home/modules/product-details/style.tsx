@@ -96,7 +96,12 @@ export const styles = StyleSheet.create({
 		fontWeight: '600',
 	},
 	mt20: {
+		// marginLeft: 10,
+		
+	},
+	margin: {
 		marginTop: 10,
+		marginLeft: 10,
 	},
 	mb60: {
 		marginBottom: 60,
