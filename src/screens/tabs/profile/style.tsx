@@ -39,11 +39,11 @@ export const styles = StyleSheet.create({
 	},
 	news: {
 		width: 350,
-		height: 170,
-		marginLeft: 20,
+		height: 187,
 		marginTop: 22,
+		marginLeft: 20,
+		borderRadius: 7,
 		marginBottom: 15,
-		// justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: colors.white,
 	},
@@ -74,6 +74,7 @@ export const styles = StyleSheet.create({
 	},
 	myProfile: {
 		height: 50,
+		paddingLeft: 20,
 		paddingHorizontal: 10,
 		flexDirection: 'row',
 		alignItems: 'center',
@@ -81,12 +82,13 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	profile: {
+		width: 305,
 		// paddingLeft: 10,
-		justifyContent: 'flex-end',
+		justifyContent: 'flex-start',
 		flexDirection: 'row',
 	},
 	textProfile: {
-		// width: 190,
+		justifyContent: 'flex-start',
 		fontFamily: 'Lato',
 		fontWeight: '600',
 		fontSize: 12,
@@ -95,13 +97,17 @@ export const styles = StyleSheet.create({
 		width: 18,
 		height: 18,
 		position: 'absolute',
-		left: 335,
+		left: 320,
+	},
+	setting: {
+		paddingRight: 20,
 	},
 	orders: {
 		width: 350,
 		height: 130,
 		marginLeft: 20,
 		marginTop: 10,
+		borderRadius: 7,
 		backgroundColor: colors.white,
 	},
 	myOrders: {

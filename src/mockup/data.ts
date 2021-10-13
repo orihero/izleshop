@@ -43,11 +43,38 @@ export interface IAccordionContent {
 
 export interface IAccordion {
 	title: string;
-	finally: string;
+	finally?: string;
 	content: IAccordionContent[];
+	hasCount?: Boolean;
 }
 
 export const accordionData: IAccordion[] = [
+	{
+		title: 'Отзывы',
+		content: [
+			{
+				preTitle: '',
+				items: [
+					{
+						key: 'Ежемесячный платеж',
+						value: '677 500 сум',
+						row: true,
+					},
+					{
+						key: 'Срок в месяцах',
+						value: '12 месяцев',
+						row: true,
+					},
+					{
+						key: 'Общая суммма',
+						value: '8 130 000 сум',
+						row: true,
+					},
+				],
+			},
+		],
+		hasCount: true
+	},
 	{
 		title: 'В рассрочку',
 		finally:

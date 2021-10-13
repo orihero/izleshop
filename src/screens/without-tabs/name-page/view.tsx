@@ -36,6 +36,7 @@ const NamePageView = ({
                         onChange={setName}
                     /> 
                 </View>
+                <Text style={styles.izle}>izle</Text>
             </View>
         </ProfileLayout>
     );

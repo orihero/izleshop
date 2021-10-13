@@ -7,9 +7,9 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.lightBlue,
 	},
 	totalContainer: {
-		width: '90%',
-		marginBottom: 15,
-		marginLeft: 20,
+		width: '85%',
+		marginBottom: 10,
+		marginLeft: 30,
 		paddingHorizontal: 20,
 		borderRadius: 10,
 		display: 'flex',
@@ -32,13 +32,13 @@ export const styles = StyleSheet.create({
 		color: colors.blue,
 	},
 	absolute: {
-		// paddingTop: 500,
-		position: 'absolute',
+		marginTop: 20,
+		position: 'relative',
 		bottom: 0,
 		left: 0,
 		right: 0,
-		paddingBottom: 20,
-		backgroundColor:'white'
+		paddingBottom: 30,
+		// backgroundColor:'white'
 	},
 	mh20: {
 		marginHorizontal: 20,

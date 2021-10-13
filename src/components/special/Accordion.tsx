@@ -26,11 +26,16 @@ const Accordion = ({ items }: IAccordionProps) => {
 	return (
 		<View style={styles.container}>
 			{items.map(
-				({ title, content, finally: f }: IAccordion, i: number) => (
+				({ title, content, finally: f, hasCount }: IAccordion, i: number) => (
 					<View key={`${i}`}>
 						<Pressable onPress={() => onChangeContent(i + 1)}>
 							<View style={styles.item}>
-								<Text style={styles.text1}>{title}</Text>
+								<Text style={styles.text1}>{title}</Text> 
+									{hasCount&& 
+									<View style={styles.border}>
+										<Text style={styles.borderText}>{content[0].items.length}</Text>
+									</View>
+									}
 								<View
 									style={
 										open === i + 1
@@ -38,7 +43,7 @@ const Accordion = ({ items }: IAccordionProps) => {
 											: styles.closed
 									}
 								>
-									<ChevronIcon
+									<ChevronIcon 
 										size={20}
 										color={
 											open === i + 1
@@ -202,6 +207,20 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		lineHeight: 17,
 		fontWeight: '400',
+	},
+	border: {
+		width: 20,
+		height: 20,
+		left: 115,
+		fontSize: 12,
+		opacity: 0.8,
+		borderRadius: 30,
+		alignItems: 'center',
+		backgroundColor: colors.blue
+	},
+	borderText: {
+		fontSize: 12,
+		color: colors.white
 	},
 	text2: {
 		fontSize: 14,

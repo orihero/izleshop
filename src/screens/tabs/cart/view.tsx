@@ -42,6 +42,7 @@ const CartView = ({ navigation }: ICartViewProps) => {
 					// contentContainerStyle={{height: "80%"}}
 					style={styles.mh20}
 					keyExtractor={(e) => e.data.id.toString()}
+					showsVerticalScrollIndicator={false}
 					renderItem={(props) => (
 						<View style={styles.mt15}>
 							<HorizontalItem hasCounter {...props} />

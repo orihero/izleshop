@@ -48,9 +48,10 @@ const styles = StyleSheet.create({
 	container: {
 		width: 100,
 		height: 10,
+		marginLeft: 15,
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
 	},
 	left: {
 		width: 35,
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
 		paddingTop: 7,
 	},
 	buttonText: {
-		marginTop: -5,
+		marginTop: -8,
 		fontWeight: 'bold',
 		fontSize: 18,
 		color: colors.leghtGrey1,
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
+		paddingTop: 5,
 		borderTopRightRadius: 5,
 		borderBottomRightRadius: 5,
 	},

@@ -85,21 +85,21 @@ const ChecoutView = () => {
 				<View style={styles.ph20}>
 					<View style={styles.mt20}>
 						<Text style={styles.text1}>{`${strings.name}*`}</Text>
-						<View style={styles.mt12}>
-							<DefaultInput value={name} onChange={setName} />
+						<View style={styles.mt10}>
+							<DefaultInput placeholder={'ФИО'} value={name} onChange={setName} />
 						</View>
 					</View>
 					<View style={styles.mt20}>
 						<Text
 							style={styles.text1}
 						>{`${strings.phoneNumber}*`}</Text>
-						<View style={styles.mt12}>
-							<DefaultInput value={phone} onChange={setPhone} />
+						<View style={styles.mt10}>
+							<DefaultInput placeholder={'+998901234567'} value={phone} onChange={setPhone} />
 						</View>
 					</View>
-					<View style={styles.mt20}>
+					<View style={styles.mt25}>
 						<Text
-							style={styles.text1}
+						// style={styles.text1}
 						>{`${strings.selectCity}*`}</Text>
 						<DefaultSelect
 							value={city}
@@ -108,9 +108,9 @@ const ChecoutView = () => {
 							placeholder={strings.cityNotSelected || ''}
 						/>
 					</View>
-					<View style={styles.mt20}>
+					<View style={styles.mt25}>
 						<Text
-							style={styles.text1}
+						// style={styles.text1}
 						>{`${strings.selectDistrict}*`}</Text>
 						<DefaultSelect
 							value={district}
@@ -119,29 +119,31 @@ const ChecoutView = () => {
 							placeholder={strings.districtNotSelected || ''}
 						/>
 					</View>
-					<View style={styles.mt20}>
+					<View style={styles.mt19}>
 						<Text
-							style={styles.text1}
+						// style={styles.text1}
 						>{`${strings.address}*`}</Text>
 						<View style={styles.mt12}>
 							<DefaultInput
+								placeholder={''}
 								isTextArea
 								value={address}
 								onChange={setAddress}
 							/>
 						</View>
 					</View>
-					<View style={styles.mt20}>
-						<Text style={styles.text1}>{`${strings.note}`}</Text>
+					<View style={styles.mt19}>
+						<Text >{`${strings.note}`}</Text>
 						<View style={styles.mt12}>
 							<DefaultInput
+								placeholder={''}
 								isTextArea
 								value={note}
 								onChange={setNote}
 							/>
 						</View>
 					</View>
-					<View style={styles.mt20}>
+					<View style={styles.mt19}>
 						<View style={styles.mapContainer}>
 							<MapView
 								// region={region}
@@ -159,7 +161,7 @@ const ChecoutView = () => {
 							</MapView>
 						</View>
 					</View>
-					<View style={styles.mt20}>
+					<View style={styles.mt21}>
 						<DefaultButton
 							marginDisabled
 							text={strings.checkout}

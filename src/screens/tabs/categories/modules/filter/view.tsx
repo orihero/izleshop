@@ -1,11 +1,12 @@
 import React, { useCallback, useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import Header from 'components/navigation/Header';
 import SecondButton from 'components/general/SecondButton';
 import { strings } from 'locales/locales';
 import { CloseIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import { styles } from './style';
+//@ts-ignore
 import RangeSlider from 'rn-range-slider';
 import {
 	FilterScreenNavigationProp,
@@ -47,6 +48,7 @@ const FilterView = ({ navigation, route }: IFilterView) => {
 	const tmp = route.params.from === 'categories';
 	const [low, setLow] = useState(0);
 	const [high, setHigh] = useState(0);
+	const [selected, setSelected] = useState(0)
 
 	const renderThumb = useCallback(() => <View style={styles.thumb} />, []);
 	const renderRail = useCallback(() => <Text>Rail</Text>, []);
@@ -88,17 +90,17 @@ const FilterView = ({ navigation, route }: IFilterView) => {
 				<View style={styles.box}>
 					{tmp
 						? arr1.map((e, i) => (
-								<View key={i} style={styles.row}>
+								<TouchableOpacity onPress={()=> setSelected(i)} key={i} style={styles.row}>
 									<Text style={styles.text}>{e}</Text>
-									<View style={styles.square} />
-								</View>
+									<View style={styles.circle} >{selected===i&&<View style={styles.dot}/>}</View>
+								</TouchableOpacity>
 						  ))
 						: arr2.map((e, i) => (
 								<View key={i} style={styles.row}>
 									<Text style={styles.text}>{e}</Text>
 									<View
 										style={
-											tmp ? styles.circle : styles.square
+											 styles.circle 
 										}
 									/>
 								</View>

@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.lightGray,
 	},
 	top: {
+		paddingHorizontal: 20,
 		paddingVertical: 10,
 		flexDirection: 'row',
 		alignItems: 'center',
@@ -30,13 +31,13 @@ export const styles = StyleSheet.create({
 	productRow: {
 		marginTop: 10,
 		flexDirection: 'row',
-		justifyContent: 'space-between',
+		justifyContent: 'space-evenly',
 	},
 	flex1: {
 		flex: 1,
 	},
 	ph20: {
-		paddingHorizontal: 20,
+		// paddingHorizontal: 20,
 	},
 	mt10: {
 		marginTop: 10,

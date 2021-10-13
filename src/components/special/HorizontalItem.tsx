@@ -134,7 +134,7 @@ const HorizontalItem = ({
 				{!hasRemove && <Rating count={5} active={4} />}
 				<View style={styles.plus}>
 					<Text style={styles.text4}>
-						{`${newPrice} ${currency}`}
+						{` ${newPrice} ${currency}`}
 					</Text>
 					{hasRating ? (
 						<Rating
@@ -257,10 +257,9 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		flexShrink: 1,
 		justifyContent: 'space-between',
-		alignItems: 'center',
+		alignItems: 'center', 
 	},
 	text4: {
-		paddingRight: 10,
 		fontSize: 14,
 		lineHeight: 21,
 		fontWeight: '800',

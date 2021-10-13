@@ -14,6 +14,7 @@ import { accordionData, item } from 'mockup/data';
 import React from 'react';
 import { FlatList, ScrollView, Text, View } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import Rating from 'components/special/Rating';
 import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
 	addItem,
@@ -123,13 +124,13 @@ const ProductDetailsView = ({
 				</View>
 				<View style={styles.main}>
 					<Text style={styles.text1}>{item.title}</Text>
-					{/* <Rating styleChanged /> */}
+					<Rating styleChanged />
 					<View style={styles.pr}>
-						<Text style={styles.text2}>
-							{`${item.oldPrice} ${item.currency}`}
-						</Text>
 						<Text style={styles.text3}>
 							{`${item.newPrice} ${item.currency}`}
+						</Text>
+						<Text style={styles.text2}>
+							{`${item.oldPrice} ${item.currency}`}
 						</Text>
 					</View>
 				</View>

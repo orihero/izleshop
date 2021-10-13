@@ -37,6 +37,8 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		paddingHorizontal: 32,
 		justifyContent: 'space-between',
+		borderBottomWidth: 1,
+		borderColor: colors.lightBlue
 	},
 	pdot: {
 		width: 10,
@@ -50,19 +52,23 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 2.5,
 	},
 	main: {
+		height: 150,
 		paddingHorizontal: 20,
 		paddingTop: 15,
+		backgroundColor: colors.white,
 	},
 	pr: {
 		marginTop: 15,
 		flexDirection: 'row',
 		alignItems: 'center',
+		justifyContent: 'flex-start'
 	},
 	text1: {
 		fontSize: 16,
 		lineHeight: 19,
-		fontWeight: '600',
+		fontWeight: 'bold',
 		marginRight: 60,
+		color: colors.neutralDark
 	},
 	text2: {
 		fontSize: 18,
@@ -74,23 +80,23 @@ export const styles = StyleSheet.create({
 	text3: {
 		fontSize: 20,
 		lineHeight: 24,
-		marginLeft: 50,
+		paddingRight: 14,
 		fontWeight: '800',
 		color: colors.blue,
 	},
 	accordion: {
-		marginTop: 20,
-		marginHorizontal: 20,
+		marginTop: 12,
+		marginHorizontal: 10,
 	},
 	text4: {
 		fontSize: 18,
-		marginTop: 20,
+		marginTop: 10,
 		lineHeight: 18,
-		marginLeft: 20,
+		marginLeft: 10,
 		fontWeight: '600',
 	},
 	mt20: {
-		marginTop: 20,
+		marginTop: 10,
 	},
 	mb60: {
 		marginBottom: 60,

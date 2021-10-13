@@ -79,7 +79,9 @@ const DefaultSelect = ({
 export default DefaultSelect;
 
 const styles = StyleSheet.create({
-	container: {},
+	container: {
+		width: 335
+	},
 	box: {
 		padding: 14,
 		marginTop: 12,
