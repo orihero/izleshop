@@ -17,7 +17,7 @@ let userSlice = createSlice({
             return { ...state, name: payload.payload }
         },
         setUserLanguage: (state, payload: PayloadAction<number>) => {
-            return { ...state, language: payload.payload }
+            return { ...state, languageIndex: payload.payload }
         },
         userLoggedOut: () => {
             return initialState

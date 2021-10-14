@@ -11,19 +11,9 @@ import { selectUser, setUserPhone } from 'store/slices/userSlice';
 import { useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
-interface ILoginViewProps {
-	password: string;
-	setPassword: (e: string) => void;
-	onPress: () => void;
-	navigate: () => void;
-}
+interface ILoginViewProps {}
 
-const LoginView = ({
-	password,
-	setPassword,
-	onPress,
-	navigate,
-}: ILoginViewProps) => {
+const LoginView = ({}: ILoginViewProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	let dispatch = useDispatch();
@@ -31,9 +21,11 @@ const LoginView = ({
 		dispatch(setUserPhone(num));
 	};
 	let onNextPress = () => {
+		//@ts-ignore
 		navigation.navigate(Routes.VERIFICATION);
 	};
 	let onSkipPress = () => {
+		//@ts-ignore
 		navigation.navigate(Routes.TABS);
 	};
 	console.log(user);

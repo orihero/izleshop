@@ -28,7 +28,7 @@ const RegistrationView = ({}: ILanguageProps) => {
 	};
 	let onNextPress = () => {
 		//@ts-ignore
-		navigation.navigate(Routes.REGISTER);
+		navigation.navigate(Routes.TABS);
 	};
 	let setLanguage = (language: number) => {
 		dispatch(setUserLanguage(language));
