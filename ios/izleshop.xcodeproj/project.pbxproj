@@ -18,6 +18,7 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		84E6BD226CDB11578905CBA7 /* libPods-izleshop-izleshopTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72036B60D9EA6810BD046A2C /* libPods-izleshop-izleshopTests.a */; };
 		A0978A050CB44603819310CE /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0413B4358D674DF2A718D4FC /* Lato-Thin.ttf */; };
+		E8E65AA62715DCCC00808597 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E65AA52715DCCC00808597 /* File.swift */; };
 		FE88EA0F481644109415E633 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 973693E24AAF4670ADBC1E22 /* Lato-Light.ttf */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,8 @@
 		D060CD52592EF963B598A6E8 /* Pods-izleshop-izleshopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izleshop-izleshopTests.debug.xcconfig"; path = "Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5FA500E4D324C25866433F3 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		E1B0196DEBAA49F2B820694D /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		E8E65AA42715DCCB00808597 /* izleshop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "izleshop-Bridging-Header.h"; sourceTree = "<group>"; };
+		E8E65AA52715DCCC00808597 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FC81637E3A884D9F82C07D02 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +121,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				E8E65AA52715DCCC00808597 /* File.swift */,
+				E8E65AA42715DCCB00808597 /* izleshop-Bridging-Header.h */,
 			);
 			name = izleshop;
 			sourceTree = "<group>";
@@ -262,7 +267,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1300;
 					};
 				};
 			};
@@ -471,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				E8E65AA62715DCCC00808597 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D060CD52592EF963B598A6E8 /* Pods-izleshop-izleshopTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -517,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB8B9D49E2390D2B5AA44C08 /* Pods-izleshop-izleshopTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = izleshopTests/Info.plist;
@@ -558,6 +566,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = izleshop;
+				SWIFT_OBJC_BRIDGING_HEADER = "izleshop-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -584,6 +593,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = izleshop;
+				SWIFT_OBJC_BRIDGING_HEADER = "izleshop-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

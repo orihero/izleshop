@@ -41,9 +41,7 @@ const Header = ({
 				)}
 			</View>
 			<View>
-				<Text style={[styles.title, bold ? styles.bold : null]}>
-					{title}
-				</Text>
+				<Text style={[styles.title, styles.bold]}>{title}</Text>
 			</View>
 			<View style={styles.rightEdge}>{rightEdge()}</View>
 		</View>
