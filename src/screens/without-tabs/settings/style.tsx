@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
+	row: { flexDirection: 'row' },
 	container: {
 		flex: 1,
 		paddingTop: 5,
@@ -37,13 +38,14 @@ export const styles = StyleSheet.create({
 		marginTop: 5,
 		backgroundColor: colors.white,
 	},
-	birthday: {
+	dataContainer: {
 		height: 55,
-		paddingLeft: 19,
+		paddingHorizontal: 20,
 		alignItems: 'center',
 		flexDirection: 'row',
 		borderBottomWidth: 1,
 		borderColor: colors.lightGray,
+		justifyContent: 'space-between',
 	},
 	birthdayString: {
 		alignItems: 'center',
@@ -51,12 +53,9 @@ export const styles = StyleSheet.create({
 	},
 	textbirthday: {
 		fontSize: 12,
-		paddingLeft: 20,
-		paddingRight: 105,
 		fontWeight: 'bold',
-		// fontFamily: 'Poppins',
-		alignItems: 'center',
-		justifyContent: 'flex-end',
+		alignSelf: 'center',
+		paddingLeft: 20,
 	},
 	day: {
 		right: 15,
@@ -75,7 +74,6 @@ export const styles = StyleSheet.create({
 		borderColor: colors.lightGray,
 	},
 	phoneString: {
-		right: 15,
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
@@ -105,7 +103,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
-	textLanguage: {
+	titleText: {
 		fontSize: 12,
 		paddingLeft: 20,
 		paddingRight: 170,

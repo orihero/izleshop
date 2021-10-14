@@ -76,7 +76,7 @@ export let strings = new LocalizedStrings({
 		termsOfUse: 'Условиями использования.',
 		toGoToTheBazaar: 'Больше не нужно ходить на базар',
 		favorablePrices: 'У нас выгодные цены',
-		farther: 'Дальше',
+		further: 'Дальше',
 		helpSupport: 'Справка и поддержка',
 		ourPartners: 'Наши партнеры',
 		singAccount: 'Выйти из аккаунта',
@@ -98,6 +98,7 @@ export let strings = new LocalizedStrings({
 		confirmationCode: 'Код с подтверждение',
 		setting: 'Настройка',
 		fio: 'ФИО',
-		oraiaFurniture: 'Мебель Орайы'
+		oraiaFurniture: 'Мебель Орайы',
+		start: 'Начать',
 	},
 });

@@ -3,7 +3,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Image, Pressable, Text, View } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { windowWidth } from 'constants/sizes';
@@ -19,40 +19,51 @@ export interface IntroProps {
 
 let data = [
 	{
-		img: image1,style:styles.img
+		img: image1,
+		style: styles.img,
 	},
 	{
-		img: image2, style:{width: 10}
+		img: image2,
+		style: { width: 10 },
 	},
 	{
-		img: image3, 
+		img: image3,
 	},
 ];
 
 const IntroView = ({}: IntroProps) => {
 	const [activeSlide, setActiveSlide] = useState(0);
 	let navigation = useNavigation();
+	let carouselRef = useRef<
+		| React.LegacyRef<
+				Carousel<{
+					img: any;
+				}>
+		  >
+		| undefined
+	>();
 	let onNextPress = () => {
-		navigation.navigate(Routes.TABS);
+		carouselRef.current?.snapToNext();
+		console.log({ activeSlide, l: data.length });
+
+		if (activeSlide === data.length - 1) {
+			navigation.navigate(Routes.TABS);
+		}
 	};
 	return (
 		<View style={styles.container}>
 			<View style={styles.boxOne}>
 				<Carousel
-					contentContainerCustomStyle={
-						{
-							// flex: 1,
-						}
-					}
 					onSnapToItem={(index) => setActiveSlide(index)}
 					data={data}
 					sliderWidth={windowWidth}
 					sliderHeight={385}
 					itemWidth={windowWidth}
 					itemHeight={385}
+					ref={(r) => (carouselRef.current = r)}
 					renderItem={({ item: { img } }) => (
 						<View style={styles.itemContainer}>
-							<Image style={img.style } source={img} />
+							<Image style={img.style} source={img} />
 						</View>
 					)}
 				/>
@@ -61,7 +72,11 @@ const IntroView = ({}: IntroProps) => {
 				<Text style={styles.textOne}>{strings.toGoToTheBazaar}</Text>
 				<Text style={styles.textTwo}>{strings.favorablePrices}</Text>
 				<Pressable style={styles.button} onPress={onNextPress}>
-					<Text style={styles.buttonText}>{strings.farther}</Text>
+					<Text style={styles.buttonText}>
+						{activeSlide === data.length - 1
+							? strings.start
+							: strings.further}
+					</Text>
 				</Pressable>
 				<Pagination
 					dotColor={colors.blue}
