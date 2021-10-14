@@ -12,6 +12,7 @@ import VerticalItem from 'components/special/VerticalItem';
 import HorizontalItem from 'components/special/HorizontalItem';
 import OrderItem from 'components/special/OrderItem';
 import SortModal from '../../components/SortModal';
+import FavoriteItem from 'screens/tabs/cart/components/FavoriteItem';
 
 import { colors } from 'constants/colors';
 import { strings } from 'locales/locales';
@@ -91,27 +92,27 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 						</View>
 						{isList
 							? products.map((e, i) => (
-									<View key={i} style={styles.mt10}>
-										<HorizontalItem
-											hasBasket
-											hasRating
-											item={{ data: e }}
-										/>
-									</View>
-							  ))
+								<View key={i} style={styles.mt10}>
+									<FavoriteItem
+										hasBasket={true}
+										hasRemove={false}
+										item={{ data: e }}
+									/>
+								</View>
+							))
 							: productss.map((e, i) => (
-									<View key={i} style={styles.productRow}>
-										{e.map((ee, ii) =>
-											e ? (
+								<View key={i} style={styles.productRow}>
+									{e.map((ee, ii) =>
+										e ? (
 												<VerticalItem
-													key={`${i}/${ii}`}
-													item={ee}
-													sizeChanged
-												/>
-											) : null
-										)}
-									</View>
-							  ))}
+												key={`${i}/${ii}`}
+												item={ee}
+												sizeChanged
+											/>
+										) : null
+									)}
+								</View>
+							))}
 					</View>
 				</ScrollView>
 			</View>

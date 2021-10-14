@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
 		marginTop: 250,
 		marginLeft: 40,
 		opacity: 0.4,
+		fontWeight: 'bold',
 		color: colors.darkBlue,
 		alignItems: 'center',
 		justifyContent: 'center'

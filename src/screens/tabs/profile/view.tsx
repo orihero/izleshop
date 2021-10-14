@@ -17,13 +17,14 @@ import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
 import React from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { store } from 'store/configureStore';
 import { selectUser, userLoggedOut } from 'store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
-interface IProfileViewProps {}
+interface IProfileViewProps { }
 
-const ProfileView = ({}: IProfileViewProps) => {
+const ProfileView = ({ }: IProfileViewProps) => {
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
 	let dispatch = useAppDispatch();
@@ -67,7 +68,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 								style={styles.imageFlag}
 								source={require('assets/images/flag.png')}
 							/>
-							<TouchableOpacity
+							<TouchableOpacity style={styles.setting}
 								onPress={() => onPress(Routes.SETTINGS)}
 							>
 								<SettingIcon />
@@ -97,13 +98,13 @@ const ProfileView = ({}: IProfileViewProps) => {
 									</Text>
 								</View>
 								<View style={styles.payment}>
-									 <BagIcon />
+									<BagIcon />
 									<Text style={styles.textPayment}>
 										{strings.awaitingDispatch}
 									</Text>
 								</View>
 								<View style={styles.payment}>
-								  <CarIcon />
+									<CarIcon />
 									<Text style={styles.textPayment}>
 										{strings.orderSent}
 									</Text>
@@ -117,7 +118,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 							</View>
 							<Text style={styles.line} />
 							<View style={styles.lol}>
-								<ChatIcon size={14} />
+								<ChatIcon size={13} />
 								<TouchableOpacity
 									style={styles.reviews}
 									onPress={() => onPress(Routes.MY_REVIEWS)}

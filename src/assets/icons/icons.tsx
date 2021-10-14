@@ -460,6 +460,30 @@ export function CarIcon({
 }
 
 
+export function TelephoneIcon({
+	color = 'white',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+		viewBox="0 0 14 20"
+		{...props}
+	  >
+		<Path
+		  d="M12.625 1H1.375v18h11.25V1zM6.994 15.625h.011"
+		  stroke="#1779C8"
+		  strokeWidth={2}
+		  strokeLinecap="round"
+		  strokeLinejoin="round"
+		/>
+	  </Svg>
+	);
+}
+
+
 export function ExitIcon({
 	color = 'grey',
 	active,

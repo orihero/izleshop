@@ -51,6 +51,7 @@ export const styles = StyleSheet.create({
 		opacity: 0.5,
 		fontSize: 144,
 		lineHeight: 172,
+		fontWeight: 'bold',
 		color: colors.darkBlue,
 	},
 	button: {

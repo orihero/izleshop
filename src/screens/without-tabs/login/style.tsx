@@ -29,6 +29,7 @@ export const styles = StyleSheet.create({
 		fontSize: 144,
 		lineHeight: 173,
 		textAlign: 'center',
+		fontWeight: 'bold',
 		color: colors.darkBlue,
 	},
 	text4: {

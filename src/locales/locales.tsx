@@ -58,7 +58,7 @@ export let strings = new LocalizedStrings({
 		districtNotSelected: 'Район не выбран',
 		checkout: 'Оформить заказ',
 		changeLanguage: 'Изменить язык',
-		cancel: 'Сохранить',
+		cancel: 'Отмена',
 		apply: 'Применить',
 		personalData: 'Личные данные',
 		filter: 'Фильтр',
@@ -98,5 +98,6 @@ export let strings = new LocalizedStrings({
 		confirmationCode: 'Код с подтверждение',
 		setting: 'Настройка',
 		fio: 'ФИО',
+		oraiaFurniture: 'Мебель Орайы'
 	},
 });

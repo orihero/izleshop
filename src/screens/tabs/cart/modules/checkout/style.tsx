@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 	},
 	text1: {
+		marginLeft: 10,
 		fontSize: 16,
 		lineHeight: 20,
 		fontWeight: '400',
@@ -47,4 +48,21 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 20,
 		color: 'rgba(0,0,0,.8)',
 	},
+	mt10: {
+		right: 20,
+		marginTop: 10,
+	},
+	mt21: {
+		marginTop: 10,
+		right: 20,
+	},
+	mt25: {
+		marginTop: 10,
+		marginLeft: 10
+	},
+	mt19: {
+		width: 335,
+		marginTop: 10,
+		marginLeft: 10,
+	}
 });

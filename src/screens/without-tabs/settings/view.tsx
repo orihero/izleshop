@@ -5,7 +5,7 @@ import ProfileLayout from '../ProfileLayout';
 
 import { styles } from './style';
 import { strings } from 'locales/locales';
-import { BirthdayIcon, ChevronIcon, LanguageIcon, PhoneIcon, ProfileIcon } from 'assets/icons/icons';
+import { BirthdayIcon, ChevronIcon, LanguageIcon, PhoneIcon, ProfileIcon, TelephoneIcon } from 'assets/icons/icons';
 import { useNavigation } from '@react-navigation/core';
 
 import { Routes } from 'constants/routes';
@@ -53,7 +53,7 @@ const SettingsView = ({ onCreate, }: ISettingViewProps) => {
 						</TouchableOpacity>
 					</View>
 					<View style={styles.phoneNumber}>
-						<PhoneIcon size={20}  />
+						<TelephoneIcon size={20}  />
 						<TouchableOpacity style={styles.phoneString} onPress={onCreatePress}>
 							<Text style={styles.textPhone}>
 								{strings.phoneNamber}

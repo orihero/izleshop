@@ -136,7 +136,7 @@ export const styles = StyleSheet.create({
 		marginLeft: 20,
 	},
 	width2: {
-		width: windowWidth / 2 - 40,
+		width: windowWidth / 2 - 20,
 	},
 	cont1: {
 		padding: 15,
@@ -147,7 +147,7 @@ export const styles = StyleSheet.create({
 		borderRadius: 8,
 		paddingVertical: 15,
 		paddingHorizontal: 7.5,
-		marginLeft: 10,
+		// marginLeft: 10,
 		backgroundColor: colors.white,
 	},
 	imgCont1: {

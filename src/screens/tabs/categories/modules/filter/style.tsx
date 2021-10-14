@@ -37,11 +37,20 @@ export const styles = StyleSheet.create({
 		lineHeight: 17,
 		fontWeight: '500',
 	},
+	dot: {
+		width: 10,
+		height: 10,
+		borderRadius: 10,
+		backgroundColor: colors.black
+	},
 	circle: {
 		width: 15,
 		height: 15,
 		borderWidth: 1,
 		borderRadius: 10,
+		alignItems: 'center',
+		justifyContent: 'center'
+
 	},
 	square: {
 		width: 20,
@@ -52,6 +61,7 @@ export const styles = StyleSheet.create({
 	},
 	buttonRow: {
 		marginTop: 30,
+		borderRadius: 25,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-evenly',
