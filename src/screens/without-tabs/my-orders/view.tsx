@@ -3,6 +3,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import HorizontalItem from 'components/special/HorizontalItem';
 import ProfileLayout from '../ProfileLayout';
+import OrderItem from 'components/special/OrderItem';
 
 import { styles } from './style';
 import { strings } from 'locales/locales';
@@ -12,11 +13,11 @@ const MyOrdersView = () => {
 	return (
 		<ProfileLayout headerTitle={strings.myOrders || ''}>
 			<View style={styles.container}>
-				<View style={styles.mt10}>
-					<Text style={styles.text}>{'10 апрель 19:39'}</Text>
+				<View style={styles.box}>
+					<Text style={styles.text}></Text>
 					{orderItems.map((e, i) => (
 						<View key={i} style={styles.mt10}>
-							<HorizontalItem hasRating item={e} />
+							<OrderItem item={e} />
 						</View>
 					))}
 				</View>

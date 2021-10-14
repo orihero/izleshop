@@ -13,11 +13,10 @@ interface DefaultInputProps {
 
 const DefaultInput = ({
 	value,
-	onChange,
+	onChange = (value: string) => { },
 	isPassword,
 	isTextArea,
-	placeholder = `Номер телефона 
-	+998 (99) 456-95-50`,
+	placeholder = `+998 (99) 456-95-50`,
 	keyboardType,
 }: DefaultInputProps) => {
 	const [showPassword, setShowPassword] = useState(false);

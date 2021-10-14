@@ -10,8 +10,8 @@ const img3 = require('mockup/images/washing-machine.png');
 export const orderItems = [
 	{
 		id: 1,
-		title: 'Кроссовки Nike air Light 38, 39, 40, .....',
-		newPrice: '180 000',
+		title: 'Кроссовки Nike air Light ',
+		newPrice: '180 000 сум',
 		currency: 'сум',
 		ratingCount: 5,
 		rating: 2,
@@ -20,13 +20,13 @@ export const orderItems = [
 	},
 	{
 		id: 2,
-		title: 'Кроссовки Nike air Light 38, 39, 40, .....',
+		title: 'Кроссовки Nike air Light',
 		newPrice: '180 000',
 		currency: 'сум',
 		ratingCount: 5,
 		rating: 4,
 		status: 'В ожидании',
-		img: img1,
+		img: img2,
 	},
 ];
 

@@ -18,7 +18,6 @@ import { colors } from 'constants/colors';
 import { strings } from 'locales/locales';
 import { products } from 'screens/tabs/home/data';
 import { divideArr } from 'utils/divideArr';
-import { orderItems } from 'mockup/data';
 import {
 	ArrowsIcon,
 	CategoriesIcon,

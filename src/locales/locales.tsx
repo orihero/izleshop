@@ -98,6 +98,8 @@ export let strings = new LocalizedStrings({
 		confirmationCode: 'Код с подтверждение',
 		setting: 'Настройка',
 		fio: 'ФИО',
-		oraiaFurniture: 'Мебель Орайы'
+		oraiaFurniture: 'Мебель Орайы',
+		orderNumber: 'номер заказа:',
+		orderTime: 'времия заказа:'
 	},
 });

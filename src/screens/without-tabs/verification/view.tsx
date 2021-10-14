@@ -39,8 +39,6 @@ const VerificationView = ({
 			<View style={styles.input}>
 				<DefaultInput
 					placeholder={strings.confirmationCode}
-					value={user.name}
-					onChange={setName}
 				/>
 			</View>
 			<View style={styles.buttom}>

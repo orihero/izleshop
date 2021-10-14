@@ -76,7 +76,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 						</View>
 						<View style={styles.orders}>
 							<View style={styles.myOrders}>
-								<Text style={styles.textOrders}>
+								<Text onPress={()=>onPress(Routes.MY_ORDERS)} style={styles.textOrders}>
 									{strings.myOrders}
 								</Text>
 								<TouchableOpacity
