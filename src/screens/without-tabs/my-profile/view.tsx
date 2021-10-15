@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/core';
-import { ChevronIcon, LogoutIcon } from 'assets/icons/icons';
+import { ChevronRightIcon, LogoutIcon } from 'assets/icons/icons';
 import Pressable from 'components/general/Pressable';
 import MenuLink from 'components/special/MenuLink';
 import { Routes } from 'constants/routes';
@@ -40,7 +40,7 @@ const MyProfileView = ({}: IProfileViewProps) => {
 							<Text style={styles.textView}>
 								{strings.viewAll}
 							</Text>
-							<ChevronIcon size={8} />
+							<ChevronRightIcon size={8} />
 						</TouchableOpacity>
 					</View>
 					<Image

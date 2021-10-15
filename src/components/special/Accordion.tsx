@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Pressable from '../general/Pressable';
 
-import { ChevronIcon } from 'assets/icons/icons';
+import { ChevronRightIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import { IAccordionItem, IAccordionContent, IAccordion } from 'mockup/data';
 
@@ -43,7 +43,7 @@ const Accordion = ({ items }: IAccordionProps) => {
 											: styles.closed
 									}
 								>
-									<ChevronIcon 
+									<ChevronRightIcon 
 										size={20}
 										color={
 											open === i + 1

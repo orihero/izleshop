@@ -7,11 +7,13 @@ import Tabs from './tabs';
 import WithoutTabs from '../screens/without-tabs';
 
 import { Routes } from 'constants/routes';
+import TestScreen from 'screens/TestScreen';
 
 export type RootStackParamList = {
 	[Routes.TABS]: undefined;
 	[Routes.WITHOUT_TABS]: undefined;
 	[Routes.INTRO_SCREEN]: undefined;
+	test: undefined
 };
 
 let RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -20,6 +22,7 @@ const AppRouter = () => {
 	return (
 		<NavigationContainer>
 			<RootStack.Navigator screenOptions={{ headerShown: false }}>
+				<RootStack.Screen  name={'test'} component={TestScreen} />
 				<RootStack.Screen
 					name={Routes.INTRO_SCREEN}
 					component={IntroScreen}

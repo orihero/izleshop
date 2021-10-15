@@ -4,7 +4,7 @@ import { View, Text, Modal, ScrollView, StyleSheet } from 'react-native';
 import Pressable from './Pressable';
 
 import { colors } from 'constants/colors';
-import { ChevronIcon, CloseIcon } from 'assets/icons/icons';
+import { ChevronRightIcon, CloseIcon } from 'assets/icons/icons';
 
 interface IDefaultSelectProps {
 	value: string;
@@ -41,7 +41,7 @@ const DefaultSelect = ({
 						</Pressable>
 					) : (
 						<View style={styles.closed}>
-							<ChevronIcon size={20} color={colors.black} />
+							<ChevronRightIcon size={20} color={colors.black} />
 						</View>
 					)}
 				</View>

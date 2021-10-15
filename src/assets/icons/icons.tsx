@@ -185,7 +185,7 @@ export function CloseIcon({
 		</Svg>
 	);
 }
-export function ChevronIcon({
+export function ChevronRightIcon({
 	color = 'black',
 	active,
 	size = 20,
@@ -198,6 +198,21 @@ export function ChevronIcon({
 		</Svg>
 	);
 }
+
+export function ChevronLeftIcon({
+	color = 'black',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let iconProps = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg style={{transform:[{rotateY: '180deg'}]}} viewBox="0 0 512 512" {...iconProps}>
+			<Path d="M367.954 213.588L160.67 5.872c-7.804-7.819-20.467-7.831-28.284-.029-7.819 7.802-7.832 20.465-.03 28.284l207.299 207.731c7.798 7.798 7.798 20.486-.015 28.299L132.356 477.873c-7.802 7.819-7.789 20.482.03 28.284A19.935 19.935 0 00146.513 512c5.125 0 10.25-1.958 14.157-5.873l207.269-207.701c23.394-23.394 23.394-61.459.015-84.838z" />
+		</Svg>
+	);
+}
+
 export function WalletIcon({
 	color = 'black',
 	active,
@@ -476,6 +491,31 @@ export function TelephoneIcon({
 		  d="M12.625 1H1.375v18h11.25V1zM6.994 15.625h.011"
 		  stroke="#1779C8"
 		  strokeWidth={2}
+		  strokeLinecap="round"
+		  strokeLinejoin="round"
+		/>
+	  </Svg>
+	);
+}
+
+
+export function CalenderIcon({
+	color = 'white',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+		viewBox="0 0 20 20"
+		{...props}
+	  >
+		<Path
+		  d="M1 8.875h18M14.5 5.5V1m-9 4.5V1M1 3.25h18V19H1V3.25z"
+		  stroke="#40BFFF"
+		  strokeWidth={2}
+		  strokeMiterlimit={10}
 		  strokeLinecap="round"
 		  strokeLinejoin="round"
 		/>

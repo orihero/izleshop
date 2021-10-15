@@ -7,7 +7,7 @@ import { styles } from './style';
 import { strings } from 'locales/locales';
 import {
 	BirthdayIcon,
-	ChevronIcon,
+	ChevronRightIcon,
 	LanguageIcon,
 	PhoneIcon,
 	ProfileIcon,
@@ -46,7 +46,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 						<Text style={styles.textProfile}>
 							{strings.nameString}
 						</Text>
-						<ChevronIcon size={15} />
+						<ChevronRightIcon size={15} />
 					</TouchableOpacity>
 				</View>
 				<View style={styles.settingProfile}>
@@ -62,7 +62,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 							onPress={() => onPress(Routes.PRE_CHECKOUT)}
 						>
 							<Text style={styles.day}>12-12-2000</Text>
-							<ChevronIcon size={15} />
+							<ChevronRightIcon size={15} />
 						</TouchableOpacity>
 					</View>
 					<View style={styles.dataContainer}>
@@ -77,7 +77,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 							onPress={onCreatePress}
 						>
 							<Text style={styles.number}>(99) 123-4565</Text>
-							<ChevronIcon size={15} />
+							<ChevronRightIcon size={15} />
 						</TouchableOpacity>
 					</View>
 					<View style={styles.dataContainer}>
@@ -95,7 +95,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 								style={styles.flag}
 								source={require('assets/images/flag.png')}
 							/>
-							<ChevronIcon size={15} />
+							<ChevronRightIcon size={15} />
 						</TouchableOpacity>
 					</View>
 				</View>

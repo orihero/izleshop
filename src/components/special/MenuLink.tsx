@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { ChevronIcon, IconProps } from 'assets/icons/icons';
+import { ChevronRightIcon, IconProps } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 
@@ -14,7 +14,7 @@ const MenuLink = ({ onPress, text, Icon }: MenuLinkProps) => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.text}> {text}</Text>
-			{Icon===undefined? <ChevronIcon />: <Icon />}
+			{Icon===undefined? <ChevronRightIcon />: <Icon />}
 		</View>
 	);
 };

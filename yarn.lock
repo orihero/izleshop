@@ -5998,6 +5998,11 @@ react-native-screens@^3.6.0:
   dependencies:
     warn-once "^0.1.0"
 
+react-native-shadow-generator@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-shadow-generator/-/react-native-shadow-generator-1.1.2.tgz#9a60cbb98b1e1378587f3aa7bdb35165db566bfb"
+  integrity sha512-WfeBx/lHsEq2AwjeEm+4/n8F3Tbl/rl1EeEQkl8lMAsCVmYVBPc4XmXgjo9HQuN5sWt5MdAOrJOBiZBKZNrnZA==
+
 react-native-shimmer-placeholder@^2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/react-native-shimmer-placeholder/-/react-native-shimmer-placeholder-2.0.8.tgz#1b6deadc49319a4e46cd6ed7eac32d34355de3d5"

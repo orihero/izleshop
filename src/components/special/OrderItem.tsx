@@ -15,7 +15,7 @@ const OrderItem = ({ item }: OrderItemProps) => {
 			</View>
 			<View style={styles.boxText}>
 				<Text style={styles.text}>{item.title}</Text>
-				<Text style={styles.sumText}>{item.newPrice}</Text>
+				<Text style={styles.sumText}>{item.newPrice} - 1шт </Text>
 			</View>
 		</View>
 	)
@@ -37,11 +37,13 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		fontSize: 14,
+		fontWeight: '600',
 		alignItems: 'center'
 	},
-	cumText: {
+	sumText: {
+		paddingTop: 10,
 		fontSize: 14,
-		fontWeight: '400',
+		fontWeight: '800',
 		lineHeight: 17,
 		alignItems: 'center',
 	}

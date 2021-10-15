@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/core';
-import { ChevronIcon } from 'assets/icons/icons';
+import { ChevronRightIcon } from 'assets/icons/icons';
 import DefaultButton from 'components/general/DefaultButton';
 import DefaultInput from 'components/general/DefaultInput';
 import { Routes } from 'constants/routes';
@@ -57,7 +57,7 @@ const LoginView = ({}: ILoginViewProps) => {
 				<Text onPress={onSkipPress} style={styles.textView}>
 					{strings.skip}
 				</Text>
-				<ChevronIcon size={12} />
+				<ChevronRightIcon size={12} />
 			</TouchableOpacity>
 			<View style={styles.bottom}>
 				<Text style={styles.text3}>izle</Text>

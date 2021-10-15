@@ -4,7 +4,7 @@ import {
 	CardIcon,
 	CarIcon,
 	ChatIcon,
-	ChevronIcon,
+	ChevronRightIcon,
 	LogoutIcon,
 	PenIcon,
 	ProfileIcon,
@@ -86,7 +86,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 									<Text style={styles.textView}>
 										{strings.viewAll}
 									</Text>
-									<ChevronIcon size={8} />
+									<ChevronRightIcon size={8} />
 								</TouchableOpacity>
 							</View>
 							<Text style={styles.line} />
@@ -126,7 +126,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 									<Text style={styles.textReviews}>
 										{strings.myreviews}
 									</Text>
-									<ChevronIcon size={10} />
+									<ChevronRightIcon size={10} />
 								</TouchableOpacity>
 							</View>
 						</View>
@@ -143,7 +143,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 							<Text style={styles.textView}>
 								{strings.viewAll}
 							</Text>
-							<ChevronIcon size={8} />
+							<ChevronRightIcon size={8} />
 						</TouchableOpacity>
 					</View>
 					<Image
