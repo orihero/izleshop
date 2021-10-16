@@ -5,6 +5,8 @@ import { windowWidth } from 'constants/sizes';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		borderTopWidth: 2,
+		borderColor: colors.lightGray,
 		backgroundColor: colors.lightBlue
 	},
 	boxOne: {

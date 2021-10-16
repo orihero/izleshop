@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.lightBlue,
 	},
 	profilePage: {
+		marginLeft: 10,
 		width: 388,
 		height: 60,
 		paddingLeft: 40,
@@ -36,6 +37,7 @@ export const styles = StyleSheet.create({
 		width: 390,
 		height: 165,
 		marginTop: 5,
+		marginLeft: 10,
 		backgroundColor: colors.white,
 	},
 	dataContainer: {

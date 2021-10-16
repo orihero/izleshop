@@ -86,8 +86,8 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 				contentContainerStyle={styles.flatList}
 				snapToInterval={windowWidth / 2 - 5}
 				data={items}
-				horizontal
-				renderItem={(props) => <VerticalItem {...props} bigSize />}
+				numColumns={2}
+				renderItem={(props) => <VerticalItem {...props} bigSize hasMargin />}
 				decelerationRate={'fast'}
 				showsHorizontalScrollIndicator={false}
 				keyExtractor={(e) => e.id.toString()}

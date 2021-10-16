@@ -58,7 +58,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 				) : (
 					<>
 						<View style={styles.myProfile}>
-							<ProfileIcon size={20} />
+							<ProfileIcon size={22} />
 							<View style={styles.profile}>
 								<Text style={styles.textProfile}>
 									{user.name}
@@ -86,31 +86,31 @@ const ProfileView = ({ }: IProfileViewProps) => {
 									<Text style={styles.textView}>
 										{strings.viewAll}
 									</Text>
-									<ChevronRightIcon size={8} />
+									<ChevronRightIcon size={10} />
 								</TouchableOpacity>
 							</View>
 							<Text style={styles.line} />
 							<View style={styles.dispatch}>
 								<View style={styles.payment}>
-									<CardIcon />
+									<CardIcon size={25} />
 									<Text style={styles.textPayment}>
 										{strings.paymentPending}
 									</Text>
 								</View>
 								<View style={styles.payment}>
-									<BagIcon />
+									<BagIcon size={25} />
 									<Text style={styles.textPayment}>
 										{strings.awaitingDispatch}
 									</Text>
 								</View>
 								<View style={styles.payment}>
-									<CarIcon />
+									<CarIcon size={25} />
 									<Text style={styles.textPayment}>
 										{strings.orderSent}
 									</Text>
 								</View>
 								<View style={styles.payments}>
-									<PenIcon />
+									<PenIcon size={25} />
 									<Text style={styles.textPayments}>
 										{strings.reviewAwaiteng}
 									</Text>
@@ -118,7 +118,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 							</View>
 							<Text style={styles.line} />
 							<View style={styles.lol}>
-								<ChatIcon size={13} />
+								<ChatIcon size={14} />
 								<TouchableOpacity
 									style={styles.reviews}
 									onPress={() => onPress(Routes.MY_REVIEWS)}

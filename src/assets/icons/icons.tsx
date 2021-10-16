@@ -304,7 +304,7 @@ export function CircleIcon({
 }
 
 export function SettingIcon({
-	color = 'black',
+	color = colors.barGray,
 	active,
 	size = 20,
 	style,
@@ -603,7 +603,7 @@ export function ArrowsIcon({
 }
 
 export function MenuLinkIcon({
-	color = 'black',
+	color = colors.lightblacks,
 	active,
 	size = 20,
 	style,
