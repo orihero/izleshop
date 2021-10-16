@@ -1,17 +1,17 @@
-import React, { useCallback, useState } from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import Header from 'components/navigation/Header';
-import SecondButton from 'components/general/SecondButton';
-import { strings } from 'locales/locales';
 import { CloseIcon } from 'assets/icons/icons';
+import SecondButton from 'components/general/SecondButton';
+import Header from 'components/navigation/Header';
 import { colors } from 'constants/colors';
-import { styles } from './style';
+import { strings } from 'locales/locales';
+import React, { useState } from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 //@ts-ignore
 import RangeSlider from 'rn-range-slider';
 import {
 	FilterScreenNavigationProp,
 	FilterScreenRouteProp,
 } from './controller';
+import { styles } from './style';
 
 const arr1 = [
 	'Телефоны',
@@ -46,19 +46,7 @@ interface IFilterView {
 
 const FilterView = ({ navigation, route }: IFilterView) => {
 	const tmp = route.params.from === 'categories';
-	const [low, setLow] = useState(0);
-	const [high, setHigh] = useState(0);
-	const [selected, setSelected] = useState(0)
-
-	const renderThumb = useCallback(() => <View style={styles.thumb} />, []);
-	const renderRail = useCallback(() => <Text>Rail</Text>, []);
-	const renderRailSelected = useCallback(() => null, []);
-	const renderLabel = useCallback((value) => <Text>{value}</Text>, []);
-	const renderNotch = useCallback(() => <Text>Notch</Text>, []);
-	const handleValueChange = useCallback((low, high) => {
-		setLow(low);
-		setHigh(high);
-	}, []);
+	const [selected, setSelected] = useState(0);
 
 	return (
 		<View style={styles.container}>
@@ -69,20 +57,7 @@ const FilterView = ({ navigation, route }: IFilterView) => {
 			<ScrollView showsVerticalScrollIndicator={true}>
 				<Text style={styles.title}>{strings.sort}</Text>
 				<View style={styles.range}>
-					<RangeSlider
-						style={styles.slider}
-						min={0}
-						max={100}
-						step={2}
-						disableRange={false}
-						floatingLabel
-						renderThumb={renderThumb}
-						renderRail={renderRail}
-						renderRailSelected={renderRailSelected}
-						renderLabel={renderLabel}
-						renderNotch={renderNotch}
-						onValueChanged={handleValueChange}
-					/>
+					{/* <RangeSlider /> */}
 				</View>
 				<Text style={styles.title}>
 					{tmp ? strings.categories : strings.manufacturers}
@@ -90,19 +65,23 @@ const FilterView = ({ navigation, route }: IFilterView) => {
 				<View style={styles.box}>
 					{tmp
 						? arr1.map((e, i) => (
-								<TouchableOpacity onPress={()=> setSelected(i)} key={i} style={styles.row}>
+								<TouchableOpacity
+									onPress={() => setSelected(i)}
+									key={i}
+									style={styles.row}
+								>
 									<Text style={styles.text}>{e}</Text>
-									<View style={styles.circle} >{selected===i&&<View style={styles.dot}/>}</View>
+									<View style={styles.circle}>
+										{selected === i && (
+											<View style={styles.dot} />
+										)}
+									</View>
 								</TouchableOpacity>
 						  ))
 						: arr2.map((e, i) => (
 								<View key={i} style={styles.row}>
 									<Text style={styles.text}>{e}</Text>
-									<View
-										style={
-											 styles.circle 
-										}
-									/>
+									<View style={styles.circle} />
 								</View>
 						  ))}
 				</View>
