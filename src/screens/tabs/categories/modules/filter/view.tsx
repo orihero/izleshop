@@ -5,13 +5,12 @@ import { colors } from 'constants/colors';
 import { strings } from 'locales/locales';
 import React, { useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-//@ts-ignore
-import RangeSlider from 'rn-range-slider';
 import {
 	FilterScreenNavigationProp,
 	FilterScreenRouteProp,
 } from './controller';
 import { styles } from './style';
+import RangeSlider from 'components/general/range-slider/RangeSlider';
 
 const arr1 = [
 	'Телефоны',
@@ -52,12 +51,14 @@ const FilterView = ({ navigation, route }: IFilterView) => {
 		<View style={styles.container}>
 			<Header
 				title={strings.filter}
-				rightEdge={() => <CloseIcon size={20} color={colors.gray} />}
+				rightEdge={() => (
+					<Text style={styles.cancel}>{strings.reset}</Text>
+				)}
 			/>
 			<ScrollView showsVerticalScrollIndicator={true}>
 				<Text style={styles.title}>{strings.sort}</Text>
 				<View style={styles.range}>
-					{/* <RangeSlider /> */}
+					<RangeSlider />
 				</View>
 				<Text style={styles.title}>
 					{tmp ? strings.categories : strings.manufacturers}

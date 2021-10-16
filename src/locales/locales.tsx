@@ -2,6 +2,10 @@ import LocalizedStrings from 'react-native-localization';
 
 export let strings = new LocalizedStrings({
 	ru: {
+		reset: 'сбросить',
+		soum: 'сум',
+		to: 'До',
+		from: 'От',
 		home: 'Главная',
 		profile: 'Профиль',
 		category: 'Категория',
@@ -103,7 +107,7 @@ export let strings = new LocalizedStrings({
 		orderTime: 'Времия заказа:',
 		start: 'Начать',
 		status: 'Статус',
-        quantity: 'Количество',
+		quantity: 'Количество',
 		reviewaAwaiting: ' Ожидается отзыв',
 		leaveFeedback: 'ОСТАВИТЬ ОТЗЫВ',
 		pay: 'ОПЛАТИТЬ',

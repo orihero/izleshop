@@ -24,5 +24,5 @@ export let colors = {
 	grayLenght: 'rgba(0, 0, 0, 0.65)',
 	blueLight: '#40BFFF',
 	iconBlue: '#1779C8',
-	lightPink: 'rgba(255, 56, 63, 0.2);'
+	lightPink: 'rgba(255, 56, 63, 0.2);',
 };
