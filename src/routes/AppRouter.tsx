@@ -22,7 +22,7 @@ const AppRouter = () => {
 	return (
 		<NavigationContainer>
 			<RootStack.Navigator screenOptions={{ headerShown: false }}>
-				<RootStack.Screen  name={'test'} component={TestScreen} />
+				{/* <RootStack.Screen  name={'test'} component={TestScreen} /> */}
 				<RootStack.Screen
 					name={Routes.INTRO_SCREEN}
 					component={IntroScreen}

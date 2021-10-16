@@ -43,9 +43,10 @@ export interface IVerticalItemProps {
 	item: IVerticalItemModel;
 	bigSize?: boolean;
 	hasClose?: boolean;
+	hasMargin?: boolean;
 }
 
-const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
+const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps) => {
 	const { id, title, newPrice, currency, ratingCount, rating, status, img } =
 		item || {};
 
@@ -78,7 +79,7 @@ const VerticalItem = ({ item, bigSize, hasClose }: IVerticalItemProps) => {
 
 	return item ? (
 		<TouchableWithoutFeedback onPress={onItemPress}>
-			<View style={bigSize ? styles.width1 : styles.width2}>
+			<View style={[bigSize ? styles.width1 : styles.width2, hasMargin && { marginVertical: 10 }]}>
 				<View style={bigSize ? styles.cont1 : styles.cont2}>
 					{hasClose ? (
 						<View style={styles.absolute}>

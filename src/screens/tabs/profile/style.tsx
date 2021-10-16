@@ -68,7 +68,7 @@ export const styles = StyleSheet.create({
 	},
 	textView: {
 		marginTop: -2,
-		fontSize: 8,
+		fontSize: 10,
 		fontFamily: 'Lato',
 		fontWeight: 'bold',
 	},
@@ -91,13 +91,13 @@ export const styles = StyleSheet.create({
 		justifyContent: 'flex-start',
 		fontFamily: 'Lato',
 		fontWeight: '600',
-		fontSize: 12,
+		fontSize: 18,
 	},
 	imageFlag: {
 		width: 18,
 		height: 18,
 		position: 'absolute',
-		left: 320,
+		left: 335,
 	},
 	setting: {
 		paddingRight: 20,
@@ -119,7 +119,7 @@ export const styles = StyleSheet.create({
 	},
 	textOrders: {
 		paddingLeft: 15,
-		fontSize: 14,
+		fontSize: 18,
 		fontWeight: 'bold',
 		fontFamily: 'Lato',
 		alignItems: 'center',
@@ -127,7 +127,7 @@ export const styles = StyleSheet.create({
 	orderView: {
 		paddingRight: 15,
 		paddingTop: 5,
-		fontSize: 8,
+		fontSize: 10,
 		fontWeight: 'bold',
 		fontFamily: 'Lato',
 		alignItems: 'center',
@@ -155,7 +155,7 @@ export const styles = StyleSheet.create({
 	},
 	textPayment: {
 		width: 60,
-		fontSize: 9,
+		fontSize: 11,
 		paddingTop: 2,
 		fontFamily: 'Lato',
 		fontWeight: '400',
@@ -164,12 +164,13 @@ export const styles = StyleSheet.create({
 	textPayments: {
 		width: 62,
 		paddingTop: 2,
-		fontSize: 9,
+		fontSize: 11,
 		fontFamily: 'Lato',
 		fontWeight: '400',
 		textAlign: 'center',
 	},
 	payments: {
+		paddingTop: 2,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
@@ -181,7 +182,7 @@ export const styles = StyleSheet.create({
 	},
 	textReviews: {
 		paddingLeft: 5,
-		fontSize: 10,
+		fontSize: 12,
 		fontWeight: 'bold',
 		fontFamily: 'Lato',
 	},
