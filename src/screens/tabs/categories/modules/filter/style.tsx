@@ -2,6 +2,9 @@ import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
+	cancel: {
+		color: colors.blueLight,
+	},
 	container: {
 		flex: 1,
 		backgroundColor: colors.lightGray,
@@ -41,7 +44,7 @@ export const styles = StyleSheet.create({
 		width: 10,
 		height: 10,
 		borderRadius: 10,
-		backgroundColor: colors.black
+		backgroundColor: colors.black,
 	},
 	circle: {
 		width: 15,
@@ -49,8 +52,7 @@ export const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderRadius: 10,
 		alignItems: 'center',
-		justifyContent: 'center'
-
+		justifyContent: 'center',
 	},
 	square: {
 		width: 20,

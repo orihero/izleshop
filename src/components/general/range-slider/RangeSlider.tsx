@@ -1,14 +1,17 @@
 import React, { useCallback, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Label from './Label';
 import Notch from './Notch';
 import Rail from './Rail';
 import RailSelected from './RailSelected';
 import Thumb from './Thumb';
+import RangeSlider from 'rn-range-slider';
+import Text from '../Text';
+import { strings } from 'locales/locales';
 
-const RangeSlider = () => {
-	const [low, setLow] = useState(0);
-	const [high, setHigh] = useState(0);
+const CustomRangeSlider = () => {
+	const [low, setLow] = useState(1200000);
+	const [high, setHigh] = useState(18000000);
 	const renderThumb = useCallback(() => <Thumb />, []);
 	const renderRail = useCallback(() => <Rail />, []);
 	const renderRailSelected = useCallback(() => <RailSelected />, []);
@@ -20,9 +23,17 @@ const RangeSlider = () => {
 	}, []);
 	return (
 		<View>
+			<View style={styles.row}>
+				<Text>
+					{strings.from}: {low.toLocaleString('ru')} {strings.soum}
+				</Text>
+				<Text>
+					{strings.to}: {high.toLocaleString('ru')} {strings.soum}
+				</Text>
+			</View>
 			<RangeSlider
-				min={0}
-				max={100}
+				min={1000000}
+				max={40000000}
 				step={2}
 				disableRange={false}
 				floatingLabel
@@ -37,6 +48,12 @@ const RangeSlider = () => {
 	);
 };
 
-export default RangeSlider;
+export default CustomRangeSlider;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	row: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		marginBottom: 15,
+	},
+});
