@@ -46,7 +46,11 @@ const LanguageView = ({
 											? styles.bblue
 											: styles.bblack,
 									]}
-								/>
+								>
+									{i === language && (
+										<View style={styles.circle} />
+									)}
+								</View>
 							</View>
 						</Pressable>
 					))}
@@ -57,7 +61,9 @@ const LanguageView = ({
 						onPress={onPress}
 						text={strings.cancel}
 					/> */}
-					<Text style={styles.textCancel} onPress={onPress}>{strings.cancel}</Text>
+					<Text style={styles.textCancel} onPress={onPress}>
+						{strings.cancel}
+					</Text>
 				</View>
 				<View style={styles.content}>
 					<View style={styles.box}>
