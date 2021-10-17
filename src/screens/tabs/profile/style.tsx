@@ -97,7 +97,7 @@ export const styles = StyleSheet.create({
 		width: 18,
 		height: 18,
 		position: 'absolute',
-		left: 335,
+		left: 320,
 	},
 	setting: {
 		paddingRight: 20,

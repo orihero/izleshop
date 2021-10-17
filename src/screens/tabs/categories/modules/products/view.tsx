@@ -84,7 +84,7 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 									{isList ? (
 										<CategoriesIcon active size={20} />
 									) : (
-										<MenuLinkIcon />
+										<MenuLinkIcon color={colors.gray} />
 									)}
 								</View>
 							</Pressable>

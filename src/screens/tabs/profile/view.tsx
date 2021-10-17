@@ -104,7 +104,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 									</Text>
 								</View>
 								<View style={styles.payment}>
-									<CarIcon size={25} />
+									<CarIcon size={27} />
 									<Text style={styles.textPayment}>
 										{strings.orderSent}
 									</Text>
