@@ -42,7 +42,7 @@ let styles = StyleSheet.create({
 
 let renderIcon = (Icon: typeof HomeIcon) => {
 	return ({ color }: { focused: boolean; color: string }) => {
-		return <Icon active={false} color={color} size={28} />;
+		return <Icon active={false} color={color} size={29} />;
 	};
 };
 

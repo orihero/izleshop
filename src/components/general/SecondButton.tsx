@@ -34,13 +34,18 @@ export default SecondButton;
 
 const styles = StyleSheet.create({
 	container: {
+		width: 145,
+		height: 30,
 		borderWidth: 1,
 		borderRadius: 15,
 		paddingVertical: 7,
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	text: {
 		fontSize: 14,
 		lineHeight: 17,
 		fontWeight: '400',
+		position: 'absolute',
 	},
 });

@@ -3,7 +3,7 @@ import { colors } from 'constants/colors';
 
 
 export const styles = StyleSheet.create({
-    container: {
+	container: {
 		flex: 1,
 		backgroundColor: colors.lightBlue,
 	},
@@ -77,6 +77,7 @@ export const styles = StyleSheet.create({
 		fontWeight: '400',
 		fontFamily: 'Lato',
 		marginLeft: 30,
+		marginTop: 3,
 		// marginBottom: -100,
 
 	},
@@ -94,6 +95,13 @@ export const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		borderColor: colors.lightGray,
 		justifyContent: 'space-between',
+	},
+	circle: {
+		// position: 'absolute',
+		backgroundColor: colors.black,
+		width: 10,
+		height: 10,
+		borderRadius: 10,
 	},
 	ltext: {
 		fontSize: 14,

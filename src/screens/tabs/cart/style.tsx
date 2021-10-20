@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
 		color: colors.blue,
 	},
 	absolute: {
-		marginTop: 20,
+		marginTop: 15,
 		position: 'relative',
 		bottom: 0,
 		left: 0,

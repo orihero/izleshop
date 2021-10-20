@@ -36,13 +36,13 @@ const styles = StyleSheet.create({
 	boxText: {
 	},
 	text: {
-		fontSize: 14,
+		fontSize: 15,
 		fontWeight: '600',
 		alignItems: 'center'
 	},
 	sumText: {
 		paddingTop: 10,
-		fontSize: 14,
+		fontSize: 15,
 		fontWeight: '800',
 		lineHeight: 17,
 		alignItems: 'center',

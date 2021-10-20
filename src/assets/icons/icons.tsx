@@ -207,7 +207,7 @@ export function ChevronLeftIcon({
 }: IconProps) {
 	let iconProps = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg style={{transform:[{rotateY: '180deg'}]}} viewBox="0 0 512 512" {...iconProps}>
+		<Svg style={{ transform: [{ rotateY: '180deg' }] }} viewBox="0 0 512 512" {...iconProps}>
 			<Path d="M367.954 213.588L160.67 5.872c-7.804-7.819-20.467-7.831-28.284-.029-7.819 7.802-7.832 20.465-.03 28.284l207.299 207.731c7.798 7.798 7.798 20.486-.015 28.299L132.356 477.873c-7.802 7.819-7.789 20.482.03 28.284A19.935 19.935 0 00146.513 512c5.125 0 10.25-1.958 14.157-5.873l207.269-207.701c23.394-23.394 23.394-61.459.015-84.838z" />
 		</Svg>
 	);
@@ -484,17 +484,17 @@ export function TelephoneIcon({
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
 		<Svg
-		viewBox="0 0 14 20"
-		{...props}
-	  >
-		<Path
-		  d="M12.625 1H1.375v18h11.25V1zM6.994 15.625h.011"
-		  stroke="#1779C8"
-		  strokeWidth={2}
-		  strokeLinecap="round"
-		  strokeLinejoin="round"
-		/>
-	  </Svg>
+			viewBox="0 0 14 20"
+			{...props}
+		>
+			<Path
+				d="M12.625 1H1.375v18h11.25V1zM6.994 15.625h.011"
+				stroke="#1779C8"
+				strokeWidth={2}
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</Svg>
 	);
 }
 
@@ -508,18 +508,42 @@ export function CalenderIcon({
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
 		<Svg
-		viewBox="0 0 20 20"
-		{...props}
-	  >
-		<Path
-		  d="M1 8.875h18M14.5 5.5V1m-9 4.5V1M1 3.25h18V19H1V3.25z"
-		  stroke="#40BFFF"
-		  strokeWidth={2}
-		  strokeMiterlimit={10}
-		  strokeLinecap="round"
-		  strokeLinejoin="round"
-		/>
-	  </Svg>
+			viewBox="0 0 20 20"
+			{...props}
+		>
+			<Path
+				d="M1 8.875h18M14.5 5.5V1m-9 4.5V1M1 3.25h18V19H1V3.25z"
+				stroke="#40BFFF"
+				strokeWidth={2}
+				strokeMiterlimit={10}
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</Svg>
+	);
+}
+
+
+export function ProfileBoldIcon({
+	color = 'white',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+			viewBox="0 0 19 18"
+			{...props}
+		>
+			<Path
+				stroke="#1779C8"
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M9.117 1.8c-1.461 0-2.646 1.17-2.646 2.612 0 1.443 1.185 2.613 2.646 2.613 1.462 0 2.647-1.17 2.647-2.613 0-1.442-1.185-2.612-2.647-2.612zm-4.47 2.612C4.647 1.976 6.65 0 9.117 0c2.47 0 4.47 1.976 4.47 4.412 0 2.437-2 4.413-4.47 4.413-2.468 0-4.47-1.976-4.47-4.413zM6.855 12.052c-2.779 0-5.031 2.223-5.031 4.966v.082c0 .497-.409.9-.912.9A.906.906 0 010 17.1v-.082c0-3.737 3.069-6.767 6.855-6.767h4.526c3.786 0 6.855 3.03 6.855 6.767v.082c0 .497-.408.9-.912.9a.906.906 0 01-.912-.9v-.082c0-2.743-2.252-4.966-5.03-4.966H6.854z"
+				fill="#1779C8"
+			/>
+		</Svg>
 	);
 }
 
@@ -533,15 +557,15 @@ export function ExitIcon({
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
 		<Svg
-		viewBox="0 0 17 15"
-		{...props}
-	  >
-		<Path
-		  d="M9.46 7.501l6.5-6.152a.76.76 0 000-1.117.868.868 0 00-1.179 0L8.28 6.384 1.779.232a.868.868 0 00-1.18 0 .76.76 0 000 1.117L7.1 7.5.6 13.653a.76.76 0 000 1.117.868.868 0 001.18 0l6.5-6.153 6.502 6.153a.868.868 0 001.18 0 .76.76 0 000-1.117L9.46 7.501z"
-		  fill="#000"
-		  fillOpacity={0.3}
-		/>
-	  </Svg>	);
+			viewBox="0 0 17 15"
+			{...props}
+		>
+			<Path
+				d="M9.46 7.501l6.5-6.152a.76.76 0 000-1.117.868.868 0 00-1.179 0L8.28 6.384 1.779.232a.868.868 0 00-1.18 0 .76.76 0 000 1.117L7.1 7.5.6 13.653a.76.76 0 000 1.117.868.868 0 001.18 0l6.5-6.153 6.502 6.153a.868.868 0 001.18 0 .76.76 0 000-1.117L9.46 7.501z"
+				fill="#000"
+				fillOpacity={0.3}
+			/>
+		</Svg>);
 }
 
 export function PenIcon({

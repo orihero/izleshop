@@ -111,5 +111,7 @@ export let strings = new LocalizedStrings({
 		reviewaAwaiting: ' Ожидается отзыв',
 		leaveFeedback: 'ОСТАВИТЬ ОТЗЫВ',
 		pay: 'ОПЛАТИТЬ',
+		whatsNew: 'Что нового в izle shop?',
+		leaveFeedbacks: 'Оставить отзыв '
 	},
 });

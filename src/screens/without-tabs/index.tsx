@@ -19,6 +19,8 @@ import RegistrationScreen from './registration';
 import MyReviewsScreen from './my-reviews';
 import PhoneNumberScreen from './phone-number';
 import NamePageScreen from './name-page';
+import LeaveFeedbackScreen from './leave-feedback';
+import WhatsNewScreen from './whats-new';
 
 import { Routes } from 'constants/routes';
 
@@ -40,6 +42,8 @@ export type WithoutStackParamList = {
 	[Routes.MY_REVIEWS]: undefined;
 	[Routes.PHONE_NUMBER]: undefined;
 	[Routes.NAME_PAGE]: undefined;
+	[Routes.LEAVE_FEEDBACK]: undefined;
+	[Routes.WHATS_NEW]: undefined;
 };
 
 let Stack = createNativeStackNavigator<WithoutStackParamList>();
@@ -76,6 +80,8 @@ const WithoutTabsStack = () => {
 			<Stack.Screen name={Routes.ABOUT_US} component={AboutUsScreen} />
 			<Stack.Screen name={Routes.LANGUAGE} component={LanguageScreen} />
 			<Stack.Screen name={Routes.ABOUT_APP} component={AboutAppScreen} />
+			<Stack.Screen name={Routes.LEAVE_FEEDBACK} component={LeaveFeedbackScreen} />
+			<Stack.Screen name={Routes.WHATS_NEW} component={WhatsNewScreen} />
 			<Stack.Screen
 				name={Routes.REGISTER}
 				component={RegistrationScreen}

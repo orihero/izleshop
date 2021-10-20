@@ -16,7 +16,7 @@ const DefaultInput = ({
 	onChange = (value: string) => { },
 	isPassword,
 	isTextArea,
-	placeholder = `+998 (99) 456-95-50`,
+	placeholder = `(99) 456-95-50`,
 	keyboardType,
 }: DefaultInputProps) => {
 	const [showPassword, setShowPassword] = useState(false);

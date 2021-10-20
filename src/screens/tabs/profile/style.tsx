@@ -8,17 +8,15 @@ export const styles = StyleSheet.create({
 	},
 	welcomeText: {
 		marginTop: 25,
-		fontSize: 20,
-		fontWeight: 'bold',
+		fontSize: 23,
+		fontWeight: '600',
 		alignSelf: 'center',
 		color: colors.black,
 	},
 	avatarContainer: {
-		// flexDirection: 'row',
-		marginTop: 25,
 		flexShrink: 1,
 		alignItems: 'center',
-		marginBottom: 30,
+		marginBottom: 5,
 	},
 	avatar: {
 		width: 60,
@@ -27,9 +25,9 @@ export const styles = StyleSheet.create({
 	},
 	loginPrompt: {
 		marginTop: 20,
-		fontSize: 12,
+		fontSize: 14,
 		color: colors.lightBlack,
-		marginHorizontal: 40,
+		marginHorizontal: 30,
 	},
 	profileSettings: {
 		fontSize: 20,
@@ -38,10 +36,10 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 20,
 	},
 	news: {
-		width: 350,
+		width: 370,
 		height: 187,
 		marginTop: 22,
-		marginLeft: 20,
+		marginHorizontal: 20,
 		borderRadius: 7,
 		marginBottom: 15,
 		alignItems: 'center',
@@ -58,6 +56,7 @@ export const styles = StyleSheet.create({
 	},
 	textOne: {
 		fontSize: 14,
+		lineHeight: 16,
 		fontWeight: 'bold',
 		justifyContent: 'space-between',
 	},
@@ -82,30 +81,34 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	profile: {
-		width: 305,
-		// paddingLeft: 10,
+		width: 300,
+		// paddingTop: 5,
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
 	},
 	textProfile: {
+		paddingTop: 5,
 		justifyContent: 'flex-start',
 		fontFamily: 'Lato',
 		fontWeight: '600',
 		fontSize: 18,
 	},
+	flag: {
+		paddingTop: 5,
+		flexDirection: 'row'
+	},
 	imageFlag: {
 		width: 18,
 		height: 18,
-		position: 'absolute',
-		left: 320,
 	},
 	setting: {
+		marginHorizontal: 10,
 		paddingRight: 20,
 	},
 	orders: {
-		width: 350,
+		width: 370,
 		height: 130,
-		marginLeft: 20,
+		marginHorizontal: 20,
 		marginTop: 10,
 		borderRadius: 7,
 		backgroundColor: colors.white,
@@ -175,19 +178,19 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	reviews: {
-		width: 300,
+		width: 330,
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 	},
 	textReviews: {
 		paddingLeft: 5,
-		fontSize: 12,
+		fontSize: 14,
 		fontWeight: 'bold',
 		fontFamily: 'Lato',
 	},
 	lol: {
-		width: 320,
+		width: 340,
 		height: 25,
 		paddingLeft: 15,
 		alignItems: 'center',
