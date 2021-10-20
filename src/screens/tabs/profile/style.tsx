@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	textOne: {
-		fontSize: 14,
+		fontSize: 15,
 		lineHeight: 16,
 		fontWeight: 'bold',
 		justifyContent: 'space-between',
@@ -147,6 +147,7 @@ export const styles = StyleSheet.create({
 	dispatch: {
 		width: 340,
 		height: 70,
+		marginHorizontal: 10,
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 	},
@@ -185,7 +186,7 @@ export const styles = StyleSheet.create({
 	},
 	textReviews: {
 		paddingLeft: 5,
-		fontSize: 14,
+		fontSize: 16,
 		fontWeight: 'bold',
 		fontFamily: 'Lato',
 	},

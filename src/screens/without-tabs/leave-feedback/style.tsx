@@ -14,4 +14,5 @@ export const styles = StyleSheet.create({
 		borderColor: colors.leghtGrey,
 		backgroundColor: colors.white
 	},
+	mt10: {},
 })
