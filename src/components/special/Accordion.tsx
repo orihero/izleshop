@@ -31,11 +31,11 @@ const Accordion = ({ items }: IAccordionProps) => {
 						<Pressable onPress={() => onChangeContent(i + 1)}>
 							<View style={styles.item}>
 								<Text style={styles.text1}>{title}</Text> 
-									{hasCount&& 
+									{/* {hasCount&& 
 									<View style={styles.border}>
 										<Text style={styles.borderText}>{content[0].items.length}</Text>
 									</View>
-									}
+									} */}
 								<View
 									style={
 										open === i + 1

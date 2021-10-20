@@ -16,10 +16,15 @@ import {
 	setUserName,
 } from 'store/slices/userSlice';
 
-interface ILanguageProps {}
 export const languagesList = ['Русский', 'O’zbekcha', 'English'];
 
-const RegistrationView = ({}: ILanguageProps) => {
+interface ILanguageProps {
+	language: number;
+}
+
+const RegistrationView = ({
+	language,
+}: ILanguageProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	let dispatch = useDispatch();
@@ -72,7 +77,11 @@ const RegistrationView = ({}: ILanguageProps) => {
 											? styles.bblue
 											: styles.bblack,
 									]}
-								/>
+								>
+								 		{i === language && (
+										<View style={styles.circle} />
+									)}
+								</View>
 							</View>
 						</Pressable>
 					))}

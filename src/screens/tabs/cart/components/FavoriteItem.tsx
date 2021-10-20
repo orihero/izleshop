@@ -101,7 +101,7 @@ const FavoriteItem = ({
 		setIsChecked(!isChecked);
 	};
 	return (
-		<TouchableOpacity onPress={onCheck} style={styles.container}>
+		<View style={styles.container}>
 			<View style={styles.imgCont}>
 				{hasRemove && (
 					<View style={styles.checkBox}>
@@ -161,7 +161,7 @@ const FavoriteItem = ({
 			<View style={styles.rightEdge}>
 				<View style={styles.irow}>
 					{hasBasket ? (
-						<Pressable onPress={onCartPress}>
+						<TouchableOpacity onPress={onCartPress}>
 							<View style={[styles.square, styles.mr10]}>
 								<CartIcon
 									size={22}
@@ -169,17 +169,17 @@ const FavoriteItem = ({
 									active={isInCart}
 								/>
 							</View>
-						</Pressable>
+						</TouchableOpacity>
 					) : null}
 					{hasRemove && (
-						<Pressable onPress={onRemove}>
+						<TouchableOpacity onPress={onRemove}>
 							<View style={styles.square}>
 								<TrashIcon size={18} color={'rgba(0,0,0,.3)'} />
 							</View>
-						</Pressable>
+						</TouchableOpacity>
 					)}
 				</View>
-				<Pressable onPress={onLike}>
+				<TouchableOpacity onPress={onLike}>
 					<View style={styles.square}>
 						<HeartIcon
 							size={22}
@@ -187,9 +187,9 @@ const FavoriteItem = ({
 							active={isFavorite}
 						/>
 					</View>
-				</Pressable>
+				</TouchableOpacity>
 			</View>
-		</TouchableOpacity>
+		</View>
 	);
 };
 

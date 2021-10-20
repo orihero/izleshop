@@ -101,17 +101,17 @@ const HorizontalItem = ({
 		setIsChecked(!isChecked);
 	};
 	return (
-		<TouchableOpacity onPress={onCheck} style={styles.container}>
+		<View style={styles.container}>
 			<View style={styles.imgCont}>
 				{hasRemove && (
-					<View style={styles.checkBox}>
+					<TouchableOpacity onPress={onCheck}  style={styles.checkBox}>
 						{isChecked && (
 							<Image
 								style={styles.imgCheck}
 								source={require('../../assets/images/check.png')}
 							/>
 						)}
-					</View>
+					</TouchableOpacity>
 				)}
 				<Image source={img} style={styles.image} />
 			</View>
@@ -164,7 +164,7 @@ const HorizontalItem = ({
 				</Pressable>
 				<View style={styles.irow}>
 					{hasBasket ? (
-						<Pressable onPress={onCartPress}>
+						<TouchableOpacity onPress={onCartPress}>
 							<View style={[styles.square, styles.mr10]}>
 								<CartIcon
 									size={20}
@@ -172,18 +172,18 @@ const HorizontalItem = ({
 									active={isInCart}
 								/>
 							</View>
-						</Pressable>
+						</TouchableOpacity>
 					) : null}
 					{hasRemove && (
-						<Pressable onPress={onRemove}>
+						<TouchableOpacity onPress={onRemove}>
 							<View style={styles.square}>
 								<TrashIcon size={18} color={'rgba(0,0,0,.3)'} />
 							</View>
-						</Pressable>
+						</TouchableOpacity>
 					)}
 				</View>
 			</View>
-		</TouchableOpacity>
+		</View>
 	);
 };
 

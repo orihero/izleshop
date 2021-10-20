@@ -10,6 +10,7 @@ import {
 	ChevronRightIcon,
 	LanguageIcon,
 	PhoneIcon,
+	ProfileBoldIcon,
 	ProfileIcon,
 	TelephoneIcon,
 } from 'assets/icons/icons';
@@ -38,7 +39,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 		<ProfileLayout headerTitle={strings.settings || ''}>
 			<View style={styles.container}>
 				<View style={styles.profilePage}>
-					<ProfileIcon size={20} color={'#1779c8'} />
+					<ProfileBoldIcon size={20} />
 					<TouchableOpacity
 						style={styles.profile}
 						onPress={() => onPress(Routes.NAME_PAGE)}
@@ -52,7 +53,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 				<View style={styles.settingProfile}>
 					<View style={styles.dataContainer}>
 						<View style={styles.row}>
-							<BirthdayIcon size={20} />
+							<BirthdayIcon size={20}/>
 							<Text style={styles.textbirthday}>
 								{strings.birthday}
 							</Text>

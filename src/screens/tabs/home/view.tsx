@@ -66,7 +66,6 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 					itemWidth={width}
 					containerCustomStyle={styles.carousel}
 					onSnapToItem={(index) => setActiveSlide(index)}
-					con
 				/>
 			)}
 			<Pagination

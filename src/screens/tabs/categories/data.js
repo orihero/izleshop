@@ -303,27 +303,27 @@ export let categories = [
 			// },
 		],
 	},
-	{
-		label: 'Бытовая техника',
-		subCategories: [
-			{
-				label: 'Телевизор',
-				img: {
-					uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-				},
-			},
-			{
-				label: 'Пылесос',
-				img: {
-					uri: 'https://m.media-amazon.com/images/I/61tH1osluML._SL1200_.jpg',
-				},
-			},
-			{
-				label: 'Стиральная машина',
-				img: {
-					uri: 'https://img.global.news.samsung.com/global/wp-content/uploads/2018/01/QuickDrive_WW6850N_washer_main_1.jpg',
-				},
-			},
-		],
-	},
+	// {
+	// 	label: 'Бытовая техника',
+	// 	subCategories: [
+	// 		{
+	// 			label: 'Телевизор',
+	// 			img: {
+	// 				uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
+	// 			},
+	// 		},
+	// 		{
+	// 			label: 'Пылесос',
+	// 			img: {
+	// 				uri: 'https://m.media-amazon.com/images/I/61tH1osluML._SL1200_.jpg',
+	// 			},
+	// 		},
+	// 		{
+	// 			label: 'Стиральная машина',
+	// 			img: {
+	// 				uri: 'https://img.global.news.samsung.com/global/wp-content/uploads/2018/01/QuickDrive_WW6850N_washer_main_1.jpg',
+	// 			},
+	// 		},
+	// 	],
+	// },
 ];

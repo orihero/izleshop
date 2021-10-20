@@ -90,7 +90,8 @@ export const styles = StyleSheet.create({
 	},
 	text4: {
 		fontSize: 18,
-		marginTop: 10,
+		marginTop: 15,
+		marginBottom: 5,
 		lineHeight: 18,
 		marginLeft: 10,
 		fontWeight: '600',

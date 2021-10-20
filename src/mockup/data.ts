@@ -18,16 +18,16 @@ export const orderItems = [
 		status: 'В ожидании',
 		img: img3,
 	},
-	{
-		id: 2,
-		title: 'Кроссовки Nike air Light',
-		newPrice: '180 000',
-		currency: 'сум',
-		ratingCount: 5,
-		rating: 4,
-		status: 'В ожидании',
-		img: img2,
-	},
+	// {
+	// 	id: 2,
+	// 	title: 'Кроссовки Nike air Light',
+	// 	newPrice: '180 000',
+	// 	currency: 'сум',
+	// 	ratingCount: 5,
+	// 	rating: 4,
+	// 	status: 'В ожидании',
+	// 	img: img2,
+	// },
 ];
 
 export interface IAccordionItem {
@@ -49,32 +49,6 @@ export interface IAccordion {
 }
 
 export const accordionData: IAccordion[] = [
-	{
-		title: 'Отзывы',
-		content: [
-			{
-				preTitle: '',
-				items: [
-					{
-						key: 'Ежемесячный платеж',
-						value: '677 500 сум',
-						row: true,
-					},
-					{
-						key: 'Срок в месяцах',
-						value: '12 месяцев',
-						row: true,
-					},
-					{
-						key: 'Общая суммма',
-						value: '8 130 000 сум',
-						row: true,
-					},
-				],
-			},
-		],
-		hasCount: true
-	},
 	{
 		title: 'В рассрочку',
 		finally:
@@ -413,6 +387,32 @@ export const accordionData: IAccordion[] = [
 				],
 			},
 		],
+	},
+	{
+		title: 'Отзывы',
+		content: [
+			{
+				preTitle: '',
+				items: [
+					{
+						key: 'Ежемесячный платеж',
+						value: '677 500 сум',
+						row: true,
+					},
+					{
+						key: 'Срок в месяцах',
+						value: '12 месяцев',
+						row: true,
+					},
+					{
+						key: 'Общая суммма',
+						value: '8 130 000 сум',
+						row: true,
+					},
+				],
+			},
+		],
+		hasCount: true
 	},
 ];
 
