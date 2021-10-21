@@ -44,7 +44,7 @@ export interface IAccordionContent {
 export interface IAccordion {
 	title: string;
 	finally?: string;
-	content: IAccordionContent[];
+	content: IAccordionContent[] | null;
 	hasCount?: Boolean;
 }
 
@@ -390,28 +390,7 @@ export const accordionData: IAccordion[] = [
 	},
 	{
 		title: 'Отзывы',
-		content: [
-			{
-				preTitle: '',
-				items: [
-					{
-						key: 'Ежемесячный платеж',
-						value: '677 500 сум',
-						row: true,
-					},
-					{
-						key: 'Срок в месяцах',
-						value: '12 месяцев',
-						row: true,
-					},
-					{
-						key: 'Общая суммма',
-						value: '8 130 000 сум',
-						row: true,
-					},
-				],
-			},
-		],
+		content: null,
 		hasCount: true
 	},
 ];
@@ -445,7 +424,6 @@ export const item = {
 			url: 'https://ossaimaenterprise.com/wp-content/uploads/2020/10/headersml-desk-apple-watch-series-6-860x360-1.jpg',
 		},
 	],
-	// images: [img, paymeLogo, img, clickLogo, img],
 };
 
 export const items = [
