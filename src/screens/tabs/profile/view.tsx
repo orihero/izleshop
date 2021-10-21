@@ -91,6 +91,22 @@ const ProfileView = ({ }: IProfileViewProps) => {
 								<ChevronRightIcon size={10} />
 							</TouchableOpacity>
 						</View>
+					</View>
+					<View style={styles.orders}>
+						<View style={styles.myOrders}>
+							<Text onPress={() => onPress(Routes.MY_ORDERS)} style={styles.textOrders}>
+								{strings.myOrders}
+							</Text>
+							<TouchableOpacity
+								style={styles.orderView}
+								onPress={() => onPress(Routes.VIEW_ALL)}
+							>
+								<Text style={styles.textView}>
+									{strings.viewAll}
+								</Text>
+								<ChevronRightIcon size={10} />
+							</TouchableOpacity>
+						</View>
 						<Text style={styles.line} />
 						<View style={styles.dispatch}>
 							<View style={styles.payment}>
@@ -104,7 +120,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 								<Text style={styles.textPayment}>
 									{strings.awaitingDispatch}
 								</Text>
-							</View>
+							</View >
 							<View style={styles.payment}>
 								<CarIcon size={27} />
 								<Text style={styles.textPayment}>
@@ -117,7 +133,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 									{strings.reviewAwaiteng}
 								</Text>
 							</View>
-						</View>
+						</View >
 						<Text style={styles.line} />
 						<View style={styles.lol}>
 							{/* <ChatIcon size={14} /> */}
@@ -131,7 +147,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 								<ChevronRightIcon size={10} />
 							</TouchableOpacity>
 						</View>
-					</View>
+					</View >
 				</>
 			)}
 
@@ -147,11 +163,11 @@ const ProfileView = ({ }: IProfileViewProps) => {
 						</Text>
 						<ChevronRightIcon size={8} />
 					</TouchableOpacity>
-				</View>
+				</View >
 				<Image
 					source={require('../../../assets/images/image.png')}
 				/>
-			</View>
+			</View >
 			<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
 				<MenuLink text={strings.helpSupport} />
 			</Pressable>
@@ -167,7 +183,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 			<Pressable to onPress={onLogout}>
 				<MenuLink text={strings.singAccount} Icon={LogoutIcon} />
 			</Pressable>
-		</View>
+		</View >
 	);
 };
 

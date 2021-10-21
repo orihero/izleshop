@@ -1,4 +1,4 @@
-import { Alert, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 

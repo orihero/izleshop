@@ -31,7 +31,9 @@ export const styles = StyleSheet.create({
 		color: colors.lightBlack,
 	},
 	button: {
-		marginHorizontal: 10,
+		fontSize: 14,
+		color: colors.lightBlack,
+		marginHorizontal: 30,
 	},
 	profileSettings: {
 		fontSize: 20,
