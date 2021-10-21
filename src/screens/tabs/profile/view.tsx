@@ -91,22 +91,6 @@ const ProfileView = ({ }: IProfileViewProps) => {
 								<ChevronRightIcon size={10} />
 							</TouchableOpacity>
 						</View>
-					</View>
-					<View style={styles.orders}>
-						<View style={styles.myOrders}>
-							<Text onPress={() => onPress(Routes.MY_ORDERS)} style={styles.textOrders}>
-								{strings.myOrders}
-							</Text>
-							<TouchableOpacity
-								style={styles.orderView}
-								onPress={() => onPress(Routes.VIEW_ALL)}
-							>
-								<Text style={styles.textView}>
-									{strings.viewAll}
-								</Text>
-								<ChevronRightIcon size={10} />
-							</TouchableOpacity>
-						</View>
 						<Text style={styles.line} />
 						<View style={styles.dispatch}>
 							<View style={styles.payment}>

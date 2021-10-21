@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
 	button: {
 		fontSize: 14,
 		color: colors.lightBlack,
-		marginHorizontal: 30,
+		marginHorizontal: 10,
 	},
 	profileSettings: {
 		fontSize: 20,
