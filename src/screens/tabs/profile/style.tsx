@@ -24,10 +24,11 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 20,
 	},
 	loginPrompt: {
-		marginTop: 20,
 		fontSize: 14,
+		marginTop: 20,
+		textAlign: 'center',
+		marginHorizontal: 20,
 		color: colors.lightBlack,
-		marginHorizontal: 30,
 	},
 	button: {
 		marginHorizontal: 10,
@@ -42,10 +43,10 @@ export const styles = StyleSheet.create({
 		width: 370,
 		height: 187,
 		marginTop: 22,
-		marginHorizontal: 20,
 		borderRadius: 7,
 		marginBottom: 15,
 		alignItems: 'center',
+		marginHorizontal: 20,
 		backgroundColor: colors.white,
 	},
 	component: {

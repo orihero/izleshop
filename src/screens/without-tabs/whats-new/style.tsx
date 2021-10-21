@@ -4,15 +4,14 @@ import { colors } from 'constants/colors';
 export const styles = StyleSheet.create({
     container: {
 		flex: 1,
-		padding: 20,
 		backgroundColor: colors.lightBlue
 	},
 	box: {
+		top: 15,
 		width: 360,
 		height: 215,
-		top: 10,
 		marginBottom: 10,
-		marginHorizontal: 8,
+		marginHorizontal: 25,
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: colors.white

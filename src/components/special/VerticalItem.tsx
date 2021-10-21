@@ -105,16 +105,6 @@ const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps
 								/>
 							</View>
 						</PressableIcon>
-						{/* <PressableIcon onPress={onHeartPress}>
-							<View style={styles.buttonCont}>
-								<HeartIcon
-									size={20}
-									color={colors.red}
-									active={isFavorite}
-									onPress={onHeartPress}
-								/>
-							</View>
-						</PressableIcon> */}
 					</View>
 					{/* <View style={styles.ratingRow}></View> */}
 					<Text style={styles.text} numberOfLines={2}>
@@ -199,10 +189,10 @@ export const styles = StyleSheet.create({
 			width: 0,
 			height: 2,
 		},
-		shadowOpacity: 0.25,
+		shadowOpacity: 0.30,
 		shadowRadius: 3.84,
 
-		elevation: 5,
+		elevation: 20,
 	},
 	ratingRow: {
 		marginTop: 5,

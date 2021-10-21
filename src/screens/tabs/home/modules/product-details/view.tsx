@@ -41,7 +41,6 @@ const ProductDetailsView = ({
 	let isFavorite = !!favorites[item.id];
 	let dispatch = useAppDispatch();
 
-	const onPress = () => console.log('onPressed');
 
 	let onHeartPress = () => {
 		if (isFavorite) {
@@ -58,8 +57,7 @@ const ProductDetailsView = ({
 			dispatch(addToCart(item));
 		}
 	};
-
-	let onCartIconPress = () => {
+	let onNextPress = () => {
 		navigation.navigate(Routes.CART);
 	};
 
@@ -69,16 +67,6 @@ const ProductDetailsView = ({
 				hasBorder
 				hasCartIcon
 				title={'Смартфон'}
-				rightEdge={() => (
-					<Pressable onPress={onCartIconPress}>
-						<View>
-							<View style={styles.badge}>
-								<Text style={styles.badgeText}>{'2'}</Text>
-							</View>
-							<CartIcon size={20} />
-						</View>
-					</Pressable>
-				)}
 			/>
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.bgw}>
@@ -154,7 +142,7 @@ const ProductDetailsView = ({
 				<View style={styles.mb60} />
 			</ScrollView>
 			<View style={styles.btnCont}>
-				<DefaultButton onPress={onPress} text={strings.addToCart} />
+				<DefaultButton onPress={onNextPress} text={strings.addToCart} />
 			</View>
 		</View>
 	);
