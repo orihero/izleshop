@@ -19,11 +19,16 @@ export const styles = StyleSheet.create({
 		marginRight: 30,
 		alignItems: 'center'
 	},
+	center: {
+		marginRight: 20,
+		marginTop: 10,
+		alignItems: 'center',
+	},
 	izle: {
 		fontSize: 144,
 		marginTop: 270,
-		marginLeft: 40,
 		opacity: 0.4,
+		textAlign: 'center',
 		fontWeight: 'bold',
 		color: colors.darkBlue,
 	}

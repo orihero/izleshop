@@ -62,7 +62,7 @@ const LanguageView = ({
 						text={strings.cancel}
 					/> */}
 					<Text style={styles.textCancel} onPress={onPress}>
-						{strings.cancel}
+						{strings.save}
 					</Text>
 				</View>
 				<View style={styles.content}>

@@ -112,6 +112,8 @@ export let strings = new LocalizedStrings({
 		leaveFeedback: 'ОСТАВИТЬ ОТЗЫВ',
 		pay: 'ОПЛАТИТЬ',
 		whatsNew: 'Что нового в izle shop?',
-		leaveFeedbacks: 'Оставить отзыв '
+		leaveFeedbacks: 'Оставить отзыв ',
+		yourMark: 'Ваша оценка',
+		save: 'Сохранить'
 	},
 });

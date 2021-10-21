@@ -25,4 +25,5 @@ export let colors = {
 	blueLight: '#40BFFF',
 	iconBlue: '#1779C8',
 	lightPink: 'rgba(255, 56, 63, 0.2);',
+	blacks: '#0E1732'
 };

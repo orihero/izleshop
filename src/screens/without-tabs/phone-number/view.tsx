@@ -11,6 +11,8 @@ import { selectUser, setUserPhone } from 'store/slices/userSlice';
 import PhoneInput from 'components/general/PhoneInput';
 import { PhoneIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
+import DefaultButton from 'components/general/DefaultButton';
+import { Routes } from 'constants/routes';
 
 interface IPhoneNumberViewProps {
 	password: string;
@@ -25,6 +27,10 @@ const PhoneNumberView = ({ }: IPhoneNumberViewProps) => {
 	let user = useAppSelector(selectUser);
 	let dispatch = useDispatch()
 	let setPhone = (num: string) => { dispatch(setUserPhone(num)) }
+	let onNextPress = () => {
+        //@ts-ignore
+        navigation.navigate(Routes.SETTINGS);
+    };
 
 	const [code, setCode] = useState('');
 
@@ -39,16 +45,23 @@ const PhoneNumberView = ({ }: IPhoneNumberViewProps) => {
 						onChange={setPhone}
 						keyboardType={'numeric'}
 						Icon={PhoneIcon}
-						 
+
 					/>
 				</View>
 				<View style={styles.codeInput}>
 					<Text style={styles.text}>{strings.confirmationCode}</Text>
 					<PhoneInput
 						placeholder={'1255'}
-						 value={code} 
-						 onChange={setCode}
-						  keyboardType={'numeric'}
+						value={code}
+						onChange={setCode}
+						keyboardType={'numeric'}
+					/>
+				</View>
+				<View style={styles.center}>
+					<DefaultButton
+						text={strings.save}
+						marginDisabled
+						onPress={onNextPress}
 					/>
 				</View>
 			</View>

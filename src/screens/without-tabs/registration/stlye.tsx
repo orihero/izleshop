@@ -98,7 +98,8 @@ export const styles = StyleSheet.create({
 	},
 	circle: {
 		// position: 'absolute',
-		backgroundColor: colors.black,
+		
+		backgroundColor: colors.iconBlue,
 		width: 10,
 		height: 10,
 		borderRadius: 10,
@@ -109,6 +110,8 @@ export const styles = StyleSheet.create({
 		fontWeight: '500',
 	},
 	lsquare: {
+		alignItems: 'center',
+		justifyContent: 'center',
 		width: 15,
 		height: 15,
 		borderWidth: 1,

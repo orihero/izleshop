@@ -17,4 +17,8 @@ export const styles = StyleSheet.create({
 	codeInput: {
 		marginTop: 12,
 	},
+	center: {
+		alignItems: 'center',
+		marginRight: 30,
+	}
 });

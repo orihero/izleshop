@@ -11,11 +11,13 @@ export interface RatingProps {
 	readOnly?: boolean;
 	styleChanged?: boolean;
 	defaultStyle?: boolean;
+	size?: number;
 }
 
 const Rating = ({
 	count = 5,
 	active = 3,
+	size = 18,
 	readOnly = false,
 	styleChanged = false,
 	defaultStyle = false,
@@ -41,7 +43,7 @@ const Rating = ({
 						key={i}
 					>
 						<StarIcon
-							size={18}
+							size={size}
 							style={styles.mh3}
 							active={i < activeCount}
 							color={

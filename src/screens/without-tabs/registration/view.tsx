@@ -78,7 +78,7 @@ const RegistrationView = ({
 											: styles.bblack,
 									]}
 								>
-								 		{i === language && (
+								 		{i === user.languageIndex && (
 										<View style={styles.circle} />
 									)}
 								</View>

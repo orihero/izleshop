@@ -29,6 +29,9 @@ export const styles = StyleSheet.create({
 		color: colors.lightBlack,
 		marginHorizontal: 30,
 	},
+	button: {
+		marginHorizontal: 10,
+	},
 	profileSettings: {
 		fontSize: 20,
 		color: colors.black,
@@ -58,11 +61,9 @@ export const styles = StyleSheet.create({
 		fontSize: 15,
 		lineHeight: 16,
 		fontWeight: 'bold',
-		justifyContent: 'space-between',
 	},
 	viewAll: {
 		alignItems: 'center',
-		justifyContent: 'center',
 		flexDirection: 'row',
 	},
 	textView: {

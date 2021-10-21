@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingTop: 5,
+		textAlign: 'center',
 		backgroundColor: colors.lightBlue,
 	},
 	profilePage: {
@@ -40,7 +41,7 @@ export const styles = StyleSheet.create({
 		marginLeft: 10,
 		backgroundColor: colors.white,
 	},
-	 dataContainer: {
+	dataContainer: {
 		height: 55,
 		paddingHorizontal: 20,
 		alignItems: 'center',

@@ -28,11 +28,9 @@ export const styles = StyleSheet.create({
 	izle: {
 		fontSize: 144,
 		marginTop: 250,
-		marginHorizontal: 70,
 		opacity: 0.4,
 		fontWeight: 'bold',
 		color: colors.darkBlue,
-		alignItems: 'center',
-		justifyContent: 'center'
+		textAlign: 'center'
 	}
 })

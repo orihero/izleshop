@@ -17,6 +17,7 @@ import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
 import React from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { colors } from 'constants/colors';
 import { store } from 'store/configureStore';
 import { selectUser, userLoggedOut } from 'store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
@@ -47,10 +48,12 @@ const ProfileView = ({ }: IProfileViewProps) => {
 							{strings.loginPrompt}
 						</Text>
 					</View>
-					<DefaultButton
-						text={strings.create}
-						onPress={() => onPress(Routes.LOGIN)}
-					/>
+					<View style={styles.button}>
+						<DefaultButton
+							text={strings.create}
+							onPress={() => onPress(Routes.LOGIN)}
+						/>
+					</View>
 				</View>
 			) : (
 				<>
@@ -69,7 +72,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 							<TouchableOpacity style={styles.setting}
 								onPress={() => onPress(Routes.SETTINGS)}
 							>
-								<SettingIcon />
+								<SettingIcon color={colors.darkGray2} />
 							</TouchableOpacity>
 						</View>
 					</View>
@@ -134,10 +137,10 @@ const ProfileView = ({ }: IProfileViewProps) => {
 
 			<View style={styles.news}>
 				<View style={styles.component}>
-					<Text onPress={() => onPress(Routes.WHATS_NEW)} style={styles.textOne}>Что нового?</Text>
+					<Text style={styles.textOne}>Что нового?</Text>
 					<TouchableOpacity
 						style={styles.viewAll}
-						onPress={() => onPress(Routes.VIEW_ALL)}
+						onPress={() => onPress(Routes.WHATS_NEW)}
 					>
 						<Text style={styles.textView}>
 							{strings.viewAll}

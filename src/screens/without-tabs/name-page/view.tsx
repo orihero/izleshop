@@ -9,6 +9,8 @@ import { useNavigation } from '@react-navigation/core';
 import { useAppSelector } from 'utils/hooks';
 import { useDispatch } from 'react-redux';
 import { selectUser, setUserName } from 'store/slices/userSlice';
+import DefaultButton from 'components/general/DefaultButton';
+import { Routes } from 'constants/routes';
 
 
 
@@ -25,6 +27,10 @@ const NamePageView = ({
     let user = useAppSelector(selectUser);
     let dispatch = useDispatch()
     let setName = (name: string) => { dispatch(setUserName(name)) }
+    let onNextPress = () => {
+        //@ts-ignore
+        navigation.navigate(Routes.SETTINGS);
+    };
     return (
         <ProfileLayout headerTitle={strings.setting || ''}>
             <View style={styles.container}>
@@ -34,7 +40,14 @@ const NamePageView = ({
                         placeholder={'Бекмуарт Тангирбергенов'}
                         value={user.name}
                         onChange={setName}
-                    /> 
+                    />
+                </View>
+                <View style={styles.center}>
+                    <DefaultButton
+                        text={strings.save}
+                        marginDisabled
+                        onPress={onNextPress}
+                    />
                 </View>
                 <Text style={styles.izle}>izle</Text>
             </View>
