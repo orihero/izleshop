@@ -6,6 +6,7 @@ import Pressable from '../general/Pressable';
 import { ChevronRightIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import { IAccordionItem, IAccordionContent, IAccordion } from 'mockup/data';
+import { CommentsScreen as Comments } from 'screens/tabs';
 
 interface IAccordionProps {
 	items: any;
@@ -26,12 +27,15 @@ const Accordion = ({ items }: IAccordionProps) => {
 	return (
 		<View style={styles.container}>
 			{items.map(
-				({ title, content, finally: f, hasCount }: IAccordion, i: number) => (
+				(
+					{ title, content, finally: f, hasCount }: IAccordion,
+					i: number
+				) => (
 					<View key={`${i}`}>
 						<Pressable onPress={() => onChangeContent(i + 1)}>
 							<View style={styles.item}>
-								<Text style={styles.text1}>{title}</Text> 
-									{/* {hasCount&& 
+								<Text style={styles.text1}>{title}</Text>
+								{/* {hasCount&& 
 									<View style={styles.border}>
 										<Text style={styles.borderText}>{content[0].items.length}</Text>
 									</View>
@@ -43,7 +47,7 @@ const Accordion = ({ items }: IAccordionProps) => {
 											: styles.closed
 									}
 								>
-									<ChevronRightIcon 
+									<ChevronRightIcon
 										size={20}
 										color={
 											open === i + 1
@@ -56,46 +60,86 @@ const Accordion = ({ items }: IAccordionProps) => {
 						</Pressable>
 						{open === i + 1 ? (
 							<View style={styles.content}>
-								{content.map(
-									(
-										{ preTitle, items }: IAccordionContent,
-										ii: number
-									) => (
-										<View key={`${i}/${ii}`}>
-											{preTitle ? (
-												<Text
-													style={[
-														styles.text2,
-														ii ? styles.mt20 : null,
-													]}
-												>
-													{preTitle}
-												</Text>
-											) : null}
-											{items.map(
-												(
-													{
-														key,
-														value,
-														row,
-													}: IAccordionItem,
-													iii: number
-												) =>
-													row ? (
-														<View
-															key={`${i}/${ii}/${iii}`}
-															style={[
-																styles.row,
-																iii
-																	? styles.mt10
-																	: i === 2
-																	? styles.mt20
-																	: null,
-															]}
-														>
+								{!content ? (
+									<Comments />
+								) : (
+									content.map(
+										(
+											{
+												preTitle,
+												items,
+											}: IAccordionContent,
+											ii: number
+										) => (
+											<View key={`${i}/${ii}`}>
+												{preTitle ? (
+													<Text
+														style={[
+															styles.text2,
+															ii
+																? styles.mt20
+																: null,
+														]}
+													>
+														{preTitle}
+													</Text>
+												) : null}
+												{items.map(
+													(
+														{
+															key,
+															value,
+															row,
+														}: IAccordionItem,
+														iii: number
+													) =>
+														row ? (
 															<View
+																key={`${i}/${ii}/${iii}`}
+																style={[
+																	styles.row,
+																	iii
+																		? styles.mt10
+																		: i ===
+																		  2
+																		? styles.mt20
+																		: null,
+																]}
+															>
+																<View
+																	style={
+																		styles.left
+																	}
+																>
+																	<Text
+																		style={
+																			styles.text3
+																		}
+																	>
+																		{key}
+																	</Text>
+																</View>
+																<View
+																	style={
+																		styles.right
+																	}
+																>
+																	<Text
+																		style={
+																			styles.text4
+																		}
+																	>
+																		{value}
+																	</Text>
+																</View>
+															</View>
+														) : (
+															<View
+																key={`${i}/${ii}/${iii}`}
 																style={
-																	styles.left
+																	iii
+																		? styles.mt10
+																		: styles.mt20
 																}
 															>
 																<Text
@@ -105,12 +149,6 @@ const Accordion = ({ items }: IAccordionProps) => {
 																>
 																	{key}
 																</Text>
-															</View>
-															<View
-																style={
-																	styles.right
-																}
-															>
 																<Text
 																	style={
 																		styles.text4
@@ -119,34 +157,10 @@ const Accordion = ({ items }: IAccordionProps) => {
 																	{value}
 																</Text>
 															</View>
-														</View>
-													) : (
-														<View
-															key={`${i}/${ii}/${iii}`}
-															style={
-																iii
-																	? styles.mt10
-																	: styles.mt20
-															}
-														>
-															<Text
-																style={
-																	styles.text3
-																}
-															>
-																{key}
-															</Text>
-															<Text
-																style={
-																	styles.text4
-																}
-															>
-																{value}
-															</Text>
-														</View>
-													)
-											)}
-										</View>
+														)
+												)}
+											</View>
+										)
 									)
 								)}
 								{f ? (
@@ -216,11 +230,11 @@ const styles = StyleSheet.create({
 		opacity: 0.8,
 		borderRadius: 30,
 		alignItems: 'center',
-		backgroundColor: colors.blue
+		backgroundColor: colors.blue,
 	},
 	borderText: {
 		fontSize: 12,
-		color: colors.white
+		color: colors.white,
 	},
 	text2: {
 		fontSize: 14,
