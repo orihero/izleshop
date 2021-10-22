@@ -35,5 +35,6 @@ export enum Routes {
 	PHONE_NUMBER ='phone-number',
 	NAME_PAGE = 'name-page',
 	LEAVE_FEEDBACK = 'leave-feedback',
-	WHATS_NEW = 'whats-new'
+	WHATS_NEW = 'whats-new',
+	CONFIRATION_CODE = 'confirmationcode'
 }

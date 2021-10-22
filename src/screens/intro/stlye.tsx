@@ -3,11 +3,13 @@ import { colors } from 'constants/colors';
 import { paddingVertical } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
-	itemContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+	itemContainer: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 	container: {
 		flex: 1,
-		// alignItems: 'center',
-		// justifyContent: 'center',
 		backgroundColor: colors.blue,
 	},
 	boxOne: {
@@ -17,8 +19,9 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	img: {
-		width: 300,
-		height: 385,
+		width: 350,
+		height: 450,
+		resizeMode: 'contain',
 	},
 	boxTwo: {
 		height: 325,

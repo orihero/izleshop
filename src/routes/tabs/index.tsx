@@ -108,7 +108,7 @@ const Tabs = () => {
 				<Tab.Screen
 					options={{
 						tabBarIcon: renderIcon(CartIcon),
-						tabBarBadge: Object.keys(store.getState().cart).length,
+						tabBarBadge: Object.keys(store.getState().cart).length > 0 ? Object.keys(store.getState().cart).length : null,
 						tabBarLabel: strings.cart,
 					}}
 					name={Routes.CART_STACK}

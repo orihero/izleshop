@@ -7,9 +7,7 @@ export const styles = StyleSheet.create({
 		padding: 20,
 		backgroundColor: colors.lightBlue,
 	},
-	phoneInput: {
-		marginHorizontal: 10,
-	},
+	phoneInput: {},
 	text: {
 		marginLeft: 5,
 		// fontFamily: 'Poppins',
@@ -17,10 +15,11 @@ export const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	codeInput: {
+		marginHorizontal: 10,
 		marginTop: 12,
 	},
 	center: {
 		alignItems: 'center',
-		marginRight: 30,
+		marginRight: 25,
 	}
-});
+})

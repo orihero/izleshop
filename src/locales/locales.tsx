@@ -114,6 +114,7 @@ export let strings = new LocalizedStrings({
 		whatsNew: 'Что нового в izle shop?',
 		leaveFeedbacks: 'Оставить отзыв ',
 		yourMark: 'Ваша оценка',
-		save: 'Сохранить'
+		save: 'Сохранить',
+		send: 'Отправить '
 	},
 });

@@ -9,9 +9,9 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { windowWidth } from 'constants/sizes';
 import { styles } from './stlye';
 
-let image1 = require('assets/images/Group.png');
-let image2 = require('assets/images/document.png');
-let image3 = require('assets/images/watch.png');
+let image1 = require('assets/images/5.png');
+let image2 = require('assets/images/6.png');
+let image3 = require('assets/images/4.png');
 
 export interface IntroProps {
 	navigation: NativeStackNavigationProp<any>;
@@ -63,7 +63,7 @@ const IntroView = ({}: IntroProps) => {
 					ref={(r) => (carouselRef.current = r)}
 					renderItem={({ item: { img } }) => (
 						<View style={styles.itemContainer}>
-							<Image style={img.style} source={img} />
+							<Image style={styles.img} source={img} />
 						</View>
 					)}
 				/>

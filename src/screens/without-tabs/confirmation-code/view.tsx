@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { Text, View, } from 'react-native';
+import { Text, View, } from 'react-native'; 
 
-import { styles } from './stlye';
-import { strings } from 'locales/locales';
 import ProfileLayout from '../ProfileLayout';
-import { useNavigation } from '@react-navigation/core';
-import { useAppSelector } from 'utils/hooks';
-import { useDispatch } from 'react-redux';
-import { selectUser, setUserPhone } from 'store/slices/userSlice';
+import { styles } from './style';
+import { strings } from 'locales/locales';
+import DefaultButton from 'components/general/DefaultButton';
 import PhoneInput from 'components/general/PhoneInput';
 import { PhoneIcon } from 'assets/icons/icons';
-import { colors } from 'constants/colors';
-import DefaultButton from 'components/general/DefaultButton';
+import { useNavigation } from '@react-navigation/core';
+import { useAppSelector } from 'utils/hooks';
+import { selectUser, setUserPhone } from 'store/slices/userSlice';
+import { useDispatch } from 'react-redux';
 import { Routes } from 'constants/routes';
+
+
 
 interface IPhoneNumberViewProps {
 	password: string;
@@ -22,35 +23,33 @@ interface IPhoneNumberViewProps {
 }
 
 
-const PhoneNumberView = ({ }: IPhoneNumberViewProps) => {
+const ConfirmationCodeView = ({ }: IPhoneNumberViewProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	let dispatch = useDispatch()
 	let setPhone = (num: string) => { dispatch(setUserPhone(num)) }
 	let onNextPress = () => {
         //@ts-ignore
-        navigation.navigate(Routes.CONFIRATION_CODE);
+        navigation.navigate(Routes.SETTINGS);
     };
 
 	const [code, setCode] = useState('');
 
 	return (
-		<ProfileLayout headerTitle={strings.phoneNamber || ''}>
+			<ProfileLayout headerTitle={strings.phoneNamber || ''}>
 			<View style={styles.container}>
-				<View style={styles.phoneInput}>
-					<Text style={styles.text}>{strings.phoneNamber}</Text>
+				<View style={styles.codeInput}>
+					<Text style={styles.text}>{strings.confirmationCode}</Text>
 					<PhoneInput
-						placeholder={'(307) 555-0133'}
-						value={user.phone}
-						onChange={setPhone}
+						placeholder={'1255'}
+						value={code}
+						onChange={setCode}
 						keyboardType={'numeric'}
-						Icon={PhoneIcon}
-
 					/>
 				</View>
 				<View style={styles.center}>
 					<DefaultButton
-						text={strings.send}
+						text={strings.save}
 						marginDisabled
 						onPress={onNextPress}
 					/>
@@ -60,4 +59,4 @@ const PhoneNumberView = ({ }: IPhoneNumberViewProps) => {
 	);
 };
 
-export default PhoneNumberView;
+export default ConfirmationCodeView;
