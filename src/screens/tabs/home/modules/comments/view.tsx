@@ -18,7 +18,7 @@ const CommentsView = () => {
 						<Text>S**o</Text>
 						<Image
 							style={styles.flag}
-							source={require('assets/images/flag_uzbekiston.png')}
+							source={require('assets/images/flagUzbekiston.jpg')}
 						/>
 						<View style={styles.rating}>
 							<Rating />
@@ -62,7 +62,7 @@ const CommentsView = () => {
 						<Text>S**o</Text>
 						<Image
 							style={styles.flag}
-							source={require('assets/images/flag_uzbekiston.png')}
+							source={require('assets/images/flagUzbekiston.jpg')}
 						/>
 						<View style={styles.rating}>
 							<Rating />
