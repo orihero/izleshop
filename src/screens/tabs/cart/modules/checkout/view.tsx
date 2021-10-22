@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Header from 'components/navigation/Header';
 import DefaultInput from 'components/general/DefaultInput';
@@ -9,6 +9,11 @@ import DefaultButton from 'components/general/DefaultButton';
 
 import { styles } from './style';
 import { strings } from 'locales/locales';
+import { useAppDispatch, useAppSelector } from 'utils/hooks';
+import { selectUser } from 'store/slices/userSlice';
+import { useNavigation } from '@react-navigation/core';
+import { Routes } from 'constants/routes';
+import { useDispatch } from 'react-redux';
 
 const arr1 = [
 	'Value 1',
@@ -56,7 +61,16 @@ const arr2 = [
 	'Valuee 20',
 ];
 
-const ChecoutView = () => {
+interface ICheckoutViewProps {
+	password: string;
+	setPassword: (e: string) => void;
+	onPress: () => void;
+	navigate: () => void
+}
+
+const ChecoutView = ({ }: ICheckoutViewProps) => {
+	let navigation = useNavigation();
+
 	const [region, setRegion] = useState({
 		latitude: 41.311081,
 		longitude: 69.240562,
@@ -74,8 +88,11 @@ const ChecoutView = () => {
 	const [address, setAddress] = useState('');
 	const [note, setNote] = useState('');
 
-	const onPress = () => {
-		console.log('onPressed');
+	let onNextPress = () => {
+		//@ts-ignore
+		navigation.navigate(Routes.HOME_STACK);
+		console.log("LOLLL");
+
 	};
 
 	return (
@@ -165,7 +182,7 @@ const ChecoutView = () => {
 						<DefaultButton
 							marginDisabled
 							text={strings.checkout}
-							onPress={onPress}
+							onPress={onNextPress}
 						/>
 					</View>
 				</View>

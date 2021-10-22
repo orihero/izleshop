@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
 		width: 10,
 		height: 10,
 		borderRadius: 10,
-		backgroundColor: colors.black,
+		backgroundColor: colors.iconBlue,
 	},
 	circle: {
 		width: 15,

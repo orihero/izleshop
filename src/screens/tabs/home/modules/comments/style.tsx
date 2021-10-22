@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         color: colors.gray
     },
     lorem: {
-        width: 320,
+        width: 315,
         fontSize: 15,
         fontWeight: '600',
         paddingTop: 10,

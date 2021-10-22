@@ -32,7 +32,7 @@ const CustomRangeSlider = () => {
 				</Text>
 			</View>
 			<RangeSlider
-				min={1000000}
+				min={0}
 				max={40000000}
 				step={2}
 				disableRange={false}

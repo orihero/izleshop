@@ -106,7 +106,7 @@ export const styles = StyleSheet.create({
 		height: 18,
 	},
 	setting: {
-		marginHorizontal: 10,
+		marginHorizontal: 7,
 		paddingRight: 20,
 	},
 	orders: {
