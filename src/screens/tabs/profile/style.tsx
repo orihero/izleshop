@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
 		borderRadius: 7,
 		marginBottom: 15,
 		alignItems: 'center',
-		marginHorizontal: 20,
+		marginHorizontal: 15,
 		backgroundColor: colors.white,
 	},
 	component: {
@@ -78,7 +78,7 @@ export const styles = StyleSheet.create({
 	myProfile: {
 		height: 50,
 		paddingLeft: 20,
-		paddingHorizontal: 10,
+		paddingHorizontal: 20,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
@@ -99,20 +99,21 @@ export const styles = StyleSheet.create({
 	},
 	flag: {
 		paddingTop: 5,
-		flexDirection: 'row'
+		flexDirection: 'row',
+		paddingHorizontal: 2,
 	},
 	imageFlag: {
 		width: 18,
 		height: 18,
 	},
 	setting: {
-		marginHorizontal: 7,
+		marginHorizontal: 5,
 		paddingRight: 20,
 	},
 	orders: {
 		width: 370,
 		height: 130,
-		marginHorizontal: 20,
+		marginHorizontal: 15,
 		marginTop: 10,
 		borderRadius: 7,
 		backgroundColor: colors.white,
