@@ -21,6 +21,7 @@ import PhoneNumberScreen from './phone-number';
 import NamePageScreen from './name-page';
 import LeaveFeedbackScreen from './leave-feedback';
 import WhatsNewScreen from './whats-new';
+import WhatsNewsScreen from './whats-news';
 import ConfirmationCodeScreen from './confirmation-code';
 
 
@@ -46,6 +47,7 @@ export type WithoutStackParamList = {
 	[Routes.NAME_PAGE]: undefined;
 	[Routes.LEAVE_FEEDBACK]: undefined;
 	[Routes.WHATS_NEW]: undefined;
+	[Routes.WHATS_NEWS]: undefined;
 	[Routes.CONFIRATION_CODE]: undefined;
 };
 
@@ -85,6 +87,7 @@ const WithoutTabsStack = () => {
 			<Stack.Screen name={Routes.ABOUT_APP} component={AboutAppScreen} />
 			<Stack.Screen name={Routes.LEAVE_FEEDBACK} component={LeaveFeedbackScreen} />
 			<Stack.Screen name={Routes.WHATS_NEW} component={WhatsNewScreen} />
+			<Stack.Screen name={Routes.WHATS_NEWS} component={WhatsNewsScreen} />
 			<Stack.Screen name={Routes.CONFIRATION_CODE} component={ConfirmationCodeScreen} />
 			<Stack.Screen
 				name={Routes.REGISTER}

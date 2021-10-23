@@ -36,5 +36,6 @@ export enum Routes {
 	NAME_PAGE = 'name-page',
 	LEAVE_FEEDBACK = 'leave-feedback',
 	WHATS_NEW = 'whats-new',
+	WHATS_NEWS = 'whats-news',
 	CONFIRATION_CODE = 'confirmationcode'
 }

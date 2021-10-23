@@ -9,7 +9,7 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { windowWidth } from 'constants/sizes';
 import { styles } from './stlye';
 
-let image1 = require('assets/images/5.png');
+let image1 = require('assets/images/8.png');
 let image2 = require('assets/images/6.png');
 let image3 = require('assets/images/4.png');
 
