@@ -1,15 +1,24 @@
-import axios from "axios"
+import axios from 'axios';
+import { store } from 'store/configureStore';
+import { UserFullData } from 'store/slices/userSlice';
 
-export let url = 'http://izle-shop.shopsecurity.uz/api'
-axios.interceptors.request.use((e)=>{
-    e.headers.Authorization='Bearer 28|IFED9mLtwjkz5rnHuc50qFoZma8so2T8AdrandZz'
-    return e;
-}) 
+export let url = 'http://izle-shop.shopsecurity.uz/api';
+
+axios.interceptors.request.use((e) => {
+	e.headers.Authorization = `Bearer ${store.getState().user.token}`;
+	return e;
+});
 
 export let requests = {
-    product: {
-        getProducts: () => {
-            return axios.get(`${url}/product`)
-        }
-    }
-}
+	auth: {
+		requestLogin: (phone: string) =>
+			axios.post(`${url}/sendRequest`, { phone }),
+		login: (phone: string, code: string) =>
+			axios.get<UserFullData>(`${url}/login?phone=${phone}&code=${code}`),
+	},
+	product: {
+		getProducts: () => {
+			return axios.get(`${url}/getProducts`);
+		},
+	},
+};

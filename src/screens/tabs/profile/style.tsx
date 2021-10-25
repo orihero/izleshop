@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 20,
 	},
 	news: {
-		width: 370,
+		width: 365,
 		height: 187,
 		marginTop: 22,
 		borderRadius: 7,
@@ -85,7 +85,7 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	profile: {
-		width: 300,
+		width: 290,
 		// paddingTop: 5,
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
@@ -111,7 +111,7 @@ export const styles = StyleSheet.create({
 		paddingRight: 20,
 	},
 	orders: {
-		width: 370,
+		width: 365,
 		height: 130,
 		marginHorizontal: 15,
 		marginTop: 10,

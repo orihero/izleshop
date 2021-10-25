@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View, } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
 
 import ProfileLayout from '../ProfileLayout';
 import { styles } from './style';
@@ -8,27 +8,34 @@ import DefaultInput from 'components/general/DefaultInput';
 import { useNavigation } from '@react-navigation/core';
 import { useAppSelector } from 'utils/hooks';
 import { useDispatch } from 'react-redux';
-import { selectUser, setUserName } from 'store/slices/userSlice';
+import { selectUser, setUserName, setUserData } from 'store/slices/userSlice';
 import DefaultButton from 'components/general/DefaultButton';
 
-import {Routes} from 'constants/routes'
-
-
+import { Routes } from 'constants/routes';
+import { requests } from 'api/requests';
 
 interface IVerificationProps {
-
 	arr: string[];
 	onPress: () => {};
 }
 
-const VerificationView = ({
-
-}: IVerificationProps) => {
+const VerificationView = ({}: IVerificationProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
-	let dispatch = useDispatch()
-	let setName = (name: string) => { dispatch(setUserName(name)) }
-	let onNextPress = () => {
+	const dispatch = useDispatch();
+	const [code, setCode] = useState('');
+	let onNextPress = async () => {
+		try {
+			let res = await requests.auth.login(
+				user.userData?.phone || '',
+				code
+			);
+			console.log(res.data);
+			dispatch(setUserData(res.data));
+		} catch (error) {
+			alert('Что-то пошло не так');
+			return;
+		}
 		//@ts-ignore
 		navigation.navigate(Routes.REGISTER);
 	};
@@ -38,14 +45,13 @@ const VerificationView = ({
 
 			<View style={styles.input}>
 				<DefaultInput
+					value={code}
+					onChange={(e) => setCode(e)}
 					placeholder={strings.confirmationCode}
 				/>
 			</View>
 			<View style={styles.buttom}>
-				<DefaultButton
-					text={strings.toComeIn}
-					onPress={onNextPress}
-				/>
+				<DefaultButton text={strings.toComeIn} onPress={onNextPress} />
 			</View>
 			<Text style={styles.izle}>izle</Text>
 		</View>

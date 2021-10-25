@@ -7,6 +7,7 @@ import { strings } from 'locales/locales';
 import React from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { requests } from 'api/requests';
 import { selectUser, setUserPhone } from 'store/slices/userSlice';
 import { useAppSelector } from 'utils/hooks';
 import { styles } from './style';
@@ -20,7 +21,16 @@ const LoginView = ({}: ILoginViewProps) => {
 	let setPhone = (num: string) => {
 		dispatch(setUserPhone(num));
 	};
-	let onNextPress = () => {
+	let onNextPress = async () => {
+		try {
+			let res = await requests.auth.requestLogin(
+				user.userData?.phone || ''
+			);
+		} catch (error) {
+			console.log(error, user);
+			alert('Что-то пошло не так');
+			return;
+		}
 		//@ts-ignore
 		navigation.navigate(Routes.VERIFICATION);
 	};

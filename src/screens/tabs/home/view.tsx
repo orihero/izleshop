@@ -17,6 +17,7 @@ export interface HomeViewProps {
 	width: number;
 	setActiveSlide: (e: number) => void;
 	activeSlide: number;
+	products: [];
 }
 
 let ListEmptyComponent = () => {
@@ -40,15 +41,21 @@ let EmptyBanner = () => {
 	);
 };
 
-const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
-	const [items, setItems] = useState([]);
-	const [banners, setBanners] = useState([]);
-	useEffect(() => {
-		setTimeout(() => {
-			setItems(products);
-			setBanners(data);
-		}, 1500);
-	}, []);
+const HomeView = ({
+	activeSlide,
+	setActiveSlide,
+	width,
+	products,
+	banners,
+}: HomeViewProps) => {
+	// const [items, setItems] = useState([]);
+	// const [banners, setBanners] = useState([]);
+	// useEffect(() => {
+	// 	setTimeout(() => {
+	// 		// setItems(products);
+	// 		// setBanners(data);
+	// 	}, 1500);
+	// }, []);
 
 	return (
 		<ScrollView
@@ -84,9 +91,11 @@ const HomeView = ({ activeSlide, setActiveSlide, width }: HomeViewProps) => {
 			<FlatList
 				contentContainerStyle={styles.flatList}
 				snapToInterval={windowWidth / 2 - 5}
-				data={items}
+				data={products}
 				numColumns={2}
-				renderItem={(props) => <VerticalItem {...props} bigSize hasMargin />}
+				renderItem={(props) => (
+					<VerticalItem {...props} bigSize hasMargin />
+				)}
 				decelerationRate={'fast'}
 				showsHorizontalScrollIndicator={false}
 				keyExtractor={(e) => e.id.toString()}

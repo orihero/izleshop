@@ -23,9 +23,9 @@ import { selectUser, userLoggedOut } from 'store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
-interface IProfileViewProps { }
+interface IProfileViewProps {}
 
-const ProfileView = ({ }: IProfileViewProps) => {
+const ProfileView = ({}: IProfileViewProps) => {
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
 	let dispatch = useAppDispatch();
@@ -38,7 +38,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 	};
 	return (
 		<View style={styles.container}>
-			{!user.name && !user.phone ? (
+			{!user.token ? (
 				<View>
 					<View style={styles.avatarContainer}>
 						<Text style={styles.welcomeText}>
@@ -60,16 +60,15 @@ const ProfileView = ({ }: IProfileViewProps) => {
 					<View style={styles.myProfile}>
 						<ProfileIcon size={22} />
 						<View style={styles.profile}>
-							<Text style={styles.textProfile}>
-								{user.name}
-							</Text>
+							<Text style={styles.textProfile}>{user.name}</Text>
 						</View>
 						<View style={styles.flag}>
 							<Image
 								style={styles.imageFlag}
 								source={require('assets/images/flag.png')}
 							/>
-							<TouchableOpacity style={styles.setting}
+							<TouchableOpacity
+								style={styles.setting}
 								onPress={() => onPress(Routes.SETTINGS)}
 							>
 								<SettingIcon color={colors.darkGray2} />
@@ -78,7 +77,10 @@ const ProfileView = ({ }: IProfileViewProps) => {
 					</View>
 					<View style={styles.orders}>
 						<View style={styles.myOrders}>
-							<Text onPress={() => onPress(Routes.MY_ORDERS)} style={styles.textOrders}>
+							<Text
+								onPress={() => onPress(Routes.MY_ORDERS)}
+								style={styles.textOrders}
+							>
 								{strings.myOrders}
 							</Text>
 							<TouchableOpacity
@@ -104,7 +106,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 								<Text style={styles.textPayment}>
 									{strings.awaitingDispatch}
 								</Text>
-							</View >
+							</View>
 							<View style={styles.payment}>
 								<CarIcon size={27} />
 								<Text style={styles.textPayment}>
@@ -117,7 +119,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 									{strings.reviewAwaiteng}
 								</Text>
 							</View>
-						</View >
+						</View>
 						<Text style={styles.line} />
 						<View style={styles.lol}>
 							{/* <ChatIcon size={14} /> */}
@@ -131,7 +133,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 								<ChevronRightIcon size={10} />
 							</TouchableOpacity>
 						</View>
-					</View >
+					</View>
 				</>
 			)}
 
@@ -142,16 +144,12 @@ const ProfileView = ({ }: IProfileViewProps) => {
 						style={styles.viewAll}
 						onPress={() => onPress(Routes.WHATS_NEW)}
 					>
-						<Text style={styles.textView}>
-							{strings.viewAll}
-						</Text>
+						<Text style={styles.textView}>{strings.viewAll}</Text>
 						<ChevronRightIcon size={8} />
 					</TouchableOpacity>
-				</View >
-				<Image
-					source={require('../../../assets/images/image.png')}
-				/>
-			</View >
+				</View>
+				<Image source={require('../../../assets/images/image.png')} />
+			</View>
 			<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
 				<MenuLink text={strings.helpSupport} />
 			</Pressable>
@@ -167,7 +165,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 			<Pressable to onPress={onLogout}>
 				<MenuLink text={strings.singAccount} Icon={LogoutIcon} />
 			</Pressable>
-		</View >
+		</View>
 	);
 };
 
