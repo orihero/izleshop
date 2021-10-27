@@ -13,7 +13,7 @@ const HomeController = () => {
 			setBanners(bannersRes.data);
 			setProducts(res.data.data);
 		} catch (error) {
-			alert('Error in product page');
+			alert ('Error in product page');
 		}
 	};
 	useEffect(() => {

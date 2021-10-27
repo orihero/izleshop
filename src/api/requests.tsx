@@ -20,5 +20,11 @@ export let requests = {
 		getProducts: () => {
 			return axios.get(`${url}/getProducts`);
 		},
+		getCategories: () => {
+			return axios.get(`${url}/getCategories`);
+		},
+		getBanners: () => {
+			return axios.get(`${url}/getBanners`);
+		},
 	},
 };

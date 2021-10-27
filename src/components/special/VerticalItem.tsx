@@ -23,15 +23,15 @@ import { useAppDispatch, useAppSelector } from 'utils/hooks';
 
 export interface IVerticalItemModel {
 	id?: number;
-	title?: string;
-	newPrice?: string;
+	name?: string;
+	price?: string;
 	currency?: string;
 	ratingCount?: number;
 	rating?: number;
 	status?: string;
 	isFavorite?: boolean;
 	isInCart?: boolean;
-	img?: any;
+	image?: any;
 }
 
 type RenderedItemProps = ListRenderItemInfo<{
@@ -47,7 +47,7 @@ export interface IVerticalItemProps {
 }
 
 const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps) => {
-	const { id, title, newPrice, currency, ratingCount, rating, status, img } =
+	const { id, name, price, currency, ratingCount, rating, status, image } =
 		item || {};
 
 	let favorites = useAppSelector(selectFavorites);
@@ -74,6 +74,7 @@ const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps
 	};
 
 	let onItemPress = () => {
+		//@ts-ignore
 		naviation.navigate(Routes.PRODUCT_DETAILS);
 	};
 
@@ -91,7 +92,7 @@ const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps
 					) : null}
 					<View style={bigSize ? styles.imgCont1 : styles.imgCont2}>
 						<Image
-							source={img}
+							source={{uri:image}}
 							style={bigSize ? styles.imgS1 : styles.imgS2}
 						/>
 					</View>
@@ -108,11 +109,11 @@ const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps
 					</View>
 					{/* <View style={styles.ratingRow}></View> */}
 					<Text style={styles.text} numberOfLines={2}>
-						{title}
+						{name}
 					</Text>
 					<Text
 						style={styles.newPrice}
-					>{`${newPrice} ${currency}`}</Text>
+					>{`${price} ${currency}`}</Text>
 				</View>
 			</View>
 		</TouchableWithoutFeedback>
@@ -156,8 +157,6 @@ export const styles = StyleSheet.create({
 	imgS1: {
 		width: '100%',
 		height: '100%',
-		// width: (windowWidth - 40 - 30 - 40) / 2,
-		// height: (windowWidth - 40 - 30 - 40) / 2,
 		resizeMode: 'contain',
 	},
 	imgS2: {

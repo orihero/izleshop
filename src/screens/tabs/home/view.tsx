@@ -18,6 +18,7 @@ export interface HomeViewProps {
 	setActiveSlide: (e: number) => void;
 	activeSlide: number;
 	products: [];
+	banners: [];
 }
 
 let ListEmptyComponent = () => {
@@ -94,7 +95,7 @@ const HomeView = ({
 				data={products}
 				numColumns={2}
 				renderItem={(props) => (
-					<VerticalItem {...props} bigSize hasMargin />
+					<VerticalItem {...props}  bigSize hasMargin />
 				)}
 				decelerationRate={'fast'}
 				showsHorizontalScrollIndicator={false}

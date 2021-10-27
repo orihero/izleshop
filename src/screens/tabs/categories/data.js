@@ -112,36 +112,6 @@ export let categories = [
 					uri: 'https://img.global.news.samsung.com/global/wp-content/uploads/2018/01/QuickDrive_WW6850N_washer_main_1.jpg',
 				},
 			},
-			// {
-			// 	label: 'Телевизор',
-			// 	img: {
-			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-			// 	},
-			// },
-			// {
-			// 	label: 'Телевизор',
-			// 	img: {
-			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-			// 	},
-			// },
-			// {
-			// 	label: 'Телевизор',
-			// 	img: {
-			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-			// 	},
-			// },
-			// {
-			// 	label: 'Телевизор',
-			// 	img: {
-			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-			// 	},
-			// },
-			// {
-			// 	label: 'Телевизор',
-			// 	img: {
-			// 		uri: 'https://www.lg.com/uk/images/tvs/MD05942377/gallery/medium01.jpg',
-			// 	},
-			// },
 		],
 	},
 	{

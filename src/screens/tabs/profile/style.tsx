@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
 		borderRadius: 7,
 		marginBottom: 15,
 		alignItems: 'center',
-		marginHorizontal: 15,
+		marginHorizontal: 20,
 		backgroundColor: colors.white,
 	},
 	component: {
@@ -113,7 +113,7 @@ export const styles = StyleSheet.create({
 	orders: {
 		width: 365,
 		height: 130,
-		marginHorizontal: 15,
+		marginHorizontal: 20,
 		marginTop: 10,
 		borderRadius: 7,
 		backgroundColor: colors.white,
@@ -163,7 +163,7 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	textPayment: {
-		width: 60,
+		width: 65,
 		fontSize: 11,
 		paddingTop: 2,
 		fontFamily: 'Lato',
@@ -171,7 +171,7 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	textPayments: {
-		width: 62,
+		width: 67,
 		paddingTop: 2,
 		fontSize: 11,
 		fontFamily: 'Lato',
@@ -179,7 +179,8 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	payments: {
-		paddingTop: 2,
+		paddingTop: 3,
+		paddingVertical: 2,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
