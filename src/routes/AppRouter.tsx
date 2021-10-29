@@ -8,8 +8,8 @@ import WithoutTabs from '../screens/without-tabs';
 
 import { Routes } from 'constants/routes';
 import TestScreen from 'screens/TestScreen';
-import { useAppSelector } from 'src/utils/hooks';
-import { selectUser } from 'src/store/slices/userSlice';
+import { useAppSelector } from 'utils/hooks';
+import { selectUser } from 'store/slices/userSlice';
 
 export type RootStackParamList = {
 	[Routes.TABS]: undefined;
