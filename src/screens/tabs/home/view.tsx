@@ -79,7 +79,7 @@ const HomeView = ({
 			<Pagination
 				dotColor={colors.blue}
 				dotStyle={styles.pdot}
-				dotsLength={data.length}
+				dotsLength={banners.length}
 				dotContainerStyle={styles.pdotcont}
 				containerStyle={{ paddingVertical: 10 }}
 				inactiveDotScale={1}

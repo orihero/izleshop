@@ -9,8 +9,10 @@ const HomeController = () => {
 	let effect = async () => {
 		try {
 			let res = await requests.product.getProducts();
-			let bannersRes = await requests.product.getProducts();
+			let bannersRes = await requests.product.getBanners();
 			setBanners(bannersRes.data);
+			console.log(bannersRes.data);
+			
 			setProducts(res.data.data);
 		} catch (error) {
 			alert ('Error in product page');

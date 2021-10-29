@@ -4,7 +4,7 @@ import { AdditionalParallaxProps } from 'react-native-snap-carousel';
 import { paddingVertical, windowWidth } from 'constants/sizes';
 
 export interface SliderItemProps {
-	url: string;
+	image: string;
 }
 interface ItemProps {
 	item: SliderItemProps;
@@ -16,7 +16,7 @@ interface ItemProps {
 
 const SliderItem = ({ item, contain, dwh }: ItemProps) => (
 	<Image
-		source={{ uri: item.url }}
+		source={{ uri:item.image }}
 		style={[
 			styles.br,
 			contain ? styles.rc : null,

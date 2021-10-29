@@ -8,6 +8,8 @@ import WithoutTabs from '../screens/without-tabs';
 
 import { Routes } from 'constants/routes';
 import TestScreen from 'screens/TestScreen';
+import { useAppSelector } from 'src/utils/hooks';
+import { selectUser } from 'src/store/slices/userSlice';
 
 export type RootStackParamList = {
 	[Routes.TABS]: undefined;
@@ -19,6 +21,7 @@ export type RootStackParamList = {
 let RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const AppRouter = () => {
+	let user=useAppSelector(selectUser)
 	return (
 		<NavigationContainer>
 			<RootStack.Navigator screenOptions={{ headerShown: false }}>

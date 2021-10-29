@@ -17,6 +17,8 @@ import {
 import { useNavigation } from '@react-navigation/core';
 
 import { Routes } from 'constants/routes';
+import { useAppSelector } from 'utils/hooks';
+import { selectUser } from 'store/slices/userSlice';
 
 interface ISettingViewProps {
 	onCreate: () => void;
@@ -26,6 +28,7 @@ interface ISettingViewProps {
 
 const SettingsView = ({ onCreate }: ISettingViewProps) => {
 	let navigation = useNavigation();
+	let user = useAppSelector(selectUser)
 	let onNextPress = () => {
 		navigation.navigate(Routes.LANGUAGE);
 	};
@@ -39,59 +42,66 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 		<ProfileLayout headerTitle={strings.settings || ''}>
 			<View style={styles.container}>
 				<View style={styles.profilePage}>
-					<ProfileBoldIcon size={20} />
 					<TouchableOpacity
 						style={styles.profile}
 						onPress={() => onPress(Routes.NAME_PAGE)}
 					>
+						<ProfileBoldIcon size={20} />
+
 						<Text style={styles.textProfile}>
-							{strings.nameString}
+							{user?.userData?.first_name}
+							{user?.userData?.last_name}
 						</Text>
-						<ChevronRightIcon size={15} />
+						<View style={styles.icon}>
+							<ChevronRightIcon size={15} />
+						</View>
 					</TouchableOpacity>
 				</View>
 				<View style={styles.settingProfile}>
 					<View style={styles.dataContainer}>
-						<View style={styles.row}>
-							<BirthdayIcon size={20}/>
-							<Text style={styles.textbirthday}>
-								{strings.birthday}
-							</Text>
-						</View>
 						<TouchableOpacity
 							style={styles.birthdayString}
 							onPress={() => onPress(Routes.PRE_CHECKOUT)}
 						>
+							<View style={styles.row}>
+								<BirthdayIcon size={20} />
+								<Text style={styles.textbirthday}>
+									{strings.birthday}
+								</Text>
+							</View>
+
 							<Text style={styles.day}>12-12-2000</Text>
 							<ChevronRightIcon size={15} />
 						</TouchableOpacity>
 					</View>
 					<View style={styles.dataContainer}>
-						<View style={styles.row}>
-							<TelephoneIcon size={20} />
-							<Text style={styles.textbirthday}>
-								{strings.phoneNamber}
-							</Text>
-						</View>
 						<TouchableOpacity
 							style={styles.phoneString}
 							onPress={onCreatePress}
 						>
+							<View style={styles.row}>
+								<TelephoneIcon size={20} />
+								<Text style={styles.textbirthday}>
+									{strings.phoneNamber}
+								</Text>
+							</View>
+
 							<Text style={styles.number}>(99) 123-4565</Text>
 							<ChevronRightIcon size={15} />
 						</TouchableOpacity>
 					</View>
 					<View style={styles.dataContainer}>
-						<View style={styles.row}>
-							<LanguageIcon size={20} />
-							<Text style={styles.titleText}>
-								{strings.changeTheLanguage}
-							</Text>
-						</View>
 						<TouchableOpacity
 							style={styles.languageString}
 							onPress={onNextPress}
 						>
+							<View style={styles.row}>
+								<LanguageIcon size={20} />
+								<Text style={styles.titleText}>
+									{strings.changeTheLanguage}
+								</Text>
+							</View>
+
 							<Image
 								style={styles.flag}
 								source={require('assets/images/flag.png')}

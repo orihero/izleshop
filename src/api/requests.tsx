@@ -15,6 +15,8 @@ export let requests = {
 			axios.post(`${url}/sendRequest`, { phone }),
 		login: (phone: string, code: string) =>
 			axios.get<UserFullData>(`${url}/login?phone=${phone}&code=${code}`),
+		editProfile: (id?: string | number, payload?: any) =>
+			axios.post<UserFullData>(`${url}/edit/profile/${id}`, payload),
 	},
 	product: {
 		getProducts: () => {
@@ -25,6 +27,9 @@ export let requests = {
 		},
 		getBanners: () => {
 			return axios.get(`${url}/getBanners`);
+		},
+		profile: () => {
+			return axios.get(`${url}/profile`);
 		},
 	},
 };

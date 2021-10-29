@@ -1,24 +1,31 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { colors } from 'constants/colors';
+import { ActivityIndicator } from 'react-native-paper';
 
 export interface IDefaultButtonProps {
 	onPress?: () => void;
 	text?: string;
 	marginDisabled?: boolean;
+	loading?: boolean;
 }
 
 const DefaultButton = ({
 	onPress,
 	text,
 	marginDisabled,
+	loading,
 }: IDefaultButtonProps) => {
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
 			<View
 				style={[styles.container, marginDisabled ? null : styles.mh20]}
 			>
-				<Text style={styles.text}>{text}</Text>
+				{loading ? (
+					<ActivityIndicator color={colors.white} />
+				) : (
+					<Text style={styles.text}>{text}</Text>
+				)}
 			</View>
 		</TouchableWithoutFeedback>
 	);

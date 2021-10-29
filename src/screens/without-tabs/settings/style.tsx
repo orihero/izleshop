@@ -2,7 +2,10 @@ import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
-	row: { flexDirection: 'row' },
+	row: { 
+		flexDirection: 'row',
+		justifyContent: 'space-between'
+	 },
 	container: {
 		flex: 1,
 		paddingTop: 5,
@@ -14,25 +17,29 @@ export const styles = StyleSheet.create({
 		width: 388,
 		height: 60,
 		paddingLeft: 40,
+		paddingHorizontal: 10,
 		alignItems: 'center',
 		justifyContent: 'space-evenly',
 		flexDirection: 'row',
 		backgroundColor: colors.white,
 	},
 	profile: {
-		alignItems: 'center',
-		justifyContent: 'center',
-		flexDirection: 'row',
-		paddingLeft: 20,
+		left: 28,
 		paddingRight: 50,
+		alignItems: 'center',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 	textProfile: {
 		width: 350,
 		fontSize: 18,
 		fontFamily: 'Lato',
 		fontWeight: '600',
-		paddingLeft: 30,
+		paddingLeft: 20,
 		// lineHeight: 16,
+	},
+	icon: {
+		right: 35,
 	},
 	settingProfile: {
 		width: 390,
@@ -51,6 +58,8 @@ export const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	birthdayString: {
+		width: 350,
+		justifyContent: 'space-between',
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
@@ -61,7 +70,7 @@ export const styles = StyleSheet.create({
 		paddingLeft: 20,
 	},
 	day: {
-		right: 15,
+		left: 50,
 		fontSize: 12,
 		fontWeight: '400',
 		// fontFamily: 'Poppons',
@@ -77,6 +86,8 @@ export const styles = StyleSheet.create({
 		borderColor: colors.lightGray,
 	},
 	phoneString: {
+		width: 350,
+		justifyContent: 'space-between',
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
@@ -89,7 +100,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	number: {
-		right: 15,
+		left: 45,
 		fontSize: 12,
 		fontWeight: '400',
 		// fontFamily: 'Poppons',
@@ -103,6 +114,7 @@ export const styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	languageString: {
+		width: 350,
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
@@ -117,7 +129,8 @@ export const styles = StyleSheet.create({
 	flag: {
 		width: 18,
 		height: 18,
-		right: 15,
+		marginRight: 6 ,
+		// right: 12,
 	},
 	text3: {
 		marginTop: 166,

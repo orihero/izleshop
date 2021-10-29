@@ -60,7 +60,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 					<View style={styles.myProfile}>
 						<ProfileIcon size={22} />
 						<View style={styles.profile}>
-							<Text style={styles.textProfile}>{user.name}</Text>
+							<Text style={styles.textProfile}>{user.userData?.first_name}</Text>
 						</View>
 						<View style={styles.flag}>
 							<Image

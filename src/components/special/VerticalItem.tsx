@@ -13,6 +13,7 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
+import { strings } from 'locales/locales';
 import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
 	addItem,
@@ -113,7 +114,7 @@ const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps
 					</Text>
 					<Text
 						style={styles.newPrice}
-					>{`${price} ${currency}`}</Text>
+					>{`${price} ${strings.currency}`}</Text>
 				</View>
 			</View>
 		</TouchableWithoutFeedback>
