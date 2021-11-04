@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { store } from 'store/configureStore';
-import { UserFullData } from 'store/slices/userSlice';
+import { UserData, UserFullData } from 'store/slices/userSlice';
 
 export let url = 'http://izle-shop.shopsecurity.uz/api';
 
 axios.interceptors.request.use((e) => {
-	e.headers.Authorization = `Bearer ${store.getState().user.token}`;
+	if (!!store.getState().user.token)
+		e.headers.Authorization = `Bearer ${store.getState().user.token}`;
 	return e;
 });
 
@@ -16,7 +17,7 @@ export let requests = {
 		login: (phone: string, code: string) =>
 			axios.get<UserFullData>(`${url}/login?phone=${phone}&code=${code}`),
 		editProfile: (id?: string | number, payload?: any) =>
-			axios.post<UserFullData>(`${url}/edit/profile/${id}`, payload),
+			axios.post<UserData>(`${url}/edit/profile/${id}`, payload),
 	},
 	product: {
 		getProducts: () => {
