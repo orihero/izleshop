@@ -7,6 +7,8 @@ import { ChevronRightIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import { IAccordionItem, IAccordionContent, IAccordion } from 'mockup/data';
 import { CommentsScreen as Comments } from 'screens/tabs';
+import { useNavigation } from '@react-navigation/core';
+import { Routes } from 'constants/routes';
 
 interface IAccordionProps {
 	items: any;
@@ -14,9 +16,16 @@ interface IAccordionProps {
 
 const Accordion = ({ items }: IAccordionProps) => {
 	const [open, setOpen] = useState(0);
+	const navigation = useNavigation();
 
 	const onChangeContent = (index: number) => {
-		if (open === index) {
+		console.log({ index });
+		if (index === 1) {
+			//@ts-ignore
+			navigation.navigate(Routes.WITHOUT_TABS, {
+				screen: Routes.INSTALLMENT,
+			});
+		} else if (open === index) {
 			setOpen(0);
 			return;
 		}
@@ -28,21 +37,22 @@ const Accordion = ({ items }: IAccordionProps) => {
 		<View style={styles.container}>
 			{items.map(
 				(
-					{ title, content, finally: f, hasCount }: IAccordion,
+					{
+						title,
+						content,
+						finally: f,
+						hasCount,
+						hasRoute,
+					}: IAccordion,
 					i: number
 				) => (
 					<View key={`${i}`}>
 						<Pressable onPress={() => onChangeContent(i + 1)}>
 							<View style={styles.item}>
 								<Text style={styles.text1}>{title}</Text>
-								{/* {hasCount&& 
-									<View style={styles.border}>
-										<Text style={styles.borderText}>{content[0].items.length}</Text>
-									</View>
-									} */}
 								<View
 									style={
-										open === i + 1
+										open === i + 1 && !hasRoute
 											? styles.opened
 											: styles.closed
 									}
@@ -58,10 +68,12 @@ const Accordion = ({ items }: IAccordionProps) => {
 								</View>
 							</View>
 						</Pressable>
-						{open === i + 1 ? (
+						{open === i + 1 && !hasRoute ? (
 							<View style={styles.content}>
 								{!content ? (
-									<Comments />
+									hasCount ? (
+										<Comments />
+									) : null
 								) : (
 									content.map(
 										(

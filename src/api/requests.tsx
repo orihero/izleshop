@@ -31,5 +31,7 @@ export let requests = {
 		profile: () => {
 			return axios.get(`${url}/profile`);
 		},
+		getDetails: (id: string) =>
+			axios.get(`${url}/getProductDetails?id=${id}`),
 	},
 };

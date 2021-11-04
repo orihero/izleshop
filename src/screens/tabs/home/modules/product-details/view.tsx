@@ -22,17 +22,19 @@ import {
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
-import { products } from '../../data';
+import { data, products } from '../../data';
 import { styles } from './style';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
 	activeSlide: number;
+	details: any;
 }
 
 const ProductDetailsView = ({
 	setActiveSlide,
 	activeSlide,
+	details,
 }: ProductDetailsViewProps) => {
 	let navigation = useNavigation();
 	let favorites = useAppSelector(selectFavorites);
@@ -40,7 +42,6 @@ const ProductDetailsView = ({
 	let isInCart = !!cart[item.id];
 	let isFavorite = !!favorites[item.id];
 	let dispatch = useAppDispatch();
-
 
 	let onHeartPress = () => {
 		if (isFavorite) {
@@ -61,19 +62,20 @@ const ProductDetailsView = ({
 		navigation.navigate(Routes.CART);
 	};
 
+	console.log(details);
+
 	return (
 		<View style={styles.container}>
-			<Header
-				hasBorder
-				hasCartIcon
-				title={'Смартфон'}
-			/>
+			<Header hasBorder hasCartIcon title={'Смартфон'} />
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.bgw}>
 					<Carousel
-						data={item.images}
+						data={!!details.images ? details.images : []}
 						renderItem={(props) => (
-							<SliderItem {...props} contain />
+							<SliderItem
+								{...{ item: { image: props.item } }}
+								contain
+							/>
 						)}
 						sliderWidth={windowWidth}
 						itemWidth={windowWidth}
@@ -91,7 +93,7 @@ const ProductDetailsView = ({
 						<Pagination
 							dotColor={colors.blue}
 							dotStyle={styles.pdot}
-							dotsLength={item.images.length}
+							dotsLength={details.images?.length}
 							dotContainerStyle={styles.pdotcont}
 							inactiveDotScale={1}
 							inactiveDotOpacity={0.5}
@@ -111,14 +113,14 @@ const ProductDetailsView = ({
 					</View>
 				</View>
 				<View style={styles.main}>
-					<Text style={styles.text1}>{item.title}</Text>
+					<Text style={styles.text1}>{details.name}</Text>
 					<Rating styleChanged />
 					<View style={styles.pr}>
 						<Text style={styles.text3}>
-							{`${item.newPrice} ${item.currency}`}
+							{`${details.price} ${item.currency}`}
 						</Text>
 						<Text style={styles.text2}>
-							{`${item.oldPrice} ${item.currency}`}
+							{`${details.old_price} ${item.currency}`}
 						</Text>
 					</View>
 				</View>
@@ -126,19 +128,21 @@ const ProductDetailsView = ({
 					<Accordion items={accordionData} />
 				</View>
 				<Text style={styles.text4}>{strings.similarProducts}</Text>
-					<View style={styles.mt20}>
-						<FlatList
-							snapToInterval={windowWidth / 3 - 5}
-							data={products}
-							horizontal
-							renderItem={(props) => <View style={styles.margin}>
+				<View style={styles.mt20}>
+					{/* <FlatList
+						snapToInterval={windowWidth / 3 - 5}
+						data={products}
+						horizontal
+						renderItem={(props) => (
+							<View style={styles.margin}>
 								<VerticalItem {...props} />
-							</View>}
-							decelerationRate={'fast'}
-							showsHorizontalScrollIndicator={false}
-							keyExtractor={(e) => e.id.toString()}
-						/>
-					</View>
+							</View>
+						)}
+						decelerationRate={'fast'}
+						showsHorizontalScrollIndicator={false}
+						keyExtractor={(e) => e.id.toString()}
+					/> */}
+				</View>
 				<View style={styles.mb60} />
 			</ScrollView>
 			<View style={styles.btnCont}>

@@ -37,5 +37,6 @@ export enum Routes {
 	LEAVE_FEEDBACK = 'leave-feedback',
 	WHATS_NEW = 'whats-new',
 	WHATS_NEWS = 'whats-news',
-	CONFIRATION_CODE = 'confirmationcode'
+	CONFIRATION_CODE = 'confirmationcode',
+	INSTALLMENT = 'installment'
 }

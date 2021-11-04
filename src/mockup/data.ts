@@ -46,35 +46,16 @@ export interface IAccordion {
 	finally?: string;
 	content: IAccordionContent[] | null;
 	hasCount?: Boolean;
+	hasRoute?: Boolean;
 }
 
 export const accordionData: IAccordion[] = [
 	{
 		title: 'В рассрочку',
-		finally:
-			'По вопросам получения товаров в рассрочку, звоните по номеру +99871 123 45 67',
-		content: [
-			{
-				preTitle: '',
-				items: [
-					{
-						key: 'Ежемесячный платеж',
-						value: '677 500 сум',
-						row: true,
-					},
-					{
-						key: 'Срок в месяцах',
-						value: '12 месяцев',
-						row: true,
-					},
-					{
-						key: 'Общая суммма',
-						value: '8 130 000 сум',
-						row: true,
-					},
-				],
-			},
-		],
+		// finally:
+		// 	'По вопросам получения товаров в рассрочку, звоните по номеру +99871 123 45 67',
+		content: null,
+		hasRoute: true,
 	},
 	{
 		title: 'Информация',
@@ -391,7 +372,7 @@ export const accordionData: IAccordion[] = [
 	{
 		title: 'Отзывы',
 		content: null,
-		hasCount: true
+		hasCount: true,
 	},
 ];
 
