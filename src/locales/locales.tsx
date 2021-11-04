@@ -115,6 +115,7 @@ export let strings = new LocalizedStrings({
 		leaveFeedbacks: 'Оставить отзыв ',
 		yourMark: 'Ваша оценка',
 		save: 'Сохранить',
-		send: 'Отправить '
+		send: 'Отправить ',
+		installment: 'Рассрочка'
 	},
 });

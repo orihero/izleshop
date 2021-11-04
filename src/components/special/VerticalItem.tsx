@@ -47,7 +47,12 @@ export interface IVerticalItemProps {
 	hasMargin?: boolean;
 }
 
-const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps) => {
+const VerticalItem = ({
+	item,
+	bigSize,
+	hasClose,
+	hasMargin,
+}: IVerticalItemProps) => {
 	const { id, name, price, currency, ratingCount, rating, status, image } =
 		item || {};
 
@@ -76,12 +81,17 @@ const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps
 
 	let onItemPress = () => {
 		//@ts-ignore
-		naviation.navigate(Routes.PRODUCT_DETAILS);
+		naviation.navigate(Routes.PRODUCT_DETAILS, { id });
 	};
 
 	return item ? (
 		<TouchableWithoutFeedback onPress={onItemPress}>
-			<View style={[bigSize ? styles.width1 : styles.width2, hasMargin && { marginVertical: 10 }]}>
+			<View
+				style={[
+					bigSize ? styles.width1 : styles.width2,
+					hasMargin && { marginVertical: 10 },
+				]}
+			>
 				<View style={bigSize ? styles.cont1 : styles.cont2}>
 					{hasClose ? (
 						<View style={styles.absolute}>
@@ -93,7 +103,7 @@ const VerticalItem = ({ item, bigSize, hasClose, hasMargin }: IVerticalItemProps
 					) : null}
 					<View style={bigSize ? styles.imgCont1 : styles.imgCont2}>
 						<Image
-							source={{uri:image}}
+							source={{ uri: image }}
 							style={bigSize ? styles.imgS1 : styles.imgS2}
 						/>
 					</View>
@@ -189,7 +199,7 @@ export const styles = StyleSheet.create({
 			width: 0,
 			height: 2,
 		},
-		shadowOpacity: 0.30,
+		shadowOpacity: 0.3,
 		shadowRadius: 3.84,
 
 		elevation: 20,
