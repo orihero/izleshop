@@ -84,12 +84,13 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 		newProduct.color_name = '';
 		return newProduct;
 	});
-	console.log(products);
 
-	const onPress = () =>
+	const onPress = () => {
+		console.log(products);
 		navigation.navigate(Routes.CHECKOUT, {
 			products: products,
 		});
+	};
 
 	return (
 		<ScrollView

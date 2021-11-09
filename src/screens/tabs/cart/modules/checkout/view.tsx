@@ -95,7 +95,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	let onNextPress = async () => {
 		//@ts-ignore
 		try {
-			let response = await requests.product.makeOrder({
+			let req = {
 				receiverName: name,
 				paymentType: 'payme',
 				receiverPhone: phone,
@@ -105,15 +105,17 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				index: '111201',
 				city: city,
 				products: products,
-			});
+			};
+			let response = await requests.product.makeOrder(req);
+			console.log(response.data);
+			console.log(city);
+			console.log(req.products);
 			if (!!response) {
 				navigation.navigate(Routes.HOME_STACK);
 			}
 		} catch (error) {
 			console.log(error.response);
 		}
-
-		console.log('LOLLL');
 	};
 
 	return (
@@ -161,8 +163,8 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 						<View style={styles.mt10}>
 							<DefaultInput
 								placeholder={'Видите район '}
-								value={name}
-								onChange={setName}
+								value={district}
+								onChange={setDistrict}
 							/>
 						</View>
 					</View>
