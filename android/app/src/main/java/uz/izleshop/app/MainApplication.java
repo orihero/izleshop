@@ -1,4 +1,4 @@
-package com.izleshop;
+package uz.izleshop.app;
 
 import android.app.Application;
 import android.content.Context;

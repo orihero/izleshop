@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "103575939432",
-    "project_id": "izleshop",
-    "storage_bucket": "izleshop.appspot.com"
+    "project_number": "544464515621",
+    "project_id": "izleshop-c7b5f",
+    "storage_bucket": "izleshop-c7b5f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:103575939432:android:70f54815545bf31caa4edd",
+        "mobilesdk_app_id": "1:544464515621:android:a1ddf7e3e56164adb9c5cc",
         "android_client_info": {
-          "package_name": "com.izleshop"
+          "package_name": "uz.izleshop.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "103575939432-8t0odqlublnjqt2et56mb5lcsanaq02v.apps.googleusercontent.com",
+          "client_id": "544464515621-vn2sif6rlqa07uolepp5k7uu2ksejut7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCzDybuR5dNhdLyy0iLg5hdQrP_r-JlAtI"
+          "current_key": "AIzaSyD7JmtF20_17yedxZyCu7GiYvW4b_F6Vkc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "103575939432-8t0odqlublnjqt2et56mb5lcsanaq02v.apps.googleusercontent.com",
+              "client_id": "544464515621-vn2sif6rlqa07uolepp5k7uu2ksejut7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

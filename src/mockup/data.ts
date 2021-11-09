@@ -380,7 +380,7 @@ export const item = {
 	id: 1,
 	title: 'Смартфон Samaung Galaxy A72 6/128 GB Purple',
 	rating: 4,
-	oldPrice: '250 000',
+	old_price: '250 000',
 	newPrice: '180 000',
 	currency: 'сум',
 	isFavorite: false,

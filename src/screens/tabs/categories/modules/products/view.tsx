@@ -30,6 +30,8 @@ import { Routes } from 'constants/routes';
 
 let productss = divideArr(products, 2);
 
+console.log(productss)
+
 interface IProductsView {
 	route?: ProductsScreenRouteProp;
 	navigation?: ProductsScreenNavigationProp;

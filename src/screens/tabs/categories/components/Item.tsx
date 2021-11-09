@@ -10,7 +10,13 @@ import Pressable from 'components/general/Pressable';
 import { colors } from 'constants/colors';
 import { categories } from '../data';
 import { Routes } from 'constants/routes';
-let el = categories[0].subCategories[0];
+
+let el = categories[0].childs[0];
+
+export interface ItemViewProps {
+	setActiveSlide: (e: number) => void;
+	activeSlide: number;
+}
 
 const Item = ({
 	item,
@@ -21,33 +27,33 @@ const Item = ({
 		if (fromPage === 'categories') {
 			navigation.navigate(Routes.PRODUCTS, {
 				from: fromPage,
-				title: item.label,
+				title: item.title || 'title',
 			});
 		}
 		if (fromPage === 'brands') {
 			navigation.navigate(Routes.PRODUCTS, {
 				from: fromPage,
-				title: item.label,
+				title: item.title || 'title',
 			});
 		}
 	};
 
-	return item ? (
+	return (
 		<Pressable onPress={onPress}>
 			<View style={styles.parentContainer}>
 				<View style={styles.container}>
-					<Image source={item.img} style={styles.image} />
+					<Image source={item.image} style={styles.image} />
 				</View>
 				<Text
 					lineBreakMode={'tail'}
 					numberOfLines={1}
 					style={styles.title}
 				>
-					{item.label}
+					{item.name}
 				</Text>
 			</View>
 		</Pressable>
-	) : null;
+	);
 };
 
 export default Item;
@@ -76,7 +82,7 @@ const styles = StyleSheet.create({
 	},
 	parentContainer: {},
 	image: {
-		width: '100%',
-		height: '100%',
+		height: 40,
+		resizeMode: 'contain',
 	},
 });

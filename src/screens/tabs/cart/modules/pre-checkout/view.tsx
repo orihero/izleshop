@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
-import { PreCheckoutScreenNavigationProps } from './controller';
+import {
+	PreCheckoutScreenNavigationProps,
+	PreCheckoutScreenRouteProps,
+} from './controller';
 import { Routes } from 'constants/routes';
 
 import {
@@ -24,6 +27,8 @@ import {
 	SearchIcon,
 	WalletIcon,
 } from 'assets/icons/icons';
+import { RouteProp } from '@react-navigation/core';
+import { IHorizontalItemModel } from 'src/components/special/HorizontalItem';
 
 const paymeLogo = require('mockup/images/payme.png');
 const clickLogo = require('mockup/images/click.png');
@@ -41,12 +46,51 @@ const arr = [
 
 interface IPreCheckoutViewProps {
 	navigation: PreCheckoutScreenNavigationProps;
+	route: PreCheckoutScreenRouteProps;
 }
 
-const PreCheckoutView = ({ navigation }: IPreCheckoutViewProps) => {
-	const [activeIndex, setActiveIndex] = useState(0);
+export interface IPreCheckoutProductsModel {
+	count: number;
+	data: IHorizontalItemModel;
+}
 
-	const onPress = () => navigation.navigate(Routes.CHECKOUT);
+// {
+// 	"id" : 3,
+// 	"amount" : 2,
+// 	"option" : "",
+// 	"color" : "",
+// 	"color_name" : ""
+// },
+
+// {
+// 	currency: 'сум',
+// 	id: 2,
+// 	image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc',
+// 	name: 'Yeezy Boost 350 V2 "Black Static" sneakers',
+// 	oldPrice: '420 000',
+// 	price: '300 000',
+// 	rating: 4,
+// };
+
+const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
+	const [activeIndex, setActiveIndex] = useState(0);
+	const { total, count, cartList } = route.params;
+
+	const products = cartList.map((product, index) => {
+		let newProduct = product.data;
+		newProduct.amount = product.count;
+		newProduct.option = '';
+		newProduct.color = '';
+		newProduct.color_name = '';
+		return newProduct;
+	});
+
+	const onPress = () => {
+		console.log(products);
+		navigation.navigate(Routes.CHECKOUT, {
+			products: products,
+		});
+	};
 
 	return (
 		<ScrollView
@@ -61,23 +105,23 @@ const PreCheckoutView = ({ navigation }: IPreCheckoutViewProps) => {
 				<View style={styles.topChild}>
 					<Text style={styles.text1}>{strings.yourOrder}</Text>
 					<Text style={styles.text1}>
-						{`${3} ${strings.products}`}
+						{`${count} ${strings.products}`}
 					</Text>
 				</View>
 				<View style={styles.topChild}>
 					<Text style={styles.text2}>{`${strings.sum}:`}</Text>
 					<Text style={styles.text3}>
-						{`37 500 000 ${strings.currency}`}
+						{`${total} ${strings.currency}`}
 					</Text>
 				</View>
 				<View style={styles.topChild}>
 					<Text style={styles.text2}>{`${strings.sale}:`}</Text>
-					<Text style={styles.text3}>{`${25}%`}</Text>
+					<Text style={styles.text3}>{`${0}%`}</Text>
 				</View>
 				<View style={styles.topChild}>
 					<Text style={styles.text4}>{`${strings.outcome}:`}</Text>
 					<Text style={styles.text5}>
-						{`37 000 000 ${strings.currency}`}
+						{`${total} ${strings.currency}`}
 					</Text>
 				</View>
 			</View>

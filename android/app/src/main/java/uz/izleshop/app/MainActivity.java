@@ -1,4 +1,4 @@
-package com.izleshop;
+package uz.izleshop.app;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;

@@ -66,11 +66,12 @@ export const selectCartList = (state: RootState) =>
 export const selectCartTotal = (state: RootState) =>
 	Object.keys(state.cart).reduce((p, c) => {
 		//TODO Replace it with data from API
-		return (
-			p +
-			parseFloat(state.cart[c].data.newPrice.replace(/ /g, '')) *
-				state.cart[c].count
-		);
+		// return (
+		// 	p +
+		// 	parseFloat(state.cart[c].data.newPrice.replace(/ /g, '')) *
+		// 		state.cart[c].count
+		// );
+		return p + parseFloat(state.cart[c].data.price) * state.cart[c].count;
 	}, 0);
 
 export default cartSlice.reducer;

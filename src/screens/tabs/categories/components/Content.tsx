@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
 	FlatList,
+	Image,
 	ListRenderItemInfo,
 	StyleSheet,
 	Text,
@@ -22,6 +23,7 @@ interface IContentProps {
 	disableTitle?: boolean;
 	navigation: CategoriesNavigationProp;
 	fromPage: string;
+	categories: any;
 }
 
 const Content = ({
@@ -30,10 +32,12 @@ const Content = ({
 	navigation,
 	fromPage,
 }: IContentProps) => {
+console.log("child",item.childs);
+
 	return (
 		<View>
 			{disableTitle ? null : (
-				<Text style={styles.title}>{item.label}</Text>
+				<Text style={styles.title}>{item.title}</Text>
 			)}
 			<FlatList
 				horizontal
@@ -44,7 +48,7 @@ const Content = ({
 						fromPage={fromPage}
 					/>
 				)}
-				data={item.subCategories}
+				data={item?.childs || []}
 				contentContainerStyle={{ paddingLeft: 15 }}
 				showsHorizontalScrollIndicator={false}
 			/>
@@ -61,5 +65,11 @@ const styles = StyleSheet.create({
 		color: colors.black,
 		paddingLeft: 20,
 		paddingTop: 10,
+	},
+	image: {
+		width: 100,
+		height: 100,
+		resizeMode: 'contain',
+		tintColor: 'red',
 	},
 });

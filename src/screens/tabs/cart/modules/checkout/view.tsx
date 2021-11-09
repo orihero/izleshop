@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
@@ -14,6 +14,7 @@ import { selectUser } from 'store/slices/userSlice';
 import { useNavigation } from '@react-navigation/core';
 import { Routes } from 'constants/routes';
 import { useDispatch } from 'react-redux';
+import { requests } from 'api/requests';
 
 const arr1 = [
 	'Value 1',
@@ -65,22 +66,25 @@ interface ICheckoutViewProps {
 	password: string;
 	setPassword: (e: string) => void;
 	onPress: () => void;
-	navigate: () => void
+	navigate: () => void;
 }
 
-const ChecoutView = ({ }: ICheckoutViewProps) => {
+const ChecoutView = ({ route }: ICheckoutViewProps) => {
+	let effect = async () => {
+		try {
+			let res = await requests.helpers.getRegions();
+			setRegions(res.data);
+		} catch (error) {}
+	};
+
+	useEffect(() => {
+		effect();
+	}, []);
+
+	const [regions, setRegions] = useState([]);
+	let products = route.params;
 	let navigation = useNavigation();
 
-	const [region, setRegion] = useState({
-		latitude: 41.311081,
-		longitude: 69.240562,
-		latitudeDelta: 0.0922,
-		longitudeDelta: 0.0421,
-	});
-	const [coordinate, setCoordinate] = useState({
-		latitude: 41.311081,
-		longitude: 69.240562,
-	});
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
 	const [city, setCity] = useState('');
@@ -88,11 +92,30 @@ const ChecoutView = ({ }: ICheckoutViewProps) => {
 	const [address, setAddress] = useState('');
 	const [note, setNote] = useState('');
 
-	let onNextPress = () => {
+	let onNextPress = async () => {
 		//@ts-ignore
-		navigation.navigate(Routes.HOME_STACK);
-		console.log("LOLLL");
-
+		try {
+			let req = {
+				receiverName: name,
+				paymentType: 'payme',
+				receiverPhone: phone,
+				address: address,
+				district: district,
+				note: 'note message',
+				index: '111201',
+				city: city,
+				products: products,
+			};
+			let response = await requests.product.makeOrder(req);
+			console.log(response.data);
+			console.log(city);
+			console.log(req.products);
+			if (!!response) {
+				navigation.navigate(Routes.HOME_STACK);
+			}
+		} catch (error) {
+			console.log(error.response);
+		}
 	};
 
 	return (
@@ -103,7 +126,11 @@ const ChecoutView = ({ }: ICheckoutViewProps) => {
 					<View style={styles.mt20}>
 						<Text style={styles.text1}>{`${strings.name}*`}</Text>
 						<View style={styles.mt10}>
-							<DefaultInput placeholder={'ФИО'} value={name} onChange={setName} />
+							<DefaultInput
+								placeholder={'ФИО'}
+								value={name}
+								onChange={setName}
+							/>
 						</View>
 					</View>
 					<View style={styles.mt20}>
@@ -111,7 +138,11 @@ const ChecoutView = ({ }: ICheckoutViewProps) => {
 							style={styles.text1}
 						>{`${strings.phoneNumber}*`}</Text>
 						<View style={styles.mt10}>
-							<DefaultInput placeholder={'+998901234567'} value={phone} onChange={setPhone} />
+							<DefaultInput
+								placeholder={'+998901234567'}
+								value={phone}
+								onChange={setPhone}
+							/>
 						</View>
 					</View>
 					<View style={styles.mt25}>
@@ -120,21 +151,22 @@ const ChecoutView = ({ }: ICheckoutViewProps) => {
 						>{`${strings.selectCity}*`}</Text>
 						<DefaultSelect
 							value={city}
-							values={arr1}
+							values={regions}
 							setValue={setCity}
 							placeholder={strings.cityNotSelected || ''}
 						/>
 					</View>
-					<View style={styles.mt25}>
+					<View style={styles.mt20}>
 						<Text
-						// style={styles.text1}
+							style={styles.text1}
 						>{`${strings.selectDistrict}*`}</Text>
-						<DefaultSelect
-							value={district}
-							values={arr2}
-							setValue={setDistrict}
-							placeholder={strings.districtNotSelected || ''}
-						/>
+						<View style={styles.mt10}>
+							<DefaultInput
+								placeholder={'Видите район '}
+								value={district}
+								onChange={setDistrict}
+							/>
+						</View>
 					</View>
 					<View style={styles.mt19}>
 						<Text
@@ -150,7 +182,7 @@ const ChecoutView = ({ }: ICheckoutViewProps) => {
 						</View>
 					</View>
 					<View style={styles.mt19}>
-						<Text >{`${strings.note}`}</Text>
+						<Text>{`${strings.note}`}</Text>
 						<View style={styles.mt12}>
 							<DefaultInput
 								placeholder={''}

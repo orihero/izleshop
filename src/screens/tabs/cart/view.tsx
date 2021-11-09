@@ -24,8 +24,14 @@ const CartView = ({ navigation }: ICartViewProps) => {
 	let total = useAppSelector(selectCartTotal);
 	let cartItems = useAppSelector(selectCartList);
 
+	console.log({ total, cartItems });
+
 	const onPress = () => {
-		navigation.navigate(Routes.PRE_CHECKOUT);
+		navigation.navigate(Routes.PRE_CHECKOUT, {
+			total: total,
+			count: cartItems.length,
+			cartList: cartItems,
+		});
 	};
 
 	return (
@@ -39,7 +45,7 @@ const CartView = ({ navigation }: ICartViewProps) => {
 			{cartItems ? (
 				<FlatList
 					data={cartItems}
-					// contentContainerStyle={{height: "80%"}}
+					contentContainerStyle={{ paddingBottom: 180 }}
 					style={styles.mh20}
 					keyExtractor={(e) => e.data.id.toString()}
 					showsVerticalScrollIndicator={false}
@@ -59,7 +65,9 @@ const CartView = ({ navigation }: ICartViewProps) => {
 						</Text>
 						<Text style={styles.totalPriceText2}>{total}</Text>
 					</View>
-					<DefaultButton text={strings.order} onPress={onPress} />
+					<View style={styles.button}>
+						<DefaultButton text={strings.order} onPress={onPress} />
+					</View>
 				</View>
 			)}
 		</View>

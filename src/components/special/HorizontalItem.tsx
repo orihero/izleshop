@@ -10,6 +10,7 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
+import { strings } from 'locales/locales';
 import {
 	addToCart,
 	decrementCount,
@@ -29,8 +30,8 @@ import Rating from './Rating';
 
 export interface IHorizontalItemModel {
 	id?: number;
-	title?: string;
-	newPrice?: string;
+	name?: string;
+	price?: string;
 	oldPrice?: string;
 	currency?: string;
 	ratingCount?: number;
@@ -38,7 +39,7 @@ export interface IHorizontalItemModel {
 	status?: string;
 	isFavorite?: boolean;
 	isInCart?: boolean;
-	img?: any;
+	image?: any;
 }
 
 type RenderedItemProps = ListRenderItemInfo<{
@@ -61,8 +62,16 @@ const HorizontalItem = ({
 	hasBasket,
 	hasRemove = true,
 }: IHorizontalItemProps) => {
-	const { id, title, newPrice, currency, ratingCount, rating, status, img } =
-		item.data || item;
+	const {
+		id,
+		name,
+		price,
+		currency = strings.currency,
+		ratingCount,
+		rating,
+		status,
+		image,
+	} = item.data || item;
 
 	const dispatch = useAppDispatch();
 
@@ -100,11 +109,14 @@ const HorizontalItem = ({
 	let onCheck = () => {
 		setIsChecked(!isChecked);
 	};
+
+	console.log(item.data, image);
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.imgCont}>
 				{hasRemove && (
-					<TouchableOpacity onPress={onCheck}  style={styles.checkBox}>
+					<TouchableOpacity onPress={onCheck} style={styles.checkBox}>
 						{isChecked && (
 							<Image
 								style={styles.imgCheck}
@@ -113,7 +125,7 @@ const HorizontalItem = ({
 						)}
 					</TouchableOpacity>
 				)}
-				<Image source={img} style={styles.image} />
+				<Image source={{ uri: image }} style={styles.image} />
 			</View>
 			<View style={styles.center}>
 				<View style={styles.box}>
@@ -128,14 +140,12 @@ const HorizontalItem = ({
 						numberOfLines={2}
 						lineBreakMode={'tail'}
 					>
-						{title}
+						{name}
 					</Text>
 				</View>
 				{!hasRemove && <Rating count={5} active={4} />}
 				<View style={styles.plus}>
-					<Text style={styles.text4}>
-						{` ${newPrice} ${currency}`}
-					</Text>
+					<Text style={styles.text4}>{` ${price} ${currency}`}</Text>
 					{hasRating ? (
 						<Rating
 							defaultStyle
@@ -200,12 +210,14 @@ const styles = StyleSheet.create({
 	imgCont: {
 		width: 90,
 		height: 90,
+		marginHorizontal: 10,
 		justifyContent: 'center',
 		flexDirection: 'row',
 	},
 	image: {
 		width: '100%',
 		height: '100%',
+		marginLeft: 10,
 		resizeMode: 'contain',
 	},
 	checkBox: {
@@ -225,7 +237,7 @@ const styles = StyleSheet.create({
 	},
 	center: {
 		flex: 1,
-		marginHorizontal: 14,
+		marginHorizontal: 20,
 		justifyContent: 'space-between',
 	},
 	box: {},
@@ -254,10 +266,11 @@ const styles = StyleSheet.create({
 	},
 	plus: {
 		height: 40,
-		flexDirection: 'row',
+		width: 200,
 		flexShrink: 1,
+		alignItems: 'center',
+		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'center', 
 	},
 	text4: {
 		fontSize: 14,
