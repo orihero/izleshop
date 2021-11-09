@@ -56,6 +56,8 @@ const VerticalItem = ({
 	const { id, name, price, currency, ratingCount, rating, status, image } =
 		item || {};
 
+		console.log({image},"image in products")
+
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
 	let isInCart = item && !!cart[item && id];
@@ -103,7 +105,7 @@ const VerticalItem = ({
 					) : null}
 					<View style={bigSize ? styles.imgCont1 : styles.imgCont2}>
 						<Image
-							source={{ uri: image }}
+							source={{uri:image}}
 							style={bigSize ? styles.imgS1 : styles.imgS2}
 						/>
 					</View>

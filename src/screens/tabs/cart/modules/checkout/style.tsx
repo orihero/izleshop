@@ -45,12 +45,19 @@ export const styles = StyleSheet.create({
 		fontSize: 16,
 		lineHeight: 20,
 		fontWeight: '400',
-		paddingHorizontal: 20,
+		paddingHorizontal: 25,
 		color: 'rgba(0,0,0,.8)',
 	},
 	mt10: {
 		right: 20,
 		marginTop: 10,
+		alignItems: 'center',
+	},
+	mt1: {
+		right: 20,
+		marginTop: 10,
+		marginHorizontal: 20,
+		alignItems: 'center',
 	},
 	mt21: {
 		marginTop: 10,
@@ -58,11 +65,11 @@ export const styles = StyleSheet.create({
 	},
 	mt25: {
 		marginTop: 10,
-		marginLeft: 10
+		marginLeft: 10,
 	},
 	mt19: {
 		width: 335,
 		marginTop: 10,
 		marginLeft: 10,
-	}
+	},
 });

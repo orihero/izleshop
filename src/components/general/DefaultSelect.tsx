@@ -80,7 +80,7 @@ export default DefaultSelect;
 
 const styles = StyleSheet.create({
 	container: {
-		width: 335
+		width: 335,
 	},
 	box: {
 		padding: 14,

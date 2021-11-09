@@ -119,9 +119,11 @@ const ProductDetailsView = ({
 						<Text style={styles.text3}>
 							{`${details.price} ${item.currency}`}
 						</Text>
-						<Text style={styles.text2}>
-							{`${details.old_price} ${item.currency}`}
-						</Text>
+						{details.old_price && (
+							<Text style={styles.text2}>
+								{`${details.old_price} ${item.currency}`}
+							</Text>
+						)}
 					</View>
 				</View>
 				<View style={styles.accordion}>
@@ -129,9 +131,9 @@ const ProductDetailsView = ({
 				</View>
 				<Text style={styles.text4}>{strings.similarProducts}</Text>
 				<View style={styles.mt20}>
-					{/* <FlatList
+					<FlatList
 						snapToInterval={windowWidth / 3 - 5}
-						data={products}
+						data={details.relatedProducts}
 						horizontal
 						renderItem={(props) => (
 							<View style={styles.margin}>
@@ -141,7 +143,7 @@ const ProductDetailsView = ({
 						decelerationRate={'fast'}
 						showsHorizontalScrollIndicator={false}
 						keyExtractor={(e) => e.id.toString()}
-					/> */}
+					/>
 				</View>
 				<View style={styles.mb60} />
 			</ScrollView>

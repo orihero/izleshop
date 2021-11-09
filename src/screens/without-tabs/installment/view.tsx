@@ -1,4 +1,4 @@
-import React, { useState,useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { Text, View } from 'react-native';
 import Header from 'components/navigation/Header';
@@ -9,7 +9,7 @@ import { SearchIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 
 const InstallmentView = () => {
-	let options  = useRef([
+	let options = useRef([
 		'Месяцы',
 		'Месяцы',
 		'Месяцы',
@@ -38,10 +38,10 @@ const InstallmentView = () => {
 				<ModalDropdown
 					options={options}
 					textStyle={styles.textStyle}
-					dropdownTextHighlightStyle={{color: colors.blue}}
+					dropdownTextHighlightStyle={{ color: colors.blue }}
 					dropdownStyle={{
-						borderTopLeftRadius:0,
-						borderTopRightRadius:0,
+						borderTopLeftRadius: 0,
+						borderTopRightRadius: 0,
 						borderBottomRightRadius: 7,
 						borderBottomLeftRadius: 7,
 						paddingHorizontal: 10,
@@ -52,7 +52,7 @@ const InstallmentView = () => {
 							top: style.top + 28,
 							left: style.left - 6,
 							height: style.height + 27 * options.length,
-							flex:1
+							flex: 1,
 						};
 					}}
 					defaultValue={options[0]}

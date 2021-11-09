@@ -2,7 +2,7 @@ import axios from 'axios';
 import { store } from 'store/configureStore';
 import { UserFullData } from 'store/slices/userSlice';
 
-export let url = 'http://izle-shop.shopsecurity.uz/api';
+export let url = 'http://izleshop.uz/api';
 
 axios.interceptors.request.use((e) => {
 	e.headers.Authorization = `Bearer ${store.getState().user.token}`;
@@ -10,6 +10,11 @@ axios.interceptors.request.use((e) => {
 });
 
 export let requests = {
+	helpers: {
+		getRegions: () => {
+			return axios.get(`${url}/getRegions`);
+		},
+	},
 	auth: {
 		requestLogin: (phone: string) =>
 			axios.post(`${url}/sendRequest`, { phone }),
@@ -33,5 +38,6 @@ export let requests = {
 		},
 		getDetails: (id: string) =>
 			axios.get(`${url}/getProductDetails?id=${id}`),
+		makeOrder: (credentials) => axios.post(`${url}/makeOrder`, credentials),
 	},
 };

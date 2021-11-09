@@ -32,9 +32,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -43,9 +43,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -54,9 +54,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -65,9 +65,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -76,9 +76,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -87,9 +87,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -98,9 +98,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -109,9 +109,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -120,9 +120,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -131,9 +131,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -142,9 +142,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -153,9 +153,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -164,9 +164,9 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 	{
 		rating: 4,
@@ -175,8 +175,8 @@ export let products = [
 		oldPrice: '420 000',
 		price: '300 000',
 		currency: 'сум',
-		image: {
-			uri: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
-		},
+		image: 
+			 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWrYlGSZZLqQItVhGWlQuuo4OrhABkX69Qgf3WhhBhXFRGHwtYlVYZNCxZUjaNAca8SKc1p2PSaOEUgV_ZTpahi8vS2Q83givgTBog2rU&usqp=CAc'
+		,
 	},
 ];
