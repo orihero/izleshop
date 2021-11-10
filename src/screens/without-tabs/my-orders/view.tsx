@@ -7,14 +7,18 @@ import OrderItem from 'components/special/OrderItem';
 
 import { styles } from './style';
 import { strings } from 'locales/locales';
-import { orderItems } from 'mockup/data';
+import { items, orderItems } from 'mockup/data';
 import { useNavigation } from '@react-navigation/core';
 import { useAppSelector } from 'utils/hooks';
 import { useDispatch } from 'react-redux';
 import { selectUser } from 'store/slices/userSlice';
 import { Routes } from 'constants/routes';
 
-const MyOrdersView = () => {
+// export interface MyOrdersViewProps {
+// 	userOrders: any;
+// }
+
+const MyOrdersView = ({ userOrders }) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	let dispatch = useDispatch();
@@ -22,92 +26,99 @@ const MyOrdersView = () => {
 		//@ts-ignore
 		navigation.navigate(Routes.LEAVE_FEEDBACK);
 	};
+	console.log(userOrders);
+
 	return (
 		<ProfileLayout headerTitle={strings.myOrders || ''}>
 			<ScrollView>
 				<View style={styles.container}>
-					<View style={styles.boxOne}>
-						<View style={styles.textBox}>
-							<Text style={styles.text}>{strings.orderNumber} 1212121212121</Text>
-							<Text style={styles.text}>{strings.orderTime} 2020-12-25 11:48</Text>
-						</View>
-						{orderItems.map((e, i) => (
-							<View key={i} style={styles.mt10}>
-								<OrderItem item={e} />
-							</View>
-						))}
-						{orderItems.map((e, i) => (
-							<View key={i} style={styles.mt10}>
-								<OrderItem item={e} />
-							</View>
-						))}
-						<View style={styles.boxTwo}>
-							<View>
-								<Text style={styles.textColumn}>{strings.status}</Text>
-								<Text style={styles.textColumn}>{strings.quantity}</Text>
-								<Text style={styles.textColumn}>{strings.outcome}</Text>
-							</View>
-							<View style={styles.row}>
-								<Text style={styles.textRow}>{strings.reviewaAwaiting}</Text>
-								<Text style={styles.textRow}>1</Text>
-								<Text style={styles.textRow}>3 760 000 </Text>
-							</View>
-						</View>
-					</View>
-					<View style={styles.box}>
-						<View style={styles.textBox}>
-							<Text style={styles.text}>{strings.orderNumber} 1212121212121</Text>
-							<Text style={styles.text}>{strings.orderTime} 2020-12-25 11:48</Text>
-						</View>
-						{orderItems.map((e, i) => (
-							<View key={i} style={styles.mt10}>
-								<OrderItem item={e} />
-							</View>
-						))}
-						<View style={styles.boxTwo}>
-							<View>
-								<Text style={styles.textColumn}>{strings.status}</Text>
-								<Text style={styles.textColumn}>{strings.quantity}</Text>
-								<Text style={styles.textColumn}>{strings.outcome}</Text>
-							</View>
-							<View style={styles.row}>
-								<Text style={styles.textRow}>{strings.reviewaAwaiting}</Text>
-								<Text style={styles.textRow}>1</Text>
-								<Text style={styles.textRow}>3 760 000 </Text>
-							</View>
-						</View>
-						<TouchableOpacity onPress={onNextPress}>
-							<View style={styles.button}>
-								<Text style={styles.colorText}>{strings.leaveFeedback}</Text>
-							</View>
-						</TouchableOpacity>
-					</View>
-					<View style={styles.boxs}>
-						<View style={styles.textBox}>
-							<Text style={styles.text}>{strings.orderNumber} 1212121212121</Text>
-							<Text style={styles.text}>{strings.orderTime} 2020-12-25 11:48</Text>
-						</View>
-						{orderItems.map((e, i) => (
-							<View key={i} style={styles.mt10}>
-								<OrderItem item={e} />
-							</View>
-						))}
-						<View style={styles.boxTwo}>
-							<View>
-								<Text style={styles.textColumn}>{strings.status}</Text>
-								<Text style={styles.textColumn}>{strings.quantity}</Text>
-								<Text style={styles.textColumn}>{strings.outcome}</Text>
-							</View>
-							<View style={styles.row}>
-								<Text style={styles.textRow}>{strings.reviewaAwaiting}</Text>
-								<Text style={styles.textRow}>1</Text>
-								<Text style={styles.textRow}>3 760 000 </Text>
-							</View>
-						</View>
-						<View style={styles.buttons}>
-							<Text style={styles.colorTexts}>{strings.pay}</Text>
-						</View>
-					</View>
+					{userOrders &&
+						userOrders?.map((e) => {
+							let status = strings.waiting;
+							switch (e.status) {
+								case 1:
+									status = strings.payed;
+									break;
+							}
+							let time = new Date(e.created_at);
+							return (
+								<View style={styles.boxOne} key={e.id}>
+									<View style={styles.textBox}>
+										<Text style={styles.text}>
+											{strings.orderNumber} {e.order_id}
+										</Text>
+										<Text style={styles.text}>
+											{strings.orderTime}
+											{time.toLocaleDateString()}{' '}
+											{time.toLocaleTimeString()}
+										</Text>
+									</View>
+									{e?.items?.map((el) => {
+										return (
+											<View
+												key={el.id}
+												style={styles.mt10}
+											>
+												<OrderItem item={el} />
+											</View>
+										);
+									})}
+									{/* {orderItems.map((e, i) => (
+									<View key={i} style={styles.mt10}>
+										<OrderItem item={e} />
+									</View>
+								))}
+								{orderItems.map((e, i) => (
+									<View key={i} style={styles.mt10}>
+										<OrderItem item={e} />
+									</View>
+								))} */}
+									<View style={styles.boxTwo}>
+										<View>
+											<Text style={styles.textColumn}>
+												{strings.status}
+											</Text>
+											<Text style={styles.textColumn}>
+												{strings.quantity}
+											</Text>
+											<Text style={styles.textColumn}>
+												{strings.outcome}
+											</Text>
+										</View>
+										<View style={styles.row}>
+											<Text style={styles.textRow}>
+												{status}
+											</Text>
+											<Text style={styles.textRow}>
+												{e.amount}
+											</Text>
+											<Text style={styles.textRow}>
+												{e.price}
+											</Text>
+										</View>
+									</View>
+									<View style={styles.buttons}>
+										{e.status === 0 ? (
+											<Text style={styles.colorTexts}>
+												{strings.pay}
+											</Text>
+										) : (
+											<TouchableOpacity
+												onPress={onNextPress}
+											>
+												<View style={styles.button}>
+													<Text
+														style={styles.colorText}
+													>
+														{strings.leaveFeedback}
+													</Text>
+												</View>
+											</TouchableOpacity>
+										)}
+									</View>
+								</View>
+							);
+						})}
 				</View>
 			</ScrollView>
 		</ProfileLayout>

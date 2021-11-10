@@ -2,6 +2,8 @@ import LocalizedStrings from 'react-native-localization';
 
 export let strings = new LocalizedStrings({
 	ru: {
+		waiting: 'Ожидается оплата',
+		payed: 'Оплачено',
 		reset: 'сбросить',
 		soum: 'сум',
 		to: 'До',
@@ -116,6 +118,6 @@ export let strings = new LocalizedStrings({
 		yourMark: 'Ваша оценка',
 		save: 'Сохранить',
 		send: 'Отправить ',
-		installment: 'Рассрочка'
+		installment: 'Рассрочка',
 	},
 });

@@ -36,6 +36,9 @@ export let requests = {
 		profile: () => {
 			return axios.get(`${url}/profile`);
 		},
+		getUserOrders: () => {
+			return axios.get(`${url}/getUserOrders`);
+		},
 		getDetails: (id: string) =>
 			axios.get(`${url}/getProductDetails?id=${id}`),
 		makeOrder: (credentials) => axios.post(`${url}/makeOrder`, credentials),
