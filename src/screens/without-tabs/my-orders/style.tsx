@@ -7,13 +7,13 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		borderTopWidth: 2,
 		borderColor: colors.lightGray,
-		backgroundColor: colors.lightBlue
+		backgroundColor: colors.lightBlue,
 	},
 	boxOne: {
 		width: windowWidth,
 		padding: 20,
 		elevation: 7,
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
 	},
 	textBox: {
 		// flexDirection: 'row'
@@ -21,12 +21,12 @@ export const styles = StyleSheet.create({
 	text: {
 		fontSize: 12,
 		fontWeight: '700',
-		lineHeight: 20
+		lineHeight: 20,
 	},
 	mt10: {},
 	boxTwo: {
 		flexDirection: 'row',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
 	},
 	textColumn: {
 		top: 10,
@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
 		padding: 20,
 		marginTop: 5,
 		elevation: 6,
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
 	},
 	button: {
 		width: 335,
@@ -56,7 +56,8 @@ export const styles = StyleSheet.create({
 		marginLeft: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: colors.lightPink,
+		backgroundColor: 'pink',
+		// backgroundColor: colors.lightPink,
 	},
 	colorText: {
 		fontSize: 13,
@@ -68,7 +69,7 @@ export const styles = StyleSheet.create({
 		marginTop: 5,
 		padding: 20,
 		elevation: 7,
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
 	},
 	buttons: {
 		width: 335,
@@ -84,5 +85,33 @@ export const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		lineHeight: 19,
 		color: colors.white,
+	},
+	mt12: {
+		width: 335,
+		height: 30,
+		marginTop: 17,
+		alignItems: 'center',
+		marginHorizontal: 20,
+		justifyContent: 'center',
+		backgroundColor: colors.red,
+	},
+	mt13: {
+		fontSize: 13,
+		fontWeight: '700',
+		color: colors.white,
+	},
+	mt14: {
+		width: 335,
+		height: 30,
+		marginTop: 17,
+		alignItems: 'center',
+		marginHorizontal: 20,
+		justifyContent: 'center',
+		backgroundColor: colors.lightPink,
+	},
+	mt15: {
+		fontSize: 13,
+		fontWeight: '700',
+		color: colors.red,
 	},
 });

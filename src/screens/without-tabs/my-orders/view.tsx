@@ -13,10 +13,7 @@ import { useAppSelector } from 'utils/hooks';
 import { useDispatch } from 'react-redux';
 import { selectUser } from 'store/slices/userSlice';
 import { Routes } from 'constants/routes';
-
-// export interface MyOrdersViewProps {
-// 	userOrders: any;
-// }
+import { colors } from 'constants/colors';
 
 const MyOrdersView = ({ userOrders }) => {
 	let navigation = useNavigation();
@@ -26,7 +23,8 @@ const MyOrdersView = ({ userOrders }) => {
 		//@ts-ignore
 		navigation.navigate(Routes.LEAVE_FEEDBACK);
 	};
-	console.log(userOrders);
+	console.log('userOrders: ', JSON.stringify(userOrders, null, 4));
+	// console.log('userOrders');
 
 	return (
 		<ProfileLayout headerTitle={strings.myOrders || ''}>
@@ -97,25 +95,21 @@ const MyOrdersView = ({ userOrders }) => {
 											</Text>
 										</View>
 									</View>
-									<View style={styles.buttons}>
-										{e.status === 0 ? (
-											<Text style={styles.colorTexts}>
-												{strings.pay}
+									{e.status === 1 ? (
+										<TouchableOpacity onPress={onNextPress}>
+											<View style={styles.button}>
+												<Text style={styles.colorText}>
+													{strings.leaveFeedback}
+												</Text>
+											</View>
+										</TouchableOpacity>
+									) : (
+										<View style={styles.mt12}>
+											<Text style={styles.mt13}>
+												{'ОПЛАТИТЬ'}
 											</Text>
-										) : (
-											<TouchableOpacity
-												onPress={onNextPress}
-											>
-												<View style={styles.button}>
-													<Text
-														style={styles.colorText}
-													>
-														{strings.leaveFeedback}
-													</Text>
-												</View>
-											</TouchableOpacity>
-										)}
-									</View>
+										</View>
+									)}
 								</View>
 							);
 						})}

@@ -4,13 +4,13 @@ import { colors } from 'constants/colors';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: colors.lightGray,
+		backgroundColor: colors.lightBlue,
 	},
 	top: {
-		paddingHorizontal: 20,
 		paddingVertical: 10,
 		flexDirection: 'row',
 		alignItems: 'center',
+		paddingHorizontal: 20,
 		justifyContent: 'space-between',
 	},
 	topb: {
@@ -37,6 +37,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 	},
 	ph20: {
+		marginBottom: 10,
 		// paddingHorizontal: 20,
 	},
 	mt10: {

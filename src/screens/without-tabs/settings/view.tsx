@@ -28,7 +28,7 @@ interface ISettingViewProps {
 
 const SettingsView = ({ onCreate }: ISettingViewProps) => {
 	let navigation = useNavigation();
-	let user = useAppSelector(selectUser)
+	let user = useAppSelector(selectUser);
 	let onNextPress = () => {
 		navigation.navigate(Routes.LANGUAGE);
 	};
@@ -38,6 +38,8 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 	let onPress = (route: Routes) => {
 		navigation.navigate(route);
 	};
+	console.log({ THISISUSER: user });
+
 	return (
 		<ProfileLayout headerTitle={strings.settings || ''}>
 			<View style={styles.container}>
@@ -58,7 +60,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 					</TouchableOpacity>
 				</View>
 				<View style={styles.settingProfile}>
-					<View style={styles.dataContainer}>
+					{/* <View style={styles.dataContainer}>
 						<TouchableOpacity
 							style={styles.birthdayString}
 							onPress={() => onPress(Routes.PRE_CHECKOUT)}
@@ -73,7 +75,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 							<Text style={styles.day}>12-12-2000</Text>
 							<ChevronRightIcon size={15} />
 						</TouchableOpacity>
-					</View>
+					</View> */}
 					<View style={styles.dataContainer}>
 						<TouchableOpacity
 							style={styles.phoneString}
@@ -86,7 +88,9 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 								</Text>
 							</View>
 
-							<Text style={styles.number}>(99) 123-4565</Text>
+							<Text style={styles.number}>
+								{user.userData?.phone}
+							</Text>
 							<ChevronRightIcon size={15} />
 						</TouchableOpacity>
 					</View>

@@ -16,7 +16,7 @@ interface ItemProps {
 
 const SliderItem = ({ item, contain, dwh }: ItemProps) => (
 	<Image
-		source={{ uri:item.image }}
+		source={{ uri: item.image }}
 		style={[
 			styles.br,
 			contain ? styles.rc : null,

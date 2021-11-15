@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 
-
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
@@ -12,7 +11,7 @@ export const styles = StyleSheet.create({
 	},
 	center: {
 		flex: 0.4,
-		borderRadius: 19
+		borderRadius: 19,
 	},
 	bottom: {
 		flex: 0.4,
@@ -79,7 +78,6 @@ export const styles = StyleSheet.create({
 		marginLeft: 30,
 		marginTop: 3,
 		// marginBottom: -100,
-
 	},
 	lbox: {
 		width: 335,
@@ -97,12 +95,10 @@ export const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	circle: {
-		// position: 'absolute',
-		
-		backgroundColor: colors.iconBlue,
 		width: 10,
 		height: 10,
 		borderRadius: 10,
+		backgroundColor: colors.iconBlue,
 	},
 	ltext: {
 		fontSize: 14,
@@ -110,12 +106,12 @@ export const styles = StyleSheet.create({
 		fontWeight: '500',
 	},
 	lsquare: {
-		alignItems: 'center',
-		justifyContent: 'center',
 		width: 15,
 		height: 15,
 		borderWidth: 1,
 		borderRadius: 10,
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	box: {
 		flex: 1,
@@ -141,4 +137,4 @@ export const styles = StyleSheet.create({
 	bblue: {
 		borderColor: colors.darkBlue,
 	},
-})
+});

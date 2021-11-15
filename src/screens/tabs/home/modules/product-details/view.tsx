@@ -62,7 +62,7 @@ const ProductDetailsView = ({
 		navigation.navigate(Routes.CART);
 	};
 
-	console.log(details);
+	console.log('CJARARARA', details);
 
 	return (
 		<View style={styles.container}>
@@ -127,7 +127,10 @@ const ProductDetailsView = ({
 					</View>
 				</View>
 				<View style={styles.accordion}>
-					<Accordion items={accordionData} />
+					<Accordion
+						items={accordionData}
+						characteristics={details.characteristics}
+					/>
 				</View>
 				<Text style={styles.text4}>{strings.similarProducts}</Text>
 				<View style={styles.mt20}>

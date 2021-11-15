@@ -14,8 +14,7 @@ const CategoriesController = () => {
 		effect();
 	}, []);
 
-	const [activeSlide, setActiveSlide] = useState(0);
-	return <CategoriesView {...{ activeSlide, setActiveSlide, categories}} />
+	return <CategoriesView {...{ categories }} />;
 };
 
 export default CategoriesController;

@@ -4,7 +4,7 @@ import DefaultButton from 'components/general/DefaultButton';
 import DefaultInput from 'components/general/DefaultInput';
 import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { requests } from 'api/requests';
@@ -21,7 +21,12 @@ const LoginView = ({}: ILoginViewProps) => {
 	let setPhone = (num: string) => {
 		dispatch(setUserPhone(num));
 	};
+	const [loading, setLoading] = useState(false);
 	let onNextPress = async () => {
+		if (loading) {
+			return;
+		}
+		setLoading(true);
 		try {
 			let res = await requests.auth.requestLogin(
 				user.userData?.phone || ''
@@ -31,6 +36,7 @@ const LoginView = ({}: ILoginViewProps) => {
 			alert('Что-то пошло не так');
 			return;
 		}
+		setLoading(false);
 		//@ts-ignore
 		navigation.navigate(Routes.VERIFICATION);
 	};
@@ -61,6 +67,7 @@ const LoginView = ({}: ILoginViewProps) => {
 					text={strings.toComeIn}
 					marginDisabled
 					onPress={onNextPress}
+					loading={loading}
 				/>
 			</View>
 			<TouchableOpacity style={styles.viewAll}>

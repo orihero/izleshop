@@ -1,15 +1,20 @@
+import { useNavigation } from '@react-navigation/core';
 import { CartIcon, ExitIcon, HeartIcon, TrashIcon } from 'assets/icons/icons';
+import ItemCounter from 'components/special/ItemCounter';
+import Rating from 'components/special/Rating';
 import { colors } from 'constants/colors';
+import { strings } from 'locales/locales';
 import React, { useState } from 'react';
 import {
 	Image,
 	ListRenderItemInfo,
 	StyleSheet,
 	Text,
-	Touchable,
 	TouchableOpacity,
+	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
+import { Routes } from 'constants/routes';
 import {
 	addToCart,
 	decrementCount,
@@ -23,9 +28,6 @@ import {
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
-import Pressable from 'components/general/Pressable';
-import ItemCounter from 'components/special/ItemCounter';
-import Rating from 'components/special/Rating';
 
 export interface IFavoriteItemModel {
 	id?: number;
@@ -61,8 +63,16 @@ const FavoriteItem = ({
 	hasBasket,
 	hasRemove = true,
 }: IFavoriteItemProps) => {
-	const { id, title, newPrice, currency, ratingCount, rating, status, img } =
-		item.data || item;
+	const {
+		id,
+		name: title,
+		price: newPrice,
+		currency = strings.soum,
+		ratingCount,
+		rating,
+		status,
+		image,
+	} = item.data || item;
 
 	const dispatch = useAppDispatch();
 
@@ -82,8 +92,6 @@ const FavoriteItem = ({
 	};
 
 	let onIncrement = () => {
-		console.log('INC');
-
 		dispatch(incrementCount(id.toString()));
 	};
 
@@ -100,96 +108,107 @@ const FavoriteItem = ({
 	let onCheck = () => {
 		setIsChecked(!isChecked);
 	};
+
+	let navigation = useNavigation();
+
+	let onItemPress = () => {
+		navigation.navigate(Routes.PRODUCT_DETAILS, { id: id });
+	};
+
 	return (
-		<View style={styles.container}>
-			<View style={styles.imgCont}>
-				{hasRemove && (
-					<View style={styles.checkBox}>
-						{isChecked && (
-							<Image
-								style={styles.imgCheck}
-								source={require('../../../../assets/images/check.png')}
+		<TouchableWithoutFeedback onPress={onItemPress}>
+			<View style={styles.container}>
+				<View style={styles.imgCont}>
+					{hasRemove && (
+						<View style={styles.checkBox}>
+							{isChecked && (
+								<Image
+									style={styles.imgCheck}
+									source={require('../../../../assets/images/check.png')}
+								/>
+							)}
+						</View>
+					)}
+					<Image source={{ uri: image }} style={styles.image} />
+				</View>
+				<View style={styles.center}>
+					<View style={styles.box}>
+						{status ? (
+							<View style={styles.row}>
+								<Text style={styles.text1}>{`ID: ${id}`}</Text>
+								<Text style={styles.text2}>{status}</Text>
+							</View>
+						) : null}
+						<Text
+							style={styles.text3}
+							numberOfLines={2}
+							lineBreakMode={'tail'}
+						>
+							{title}
+						</Text>
+					</View>
+					<Text
+						style={styles.text4}
+					>{`${newPrice} ${currency}`}</Text>
+					{!hasRemove && <Rating count={5} active={4} />}
+					<View style={styles.plus}>
+						{hasRating ? (
+							<Rating
+								defaultStyle
+								active={rating}
+								count={ratingCount}
 							/>
+						) : null}
+						{hasCounter ? (
+							<ItemCounter
+								count={item.count}
+								onDecrement={onDecrement}
+								onIncrement={onIncrement}
+							/>
+						) : null}
+					</View>
+				</View>
+				<View style={styles.exit}>
+					<ExitIcon size={15} color={colors.gray2} />
+				</View>
+				<View style={styles.rightEdge}>
+					<View style={styles.irow}>
+						{hasBasket ? (
+							<TouchableOpacity onPress={onCartPress}>
+								<View style={[styles.square, styles.mr10]}>
+									<CartIcon
+										size={22}
+										color={colors.blue}
+										active={isInCart}
+									/>
+								</View>
+							</TouchableOpacity>
+						) : null}
+						{hasRemove && (
+							<TouchableOpacity onPress={onRemove}>
+								<View style={styles.square}>
+									<TrashIcon
+										size={18}
+										color={'rgba(0,0,0,.3)'}
+									/>
+								</View>
+							</TouchableOpacity>
 						)}
 					</View>
-				)}
-				<Image source={img} style={styles.image} />
-			</View>
-			<View style={styles.center}>
-				<View style={styles.box}>
-					{status ? (
-						<View style={styles.row}>
-							<Text style={styles.text1}>{`ID: ${id}`}</Text>
-							<Text style={styles.text2}>{status}</Text>
+					<TouchableOpacity onPress={onLike}>
+						<View style={styles.square}>
+							<HeartIcon
+								size={22}
+								color={
+									isFavorite ? colors.red : colors.leghtGrey1
+								}
+								active={isFavorite}
+							/>
 						</View>
-					) : null}
-					<Text
-						style={styles.text3}
-						numberOfLines={2}
-						lineBreakMode={'tail'}
-					>
-						{title}
-					</Text>
-				</View>
-				<Text style={styles.text4}>
-					{`${newPrice} ${currency}`}
-				</Text>
-				{!hasRemove && <Rating count={5} active={4} />}
-				<View style={styles.plus}>
-					{hasRating ? (
-						<Rating
-							defaultStyle
-							active={rating}
-							count={ratingCount}
-						/>
-					) : null}
-					{hasCounter ? (
-						<ItemCounter
-							count={item.count}
-							onDecrement={onDecrement}
-							onIncrement={onIncrement}
-						/>
-					) : null}
+					</TouchableOpacity>
 				</View>
 			</View>
-			<View style={styles.exit}>
-				<ExitIcon
-					size={15}
-					color={colors.gray2}
-				/>
-			</View>
-			<View style={styles.rightEdge}>
-				<View style={styles.irow}>
-					{hasBasket ? (
-						<TouchableOpacity onPress={onCartPress}>
-							<View style={[styles.square, styles.mr10]}>
-								<CartIcon
-									size={22}
-									color={colors.blue}
-									active={isInCart}
-								/>
-							</View>
-						</TouchableOpacity>
-					) : null}
-					{hasRemove && (
-						<TouchableOpacity onPress={onRemove}>
-							<View style={styles.square}>
-								<TrashIcon size={18} color={'rgba(0,0,0,.3)'} />
-							</View>
-						</TouchableOpacity>
-					)}
-				</View>
-				<TouchableOpacity onPress={onLike}>
-					<View style={styles.square}>
-						<HeartIcon
-							size={22}
-							color={isFavorite ? colors.red : colors.leghtGrey1}
-							active={isFavorite}
-						/>
-					</View>
-				</TouchableOpacity>
-			</View>
-		</View>
+		</TouchableWithoutFeedback>
 	);
 };
 
@@ -303,5 +322,5 @@ const styles = StyleSheet.create({
 	},
 	exit: {
 		left: 60,
-	}
+	},
 });

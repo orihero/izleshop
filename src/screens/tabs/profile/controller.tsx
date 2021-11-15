@@ -7,7 +7,7 @@ import { Routes } from 'constants/routes';
 import { paddingVertical, windowWidth } from 'constants/sizes';
 import { requests } from 'api/requests';
 import { useDispatch } from 'react-redux';
-import { setUserData } from 'store/slices/userSlice';
+import { setProfileData, setUserData } from 'store/slices/userSlice';
 
 const ProfileController = () => {
 	const navigation = useNavigation<any>();
@@ -25,7 +25,7 @@ const ProfileController = () => {
 			let res = await requests.product.profile();
 			dispatch(setProfileData(res.data));
 		} catch (error) {
-			alert ('Error in product page');
+			// alert ('Error in product page');
 		}
 	};
 	useEffect(() => {

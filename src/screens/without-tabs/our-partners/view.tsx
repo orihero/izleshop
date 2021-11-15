@@ -5,8 +5,6 @@ import ProfileLayout from '../ProfileLayout';
 import { styles } from './stlye';
 import { strings } from 'locales/locales';
 
-
-
 const OurPartnersView = () => {
 	return (
 		<ProfileLayout headerTitle={strings.ourPartners || ''}>
@@ -17,7 +15,9 @@ const OurPartnersView = () => {
 						source={require('../../../assets/images/imageOne.png')}
 					/>
 					<Text style={styles.textOne}>{strings.oraiaFurniture}</Text>
-					<Text style={styles.text}>{`Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст
+					<Text
+						style={styles.text}
+					>{`Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст
 Сайт: t.me/asdad`}</Text>
 				</View>
 				<View style={styles.box}>
@@ -26,7 +26,9 @@ const OurPartnersView = () => {
 						source={require('../../../assets/images/imgTwo.png')}
 					/>
 					<Text style={styles.textOne}>{strings.oraiaFurniture}</Text>
-					<Text style={styles.text}>{`Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест  Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст 
+					<Text
+						style={styles.text}
+					>{`Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест  Текст тест Текст тест Текст тест Текст тест Текст тест Текст тест Текст 
 Сайт: t.me/asdad`}</Text>
 				</View>
 			</View>

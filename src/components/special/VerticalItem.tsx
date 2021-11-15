@@ -56,7 +56,7 @@ const VerticalItem = ({
 	const { id, name, price, currency, ratingCount, rating, status, image } =
 		item || {};
 
-		console.log({image},"image in products")
+	console.log({ image }, 'image in products');
 
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
@@ -105,7 +105,7 @@ const VerticalItem = ({
 					) : null}
 					<View style={bigSize ? styles.imgCont1 : styles.imgCont2}>
 						<Image
-							source={{uri:image}}
+							source={{ uri: image }}
 							style={bigSize ? styles.imgS1 : styles.imgS2}
 						/>
 					</View>
@@ -121,7 +121,12 @@ const VerticalItem = ({
 						</PressableIcon>
 					</View>
 					{/* <View style={styles.ratingRow}></View> */}
-					<Text style={styles.text} numberOfLines={2}>
+					<Text
+						style={styles.text}
+						numberOfLines={1}
+						textBreakStrategy={'simple'}
+						lineBreakMode="tail"
+					>
 						{name}
 					</Text>
 					<Text

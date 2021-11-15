@@ -92,7 +92,10 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	const [address, setAddress] = useState('');
 	const [note, setNote] = useState('');
 
+	const [loading, setLoading] = useState(false);
+
 	let onNextPress = async () => {
+		setLoading(true);
 		//@ts-ignore
 		try {
 			let req = {
@@ -115,6 +118,8 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 			}
 		} catch (error) {
 			console.log(error.response);
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -192,29 +197,12 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							/>
 						</View>
 					</View>
-					<View style={styles.mt19}>
-						<View style={styles.mapContainer}>
-							<MapView
-								// region={region}
-								showsUserLocation={true}
-								showsMyLocationButton={true}
-								style={styles.map}
-								initialRegion={{
-									latitude: 41.311081,
-									longitude: 69.240562,
-									latitudeDelta: 0.0922,
-									longitudeDelta: 0.0421,
-								}}
-							>
-								{/* <Marker coordinate={coordinate} /> */}
-							</MapView>
-						</View>
-					</View>
 					<View style={styles.mt21}>
 						<DefaultButton
 							marginDisabled
 							text={strings.checkout}
 							onPress={onNextPress}
+							loading={loading}
 						/>
 					</View>
 				</View>

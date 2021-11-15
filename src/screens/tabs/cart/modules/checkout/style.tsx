@@ -42,6 +42,9 @@ export const styles = StyleSheet.create({
 		marginBottom: 80,
 	},
 	ph20: {
+		marginHorizontal: 90,
+		alignItems: 'center',
+		justifyContent: 'center',
 		fontSize: 16,
 		lineHeight: 20,
 		fontWeight: '400',
@@ -65,7 +68,8 @@ export const styles = StyleSheet.create({
 	},
 	mt25: {
 		marginTop: 10,
-		marginLeft: 10,
+		marginLeft: 8,
+		marginHorizontal: 25,
 	},
 	mt19: {
 		width: 335,

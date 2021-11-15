@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 32,
 		justifyContent: 'space-between',
 		borderBottomWidth: 1,
-		borderColor: colors.lightBlue
+		borderColor: colors.lightBlue,
 	},
 	pdot: {
 		width: 10,
@@ -61,14 +61,14 @@ export const styles = StyleSheet.create({
 		marginTop: 15,
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: 'flex-start'
+		justifyContent: 'flex-start',
 	},
 	text1: {
 		fontSize: 16,
 		lineHeight: 19,
 		fontWeight: 'bold',
 		marginRight: 60,
-		color: colors.neutralDark
+		color: colors.neutralDark,
 	},
 	text2: {
 		fontSize: 18,
@@ -98,7 +98,6 @@ export const styles = StyleSheet.create({
 	},
 	mt20: {
 		// marginLeft: 10,
-		
 	},
 	margin: {
 		marginTop: 10,

@@ -95,11 +95,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: 'rgba(0,0,0,.8)',
+		backgroundColor: 'rgba(0,0,0,.3)',
 	},
 	modalBox: {
-		flex: 0.7,
+		flex: 0.4,
 		width: '90%',
+		paddingTop: 10,
+		paddingBottom: 10,
 		backgroundColor: colors.white,
 	},
 	item: {

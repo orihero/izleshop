@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
 
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Pressable from '../general/Pressable';
 
 import { ChevronRightIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
-import { IAccordionItem, IAccordionContent, IAccordion } from 'mockup/data';
+import {
+	IAccordionItem,
+	IAccordionContent,
+	IAccordion,
+	item,
+} from 'mockup/data';
 import { CommentsScreen as Comments } from 'screens/tabs';
 import { useNavigation } from '@react-navigation/core';
 import { Routes } from 'constants/routes';
+import RenderHTML from 'react-native-render-html';
 
 interface IAccordionProps {
 	items: any;
 }
 
-const Accordion = ({ items }: IAccordionProps) => {
+const Accordion = ({ items, characteristics: data }: IAccordionProps) => {
 	const [open, setOpen] = useState(0);
 	const navigation = useNavigation();
+
+	console.log({ data });
 
 	const onChangeContent = (index: number) => {
 		console.log({ index });
@@ -43,6 +51,7 @@ const Accordion = ({ items }: IAccordionProps) => {
 						finally: f,
 						hasCount,
 						hasRoute,
+						characteristics,
 					}: IAccordion,
 					i: number
 				) => (
@@ -73,8 +82,44 @@ const Accordion = ({ items }: IAccordionProps) => {
 								{!content ? (
 									hasCount ? (
 										<Comments />
-									) : null
+									) : (
+										characteristics &&
+										Object.keys(data || {})?.map((e) => {
+											return (
+												<View
+													style={
+														styles.characteristics
+													}
+												>
+													<Text style={styles.text6}>
+														{e}
+													</Text>
+													<Text style={styles.text7}>
+														{data[e]}
+													</Text>
+												</View>
+											);
+										})
+									)
 								) : (
+									// characteristics &&
+									// Object.keys(
+									// 	data.characteristics || {}
+									// )?.map((e) => {
+									// 	return (
+									// 		<View>
+									// 			<Text>{e}</Text>
+									// 			<Text>
+									// 				{
+									// 					data
+									// 						.characteristics[
+									// 						e
+									// 					]
+									// 				}
+									// 			</Text>
+									// 		</View>
+									// 	);
+									// })
 									content.map(
 										(
 											{
@@ -210,6 +255,22 @@ const styles = StyleSheet.create({
 		padding: 14,
 		borderBottomWidth: 1,
 		borderBottomColor: colors.lightGray,
+	},
+	characteristics: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+	},
+	text6: {
+		fontSize: 12,
+		paddingTop: 3,
+		lineHeight: 14,
+		fontWeight: 'bold',
+	},
+	text7: {
+		fontSize: 12,
+		paddingTop: 5,
+		lineHeight: 14,
+		fontWeight: '400',
 	},
 	row: {
 		flexDirection: 'row',

@@ -2,6 +2,9 @@ import LocalizedStrings from 'react-native-localization';
 
 export let strings = new LocalizedStrings({
 	ru: {
+		yes: 'Да',
+		warning: 'Внимание!',
+		logoutPrompt: 'Вы действительно хотите выйти?',
 		waiting: 'Ожидается оплата',
 		payed: 'Оплачено',
 		reset: 'сбросить',
@@ -119,5 +122,6 @@ export let strings = new LocalizedStrings({
 		save: 'Сохранить',
 		send: 'Отправить ',
 		installment: 'Рассрочка',
+		version: 'Версия:',
 	},
 });

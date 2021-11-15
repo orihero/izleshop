@@ -1,23 +1,3 @@
-import React, { useState } from 'react';
-import {
-	ProductsScreenNavigationProp,
-	ProductsScreenRouteProp,
-} from './controller';
-
-import { View, Text, ScrollView } from 'react-native';
-import Header from 'components/navigation/Header';
-import Pressable from 'components/general/Pressable';
-import ProductItem from 'components/special/ProductItem';
-import VerticalItem from 'components/special/VerticalItem';
-import HorizontalItem from 'components/special/HorizontalItem';
-import OrderItem from 'components/special/OrderItem';
-import SortModal from '../../components/SortModal';
-import FavoriteItem from 'screens/tabs/cart/components/FavoriteItem';
-
-import { colors } from 'constants/colors';
-import { strings } from 'locales/locales';
-import { products } from 'screens/tabs/home/data';
-import { divideArr } from 'utils/divideArr';
 import {
 	ArrowsIcon,
 	CategoriesIcon,
@@ -25,12 +5,23 @@ import {
 	MenuLinkIcon,
 	SearchIcon,
 } from 'assets/icons/icons';
-import { styles } from './style';
+import Pressable from 'components/general/Pressable';
+import Header from 'components/navigation/Header';
+import VerticalItem from 'components/special/VerticalItem';
+import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
-
-let productss = divideArr(products, 2);
-
-console.log(productss)
+import { strings } from 'locales/locales';
+import React, { useEffect, useState } from 'react';
+import { ScrollView, Text, View } from 'react-native';
+import FavoriteItem from 'screens/tabs/cart/components/FavoriteItem';
+import { requests } from 'api/requests';
+import { divideArr } from 'utils/divideArr';
+import SortModal from '../../components/SortModal';
+import {
+	ProductsScreenNavigationProp,
+	ProductsScreenRouteProp,
+} from './controller';
+import { styles } from './style';
 
 interface IProductsView {
 	route?: ProductsScreenRouteProp;
@@ -41,10 +32,23 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 	const [isList, setIsList] = useState(false);
 	const [sortOpen, setSortOpen] = useState(false);
 	const [activeIndex, setActiveIndex] = useState(0);
-
+	const [products, setProducts] = useState([]);
 	const onFilterPress = () => {
 		navigation?.navigate(Routes.FILTER, { from: route?.params.from });
 	};
+
+	let effect = async () => {
+		let res = await requests.product.getProducts({
+			categoryId: route?.params.categoryId,
+		});
+		console.log(res.data.data);
+		setProducts(res.data.data);
+	};
+	let productss = divideArr(products, 2);
+
+	useEffect(() => {
+		effect();
+	}, []);
 
 	return (
 		<View style={styles.flex1}>
@@ -93,27 +97,27 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 						</View>
 						{isList
 							? products.map((e, i) => (
-								<View key={i} style={styles.mt10}>
-									<FavoriteItem
-										hasBasket={true}
-										hasRemove={false}
-										item={{ data: e }}
-									/>
-								</View>
-							))
+									<View key={i} style={styles.mt10}>
+										<FavoriteItem
+											hasBasket={true}
+											hasRemove={false}
+											item={{ data: e }}
+										/>
+									</View>
+							  ))
 							: productss.map((e, i) => (
-								<View key={i} style={styles.productRow}>
-									{e.map((ee, ii) =>
-										e ? (
+									<View key={i} style={styles.productRow}>
+										{e.map((ee, ii) =>
+											e ? (
 												<VerticalItem
-												key={`${i}/${ii}`}
-												item={ee}
-												sizeChanged
-											/>
-										) : null
-									)}
-								</View>
-							))}
+													key={`${i}/${ii}`}
+													item={ee}
+													sizeChanged
+												/>
+											) : null
+										)}
+									</View>
+							  ))}
 					</View>
 				</ScrollView>
 			</View>

@@ -12,14 +12,10 @@ const BrandsView = () => {
 		<View style={{ paddingTop: 20 }}>
 			<FlatList
 				data={categories}
-				renderItem={(props) => (
-					<Content
-						{...props}
-						disableTitle
-						fromPage="brands"
-						navigation={navigation}
-					/>
-				)}
+				renderItem={(props) =>
+					// <BrandItem {...props}/>
+					null
+				}
 				showsVerticalScrollIndicator={false}
 			/>
 		</View>

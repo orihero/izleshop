@@ -76,5 +76,6 @@ export let {
 	setUserPhone,
 	userLoggedOut,
 	setUserData,
+	setProfileData,
 } = userSlice.actions;
 export default userSlice.reducer;

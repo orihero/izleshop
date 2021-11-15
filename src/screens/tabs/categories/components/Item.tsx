@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+	Dimensions,
 	Image,
 	ListRenderItemInfo,
 	StyleSheet,
@@ -10,30 +11,28 @@ import Pressable from 'components/general/Pressable';
 import { colors } from 'constants/colors';
 import { categories } from '../data';
 import { Routes } from 'constants/routes';
+import { useNavigation } from '@react-navigation/core';
+import { SvgFromUri, SvgXml } from 'react-native-svg';
 
 let el = categories[0].childs[0];
 
-export interface ItemViewProps {
-	setActiveSlide: (e: number) => void;
-	activeSlide: number;
-}
-
-const Item = ({
-	item,
-	navigation,
-	fromPage,
-}: ListRenderItemInfo<typeof el>) => {
+const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
+	console.log('This is an item', item);
+	let navigation = useNavigation();
+	let fromPage = 'categories';
 	const onPress = () => {
 		if (fromPage === 'categories') {
 			navigation.navigate(Routes.PRODUCTS, {
 				from: fromPage,
 				title: item.title || 'title',
+				categoryId: item.id,
 			});
 		}
 		if (fromPage === 'brands') {
 			navigation.navigate(Routes.PRODUCTS, {
 				from: fromPage,
 				title: item.title || 'title',
+				categoryId: item.id,
 			});
 		}
 	};
@@ -42,14 +41,14 @@ const Item = ({
 		<Pressable onPress={onPress}>
 			<View style={styles.parentContainer}>
 				<View style={styles.container}>
-					<Image source={item.image} style={styles.image} />
+					<SvgXml xml={item.svg} width={60} height={60} />
 				</View>
 				<Text
 					lineBreakMode={'tail'}
 					numberOfLines={1}
 					style={styles.title}
 				>
-					{item.name}
+					{item.title}
 				</Text>
 			</View>
 		</Pressable>
@@ -57,6 +56,8 @@ const Item = ({
 };
 
 export default Item;
+
+let { width, height } = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
 	container: {
@@ -69,6 +70,8 @@ const styles = StyleSheet.create({
 		height: 105,
 		marginHorizontal: 5,
 		marginTop: 14,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	title: {
 		fontWeight: '500',
@@ -80,9 +83,12 @@ const styles = StyleSheet.create({
 		// paddingVertical: 20,
 		paddingTop: 10,
 	},
-	parentContainer: {},
+	parentContainer: {
+		width: width / 3,
+	},
 	image: {
 		height: 40,
-		resizeMode: 'contain',
+		// resizeMode: 'contain',
+		width: 40,
 	},
 });

@@ -34,36 +34,45 @@ const InstallmentView = () => {
 				<Text style={styles.text}>%</Text>
 				<Text style={styles.installments}>{strings.installment}</Text>
 			</View>
-			<View>
-				<ModalDropdown
-					options={options}
-					textStyle={styles.textStyle}
-					dropdownTextHighlightStyle={{ color: colors.blue }}
-					dropdownStyle={{
-						borderTopLeftRadius: 0,
-						borderTopRightRadius: 0,
-						borderBottomRightRadius: 7,
-						borderBottomLeftRadius: 7,
-						paddingHorizontal: 10,
-					}}
-					adjustFrame={(style) => {
-						return {
-							...style,
-							top: style.top + 28,
-							left: style.left - 6,
-							height: style.height + 27 * options.length,
-							flex: 1,
-						};
-					}}
-					defaultValue={options[0]}
-					renderRow={(option, index) => (
-						<View style={styles.value}>
-							<Text style={styles.valueText}>{index + 1}</Text>
-							<Text style={styles.valueTexts}>{option}</Text>
-						</View>
-					)}
-					style={styles.dropdownStyle}
-				/>
+			<View style={styles.boxOne}>
+				<View>
+					<ModalDropdown
+						options={options}
+						textStyle={styles.textStyle}
+						dropdownTextHighlightStyle={{ color: colors.blue }}
+						dropdownStyle={{
+							borderTopLeftRadius: 0,
+							borderTopRightRadius: 0,
+							borderBottomRightRadius: 7,
+							borderBottomLeftRadius: 7,
+							paddingHorizontal: 10,
+						}}
+						adjustFrame={(style) => {
+							return {
+								...style,
+								top: style.top + 28,
+								left: style.left - 6,
+								height: style.height + 27 * options.length,
+								flex: 1,
+							};
+						}}
+						defaultValue={options[0]}
+						renderRow={(option, index) => (
+							<View style={styles.value}>
+								<Text style={styles.valueText}>
+									{index + 1}
+								</Text>
+								<Text style={styles.valueTexts}>{option}</Text>
+							</View>
+						)}
+						style={styles.dropdownStyle}
+					/>
+				</View>
+				<View style={styles.boxTwo}>
+					<Text style={styles.textTwo}>
+						Я согласен с правилами покупки товаров
+					</Text>
+				</View>
 			</View>
 		</View>
 	);

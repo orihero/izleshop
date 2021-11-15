@@ -13,7 +13,7 @@ interface DefaultInputProps {
 
 const DefaultInput = ({
 	value,
-	onChange = (value: string) => { },
+	onChange = (value: string) => {},
 	isPassword,
 	isTextArea,
 	placeholder = `(99) 456-95-50`,
@@ -69,8 +69,10 @@ const styles = StyleSheet.create({
 	},
 	textarea: {
 		height: 78,
-		borderRadius: 10,
 		fontSize: 14,
+		paddingTop: -40,
+		paddingBottom: 15,
+		borderRadius: 10,
 		backgroundColor: colors.white,
 	},
 	text1: {},

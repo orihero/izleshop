@@ -16,7 +16,14 @@ import MenuLink from 'components/special/MenuLink';
 import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
 import React from 'react';
-import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import {
+	Alert,
+	Image,
+	ScrollView,
+	Text,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 import { colors } from 'constants/colors';
 import { store } from 'store/configureStore';
 import { selectUser, userLoggedOut } from 'store/slices/userSlice';
@@ -34,7 +41,16 @@ const ProfileView = ({}: IProfileViewProps) => {
 		navigation.navigate(Routes.WITHOUT_TABS, { screen: route });
 	};
 	let onLogout = () => {
-		dispatch(userLoggedOut());
+		Alert.alert(strings.warning, strings.logoutPrompt, [
+			{
+				onPress: () => {
+					dispatch(userLoggedOut());
+				},
+				style: 'default',
+				text: strings.yes,
+			},
+			{ onPress: () => {}, style: 'cancel', text: strings.cancel },
+		]);
 	};
 	return (
 		<View style={styles.container}>
@@ -60,7 +76,9 @@ const ProfileView = ({}: IProfileViewProps) => {
 					<View style={styles.myProfile}>
 						<ProfileIcon size={22} />
 						<View style={styles.profile}>
-							<Text style={styles.textProfile}>{user.userData?.first_name}</Text>
+							<Text style={styles.textProfile}>
+								{user.userData?.first_name}
+							</Text>
 						</View>
 						<View style={styles.flag}>
 							<Image
@@ -77,20 +95,22 @@ const ProfileView = ({}: IProfileViewProps) => {
 					</View>
 					<View style={styles.orders}>
 						<View style={styles.myOrders}>
-							<Text
-								onPress={() => onPress(Routes.MY_ORDERS)}
-								style={styles.textOrders}
-							>
-								{strings.myOrders}
-							</Text>
 							<TouchableOpacity
 								style={styles.orderView}
-								onPress={() => onPress(Routes.VIEW_ALL)}
+								onPress={() => onPress(Routes.MY_ORDERS)}
 							>
-								<Text style={styles.textView}>
-									{strings.viewAll}
+								<Text
+									onPress={() => onPress(Routes.MY_ORDERS)}
+									style={styles.textOrders}
+								>
+									{strings.myOrders}
 								</Text>
-								<ChevronRightIcon size={10} />
+								<View style={styles.mt}>
+									<Text style={styles.textView}>
+										{strings.viewAll}
+									</Text>
+									<ChevronRightIcon size={10} />
+								</View>
 							</TouchableOpacity>
 						</View>
 						<Text style={styles.line} />
@@ -138,17 +158,24 @@ const ProfileView = ({}: IProfileViewProps) => {
 			)}
 
 			<View style={styles.news}>
-				<View style={styles.component}>
-					<Text style={styles.textOne}>Что нового?</Text>
-					<TouchableOpacity
-						style={styles.viewAll}
-						onPress={() => onPress(Routes.WHATS_NEW)}
-					>
-						<Text style={styles.textView}>{strings.viewAll}</Text>
-						<ChevronRightIcon size={8} />
-					</TouchableOpacity>
-				</View>
-				<Image source={require('../../../assets/images/image.png')} />
+				<TouchableOpacity
+					style={styles.viewAll}
+					onPress={() => onPress(Routes.WHATS_NEW)}
+				>
+					<View style={styles.component}>
+						<Text style={styles.textOne}>Что нового?</Text>
+						<View style={styles.md10}>
+							<Text style={styles.textView}>
+								{strings.viewAll}
+							</Text>
+							<ChevronRightIcon size={8} />
+						</View>
+					</View>
+					<Image
+						style={styles.img}
+						source={require('../../../assets/images/img21.png')}
+					/>
+				</TouchableOpacity>
 			</View>
 			<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
 				<MenuLink text={strings.helpSupport} />
@@ -162,9 +189,11 @@ const ProfileView = ({}: IProfileViewProps) => {
 			<Pressable to onPress={() => onPress(Routes.ABOUT_APP)}>
 				<MenuLink text={strings.aboutApp} />
 			</Pressable>
-			<Pressable to onPress={onLogout}>
-				<MenuLink text={strings.singAccount} Icon={LogoutIcon} />
-			</Pressable>
+			{!!user.token && (
+				<Pressable to onPress={onLogout}>
+					<MenuLink text={strings.singAccount} Icon={LogoutIcon} />
+				</Pressable>
+			)}
 		</View>
 	);
 };

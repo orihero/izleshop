@@ -32,6 +32,14 @@ let ListEmptyComponent = () => {
 				LinearGradient={LinearGradient}
 				style={[styles.emptyCard]}
 			/>
+			<Shimmer
+				LinearGradient={LinearGradient}
+				style={[styles.emptyCard]}
+			/>
+			<Shimmer
+				LinearGradient={LinearGradient}
+				style={[styles.emptyCard]}
+			/>
 		</View>
 	);
 };
@@ -95,7 +103,7 @@ const HomeView = ({
 				data={products}
 				numColumns={2}
 				renderItem={(props) => (
-					<VerticalItem {...props}  bigSize hasMargin />
+					<VerticalItem {...props} bigSize hasMargin />
 				)}
 				decelerationRate={'fast'}
 				showsHorizontalScrollIndicator={false}

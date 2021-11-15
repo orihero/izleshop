@@ -15,21 +15,22 @@ export type RootStackParamList = {
 	[Routes.TABS]: undefined;
 	[Routes.WITHOUT_TABS]: undefined;
 	[Routes.INTRO_SCREEN]: undefined;
-	test: undefined
+	test: undefined;
 };
 
 let RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const AppRouter = () => {
-	let user=useAppSelector(selectUser)
+	let user = useAppSelector(selectUser);
 	return (
 		<NavigationContainer>
 			<RootStack.Navigator screenOptions={{ headerShown: false }}>
-				{/* <RootStack.Screen  name={'test'} component={TestScreen} /> */}
-				<RootStack.Screen
-					name={Routes.INTRO_SCREEN}
-					component={IntroScreen}
-				/>
+				{!user.token && (
+					<RootStack.Screen
+						name={Routes.INTRO_SCREEN}
+						component={IntroScreen}
+					/>
+				)}
 				<RootStack.Screen name={Routes.TABS} component={Tabs} />
 				<RootStack.Screen
 					name={Routes.WITHOUT_TABS}

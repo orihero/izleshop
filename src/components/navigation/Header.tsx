@@ -1,7 +1,7 @@
 import React, { ReactChild } from 'react';
 import { useNavigation } from '@react-navigation/core';
 
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Pressable from '../general/Pressable';
 
 import { colors } from 'constants/colors';
@@ -43,7 +43,9 @@ const Header = ({
 			<View>
 				<Text style={[styles.title, styles.bold]}>{title}</Text>
 			</View>
-			<View style={styles.rightEdge}>{rightEdge()}</View>
+			<TouchableOpacity style={styles.box}>
+				<View style={styles.rightEdge}>{rightEdge()}</View>
+			</TouchableOpacity>
 		</View>
 	);
 };
@@ -70,7 +72,11 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 	},
 	rightEdge: {
-		right: 20,
+		// right: 20,
+	},
+	box: {
+		left: 360,
+		marginHorizontal: 10,
 		position: 'absolute',
 	},
 	title: {

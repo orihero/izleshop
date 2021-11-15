@@ -3,6 +3,8 @@ import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
 	cancel: {
+		right: 50,
+		// paddingRight: 20,
 		color: colors.blueLight,
 	},
 	container: {
@@ -41,8 +43,8 @@ export const styles = StyleSheet.create({
 		fontWeight: '500',
 	},
 	dot: {
-		width: 10,
-		height: 10,
+		width: 11,
+		height: 11,
 		borderRadius: 10,
 		backgroundColor: colors.iconBlue,
 	},

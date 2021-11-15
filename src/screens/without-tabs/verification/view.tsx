@@ -24,7 +24,12 @@ const VerificationView = ({}: IVerificationProps) => {
 	let user = useAppSelector(selectUser);
 	const dispatch = useDispatch();
 	const [code, setCode] = useState('');
+	const [loading, setLoading] = useState(false);
 	let onNextPress = async () => {
+		if (loading) {
+			return;
+		}
+		setLoading(true);
 		try {
 			let res = await requests.auth.login(
 				user.userData?.phone || '',
@@ -36,6 +41,7 @@ const VerificationView = ({}: IVerificationProps) => {
 			alert('Что-то пошло не так');
 			return;
 		}
+		setLoading(false);
 		//@ts-ignore
 		navigation.navigate(Routes.REGISTER);
 	};
@@ -51,7 +57,11 @@ const VerificationView = ({}: IVerificationProps) => {
 				/>
 			</View>
 			<View style={styles.buttom}>
-				<DefaultButton text={strings.toComeIn} onPress={onNextPress} />
+				<DefaultButton
+					loading={loading}
+					text={strings.toComeIn}
+					onPress={onNextPress}
+				/>
 			</View>
 			<Text style={styles.izle}>izle</Text>
 		</View>

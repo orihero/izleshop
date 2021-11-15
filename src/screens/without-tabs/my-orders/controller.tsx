@@ -11,7 +11,7 @@ const MyOrdersController = () => {
 
 	useEffect(() => {
 		effect();
-	});
+	}, []);
 	return <MyOrdersView {...{ userOrders }} />;
 };
 

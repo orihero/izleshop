@@ -12,6 +12,12 @@ export const styles = StyleSheet.create({
 		width: windowWidth,
 		padding: 20,
 		backgroundColor: colors.white,
-		elevation: 5
-	}
+		elevation: 5,
+	},
+	text: {
+		width: 370,
+		fontSize: 15,
+		fontWeight: '500',
+		textAlign: 'center',
+	},
 });

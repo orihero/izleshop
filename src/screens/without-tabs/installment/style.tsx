@@ -30,6 +30,11 @@ export const styles = StyleSheet.create({
 		fontWeight: '500',
 		color: colors.blue,
 	},
+	boxOne: {
+		flex: 1,
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+	},
 	value: {
 		flex: 1,
 		paddingLeft: 7,
@@ -58,5 +63,12 @@ export const styles = StyleSheet.create({
 		fontSize: 12,
 		fontWeight: '500',
 		color: colors.gray3,
+	},
+	boxTwo: {
+		alignItems: 'center',
+	},
+	textTwo: {
+		fontSize: 15,
+		fontWeight: '600',
 	},
 });

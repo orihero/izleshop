@@ -4,7 +4,7 @@ import {
 	GestureResponderEvent,
 	TouchableOpacity,
 } from 'react-native';
-import Svg, { Path } from 'react-native-svg';
+import Svg, { Circle, Path } from 'react-native-svg';
 import { colors } from 'constants/colors';
 
 let AnimatedPath = Animated.createAnimatedComponent(Path);
@@ -207,7 +207,11 @@ export function ChevronLeftIcon({
 }: IconProps) {
 	let iconProps = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg style={{ transform: [{ rotateY: '180deg' }] }} viewBox="0 0 512 512" {...iconProps}>
+		<Svg
+			style={{ transform: [{ rotateY: '180deg' }] }}
+			viewBox="0 0 512 512"
+			{...iconProps}
+		>
 			<Path d="M367.954 213.588L160.67 5.872c-7.804-7.819-20.467-7.831-28.284-.029-7.819 7.802-7.832 20.465-.03 28.284l207.299 207.731c7.798 7.798 7.798 20.486-.015 28.299L132.356 477.873c-7.802 7.819-7.789 20.482.03 28.284A19.935 19.935 0 00146.513 512c5.125 0 10.25-1.958 14.157-5.873l207.269-207.701c23.394-23.394 23.394-61.459.015-84.838z" />
 		</Svg>
 	);
@@ -310,23 +314,20 @@ export function SettingIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-		viewBox="0 0 19 19"
-		{...props}
-	  >
-		<Path
-		  fillRule="evenodd"
-		  clipRule="evenodd"
-		  d="M9.289 6.996c-1.262 0-2.285.972-2.285 2.17 0 1.2 1.023 2.172 2.285 2.172 1.262 0 2.285-.972 2.285-2.171 0-1.2-1.023-2.171-2.285-2.171zM5.48 9.166c0-1.998 1.705-3.618 3.809-3.618 2.103 0 3.808 1.62 3.808 3.619 0 1.998-1.705 3.618-3.808 3.618-2.104 0-3.809-1.62-3.809-3.618z"
-		  fill="#0E1732"
-		/>
-		<Path
-		  fillRule="evenodd"
-		  clipRule="evenodd"
-		  d="M17.088 9.167l.219.12c1.205.665 1.622 2.128.933 3.28l-1.397 2.335c-.698 1.166-2.261 1.568-3.482.895l-.188-.104v.228c0 1.332-1.136 2.412-2.538 2.412H7.863c-1.402 0-2.539-1.08-2.539-2.412v-.197l-.09.051c-1.222.69-2.802.292-3.504-.882L.332 12.557c-.683-1.142-.279-2.594.91-3.265l.222-.125-.222-.125C.053 8.37-.35 6.918.332 5.776L1.73 3.44c.702-1.174 2.282-1.572 3.504-.882l.09.051v-.197C5.324 1.08 6.461 0 7.863 0h2.772c1.402 0 2.539 1.08 2.539 2.412v.228l.188-.104c1.22-.672 2.783-.27 3.48.895l1.398 2.336c.689 1.151.272 2.615-.933 3.279l-.22.12zM15.566 10a.941.941 0 010-1.669l.977-.538c.482-.266.648-.851.373-1.312l-1.398-2.336c-.279-.466-.904-.627-1.392-.358l-.95.524c-.678.373-1.526-.09-1.526-.834V2.412c0-.533-.455-.965-1.015-.965H7.863c-.56 0-1.016.432-1.016.965v1.045c0 .748-.857 1.212-1.534.83l-.857-.485c-.49-.275-1.121-.116-1.402.353L1.656 6.491c-.273.457-.111 1.038.365 1.307l.956.54a.94.94 0 010 1.658l-.956.54c-.476.268-.638.85-.365 1.306l1.398 2.336c.28.47.913.629 1.402.353l.857-.484c.677-.382 1.534.081 1.534.83v1.044c0 .533.455.965 1.016.965h2.772c.56 0 1.015-.432 1.015-.965v-1.065c0-.744.848-1.208 1.525-.835l.95.524c.489.269 1.114.108 1.393-.358l1.398-2.336c.275-.46.109-1.046-.373-1.312l-.977-.538z"
-		  fill="#0E1732"
-		/>
-	  </Svg>
+		<Svg viewBox="0 0 19 19" {...props}>
+			<Path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M9.289 6.996c-1.262 0-2.285.972-2.285 2.17 0 1.2 1.023 2.172 2.285 2.172 1.262 0 2.285-.972 2.285-2.171 0-1.2-1.023-2.171-2.285-2.171zM5.48 9.166c0-1.998 1.705-3.618 3.809-3.618 2.103 0 3.808 1.62 3.808 3.619 0 1.998-1.705 3.618-3.808 3.618-2.104 0-3.809-1.62-3.809-3.618z"
+				fill="#0E1732"
+			/>
+			<Path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M17.088 9.167l.219.12c1.205.665 1.622 2.128.933 3.28l-1.397 2.335c-.698 1.166-2.261 1.568-3.482.895l-.188-.104v.228c0 1.332-1.136 2.412-2.538 2.412H7.863c-1.402 0-2.539-1.08-2.539-2.412v-.197l-.09.051c-1.222.69-2.802.292-3.504-.882L.332 12.557c-.683-1.142-.279-2.594.91-3.265l.222-.125-.222-.125C.053 8.37-.35 6.918.332 5.776L1.73 3.44c.702-1.174 2.282-1.572 3.504-.882l.09.051v-.197C5.324 1.08 6.461 0 7.863 0h2.772c1.402 0 2.539 1.08 2.539 2.412v.228l.188-.104c1.22-.672 2.783-.27 3.48.895l1.398 2.336c.689 1.151.272 2.615-.933 3.279l-.22.12zM15.566 10a.941.941 0 010-1.669l.977-.538c.482-.266.648-.851.373-1.312l-1.398-2.336c-.279-.466-.904-.627-1.392-.358l-.95.524c-.678.373-1.526-.09-1.526-.834V2.412c0-.533-.455-.965-1.015-.965H7.863c-.56 0-1.016.432-1.016.965v1.045c0 .748-.857 1.212-1.534.83l-.857-.485c-.49-.275-1.121-.116-1.402.353L1.656 6.491c-.273.457-.111 1.038.365 1.307l.956.54a.94.94 0 010 1.658l-.956.54c-.476.268-.638.85-.365 1.306l1.398 2.336c.28.47.913.629 1.402.353l.857-.484c.677-.382 1.534.081 1.534.83v1.044c0 .533.455.965 1.016.965h2.772c.56 0 1.015-.432 1.015-.965v-1.065c0-.744.848-1.208 1.525-.835l.95.524c.489.269 1.114.108 1.393-.358l1.398-2.336c.275-.46.109-1.046-.373-1.312l-.977-.538z"
+				fill="#0E1732"
+			/>
+		</Svg>
 	);
 }
 
@@ -404,7 +405,6 @@ export function LanguageIcon({
 	);
 }
 
-
 export function CardIcon({
 	color = colors.iconBlue,
 	active,
@@ -413,10 +413,7 @@ export function CardIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 20 16"
-			{...props}
-		>
+		<Svg viewBox="0 0 20 16" {...props}>
 			<Path
 				d="M18 16H2a2 2 0 01-2-2V2a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2zM2 7v7h16V7H2zm0-5v2.5h16V2H2zm9 10H4v-2h7v2z"
 				fill="#1779C8"
@@ -424,7 +421,6 @@ export function CardIcon({
 		</Svg>
 	);
 }
-
 
 export function BagIcon({
 	color = colors.iconBlue,
@@ -434,10 +430,7 @@ export function BagIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 18 18"
-			{...props}
-		>
+		<Svg viewBox="0 0 18 18" {...props}>
 			<Path
 				fillRule="evenodd"
 				clipRule="evenodd"
@@ -462,10 +455,7 @@ export function CarIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 23 16"
-			{...props}
-		>
+		<Svg viewBox="0 0 23 16" {...props}>
 			<Path
 				fillRule="evenodd"
 				clipRule="evenodd"
@@ -476,7 +466,6 @@ export function CarIcon({
 	);
 }
 
-
 export function TelephoneIcon({
 	color = 'white',
 	active,
@@ -485,10 +474,7 @@ export function TelephoneIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 14 20"
-			{...props}
-		>
+		<Svg viewBox="0 0 14 20" {...props}>
 			<Path
 				d="M12.625 1H1.375v18h11.25V1zM6.994 15.625h.011"
 				stroke="#1779C8"
@@ -500,6 +486,49 @@ export function TelephoneIcon({
 	);
 }
 
+export function CallIcon({
+	color = 'white',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg viewBox="0 0 24 24" {...props}>
+			<Path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+		</Svg>
+	);
+}
+
+export function MailIcon({
+	color = 'white',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg viewBox="0 0 24 24" {...props}>
+			<Path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+			<Path d="M22 6L12 13 2 6" />
+		</Svg>
+	);
+}
+
+export function MapIcon({
+	color = colors.blacks,
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg viewBox="0 0 24 24" {...props}>
+			<Path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+			<Circle cx={12} cy={10} r={3} />
+		</Svg>
+	);
+}
 
 export function CalenderIcon({
 	color = 'white',
@@ -509,10 +538,7 @@ export function CalenderIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 20 20"
-			{...props}
-		>
+		<Svg viewBox="0 0 20 20" {...props}>
 			<Path
 				d="M1 8.875h18M14.5 5.5V1m-9 4.5V1M1 3.25h18V19H1V3.25z"
 				stroke="#40BFFF"
@@ -525,7 +551,6 @@ export function CalenderIcon({
 	);
 }
 
-
 export function ProfileBoldIcon({
 	color = 'white',
 	active,
@@ -534,10 +559,7 @@ export function ProfileBoldIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 19 18"
-			{...props}
-		>
+		<Svg viewBox="0 0 19 18" {...props}>
 			<Path
 				stroke="#1779C8"
 				fillRule="evenodd"
@@ -549,7 +571,6 @@ export function ProfileBoldIcon({
 	);
 }
 
-
 export function ExitIcon({
 	color = 'grey',
 	active,
@@ -558,16 +579,14 @@ export function ExitIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 17 15"
-			{...props}
-		>
+		<Svg viewBox="0 0 17 15" {...props}>
 			<Path
 				d="M9.46 7.501l6.5-6.152a.76.76 0 000-1.117.868.868 0 00-1.179 0L8.28 6.384 1.779.232a.868.868 0 00-1.18 0 .76.76 0 000 1.117L7.1 7.5.6 13.653a.76.76 0 000 1.117.868.868 0 001.18 0l6.5-6.153 6.502 6.153a.868.868 0 001.18 0 .76.76 0 000-1.117L9.46 7.501z"
 				fill="#000"
 				fillOpacity={0.3}
 			/>
-		</Svg>);
+		</Svg>
+	);
 }
 
 export function PenIcon({
@@ -578,10 +597,7 @@ export function PenIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 19 17"
-			{...props}
-		>
+		<Svg viewBox="0 0 19 17" {...props}>
 			<Path
 				fillRule="evenodd"
 				clipRule="evenodd"
@@ -600,10 +616,7 @@ export function ChatIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg
-			viewBox="0 0 14 13"
-			{...props}
-		>
+		<Svg viewBox="0 0 14 13" {...props}>
 			<Path
 				fillRule="evenodd"
 				clipRule="evenodd"

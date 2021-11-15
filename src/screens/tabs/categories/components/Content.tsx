@@ -32,7 +32,7 @@ const Content = ({
 	navigation,
 	fromPage,
 }: IContentProps) => {
-console.log("child",item.childs);
+	console.log('child', item.childs);
 
 	return (
 		<View>

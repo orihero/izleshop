@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
 		width: windowWidth / 2 - 30,
 		height: 250,
 		shadowOpacity: 0.2,
-		backgroundColor: colors.white,
 		borderRadius: 7.5,
 		elevation: 2,
 		marginLeft: 15,
+		backgroundColor: colors.white,
 	},
 	container: {
 		backgroundColor: colors.lightBlue,

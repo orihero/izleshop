@@ -2,7 +2,7 @@ import axios from 'axios';
 import { store } from 'store/configureStore';
 import { UserData, UserFullData } from 'store/slices/userSlice';
 
-export let url = 'http://izleshop.uz/api';
+export let url = 'https://izleshop.uz/api';
 
 axios.interceptors.request.use((e) => {
 	if (!!store.getState().user.token)
@@ -22,11 +22,13 @@ export let requests = {
 		login: (phone: string, code: string) =>
 			axios.get<UserFullData>(`${url}/login?phone=${phone}&code=${code}`),
 		editProfile: (id?: string | number, payload?: any) =>
-			axios.post<UserData>(`${url}/edit/profile/${id}`, payload),
+			axios.post<UserData>(`${url}/edit/profile`, payload),
 	},
 	product: {
-		getProducts: () => {
-			return axios.get(`${url}/getProducts`);
+		getProducts: (params?: any) => {
+			return axios.get(`${url}/getProducts`, {
+				params,
+			});
 		},
 		getCategories: () => {
 			return axios.get(`${url}/getCategories`);
@@ -39,6 +41,9 @@ export let requests = {
 		},
 		getUserOrders: () => {
 			return axios.get(`${url}/getUserOrders`);
+		},
+		getPartners: () => {
+			return axios.get(`${url}/getPartners`);
 		},
 		getDetails: (id: string) =>
 			axios.get(`${url}/getProductDetails?id=${id}`),

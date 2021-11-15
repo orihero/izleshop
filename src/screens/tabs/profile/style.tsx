@@ -65,15 +65,28 @@ export const styles = StyleSheet.create({
 		lineHeight: 16,
 		fontWeight: 'bold',
 	},
-	viewAll: {
-		alignItems: 'center',
+	md10: {
 		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	viewAll: {
+		marginTop: 7,
+		marginBottom: 9,
+		width: 330,
+		height: 25,
+		alignItems: 'center',
+		justifyContent: 'space-between',
 	},
 	textView: {
 		marginTop: -2,
 		fontSize: 10,
 		fontFamily: 'Lato',
 		fontWeight: 'bold',
+	},
+	img: {
+		width: 320,
+		height: 130,
 	},
 	myProfile: {
 		height: 50,
@@ -122,8 +135,8 @@ export const styles = StyleSheet.create({
 		width: 350,
 		height: 30,
 		alignItems: 'center',
-		justifyContent: 'space-between',
 		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 	textOrders: {
 		paddingLeft: 15,
@@ -132,15 +145,21 @@ export const styles = StyleSheet.create({
 		fontFamily: 'Lato',
 		alignItems: 'center',
 	},
+	mt: {
+		alignItems: 'center',
+		flexDirection: 'row',
+		justifyContent: 'center',
+	},
 	orderView: {
-		paddingRight: 15,
-		paddingTop: 5,
+		width: 357,
 		fontSize: 10,
+		paddingTop: 5,
+		paddingRight: 15,
 		fontWeight: 'bold',
 		fontFamily: 'Lato',
 		alignItems: 'center',
-		justifyContent: 'center',
 		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 	line: {
 		width: 340,

@@ -22,22 +22,27 @@ interface ILanguageProps {
 	language: number;
 }
 
-const RegistrationView = ({
-	language,
-}: ILanguageProps) => {
+const RegistrationView = ({ language }: ILanguageProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	let dispatch = useDispatch();
 	let setName = (name: string) => {
 		dispatch(setUserName(name));
 	};
-	let onNextPress = () => {
-		//@ts-ignore
-		navigation.navigate(Routes.TABS);
-	};
 	let setLanguage = (language: number) => {
 		dispatch(setUserLanguage(language));
 	};
+	const [loading, setLoading] = useState(false);
+	let onNextPress = async () => {
+		if (loading) {
+			return;
+		}
+		setLoading(true);
+		setLoading(false);
+		//@ts-ignore
+		navigation.navigate(Routes.TABS);
+	};
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.top}>
@@ -78,7 +83,7 @@ const RegistrationView = ({
 											: styles.bblack,
 									]}
 								>
-								 		{i === user.languageIndex && (
+									{i === user.languageIndex && (
 										<View style={styles.circle} />
 									)}
 								</View>
@@ -91,6 +96,7 @@ const RegistrationView = ({
 						text={strings.toComeIn}
 						marginDisabled
 						onPress={onNextPress}
+						loading={loading}
 					/>
 				</View>
 				<View style={styles.bottom}>

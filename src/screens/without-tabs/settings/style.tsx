@@ -2,10 +2,10 @@ import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
-	row: { 
+	row: {
 		flexDirection: 'row',
-		justifyContent: 'space-between'
-	 },
+		justifyContent: 'space-between',
+	},
 	container: {
 		flex: 1,
 		paddingTop: 5,
@@ -43,12 +43,12 @@ export const styles = StyleSheet.create({
 	},
 	settingProfile: {
 		width: 390,
-		height: 165,
+		height: 112,
 		marginTop: 5,
 		marginLeft: 10,
 		backgroundColor: colors.white,
 	},
-	 dataContainer: {
+	dataContainer: {
 		height: 55,
 		paddingHorizontal: 20,
 		alignItems: 'center',
@@ -129,7 +129,7 @@ export const styles = StyleSheet.create({
 	flag: {
 		width: 18,
 		height: 18,
-		marginRight: 6 ,
+		marginRight: 6,
 		// right: 12,
 	},
 	text3: {

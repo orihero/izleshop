@@ -12,7 +12,14 @@ interface ISecondButton {
 	bl?: string;
 }
 
-const SecondButton = ({ text, onPress, ph = 20, bg, cl, bl }: ISecondButton) => {
+const SecondButton = ({
+	text,
+	onPress,
+	ph = 20,
+	bg,
+	cl,
+	bl,
+}: ISecondButton) => {
 	return (
 		<Pressable onPress={onPress}>
 			<View
@@ -35,7 +42,7 @@ export default SecondButton;
 const styles = StyleSheet.create({
 	container: {
 		width: 145,
-		height: 30,
+		height: 40,
 		borderWidth: 1,
 		borderRadius: 15,
 		paddingVertical: 7,
