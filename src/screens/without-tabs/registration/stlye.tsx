@@ -10,11 +10,11 @@ export const styles = StyleSheet.create({
 		flex: 1,
 	},
 	center: {
-		flex: 0.4,
+		// flex: 0.4,
 		borderRadius: 19,
 	},
 	bottom: {
-		flex: 0.4,
+		// flex: 0.4,
 		justifyContent: 'space-evenly',
 	},
 	text1: {
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
 		color: 'rgba(0,0,0,.8)',
 	},
 	text3: {
-		marginTop: -40,
+		marginTop: 100,
 		opacity: 0.5,
 		fontSize: 144,
 		lineHeight: 173,

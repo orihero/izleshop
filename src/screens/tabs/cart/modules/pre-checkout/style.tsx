@@ -76,13 +76,19 @@ export const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 	},
+	hover: {
+		elevation: 1,
+		// tintColor: colors.black,
+		shadowColor: colors.darkBlue,
+	},
 	inboxChild: {
 		width: (windowWidth - 52) / 2,
 		height: 70,
-		backgroundColor: colors.white,
+		elevation: 3,
 		borderRadius: 6,
-		justifyContent: 'center',
 		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: colors.white,
 	},
 	text7: {
 		fontSize: 18,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, } from 'react-native'; 
+import { Text, View } from 'react-native';
 
 import ProfileLayout from '../ProfileLayout';
 import { styles } from './style';
@@ -13,30 +13,35 @@ import { selectUser, setUserPhone } from 'store/slices/userSlice';
 import { useDispatch } from 'react-redux';
 import { Routes } from 'constants/routes';
 
-
-
 interface IPhoneNumberViewProps {
 	password: string;
 	setPassword: (e: string) => void;
 	onPress: () => void;
-	navigate: () => void
+	navigate: () => void;
 }
 
-
-const ConfirmationCodeView = ({ }: IPhoneNumberViewProps) => {
+const ConfirmationCodeView = ({}: IPhoneNumberViewProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
-	let dispatch = useDispatch()
-	let setPhone = (num: string) => { dispatch(setUserPhone(num)) }
-	let onNextPress = () => {
-        //@ts-ignore
-        navigation.navigate(Routes.SETTINGS);
-    };
+	let dispatch = useDispatch();
+	let setPhone = (num: string) => {
+		dispatch(setUserPhone(num));
+	};
 
 	const [code, setCode] = useState('');
+	const [loading, setLoading] = useState(false);
+	let onNextPress = () => {
+		if (loading) {
+			return;
+		}
+		setLoading(true);
+		setLoading(false);
+		//@ts-ignore
+		navigation.navigate(Routes.SETTINGS);
+	};
 
 	return (
-			<ProfileLayout headerTitle={strings.phoneNamber || ''}>
+		<ProfileLayout headerTitle={strings.phoneNamber || ''}>
 			<View style={styles.container}>
 				<View style={styles.codeInput}>
 					<Text style={styles.text}>{strings.confirmationCode}</Text>
@@ -52,6 +57,7 @@ const ConfirmationCodeView = ({ }: IPhoneNumberViewProps) => {
 						text={strings.save}
 						marginDisabled
 						onPress={onNextPress}
+						loading={loading}
 					/>
 				</View>
 			</View>

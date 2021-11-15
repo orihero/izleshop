@@ -2,6 +2,7 @@ import LocalizedStrings from 'react-native-localization';
 
 export let strings = new LocalizedStrings({
 	ru: {
+		searchs: 'Поиск',
 		yes: 'Да',
 		warning: 'Внимание!',
 		logoutPrompt: 'Вы действительно хотите выйти?',

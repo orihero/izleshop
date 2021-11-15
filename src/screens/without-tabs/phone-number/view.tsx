@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { styles } from './stlye';
 import { strings } from 'locales/locales';
@@ -18,19 +18,26 @@ interface IPhoneNumberViewProps {
 	password: string;
 	setPassword: (e: string) => void;
 	onPress: () => void;
-	navigate: () => void
+	navigate: () => void;
 }
 
-
-const PhoneNumberView = ({ }: IPhoneNumberViewProps) => {
+const PhoneNumberView = ({}: IPhoneNumberViewProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
-	let dispatch = useDispatch()
-	let setPhone = (num: string) => { dispatch(setUserPhone(num)) }
+	let dispatch = useDispatch();
+	let setPhone = (num: string) => {
+		dispatch(setUserPhone(num));
+	};
+	const [loading, setLoading] = useState(false);
 	let onNextPress = () => {
-        //@ts-ignore
-        navigation.navigate(Routes.CONFIRATION_CODE);
-    };
+		if (loading) {
+			return;
+		}
+		setLoading(true);
+		setLoading(false);
+		//@ts-ignore
+		navigation.navigate(Routes.CONFIRATION_CODE);
+	};
 
 	const [code, setCode] = useState('');
 
@@ -45,7 +52,6 @@ const PhoneNumberView = ({ }: IPhoneNumberViewProps) => {
 						onChange={setPhone}
 						keyboardType={'numeric'}
 						Icon={PhoneIcon}
-
 					/>
 				</View>
 				<View style={styles.center}>
@@ -53,6 +59,7 @@ const PhoneNumberView = ({ }: IPhoneNumberViewProps) => {
 						text={strings.send}
 						marginDisabled
 						onPress={onNextPress}
+						loading={loading}
 					/>
 				</View>
 			</View>

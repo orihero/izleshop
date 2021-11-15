@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import HorizontalItem from 'components/special/HorizontalItem';
@@ -15,7 +15,7 @@ import { selectUser } from 'store/slices/userSlice';
 import { Routes } from 'constants/routes';
 import { colors } from 'constants/colors';
 
-const MyOrdersView = ({ userOrders }) => {
+const MyOrdersView = ({ userOrders, products }) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	let dispatch = useDispatch();
@@ -52,25 +52,25 @@ const MyOrdersView = ({ userOrders }) => {
 										</Text>
 									</View>
 									{e?.items?.map((el) => {
+										let img = products?.find(
+											(e) => el.product_id === e.id
+										)?.image;
+										console.log(img);
+
 										return (
 											<View
 												key={el.id}
 												style={styles.mt10}
 											>
-												<OrderItem item={el} />
+												<OrderItem
+													item={{
+														...el,
+														img,
+													}}
+												/>
 											</View>
 										);
 									})}
-									{/* {orderItems.map((e, i) => (
-									<View key={i} style={styles.mt10}>
-										<OrderItem item={e} />
-									</View>
-								))}
-								{orderItems.map((e, i) => (
-									<View key={i} style={styles.mt10}>
-										<OrderItem item={e} />
-									</View>
-								))} */}
 									<View style={styles.boxTwo}>
 										<View>
 											<Text style={styles.textColumn}>
@@ -103,13 +103,12 @@ const MyOrdersView = ({ userOrders }) => {
 												</Text>
 											</View>
 										</TouchableOpacity>
-									) : (
-										<View style={styles.mt12}>
-											<Text style={styles.mt13}>
-												{'ОПЛАТИТЬ'}
-											</Text>
-										</View>
-									)}
+									) : // <View style={styles.mt12}>
+									// 	<Text style={styles.mt13}>
+									// 		{'ОПЛАТИТЬ'}
+									// 	</Text>
+									// </View>
+									null}
 								</View>
 							);
 						})}

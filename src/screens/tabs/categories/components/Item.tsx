@@ -17,7 +17,7 @@ import { SvgFromUri, SvgXml } from 'react-native-svg';
 let el = categories[0].childs[0];
 
 const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
-	console.log('This is an item', item);
+	console.log('This is an item', item, 'in items');
 	let navigation = useNavigation();
 	let fromPage = 'categories';
 	const onPress = () => {
@@ -41,7 +41,14 @@ const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
 		<Pressable onPress={onPress}>
 			<View style={styles.parentContainer}>
 				<View style={styles.container}>
-					<SvgXml xml={item.svg} width={60} height={60} />
+					{/* <SvgXml xml={item.svg} width={60} height={60} /> */}
+					<Image
+						source={{
+							uri: item.image,
+						}}
+						style={{ width: 100, height: 100 }}
+						resizeMode={'contain'}
+					/>
 				</View>
 				<Text
 					lineBreakMode={'tail'}

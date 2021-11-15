@@ -41,11 +41,13 @@ const arr2 = [
 interface IFilterView {
 	navigation: FilterScreenNavigationProp;
 	route: FilterScreenRouteProp;
+	categories: any;
 }
 
-const FilterView = ({ navigation, route }: IFilterView) => {
-	const tmp = route.params.from === 'categories';
+const FilterView = ({ navigation, route, categories }: IFilterView) => {
+	const isCategory = route.params.from === 'categories';
 	const [selected, setSelected] = useState(0);
+	console.log(categories);
 
 	return (
 		<View style={styles.container}>
@@ -61,11 +63,11 @@ const FilterView = ({ navigation, route }: IFilterView) => {
 					<RangeSlider />
 				</View>
 				<Text style={styles.title}>
-					{tmp ? strings.categories : strings.manufacturers}
+					{isCategory ? strings.categories : strings.manufacturers}
 				</Text>
 				<View style={styles.box}>
-					{tmp
-						? arr1.map((e, i) => (
+					{isCategory
+						? categories.map((e, i) => (
 								<TouchableOpacity
 									onPress={() => setSelected(i)}
 									key={i}
@@ -90,7 +92,7 @@ const FilterView = ({ navigation, route }: IFilterView) => {
 					<SecondButton
 						onPress={() => {}}
 						ph={32}
-						text={tmp ? strings.cancel : strings.allBrands}
+						text={isCategory ? strings.cancel : strings.allBrands}
 					/>
 					<SecondButton
 						onPress={() => {}}
@@ -98,7 +100,7 @@ const FilterView = ({ navigation, route }: IFilterView) => {
 						bg={colors.darkBlue}
 						bl={colors.darkBlue}
 						cl={colors.white}
-						text={tmp ? strings.sort : strings.byRating}
+						text={isCategory ? strings.sort : strings.byRating}
 					/>
 				</View>
 				<View style={styles.mb20} />

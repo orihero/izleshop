@@ -36,20 +36,25 @@ export const styles = StyleSheet.create({
 		marginTop: 12,
 	},
 	mt20: {
+		// marginLeft: 10,
 		marginTop: 20,
 	},
 	mb80: {
 		marginBottom: 80,
 	},
-	ph20: {
-		marginHorizontal: 90,
+	box: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		fontSize: 16,
-		lineHeight: 20,
-		fontWeight: '400',
-		paddingHorizontal: 25,
-		color: 'rgba(0,0,0,.8)',
+		marginHorizontal: 20,
+	},
+	ph20: {
+		left: 0,
+		right: 0,
+		padding: 0,
+		margin: 0,
+		marginHorizontal: 100,
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	mt10: {
 		right: 20,
@@ -64,15 +69,17 @@ export const styles = StyleSheet.create({
 	},
 	mt21: {
 		marginTop: 10,
-		right: 20,
+		right: 18,
+		marginHorizontal: 30,
 	},
 	mt25: {
 		marginTop: 10,
-		marginLeft: 8,
+		marginLeft: 16,
 		marginHorizontal: 25,
 	},
 	mt19: {
 		width: 335,
+		right: 8,
 		marginTop: 10,
 		marginLeft: 10,
 	},

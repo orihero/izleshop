@@ -3,9 +3,9 @@ import { windowWidth } from 'constants/sizes';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
-    container: {
+	container: {
 		flex: 1,
-		paddingTop: 6
+		paddingTop: 6,
 	},
 	inner: {
 		width: windowWidth,
@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
 	imgOne: {
 		width: 291,
 		height: 119,
+		resizeMode: 'contain',
 	},
 	textOne: {
 		fontSize: 14,
@@ -36,5 +37,5 @@ export const styles = StyleSheet.create({
 		fontSize: 12,
 		fontWeight: '400',
 		lineHeight: 19,
-	}
-})
+	},
+});

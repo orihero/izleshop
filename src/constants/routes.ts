@@ -32,11 +32,12 @@ export enum Routes {
 	LOGIN = 'login',
 	REGISTER = 'register',
 	MY_REVIEWS = 'my-reviews',
-	PHONE_NUMBER ='phone-number',
+	PHONE_NUMBER = 'phone-number',
 	NAME_PAGE = 'name-page',
 	LEAVE_FEEDBACK = 'leave-feedback',
 	WHATS_NEW = 'whats-new',
 	WHATS_NEWS = 'whats-news',
 	CONFIRATION_CODE = 'confirmationcode',
-	INSTALLMENT = 'installment'
+	INSTALLMENT = 'installment',
+	SEARCH = 'search',
 }

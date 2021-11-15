@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
-
-import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
-import Header from 'components/navigation/Header';
+import { useNavigation } from '@react-navigation/core';
+import { requests } from 'api/requests';
+import DefaultButton from 'components/general/DefaultButton';
 import DefaultInput from 'components/general/DefaultInput';
 import DefaultSelect from 'components/general/DefaultSelect';
-import DefaultButton from 'components/general/DefaultButton';
-
-import { styles } from './style';
-import { strings } from 'locales/locales';
-import { useAppDispatch, useAppSelector } from 'utils/hooks';
-import { selectUser } from 'store/slices/userSlice';
-import { useNavigation } from '@react-navigation/core';
+import Header from 'components/navigation/Header';
 import { Routes } from 'constants/routes';
-import { useDispatch } from 'react-redux';
-import { requests } from 'api/requests';
+import { strings } from 'locales/locales';
+import React, { useEffect, useState } from 'react';
+import { Linking, ScrollView, Text, View } from 'react-native';
+import { setUserPhone } from 'store/slices/userSlice';
+import { clearCart } from 'store/slices/cartSlice';
+import { useAppDispatch } from 'utils/hooks';
+import { styles } from './style';
 
 const arr1 = [
 	'Value 1',
@@ -82,7 +79,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	}, []);
 
 	const [regions, setRegions] = useState([]);
-	let products = route.params;
+	let { products, paymentMethod } = route.params || {};
 	let navigation = useNavigation();
 
 	const [name, setName] = useState('');
@@ -94,17 +91,19 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 
 	const [loading, setLoading] = useState(false);
 
+	let dispatch = useAppDispatch();
+
 	let onNextPress = async () => {
 		setLoading(true);
 		//@ts-ignore
 		try {
 			let req = {
 				receiverName: name,
-				paymentType: 'payme',
+				paymentType: paymentMethod,
 				receiverPhone: phone,
 				address: address,
 				district: district,
-				note: 'note message',
+				note: note,
 				index: '111201',
 				city: city,
 				products: products,
@@ -112,8 +111,10 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 			let response = await requests.product.makeOrder(req);
 			console.log(response.data);
 			console.log(city);
-			console.log(req.products);
+			console.log(req);
 			if (!!response) {
+				dispatch(clearCart());
+				Linking.openURL(response.data.paymentUrl);
 				navigation.navigate(Routes.HOME_STACK);
 			}
 		} catch (error) {
@@ -127,83 +128,87 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 		<View style={styles.container}>
 			<Header title={strings.checkout} />
 			<ScrollView showsVerticalScrollIndicator={false}>
-				<View style={styles.ph20}>
-					<View style={styles.mt20}>
-						<Text style={styles.text1}>{`${strings.name}*`}</Text>
-						<View style={styles.mt10}>
-							<DefaultInput
-								placeholder={'ФИО'}
-								value={name}
-								onChange={setName}
+				<View style={styles.box}>
+					<View style={styles.ph20}>
+						<View style={styles.mt20}>
+							<Text
+								style={styles.text1}
+							>{`${strings.name}*`}</Text>
+							<View style={styles.mt10}>
+								<DefaultInput
+									placeholder={'ФИО'}
+									value={name}
+									onChange={setName}
+								/>
+							</View>
+						</View>
+						<View style={styles.mt20}>
+							<Text
+								style={styles.text1}
+							>{`${strings.phoneNumber}*`}</Text>
+							<View style={styles.mt10}>
+								<DefaultInput
+									placeholder={'+998901234567'}
+									value={phone}
+									onChange={setPhone}
+								/>
+							</View>
+						</View>
+						<View style={styles.mt25}>
+							<Text
+							// style={styles.text1}
+							>{`${strings.selectCity}*`}</Text>
+							<DefaultSelect
+								value={city}
+								values={regions}
+								setValue={setCity}
+								placeholder={strings.cityNotSelected || ''}
 							/>
 						</View>
-					</View>
-					<View style={styles.mt20}>
-						<Text
-							style={styles.text1}
-						>{`${strings.phoneNumber}*`}</Text>
-						<View style={styles.mt10}>
-							<DefaultInput
-								placeholder={'+998901234567'}
-								value={phone}
-								onChange={setPhone}
+						<View style={styles.mt20}>
+							<Text
+								style={styles.text1}
+							>{`${strings.selectDistrict}*`}</Text>
+							<View style={styles.mt10}>
+								<DefaultInput
+									placeholder={'Видите район '}
+									value={district}
+									onChange={setDistrict}
+								/>
+							</View>
+						</View>
+						<View style={styles.mt19}>
+							<Text
+							// style={styles.text1}
+							>{`${strings.address}*`}</Text>
+							<View style={styles.mt12}>
+								<DefaultInput
+									placeholder={''}
+									isTextArea
+									value={address}
+									onChange={setAddress}
+								/>
+							</View>
+						</View>
+						<View style={styles.mt19}>
+							<Text>{`${strings.note}`}</Text>
+							<View style={styles.mt12}>
+								<DefaultInput
+									placeholder={''}
+									isTextArea
+									value={note}
+									onChange={setNote}
+								/>
+							</View>
+						</View>
+						<View style={styles.mt21}>
+							<DefaultButton
+								marginDisabled
+								text={strings.checkout}
+								onPress={onNextPress}
+								loading={loading}
 							/>
 						</View>
-					</View>
-					<View style={styles.mt25}>
-						<Text
-						// style={styles.text1}
-						>{`${strings.selectCity}*`}</Text>
-						<DefaultSelect
-							value={city}
-							values={regions}
-							setValue={setCity}
-							placeholder={strings.cityNotSelected || ''}
-						/>
-					</View>
-					<View style={styles.mt20}>
-						<Text
-							style={styles.text1}
-						>{`${strings.selectDistrict}*`}</Text>
-						<View style={styles.mt10}>
-							<DefaultInput
-								placeholder={'Видите район '}
-								value={district}
-								onChange={setDistrict}
-							/>
-						</View>
-					</View>
-					<View style={styles.mt19}>
-						<Text
-						// style={styles.text1}
-						>{`${strings.address}*`}</Text>
-						<View style={styles.mt12}>
-							<DefaultInput
-								placeholder={''}
-								isTextArea
-								value={address}
-								onChange={setAddress}
-							/>
-						</View>
-					</View>
-					<View style={styles.mt19}>
-						<Text>{`${strings.note}`}</Text>
-						<View style={styles.mt12}>
-							<DefaultInput
-								placeholder={''}
-								isTextArea
-								value={note}
-								onChange={setNote}
-							/>
-						</View>
-					</View>
-					<View style={styles.mt21}>
-						<DefaultButton
-							marginDisabled
-							text={strings.checkout}
-							onPress={onNextPress}
-							loading={loading}
-						/>
 					</View>
 				</View>
 				<View style={styles.mb80} />

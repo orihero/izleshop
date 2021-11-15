@@ -171,11 +171,11 @@ const ProfileView = ({}: IProfileViewProps) => {
 							<ChevronRightIcon size={8} />
 						</View>
 					</View>
-					<Image
-						style={styles.img}
-						source={require('../../../assets/images/img21.png')}
-					/>
 				</TouchableOpacity>
+				<Image
+					style={styles.img}
+					source={require('../../../assets/images/img21.png')}
+				/>
 			</View>
 			<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
 				<MenuLink text={strings.helpSupport} />

@@ -12,6 +12,7 @@ import {
 	Image,
 	ScrollView,
 	TouchableWithoutFeedback,
+	TouchableOpacity,
 } from 'react-native';
 import Header from 'components/navigation/Header';
 import DefaultButton from 'components/general/DefaultButton';
@@ -75,7 +76,20 @@ export interface IPreCheckoutProductsModel {
 const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const { total, count, cartList } = route.params;
-
+	const [payMethods, setPayMethods] = useState([
+		{
+			id: 1,
+			img: paymeLogo,
+			payment: 'payme',
+			active: true,
+		},
+		{
+			id: 2,
+			img: clickLogo,
+			payment: 'click',
+			active: false,
+		},
+	]);
 	const products = cartList.map((product, index) => {
 		let newProduct = product.data;
 		newProduct.amount = product.count;
@@ -86,10 +100,18 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 	});
 
 	const onPress = () => {
-		console.log(products);
+		let paymentType =
+			activeIndex === 2
+				? payMethods.find((e) => e.active)?.payment
+				: null;
 		navigation.navigate(Routes.CHECKOUT, {
 			products: products,
+			paymentMethod: paymentType,
 		});
+	};
+
+	let onBackPress = () => {
+		navigation.navigate(Routes.HOME);
 	};
 
 	return (
@@ -99,7 +121,7 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 		>
 			<Header
 				title={strings.cart}
-				rightEdge={() => <SearchIcon size={20} />}
+				// rightEdge={() => <SearchIcon size={20} />}
 			/>
 			<View style={styles.top}>
 				<View style={styles.topChild}>
@@ -215,10 +237,45 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 			<View style={styles.mv25}>
 				{activeIndex === 2 ? (
 					<View style={styles.inbox}>
-						{arr.map((e, i) => (
-							<View key={i} style={styles.inboxChild}>
-								<Image source={e.img} />
-							</View>
+						{payMethods.map((e, i) => (
+							<TouchableOpacity
+								style={styles.hover}
+								onPress={() => {
+									setPayMethods((prevState) => {
+										return prevState.map((pay, index) => {
+											if (index == i) {
+												return { ...pay, active: true };
+											} else {
+												return {
+													...pay,
+													active: false,
+												};
+											}
+										});
+									});
+								}}
+							>
+								<View
+									key={i}
+									style={[
+										styles.inboxChild,
+										{
+											elevation: 5,
+											borderColor: e.active
+												? colors.darkBlue
+												: colors.white,
+											borderWidth: 2,
+											shadowRadius: 10,
+											shadowOpacity: 0.1,
+											shadowColor: e.active
+												? colors.darkBlue
+												: colors.white,
+										},
+									]}
+								>
+									<Image source={e.img} />
+								</View>
+							</TouchableOpacity>
 						))}
 					</View>
 				) : null}
@@ -226,7 +283,11 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 			<DefaultButton text={strings.order} onPress={onPress} />
 			<View style={styles.bottom}>
 				<View style={styles.bbw1}>
-					<Text style={styles.text7}>{strings.backToShopping}</Text>
+					<TouchableOpacity onPress={onBackPress}>
+						<Text style={styles.text7}>
+							{strings.backToShopping}
+						</Text>
+					</TouchableOpacity>
 				</View>
 			</View>
 			<View style={styles.mb30} />

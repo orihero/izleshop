@@ -6,6 +6,7 @@ import Pressable from '../general/Pressable';
 
 import { colors } from 'constants/colors';
 import { BackIcon } from '../../assets/icons/icons';
+import { Routes } from 'constants/routes';
 
 export interface HeaderProps {
 	title?: string;
@@ -31,6 +32,10 @@ const Header = ({
 			navigation.goBack();
 		}
 	};
+	let onNextPress = () => {
+		// @ts-ignore
+		navigation.navigate(Routes.SEARCH);
+	};
 	return (
 		<View style={[styles.container, hasBorder ? styles.bbw : null]}>
 			<View style={styles.leftEdge}>
@@ -43,7 +48,7 @@ const Header = ({
 			<View>
 				<Text style={[styles.title, styles.bold]}>{title}</Text>
 			</View>
-			<TouchableOpacity style={styles.box}>
+			<TouchableOpacity onPress={onNextPress} style={styles.box}>
 				<View style={styles.rightEdge}>{rightEdge()}</View>
 			</TouchableOpacity>
 		</View>

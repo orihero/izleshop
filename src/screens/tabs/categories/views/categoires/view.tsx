@@ -11,6 +11,7 @@ export interface CategoriesViewProps {
 
 const CategoriesView = ({ categories }: CategoriesViewProps) => {
 	const navigation = useNavigation<CategoriesNavigationProp>();
+
 	return (
 		<View style={styles.container}>
 			<FlatList

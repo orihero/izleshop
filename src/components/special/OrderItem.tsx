@@ -11,7 +11,10 @@ const OrderItem = ({ item }: OrderItemProps) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.img}>
-				<Image source={item.img} />
+				<Image
+					source={{ uri: item.img }}
+					style={{ width: 60, height: 60 }}
+				/>
 			</View>
 			<View style={styles.boxText}>
 				<Text style={styles.text}>{item.product?.name}</Text>
