@@ -56,11 +56,6 @@ const LanguageView = ({
 					))}
 				</View>
 				<View style={styles.button}>
-					{/* <DefaultButton
-						marginDisabled
-						onPress={onPress}
-						text={strings.cancel}
-					/> */}
 					<Text style={styles.textCancel} onPress={onPress}>
 						{strings.save}
 					</Text>

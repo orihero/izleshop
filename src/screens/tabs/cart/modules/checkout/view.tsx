@@ -8,9 +8,9 @@ import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
 import React, { useEffect, useState } from 'react';
 import { Linking, ScrollView, Text, View } from 'react-native';
-import { setUserPhone } from 'store/slices/userSlice';
+import { selectUser, setUserPhone } from 'store/slices/userSlice';
 import { clearCart } from 'store/slices/cartSlice';
-import { useAppDispatch } from 'utils/hooks';
+import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
 const arr1 = [
@@ -81,6 +81,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	const [regions, setRegions] = useState([]);
 	let { products, paymentMethod } = route.params || {};
 	let navigation = useNavigation();
+	// let user = useAppSelector(selectUser);
 
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
@@ -139,6 +140,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 									placeholder={'ФИО'}
 									value={name}
 									onChange={setName}
+									keyboardType="numeric"
 								/>
 							</View>
 						</View>
@@ -151,12 +153,13 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 									placeholder={'+998901234567'}
 									value={phone}
 									onChange={setPhone}
+									keyboardType="phone-pad"
 								/>
 							</View>
 						</View>
 						<View style={styles.mt25}>
 							<Text
-							// style={styles.text1}
+								style={styles.text4}
 							>{`${strings.selectCity}*`}</Text>
 							<DefaultSelect
 								value={city}
@@ -179,7 +182,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 						</View>
 						<View style={styles.mt19}>
 							<Text
-							// style={styles.text1}
+								style={styles.text5}
 							>{`${strings.address}*`}</Text>
 							<View style={styles.mt12}>
 								<DefaultInput
@@ -191,7 +194,9 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							</View>
 						</View>
 						<View style={styles.mt19}>
-							<Text>{`${strings.note}`}</Text>
+							<Text
+								style={styles.text5}
+							>{`${strings.note}*`}</Text>
 							<View style={styles.mt12}>
 								<DefaultInput
 									placeholder={''}

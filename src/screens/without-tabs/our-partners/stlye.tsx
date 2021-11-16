@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingTop: 6,
+		backgroundColor: colors.lightBlue,
 	},
 	inner: {
 		width: windowWidth,

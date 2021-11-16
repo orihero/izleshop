@@ -3,11 +3,12 @@ import { requests } from 'api/requests';
 import {
 	BagIcon,
 	CardIcon,
-	CarIcon, ChevronRightIcon,
+	CarIcon,
+	ChevronRightIcon,
 	LogoutIcon,
 	PenIcon,
 	ProfileIcon,
-	SettingIcon
+	SettingIcon,
 } from 'assets/icons/icons';
 import DefaultButton from 'components/general/DefaultButton';
 import Pressable from 'components/general/Pressable';
@@ -18,19 +19,21 @@ import { strings } from 'locales/locales';
 import React, { useEffect, useState } from 'react';
 import {
 	Alert,
-	Image, Text,
+	Image,
+	ScrollView,
+	Text,
 	TouchableOpacity,
 	TouchableWithoutFeedback,
-	View
+	View,
 } from 'react-native';
 import { selectUser, userLoggedOut } from 'store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
-interface IProfileViewProps { }
+interface IProfileViewProps {}
 
-const ProfileView = ({ }: IProfileViewProps) => {
-	const [banners, setBanners] = useState([])
+const ProfileView = ({}: IProfileViewProps) => {
+	const [banners, setBanners] = useState([]);
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
 	let dispatch = useAppDispatch();
@@ -47,169 +50,183 @@ const ProfileView = ({ }: IProfileViewProps) => {
 				style: 'default',
 				text: strings.yes,
 			},
-			{ onPress: () => { }, style: 'cancel', text: strings.cancel },
+			{ onPress: () => {}, style: 'cancel', text: strings.cancel },
 		]);
 	};
 	let effect = async () => {
 		try {
 			let res = await requests.product.getBanners();
-			setBanners(res.data)
-		} catch (error) {
-
-		}
-	}
+			setBanners(res.data);
+		} catch (error) {}
+	};
 
 	useEffect(() => {
 		effect();
-	}, [])
+	}, []);
 
 	return (
-		<View style={styles.container}>
-			{!user.token ? (
-				<View>
-					<View style={styles.avatarContainer}>
-						<Text style={styles.welcomeText}>
-							{strings.welcome}
-						</Text>
-						<Text style={styles.loginPrompt}>
-							{strings.loginPrompt}
-						</Text>
-					</View>
-					<View style={styles.button}>
-						<DefaultButton
-							text={strings.create}
-							onPress={() => onPress(Routes.LOGIN)}
-						/>
-					</View>
-				</View>
-			) : (
-				<>
-					<View style={styles.myProfile}>
-						<ProfileIcon size={22} />
-						<View style={styles.profile}>
-							<Text style={styles.textProfile}>
-								{user.userData?.first_name}
+		<ScrollView
+			showsVerticalScrollIndicator={false}
+			// style={styles.container}
+		>
+			<View style={styles.container}>
+				{!user.token ? (
+					<View>
+						<View style={styles.avatarContainer}>
+							<Text style={styles.welcomeText}>
+								{strings.welcome}
+							</Text>
+							<Text style={styles.loginPrompt}>
+								{strings.loginPrompt}
 							</Text>
 						</View>
-						<View style={styles.flag}>
-							<Image
-								style={styles.imageFlag}
-								source={require('assets/images/flag.png')}
+						<View style={styles.button}>
+							<DefaultButton
+								text={strings.create}
+								onPress={() => onPress(Routes.LOGIN)}
 							/>
-							<TouchableOpacity
-								style={styles.setting}
-								onPress={() => onPress(Routes.SETTINGS)}
-							>
-								<SettingIcon color={colors.darkGray2} />
-							</TouchableOpacity>
 						</View>
 					</View>
-					<View style={styles.orders}>
-						<View style={styles.myOrders}>
-							<TouchableOpacity
-								style={styles.orderView}
-								onPress={() => onPress(Routes.MY_ORDERS)}
-							>
-								<Text
-									onPress={() => onPress(Routes.MY_ORDERS)}
-									style={styles.textOrders}
-								>
-									{strings.myOrders}
+				) : (
+					<>
+						<View style={styles.myProfile}>
+							<ProfileIcon size={22} />
+							<View style={styles.profile}>
+								<Text style={styles.textProfile}>
+									{user.userData?.first_name}
 								</Text>
-								<View style={styles.mt}>
+							</View>
+							<View style={styles.flag}>
+								<Image
+									style={styles.imageFlag}
+									source={require('assets/images/flag.png')}
+								/>
+								<TouchableOpacity
+									style={styles.setting}
+									onPress={() => onPress(Routes.SETTINGS)}
+								>
+									<SettingIcon color={colors.darkGray2} />
+								</TouchableOpacity>
+							</View>
+						</View>
+						<View style={styles.orders}>
+							<View style={styles.myOrders}>
+								<TouchableOpacity
+									style={styles.orderView}
+									onPress={() => onPress(Routes.MY_ORDERS)}
+								>
+									<Text
+										onPress={() =>
+											onPress(Routes.MY_ORDERS)
+										}
+										style={styles.textOrders}
+									>
+										{strings.myOrders}
+									</Text>
+									<View style={styles.mt}>
+										<Text style={styles.textView}>
+											{strings.viewAll}
+										</Text>
+										<ChevronRightIcon size={10} />
+									</View>
+								</TouchableOpacity>
+							</View>
+							<Text style={styles.line} />
+							<View style={styles.dispatch}>
+								<View style={styles.payment}>
+									<CardIcon size={25} />
+									<Text style={styles.textPayment}>
+										{strings.paymentPending}
+									</Text>
+								</View>
+								<View style={styles.payment}>
+									<BagIcon size={25} />
+									<Text style={styles.textPayment}>
+										{strings.awaitingDispatch}
+									</Text>
+								</View>
+								<View style={styles.payment}>
+									<CarIcon size={27} />
+									<Text style={styles.textPayment}>
+										{strings.orderSent}
+									</Text>
+								</View>
+								<View style={styles.payments}>
+									<PenIcon size={25} />
+									<Text style={styles.textPayments}>
+										{strings.reviewAwaiteng}
+									</Text>
+								</View>
+							</View>
+							<Text style={styles.line} />
+							<View style={styles.lol}>
+								<TouchableOpacity
+									style={styles.reviews}
+									onPress={() => onPress(Routes.MY_REVIEWS)}
+								>
+									<Text style={styles.textReviews}>
+										{strings.myreviews}
+									</Text>
+									<ChevronRightIcon size={10} />
+								</TouchableOpacity>
+							</View>
+						</View>
+					</>
+				)}
+
+				<View style={styles.news}>
+					<TouchableWithoutFeedback
+						onPress={() => onPress(Routes.WHATS_NEW, { banners })}
+					>
+						<View style={styles.viewAll}>
+							<View style={styles.component}>
+								<Text style={styles.textOne}>Что нового?</Text>
+								<View style={styles.md10}>
 									<Text style={styles.textView}>
 										{strings.viewAll}
 									</Text>
-									<ChevronRightIcon size={10} />
+									<ChevronRightIcon size={8} />
 								</View>
-							</TouchableOpacity>
-						</View>
-						<Text style={styles.line} />
-						<View style={styles.dispatch}>
-							<View style={styles.payment}>
-								<CardIcon size={25} />
-								<Text style={styles.textPayment}>
-									{strings.paymentPending}
-								</Text>
 							</View>
-							<View style={styles.payment}>
-								<BagIcon size={25} />
-								<Text style={styles.textPayment}>
-									{strings.awaitingDispatch}
-								</Text>
-							</View>
-							<View style={styles.payment}>
-								<CarIcon size={27} />
-								<Text style={styles.textPayment}>
-									{strings.orderSent}
-								</Text>
-							</View>
-							<View style={styles.payments}>
-								<PenIcon size={25} />
-								<Text style={styles.textPayments}>
-									{strings.reviewAwaiteng}
-								</Text>
-							</View>
-						</View>
-						<Text style={styles.line} />
-						<View style={styles.lol}>
-							<TouchableOpacity
-								style={styles.reviews}
-								onPress={() => onPress(Routes.MY_REVIEWS)}
+							<TouchableWithoutFeedback
+								onPress={() =>
+									onPress(Routes.WHATS_NEW, { banners })
+								}
 							>
-								<Text style={styles.textReviews}>
-									{strings.myreviews}
-								</Text>
-								<ChevronRightIcon size={10} />
-							</TouchableOpacity>
+								<Image
+									style={styles.img}
+									source={
+										banners.length > 0
+											? { uri: banners[0].image }
+											: undefined
+									}
+								/>
+							</TouchableWithoutFeedback>
 						</View>
-					</View>
-				</>
-			)}
-
-			<View style={styles.news}>
-				<TouchableWithoutFeedback
-					onPress={() => onPress(Routes.WHATS_NEW, { banners })}
-				>
-					<View
-						style={styles.viewAll}
-					>
-						<View style={styles.component}>
-							<Text style={styles.textOne}>Что нового?</Text>
-							<View style={styles.md10}>
-								<Text style={styles.textView}>
-									{strings.viewAll}
-								</Text>
-								<ChevronRightIcon size={8} />
-							</View>
-						</View>
-						<TouchableWithoutFeedback onPress={() => onPress(Routes.WHATS_NEW, { banners })}>
-							<Image
-								style={styles.img}
-								source={banners.length > 0 ? { uri: banners[0].image } : undefined}
-							/>
-						</TouchableWithoutFeedback>
-					</View>
-				</TouchableWithoutFeedback>
-			</View>
-			<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
-				<MenuLink text={strings.helpSupport} />
-			</Pressable>
-			<Pressable to onPress={() => onPress(Routes.ABOUT_US)}>
-				<MenuLink text={strings.aboutUs} />
-			</Pressable>
-			<Pressable to onPress={() => onPress(Routes.OUR_PARTNERS)}>
-				<MenuLink text={strings.ourPartners} />
-			</Pressable>
-			<Pressable to onPress={() => onPress(Routes.ABOUT_APP)}>
-				<MenuLink text={strings.aboutApp} />
-			</Pressable>
-			{!!user.token && (
-				<Pressable to onPress={onLogout}>
-					<MenuLink text={strings.singAccount} Icon={LogoutIcon} />
+					</TouchableWithoutFeedback>
+				</View>
+				<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
+					<MenuLink text={strings.helpSupport} />
 				</Pressable>
-			)}
-		</View>
+				<Pressable to onPress={() => onPress(Routes.ABOUT_US)}>
+					<MenuLink text={strings.aboutUs} />
+				</Pressable>
+				<Pressable to onPress={() => onPress(Routes.OUR_PARTNERS)}>
+					<MenuLink text={strings.ourPartners} />
+				</Pressable>
+				<Pressable to onPress={() => onPress(Routes.ABOUT_APP)}>
+					<MenuLink text={strings.aboutApp} />
+				</Pressable>
+				{!!user.token && (
+					<Pressable to onPress={onLogout}>
+						<MenuLink
+							text={strings.singAccount}
+							Icon={LogoutIcon}
+						/>
+					</Pressable>
+				)}
+			</View>
+		</ScrollView>
 	);
 };
 

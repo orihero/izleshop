@@ -10,8 +10,9 @@ export const styles = StyleSheet.create({
 	},
 	container: {
 		flex: 1,
-		padding: 20,
+		padding: 10,
 		marginTop: 5,
+		marginHorizontal: 5,
 		backgroundColor: colors.lightBlue,
 	},
 	title: {
@@ -63,12 +64,11 @@ export const styles = StyleSheet.create({
 		color: colors.darkBlue,
 	},
 	button: {
-		width: 355,
-		height: 57,
 		marginTop: 15,
-		marginRight: 20,
-		marginHorizontal: 10,
 		borderRadius: 5,
+		// paddingHorizontal: 20,
+		paddingVertical: 15,
+		// marginHorizontal: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: colors.blueLight,

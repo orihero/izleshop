@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		paddingBottom: 20,
 		backgroundColor: colors.lightBlue,
 	},
 	welcomeText: {
@@ -30,22 +31,12 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 20,
 		color: colors.lightBlack,
 	},
-	button: {
-	},
+	button: {},
 	profileSettings: {
 		fontSize: 20,
 		color: colors.black,
 		marginVertical: 25,
 		marginHorizontal: 20,
-	},
-	news: {
-		height: 187,
-		marginTop: 22,
-		borderRadius: 7,
-		marginBottom: 15,
-		marginHorizontal: 20,
-		backgroundColor: colors.white,
-		paddingHorizontal: 10
 	},
 	component: {
 		marginTop: 7,
@@ -90,7 +81,7 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	profile: {
-		width: 290,
+		width: 260,
 		// paddingTop: 5,
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
@@ -115,10 +106,19 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 5,
 		paddingRight: 20,
 	},
-	orders: {
-		width: 365,
-		height: 130,
+	news: {
+		height: 187,
+		marginTop: 22,
+		borderRadius: 7,
+		marginBottom: 15,
 		marginHorizontal: 20,
+		backgroundColor: colors.white,
+		paddingHorizontal: 10,
+	},
+	orders: {
+		width: 345,
+		height: 130,
+		marginHorizontal: 10,
 		marginTop: 10,
 		borderRadius: 7,
 		backgroundColor: colors.white,

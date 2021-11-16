@@ -7,19 +7,24 @@ export const styles = StyleSheet.create({
 		padding: 20,
 		backgroundColor: colors.lightBlue,
 	},
-	phoneInput: {},
+	textBox: {
+		right: 100,
+		marginHorizontal: 20,
+	},
+	phoneInput: {
+		marginTop: 12,
+	},
 	text: {
+		paddingHorizontal: 10,
 		marginLeft: 5,
-		// fontFamily: 'Poppins',
 		fontSize: 14,
 		fontWeight: 'bold',
 	},
 	codeInput: {
-		marginHorizontal: 10,
-		marginTop: 12,
+		alignItems: 'center',
+		marginHorizontal: 20,
 	},
 	center: {
 		alignItems: 'center',
-		marginRight: 25,
-	}
-})
+	},
+});

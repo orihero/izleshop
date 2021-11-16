@@ -4,6 +4,7 @@ import { colors } from 'constants/colors';
 export const styles = StyleSheet.create({
 	row: {
 		flexDirection: 'row',
+		alignItems: 'center',
 		justifyContent: 'space-between',
 	},
 	container: {
@@ -13,19 +14,19 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.lightBlue,
 	},
 	profilePage: {
-		marginHorizontal: 10,
-		width: 388,
+		// marginHorizontal: 10,
+		width: 360,
 		height: 60,
-		paddingLeft: 40,
-		paddingHorizontal: 10,
+		paddingLeft: 50,
+		paddingHorizontal: 20,
 		alignItems: 'center',
 		justifyContent: 'space-evenly',
 		flexDirection: 'row',
 		backgroundColor: colors.white,
 	},
 	profile: {
-		left: 28,
-		paddingRight: 50,
+		left: 20,
+		// right: 150,
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
@@ -39,18 +40,19 @@ export const styles = StyleSheet.create({
 		// lineHeight: 16,
 	},
 	icon: {
-		right: 35,
+		right: 78,
 	},
 	settingProfile: {
 		width: 390,
 		height: 112,
+		right: 10,
 		marginTop: 5,
-		marginLeft: 10,
+		paddingHorizontal: 10,
 		backgroundColor: colors.white,
 	},
 	dataContainer: {
 		height: 55,
-		paddingHorizontal: 20,
+		// paddingHorizontal: 10,
 		alignItems: 'center',
 		flexDirection: 'row',
 		borderBottomWidth: 1,
@@ -67,7 +69,7 @@ export const styles = StyleSheet.create({
 		fontSize: 12,
 		fontWeight: 'bold',
 		alignSelf: 'center',
-		paddingLeft: 20,
+		left: 20,
 	},
 	day: {
 		left: 50,
@@ -87,9 +89,10 @@ export const styles = StyleSheet.create({
 	},
 	phoneString: {
 		width: 350,
-		justifyContent: 'space-between',
+		paddingHorizontal: 20,
 		alignItems: 'center',
 		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 	textPhone: {
 		fontSize: 12,
@@ -109,19 +112,19 @@ export const styles = StyleSheet.create({
 	changeLanguage: {
 		height: 55,
 		paddingLeft: 20,
-
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
 	languageString: {
 		width: 350,
+		paddingHorizontal: 20,
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
 	titleText: {
+		left: 20,
 		fontSize: 12,
-		paddingLeft: 20,
-		paddingRight: 170,
+		paddingRight: 164,
 		fontWeight: 'bold',
 		// fontFamily: 'Poppins',
 		alignItems: 'center',
