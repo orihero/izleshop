@@ -11,12 +11,10 @@ import { styles } from './style';
 
 const FavoritesView = () => {
 	let favorites = useAppSelector(selectFavoritesList);
+
 	return (
 		<View style={styles.container}>
-			<Header
-				title={strings.favorites}
-				bold
-			/>
+			<Header title={strings.favorites} bold />
 			<FlatList
 				contentContainerStyle={styles.flatList}
 				data={favorites}
