@@ -82,6 +82,7 @@ const HomeView = ({
 					itemWidth={width}
 					containerCustomStyle={styles.carousel}
 					onSnapToItem={(index) => setActiveSlide(index)}
+					pagingEnabled
 				/>
 			)}
 			<Pagination
