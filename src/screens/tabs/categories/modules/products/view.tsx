@@ -38,17 +38,18 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 	};
 
 	let effect = async () => {
-		let res = await requests.product.getProducts({
-			categoryId: route?.params.categoryId,
-		});
-		console.log(res.data.data);
+		console.log(route.params);
+
+		let res = await requests.product.getProducts(
+			route.params || {}
+		);
 		setProducts(res.data.data);
 	};
 	let productss = divideArr(products, 2);
 
 	useEffect(() => {
 		effect();
-	}, []);
+	}, [route?.params]);
 
 	return (
 		<View style={styles.flex1}>
@@ -97,27 +98,27 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 						</View>
 						{isList
 							? products.map((e, i) => (
-									<View key={i} style={styles.mt10}>
-										<FavoriteItem
-											hasBasket={true}
-											hasRemove={false}
-											item={{ data: e }}
-										/>
-									</View>
-							  ))
+								<View key={i} style={styles.mt10}>
+									<FavoriteItem
+										hasBasket={true}
+										hasRemove={false}
+										item={{ data: e }}
+									/>
+								</View>
+							))
 							: productss.map((e, i) => (
-									<View key={i} style={styles.productRow}>
-										{e.map((ee, ii) =>
-											e ? (
-												<VerticalItem
-													key={`${i}/${ii}`}
-													item={ee}
-													sizeChanged
-												/>
-											) : null
-										)}
-									</View>
-							  ))}
+								<View key={i} style={styles.productRow}>
+									{e.map((ee, ii) =>
+										e ? (
+											<VerticalItem
+												key={`${i}/${ii}`}
+												item={ee}
+												sizeChanged
+											/>
+										) : null
+									)}
+								</View>
+							))}
 					</View>
 				</ScrollView>
 			</View>

@@ -67,27 +67,19 @@ const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 					{isCategory ? strings.categories : strings.manufacturers}
 				</Text>
 				<View style={styles.box}>
-					{isCategory
-						? categories?.map((e, i) => (
-							<TouchableOpacity
-								onPress={() => setSelected(i)}
-								key={i}
-								style={styles.row}
-							>
-								<Text style={styles.text}>{e.title}</Text>
-								<View style={styles.circle}>
-									{selected === i && (
-										<View style={styles.dot} />
-									)}
-								</View>
-							</TouchableOpacity>
-						))
-						: arr2.map((e, i) => (
-							<View key={i} style={styles.row}>
-								<Text style={styles.text}>{e}</Text>
-								<View style={styles.circle} />
+					{categories?.map((e, i) => (
+						<TouchableOpacity
+							onPress={() => setSelected(i)}
+							key={i}
+							style={styles.row}
+						>
+							<Text style={styles.text}>{e.title}</Text>
+							<View style={styles.circle}>
+								{selected === i && (
+									<View style={styles.dot} />
+								)}
 							</View>
-						))}
+						</TouchableOpacity>))}
 				</View>
 				<View style={styles.buttonRow}>
 					<SecondButton
@@ -99,11 +91,14 @@ const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 					/>
 					<SecondButton
 						onPress={() => {
-							navigation.navigate(Routes.PRODUCTS, {
-								filters: {
-
-								}
-							})
+							let params = {
+								priceMax: high,
+								priceMin: low,
+							}
+							if (selected !== -1) {
+								params.categoryId = categories[selected].id
+							}
+							navigation.navigate(Routes.PRODUCTS, params)
 						}}
 						ph={16}
 						bg={colors.darkBlue}

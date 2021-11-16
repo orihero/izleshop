@@ -16,7 +16,6 @@ const FavoritesView = () => {
 			<Header
 				title={strings.favorites}
 				bold
-				// rightEdge={() => <SearchIcon size={20} />}
 			/>
 			<FlatList
 				contentContainerStyle={styles.flatList}
