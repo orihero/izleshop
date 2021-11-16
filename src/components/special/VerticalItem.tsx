@@ -21,6 +21,7 @@ import {
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
+import { selectUser } from 'store/slices/userSlice';
 
 export interface IVerticalItemModel {
 	id?: number;
@@ -56,7 +57,7 @@ const VerticalItem = ({
 	const { id, name, price, currency, ratingCount, rating, status, image } =
 		item || {};
 
-	console.log({ image }, 'image in products');
+	let { dollarRate } = useAppSelector(selectUser)
 
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
@@ -64,6 +65,9 @@ const VerticalItem = ({
 	let isFavorite = item && !!favorites[item && id];
 	let dispatch = useAppDispatch();
 	let naviation = useNavigation();
+
+	console.log({ dollarRate });
+
 
 	let onHeartPress = () => {
 		if (isFavorite) {
@@ -131,7 +135,7 @@ const VerticalItem = ({
 					</Text>
 					<Text
 						style={styles.newPrice}
-					>{`${price} ${strings.currency}`}</Text>
+					>{`${price * dollarRate} ${strings.currency}`}</Text>
 				</View>
 			</View>
 		</TouchableWithoutFeedback>
