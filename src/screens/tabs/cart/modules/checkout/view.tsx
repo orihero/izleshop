@@ -140,7 +140,6 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 									placeholder={'ФИО'}
 									value={name}
 									onChange={setName}
-									keyboardType="numeric"
 								/>
 							</View>
 						</View>

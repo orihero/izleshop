@@ -10,7 +10,8 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingTop: 5,
-		textAlign: 'center',
+		// textAlign: 'center',
+		marginHorizontal: 20,
 		backgroundColor: colors.lightBlue,
 	},
 	profilePage: {
