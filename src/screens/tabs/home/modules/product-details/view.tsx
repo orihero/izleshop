@@ -25,6 +25,7 @@ import { styles } from './style';
 import Toast from 'react-native-toast-message';
 import Shimmer from 'react-native-shimmer';
 import LinearGradient from 'react-native-linear-gradient';
+import { selectDollarRate } from 'store/slices/userSlice';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
@@ -43,6 +44,7 @@ const ProductDetailsView = ({
 	let isInCart = !!cart[details.id];
 	let isFavorite = !!favorites[details.id];
 	let dispatch = useAppDispatch();
+	let dollarRate = useAppSelector(selectDollarRate);
 
 	let ListEmptyComponent = () => {
 		return (
@@ -140,11 +142,13 @@ const ProductDetailsView = ({
 					<Rating styleChanged />
 					<View style={styles.pr}>
 						<Text style={styles.text3}>
-							{`${details.price} ${item.currency}`}
+							{`${details.price * dollarRate} ${item.currency}`}
 						</Text>
 						{details.old_price && (
 							<Text style={styles.text2}>
-								{`${details.old_price} ${item.currency}`}
+								{`${details.old_price * dollarRate} ${
+									item.currency
+								}`}
 							</Text>
 						)}
 					</View>

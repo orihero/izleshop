@@ -116,9 +116,11 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 10,
 	},
 	orders: {
-		width: 345,
+		width: 365,
 		height: 130,
 		marginHorizontal: 10,
+		justifyContent: 'center',
+		left: 10,
 		marginTop: 10,
 		borderRadius: 7,
 		backgroundColor: colors.white,

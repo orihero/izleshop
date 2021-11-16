@@ -6,18 +6,17 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		padding: 20,
 		backgroundColor: colors.lightBlue,
-
 	},
 	text: {
 		fontSize: 14,
 		lineHeight: 17,
 		fontWeight: '700',
 		marginLeft: 10,
-		marginBottom: 12
+		marginBottom: 12,
 	},
 	input: {
-		marginRight: 30,
-		alignItems: 'center'
+		// marginRight: 30,
+		alignItems: 'center',
 	},
 	center: {
 		marginRight: 20,
@@ -31,5 +30,5 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 		fontWeight: 'bold',
 		color: colors.darkBlue,
-	}
-})
+	},
+});

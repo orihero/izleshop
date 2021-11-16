@@ -2,8 +2,8 @@ import LocalizedStrings from 'react-native-localization';
 
 export let strings = new LocalizedStrings({
 	ru: {
-		alreadyInCart: "Товар уже в корзине",
-		noSuchProduct: "Товар не существует или был удален",
+		alreadyInCart: 'Товар уже в корзине',
+		noSuchProduct: 'Товар не существует или был удален',
 		searchs: 'Поиск',
 		yes: 'Да',
 		warning: 'Внимание!',
@@ -44,7 +44,7 @@ export let strings = new LocalizedStrings({
 		products: 'товара(и)',
 		sum: 'Сумма',
 		sale: 'Скидка',
-		outcome: 'Итог',
+		outcome: 'Итого',
 		paymentMethod: 'Способ оплаты',
 		currency: 'сум',
 		backToShopping: 'Вернуться к покупкам',

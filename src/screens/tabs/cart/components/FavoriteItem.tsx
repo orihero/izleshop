@@ -28,6 +28,7 @@ import {
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
+import { selectDollarRate } from 'store/slices/userSlice';
 
 export interface IFavoriteItemModel {
 	id?: number;
@@ -79,6 +80,7 @@ const FavoriteItem = ({
 	const [isChecked, setIsChecked] = useState(false);
 
 	let favorites = useAppSelector(selectFavorites);
+	let dollarRate = useAppSelector(selectDollarRate);
 	let cartItems = useAppSelector(selectCart);
 	let isFavorite = !!favorites[item.data?.id || id];
 	let isInCart = !!cartItems[item.data?.id || id];
@@ -147,9 +149,9 @@ const FavoriteItem = ({
 							{title}
 						</Text>
 					</View>
-					<Text
-						style={styles.text4}
-					>{`${newPrice} ${currency}`}</Text>
+					<Text style={styles.text4}>{`${
+						newPrice * dollarRate
+					} ${currency}`}</Text>
 					{!hasRemove && <Rating count={5} active={4} />}
 					<View style={styles.plus}>
 						{hasRating ? (

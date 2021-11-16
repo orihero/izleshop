@@ -30,6 +30,8 @@ import {
 } from 'assets/icons/icons';
 import { RouteProp } from '@react-navigation/core';
 import { IHorizontalItemModel } from 'src/components/special/HorizontalItem';
+import { selectDollarRate } from 'store/slices/userSlice';
+import { useAppSelector } from 'utils/hooks';
 
 const paymeLogo = require('mockup/images/payme.png');
 const clickLogo = require('mockup/images/click.png');
@@ -109,6 +111,7 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 			paymentMethod: paymentType,
 		});
 	};
+	let dollarRate = useAppSelector(selectDollarRate);
 
 	let onBackPress = () => {
 		navigation.navigate(Routes.HOME);
@@ -143,7 +146,7 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 				<View style={styles.topChild}>
 					<Text style={styles.text4}>{`${strings.outcome}:`}</Text>
 					<Text style={styles.text5}>
-						{`${total} ${strings.currency}`}
+						{`${total * dollarRate} ${strings.currency}`}
 					</Text>
 				</View>
 			</View>

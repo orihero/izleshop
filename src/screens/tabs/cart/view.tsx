@@ -10,6 +10,7 @@ import Header from 'components/navigation/Header';
 import DefaultButton from 'components/general/DefaultButton';
 import CartItem from 'components/special/CartItem';
 import HorizontalItem from 'components/special/HorizontalItem';
+import { selectDollarRate } from 'store/slices/userSlice';
 
 import { strings } from 'locales/locales';
 import { styles } from './style';
@@ -23,6 +24,7 @@ interface ICartViewProps {
 const CartView = ({ navigation }: ICartViewProps) => {
 	let total = useAppSelector(selectCartTotal);
 	let cartItems = useAppSelector(selectCartList);
+	let dollarRate = useAppSelector(selectDollarRate);
 
 	console.log({ total, cartItems });
 
@@ -60,7 +62,7 @@ const CartView = ({ navigation }: ICartViewProps) => {
 							{strings.total}
 						</Text>
 						<Text style={styles.totalPriceText2}>
-							{total} {strings.soum}
+							{total * dollarRate} {strings.soum}
 						</Text>
 					</View>
 					<View style={styles.button}>

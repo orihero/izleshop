@@ -3,7 +3,8 @@ import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
 	container: {
-		// backgroundColor: colors.whit,
+		// marginHorizontal: 5,
+		backgroundColor: colors.lightBlue,
 	},
 	mapContainer: {
 		height: 190,
@@ -15,7 +16,8 @@ export const styles = StyleSheet.create({
 		flex: 1,
 	},
 	text1: {
-		marginLeft: 10,
+		// marginBottom: -5,
+		marginLeft: 5,
 		fontSize: 16,
 		lineHeight: 20,
 		fontWeight: '400',
@@ -37,7 +39,7 @@ export const styles = StyleSheet.create({
 	},
 	mt20: {
 		// marginLeft: 10,
-		marginTop: 20,
+		marginTop: 15,
 	},
 	mb80: {
 		marginBottom: 80,
@@ -57,8 +59,8 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	mt10: {
-		right: 20,
-		marginTop: 10,
+		// right: 20,
+		marginTop: 5,
 		alignItems: 'center',
 	},
 	mt1: {
