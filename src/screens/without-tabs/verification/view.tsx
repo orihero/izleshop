@@ -19,7 +19,7 @@ interface IVerificationProps {
 	onPress: () => {};
 }
 
-const VerificationView = ({}: IVerificationProps) => {
+const VerificationView = ({ }: IVerificationProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	const dispatch = useDispatch();
@@ -40,8 +40,10 @@ const VerificationView = ({}: IVerificationProps) => {
 		} catch (error) {
 			alert('Что-то пошло не так');
 			return;
+		} finally {
+			setLoading(false);
+
 		}
-		setLoading(false);
 		//@ts-ignore
 		navigation.navigate(Routes.REGISTER);
 	};

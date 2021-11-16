@@ -16,13 +16,11 @@ export const styles = StyleSheet.create({
 		marginBottom: 25,
 	},
 	input: {
-		marginRight: 30,
 		alignItems: 'center',
 	},
 	buttom: {
 		marginTop: 10,
 		marginRight: 8,
-		alignItems: 'center',
 	},
 	izle: {
 		fontSize: 144,
