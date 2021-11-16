@@ -10,12 +10,12 @@ axios.interceptors.request.use((e) => {
 	return e;
 });
 
-axios.interceptors.response.use(e => {
+axios.interceptors.response.use((e) => {
 	if (!!e?.data?.status && !!e?.data?.message) {
-		throw {}
+		throw {};
 	}
-	return e
-})
+	return e;
+});
 
 export let requests = {
 	helpers: {
@@ -39,6 +39,9 @@ export let requests = {
 		},
 		getCategories: () => {
 			return axios.get(`${url}/getCategories`);
+		},
+		getBrands: () => {
+			return axios.get(`${url}/getBrands`);
 		},
 		getBanners: () => {
 			return axios.get(`${url}/getBanners`);

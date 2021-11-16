@@ -508,7 +508,7 @@ export function MailIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg viewBox="0 0 24 24" {...props}>
+		<Svg viewBox="0 0 24 24" stroke="black" width={size} height={size}>
 			<Path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
 			<Path d="M22 6L12 13 2 6" />
 		</Svg>
@@ -523,7 +523,12 @@ export function MapIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg viewBox="0 0 24 24" {...props}>
+		<Svg
+			viewBox="0 0 24 24"
+			stroke={colors.black}
+			width={size}
+			height={size}
+		>
 			<Path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
 			<Circle cx={12} cy={10} r={3} />
 		</Svg>
