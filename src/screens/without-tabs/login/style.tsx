@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
 	center: {
 		flex: 0.1,
 		justifyContent: 'center',
-		borderRadius: 19
+		borderRadius: 19,
+		paddingHorizontal: 20
 	},
 	bottom: {
 		flex: 0.4,
@@ -46,6 +47,7 @@ export const styles = StyleSheet.create({
 	},
 	mt12: {
 		// marginTop: 12,
+		// alignItems: 'center'
 	},
 	mt20: {
 		marginVertical: 10,

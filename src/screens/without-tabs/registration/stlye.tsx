@@ -80,11 +80,10 @@ export const styles = StyleSheet.create({
 		// marginBottom: -100,
 	},
 	lbox: {
-		width: 335,
-		marginLeft: 30,
 		marginTop: 20,
 		marginBottom: 30,
 		backgroundColor: colors.white,
+		marginHorizontal: 10
 	},
 	lrow: {
 		padding: 15,

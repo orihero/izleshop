@@ -53,7 +53,7 @@ const RegistrationView = ({ language }: ILanguageProps) => {
 						</Text>
 						<DefaultInput
 							placeholder={'ФИО пользователя'}
-							value={user.name}
+							value={user.userData?.first_name}
 							onChange={setName}
 						/>
 					</View>

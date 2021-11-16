@@ -63,6 +63,7 @@ const ProductDetailsView = ({
 				text1: strings.warning,
 				text2: strings.alreadyInCart
 			})
+			return
 		} else {
 			dispatch(addToCart(details));
 		}
