@@ -54,6 +54,8 @@ export let requests = {
 		},
 		getDetails: (id: string) =>
 			axios.get(`${url}/getProductDetails?id=${id}`),
-		makeOrder: (credentials) => axios.post(`${url}/makeOrder`, credentials),
+		makeOrder: (credentials: any) => axios.post(`${url}/makeOrder`, credentials),
+		getDollarRate: () => axios.get(`${url}/getDollarRate`)
+
 	},
 };

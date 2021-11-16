@@ -27,6 +27,7 @@ import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import Pressable from '../general/Pressable';
 import ItemCounter from './ItemCounter';
 import Rating from './Rating';
+import { selectUser } from 'store/slices/userSlice';
 
 export interface IHorizontalItemModel {
 	id?: number;
@@ -74,6 +75,7 @@ const HorizontalItem = ({
 	} = item.data || item;
 
 	const dispatch = useAppDispatch();
+	let { dollarRate } = useAppSelector(selectUser)
 
 	const [isChecked, setIsChecked] = useState(false);
 
@@ -150,7 +152,7 @@ const HorizontalItem = ({
 						numberOfLines={1}
 						textBreakStrategy={'simple'}
 						lineBreakMode="tail"
-					>{` ${price} ${currency}`}</Text>
+					>{` ${(price * dollarRate).toLocaleString("ru")} ${currency}`}</Text>
 					{hasRating ? (
 						<Rating
 							defaultStyle
