@@ -45,17 +45,14 @@ export const styles = StyleSheet.create({
 		marginBottom: 80,
 	},
 	box: {
-		alignItems: 'center',
 		justifyContent: 'center',
-		marginHorizontal: 20,
+		alignItems: 'center'
 	},
 	ph20: {
 		left: 0,
 		right: 0,
 		padding: 0,
 		margin: 0,
-		marginHorizontal: 100,
-		alignItems: 'center',
 		justifyContent: 'center',
 	},
 	mt10: {
@@ -71,29 +68,24 @@ export const styles = StyleSheet.create({
 	},
 	mt21: {
 		marginTop: 10,
+		left: 0,
+		right: 0
 		// right: 18,
 		// marginHorizontal: 20,
 		// marginHorizontal: 30,
 	},
 	mt25: {
-		marginTop: 15,
-		marginLeft: 16,
-		marginHorizontal: 25,
 	},
 	text4: {
 		fontSize: 16,
-		marginTop: 3,
-		marginBottom: -25,
 		// marginLeft: 4,
 		lineHeight: 20,
 		fontWeight: '400',
 		color: 'rgba(0,0,0,.8)',
+		marginTop: 8
 	},
 	mt19: {
-		width: 335,
-		right: 8,
 		marginTop: 10,
-		marginLeft: 10,
 	},
 	text5: {
 		marginTop: 4,

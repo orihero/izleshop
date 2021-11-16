@@ -71,7 +71,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 		try {
 			let res = await requests.helpers.getRegions();
 			setRegions(res.data);
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	useEffect(() => {
@@ -79,7 +79,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	}, []);
 
 	const [regions, setRegions] = useState([]);
-	let { products, paymentMethod } = route.params || {};
+	let { products, paymentMethod, installment_plan } = route.params || {};
 	let navigation = useNavigation();
 	// let user = useAppSelector(selectUser);
 
@@ -108,18 +108,19 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				index: '111201',
 				city: city,
 				products: products,
+				installment_plan: paymentMethod ? null : installment_plan + 1
 			};
 			let response = await requests.product.makeOrder(req);
 			console.log(response.data);
 			console.log(city);
-			console.log(req);
+			console.log(response);
 			if (!!response) {
 				dispatch(clearCart());
 				Linking.openURL(response.data.paymentUrl);
 				navigation.navigate(Routes.HOME_STACK);
 			}
 		} catch (error) {
-			console.log(error.response);
+			console.log(error);
 		} finally {
 			setLoading(false);
 		}

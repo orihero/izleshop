@@ -80,7 +80,6 @@ export default DefaultSelect;
 
 const styles = StyleSheet.create({
 	container: {
-		width: 335,
 	},
 	box: {
 		padding: 14,
@@ -90,6 +89,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: colors.white,
 		justifyContent: 'space-between',
+		height: 55
 	},
 	modalContainer: {
 		flex: 1,

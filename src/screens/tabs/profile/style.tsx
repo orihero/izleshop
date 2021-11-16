@@ -116,21 +116,15 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 10,
 	},
 	orders: {
-		width: 365,
 		height: 130,
 		marginHorizontal: 10,
-		justifyContent: 'center',
-		left: 10,
 		marginTop: 10,
 		borderRadius: 7,
 		backgroundColor: colors.white,
+		paddingRight: 10
 	},
 	myOrders: {
-		width: 350,
 		height: 30,
-		alignItems: 'center',
-		flexDirection: 'row',
-		justifyContent: 'space-between',
 	},
 	textOrders: {
 		paddingLeft: 15,
@@ -145,25 +139,20 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	orderView: {
-		width: 357,
 		fontSize: 10,
 		paddingTop: 5,
 		paddingRight: 15,
-		fontWeight: 'bold',
-		fontFamily: 'Lato',
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 	},
 	line: {
-		width: 340,
 		height: 1,
 		left: 5,
 		borderWidth: 1,
 		borderColor: colors.lightGray,
 	},
 	dispatch: {
-		width: 340,
 		height: 70,
 		marginHorizontal: 10,
 		flexDirection: 'row',
@@ -210,12 +199,11 @@ export const styles = StyleSheet.create({
 		fontFamily: 'Lato',
 	},
 	lol: {
-		width: 340,
 		height: 25,
-		paddingLeft: 15,
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		flexDirection: 'row',
+		paddingLeft: 10
 	},
 	chat: {
 		width: 15,

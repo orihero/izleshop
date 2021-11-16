@@ -40,7 +40,7 @@ export let strings = new LocalizedStrings({
 		cart: 'Корзина',
 		total: 'Общая сумма',
 		order: 'Оформить',
-		yourOrder: 'Ваш заказ',
+		yourOrder: 'Количество товаров',
 		products: 'товара(и)',
 		sum: 'Сумма',
 		sale: 'Скидка',

@@ -68,10 +68,10 @@ const styles = StyleSheet.create({
 	textarea: {
 		height: 78,
 		fontSize: 14,
-		paddingTop: -40,
 		paddingBottom: 18,
 		borderRadius: 10,
 		backgroundColor: colors.white,
+		width: Dimensions.get("window").width - 20
 	},
 	text1: {},
 });
