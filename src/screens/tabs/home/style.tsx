@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
 	emptyContainer: {
 		// paddingHorizontal: 15,
 		flexDirection: 'row',
+		flexWrap: 'wrap',
 	},
 	emptyCard: {
 		width: windowWidth / 2 - 30,
@@ -22,7 +23,9 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.2,
 		borderRadius: 7.5,
 		elevation: 2,
-		marginLeft: 15,
+		marginLeft: 18,
+		marginBottom: 10,
+		// marginHorizontal: 3,
 		backgroundColor: colors.white,
 	},
 	container: {

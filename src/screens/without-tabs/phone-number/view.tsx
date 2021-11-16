@@ -45,7 +45,9 @@ const PhoneNumberView = ({}: IPhoneNumberViewProps) => {
 		<ProfileLayout headerTitle={strings.phoneNamber || ''}>
 			<View style={styles.container}>
 				<View style={styles.phoneInput}>
-					<Text style={styles.text}>{strings.phoneNamber}</Text>
+					<View style={styles.textBox}>
+						<Text style={styles.text}>{strings.phoneNamber}</Text>
+					</View>
 					<PhoneInput
 						placeholder={'(307) 555-0133'}
 						value={user.phone}

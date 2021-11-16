@@ -60,22 +60,6 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 					</TouchableOpacity>
 				</View>
 				<View style={styles.settingProfile}>
-					{/* <View style={styles.dataContainer}>
-						<TouchableOpacity
-							style={styles.birthdayString}
-							onPress={() => onPress(Routes.PRE_CHECKOUT)}
-						>
-							<View style={styles.row}>
-								<BirthdayIcon size={20} />
-								<Text style={styles.textbirthday}>
-									{strings.birthday}
-								</Text>
-							</View>
-
-							<Text style={styles.day}>12-12-2000</Text>
-							<ChevronRightIcon size={15} />
-						</TouchableOpacity>
-					</View> */}
 					<View style={styles.dataContainer}>
 						<TouchableOpacity
 							style={styles.phoneString}
@@ -105,7 +89,6 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 									{strings.changeTheLanguage}
 								</Text>
 							</View>
-
 							<Image
 								style={styles.flag}
 								source={require('assets/images/flag.png')}

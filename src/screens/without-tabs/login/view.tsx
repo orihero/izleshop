@@ -57,7 +57,7 @@ const LoginView = ({}: ILoginViewProps) => {
 						<DefaultInput
 							value={user.phone}
 							onChange={setPhone}
-							keyboardType={'numeric'}
+							keyboardType="phone-pad"
 						/>
 					</View>
 				</View>

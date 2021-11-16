@@ -44,7 +44,11 @@ const ConfirmationCodeView = ({}: IPhoneNumberViewProps) => {
 		<ProfileLayout headerTitle={strings.phoneNamber || ''}>
 			<View style={styles.container}>
 				<View style={styles.codeInput}>
-					<Text style={styles.text}>{strings.confirmationCode}</Text>
+					<View style={styles.textBox}>
+						<Text style={styles.text}>
+							{strings.confirmationCode}
+						</Text>
+					</View>
 					<PhoneInput
 						placeholder={'1255'}
 						value={code}

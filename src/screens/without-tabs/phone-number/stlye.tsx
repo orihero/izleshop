@@ -4,15 +4,19 @@ import { colors } from 'constants/colors';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		padding: 20,
+		paddingTop: 20,
 		backgroundColor: colors.lightBlue,
 	},
+	textBox: {
+		right: 115,
+		marginHorizontal: 20,
+	},
 	phoneInput: {
-		marginHorizontal: 10,
+		alignItems: 'center',
+		marginHorizontal: 20,
 	},
 	text: {
 		marginLeft: 5,
-		// fontFamily: 'Poppins',
 		fontSize: 14,
 		fontWeight: 'bold',
 	},
@@ -21,6 +25,6 @@ export const styles = StyleSheet.create({
 	},
 	center: {
 		alignItems: 'center',
-		marginRight: 30,
-	}
+		// marginRight: 30,
+	},
 });

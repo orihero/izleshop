@@ -18,11 +18,13 @@ import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
 	addItem,
 	removeItem,
-	selectFavorites
+	selectFavorites,
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
-import Toast from 'react-native-toast-message'
+import Toast from 'react-native-toast-message';
+import Shimmer from 'react-native-shimmer';
+import LinearGradient from 'react-native-linear-gradient';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
@@ -41,6 +43,21 @@ const ProductDetailsView = ({
 	let isInCart = !!cart[details.id];
 	let isFavorite = !!favorites[details.id];
 	let dispatch = useAppDispatch();
+
+	let ListEmptyComponent = () => {
+		return (
+			<View style={styles.emptyContainer}>
+				<Shimmer
+					LinearGradient={LinearGradient}
+					style={[styles.emptyCard]}
+				/>
+				<Shimmer
+					LinearGradient={LinearGradient}
+					style={[styles.emptyCard]}
+				/>
+			</View>
+		);
+	};
 
 	let onHeartPress = () => {
 		if (isFavorite) {
@@ -61,8 +78,8 @@ const ProductDetailsView = ({
 		if (isInCart) {
 			Toast.show({
 				text1: strings.warning,
-				text2: strings.alreadyInCart
-			})
+				text2: strings.alreadyInCart,
+			});
 		} else {
 			dispatch(addToCart(details));
 		}
@@ -151,6 +168,7 @@ const ProductDetailsView = ({
 						decelerationRate={'fast'}
 						showsHorizontalScrollIndicator={false}
 						keyExtractor={(e) => e.id.toString()}
+						ListEmptyComponent={ListEmptyComponent}
 					/>
 				</View>
 				<View style={styles.mb60} />

@@ -2,28 +2,27 @@ import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
-    container: {
+	container: {
 		flex: 1,
 		padding: 20,
 		backgroundColor: colors.lightBlue,
-
 	},
 	text: {
 		fontSize: 25,
 		lineHeight: 30,
 		fontWeight: 'bold',
-        marginLeft: 10,
+		marginLeft: 10,
 		marginTop: 35,
-        marginBottom: 25
+		marginBottom: 25,
 	},
-    input: {
-        marginRight: 30,
-        alignItems: 'center'
-    },
+	input: {
+		marginRight: 30,
+		alignItems: 'center',
+	},
 	buttom: {
 		marginTop: 10,
 		marginRight: 8,
-		alignItems: 'center'
+		alignItems: 'center',
 	},
 	izle: {
 		fontSize: 144,
@@ -31,6 +30,6 @@ export const styles = StyleSheet.create({
 		opacity: 0.4,
 		fontWeight: 'bold',
 		color: colors.darkBlue,
-		textAlign: 'center'
-	}
-})
+		textAlign: 'center',
+	},
+});

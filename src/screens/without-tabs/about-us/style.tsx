@@ -10,14 +10,17 @@ export const styles = StyleSheet.create({
 	},
 	inner: {
 		width: windowWidth,
-		padding: 20,
-		backgroundColor: colors.white,
+		// padding: 20,
 		elevation: 5,
+		backgroundColor: colors.white,
 	},
 	text: {
 		width: 370,
 		fontSize: 15,
-		fontWeight: '500',
+		fontWeight: '600',
 		textAlign: 'center',
+		opacity: 0.9,
+		marginVertical: 10,
+		paddingHorizontal: 20,
 	},
 });
