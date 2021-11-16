@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/core';
 import { CartIcon, HeartIcon, PressableIcon } from 'assets/icons/icons';
 import DefaultButton from 'components/general/DefaultButton';
-import Pressable from 'components/general/Pressable';
 import Header from 'components/navigation/Header';
 import Accordion from 'components/special/Accordion';
+import Rating from 'components/special/Rating';
 import SliderItem from 'components/special/SliderItem';
 import VerticalItem from 'components/special/VerticalItem';
 import { colors } from 'constants/colors';
@@ -14,16 +14,15 @@ import { accordionData, item } from 'mockup/data';
 import React from 'react';
 import { FlatList, ScrollView, Text, View } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import Rating from 'components/special/Rating';
 import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
 	addItem,
 	removeItem,
-	selectFavorites,
+	selectFavorites
 } from 'store/slices/favoritesSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
-import { data, products } from '../../data';
 import { styles } from './style';
+import Toast from 'react-native-toast-message'
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
@@ -39,30 +38,36 @@ const ProductDetailsView = ({
 	let navigation = useNavigation();
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
-	let isInCart = !!cart[item.id];
-	let isFavorite = !!favorites[item.id];
+	let isInCart = !!cart[details.id];
+	let isFavorite = !!favorites[details.id];
 	let dispatch = useAppDispatch();
 
 	let onHeartPress = () => {
 		if (isFavorite) {
-			dispatch(removeItem(item.id.toString()));
+			dispatch(removeItem(details.id.toString()));
 		} else {
-			dispatch(addItem(item));
+			dispatch(addItem(details));
 		}
 	};
 
 	let onCartPress = () => {
 		if (isInCart) {
-			dispatch(removeFromCart(item.id.toString()));
+			dispatch(removeFromCart(details.id.toString()));
 		} else {
-			dispatch(addToCart(item));
+			dispatch(addToCart(details));
 		}
 	};
 	let onNextPress = () => {
+		if (isInCart) {
+			Toast.show({
+				text1: strings.warning,
+				text2: strings.alreadyInCart
+			})
+		} else {
+			dispatch(addToCart(details));
+		}
 		navigation.navigate(Routes.CART);
 	};
-
-	console.log('CJARARARA', details);
 
 	return (
 		<View style={styles.container}>

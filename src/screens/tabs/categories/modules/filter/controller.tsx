@@ -22,11 +22,11 @@ export type FilterScreenProps = {
 };
 
 const FilterController = ({ navigation, route }: FilterScreenProps) => {
-	const [categories, setCategories] = useState({});
+	const [categories, setCategories] = useState([]);
 
 	let effect = async () => {
 		let res = await requests.product.getCategories();
-		setCategories([]);
+		setCategories(res.data);
 	};
 
 	useEffect(() => {

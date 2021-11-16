@@ -168,9 +168,9 @@ const FavoriteItem = ({
 						) : null}
 					</View>
 				</View>
-				<View style={styles.exit}>
+				{/* <View style={styles.exit}>
 					<ExitIcon size={15} color={colors.gray2} />
-				</View>
+				</View> */}
 				<View style={styles.rightEdge}>
 					<View style={styles.irow}>
 						{hasBasket ? (

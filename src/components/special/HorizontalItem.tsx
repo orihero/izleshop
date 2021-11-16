@@ -222,7 +222,6 @@ const styles = StyleSheet.create({
 	image: {
 		width: '100%',
 		height: '100%',
-		marginLeft: 10,
 		resizeMode: 'contain',
 	},
 	checkBox: {
@@ -242,7 +241,6 @@ const styles = StyleSheet.create({
 	},
 	center: {
 		flex: 1,
-		marginHorizontal: 20,
 		justifyContent: 'space-between',
 	},
 	box: {},
@@ -287,7 +285,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		textAlignVertical: 'center',
-		width: '50%',
+		width: '45%',
 		// flex: 1,
 	},
 	rightEdge: {

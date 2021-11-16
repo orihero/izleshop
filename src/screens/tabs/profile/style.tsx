@@ -31,9 +31,6 @@ export const styles = StyleSheet.create({
 		color: colors.lightBlack,
 	},
 	button: {
-		fontSize: 14,
-		color: colors.lightBlack,
-		marginHorizontal: 10,
 	},
 	profileSettings: {
 		fontSize: 20,
@@ -42,19 +39,17 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 20,
 	},
 	news: {
-		width: 365,
 		height: 187,
 		marginTop: 22,
 		borderRadius: 7,
 		marginBottom: 15,
-		alignItems: 'center',
 		marginHorizontal: 20,
 		backgroundColor: colors.white,
+		paddingHorizontal: 10
 	},
 	component: {
 		marginTop: 7,
 		marginBottom: 9,
-		width: 330,
 		height: 25,
 		alignItems: 'center',
 		justifyContent: 'space-between',
@@ -73,10 +68,7 @@ export const styles = StyleSheet.create({
 	viewAll: {
 		marginTop: 7,
 		marginBottom: 9,
-		width: 330,
 		height: 25,
-		alignItems: 'center',
-		justifyContent: 'space-between',
 	},
 	textView: {
 		marginTop: -2,
@@ -85,7 +77,7 @@ export const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	img: {
-		width: 320,
+		width: 300,
 		height: 130,
 	},
 	myProfile: {

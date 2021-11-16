@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.lightBlue,
 	},
 	totalContainer: {
-		width: 335,
 		elevation: 5,
 		display: 'flex',
 		borderRadius: 10,
@@ -18,6 +17,7 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 20,
 		backgroundColor: colors.white,
 		justifyContent: 'space-between',
+		marginHorizontal: 20
 	},
 	totalPriceText1: {
 		fontSize: 18,
@@ -32,9 +32,10 @@ export const styles = StyleSheet.create({
 		color: colors.blue,
 	},
 	button: {
-		width: 335,
-		alignItems: 'center',
 		elevation: 7,
+		left: 0,
+		right: 0,
+		bottom: 0,
 	},
 	absolute: {
 		left: 0,
@@ -42,12 +43,12 @@ export const styles = StyleSheet.create({
 		bottom: 0,
 		paddingTop: 15,
 		paddingBottom: 30,
-		alignItems: 'center',
+		// alignItems: 'center',
 		position: 'absolute',
 		// backgroundColor: 'rgba(0, 0, 0, 0.1 )',
 	},
 	mh20: {
-		marginHorizontal: 20,
+		marginHorizontal: 10,
 	},
 	mt15: {
 		marginTop: 15,

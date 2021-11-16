@@ -31,15 +31,15 @@ let data = [
 	},
 ];
 
-const IntroView = ({}: IntroProps) => {
+const IntroView = ({ }: IntroProps) => {
 	const [activeSlide, setActiveSlide] = useState(0);
 	let navigation = useNavigation();
 	let carouselRef = useRef<
 		| React.LegacyRef<
-				Carousel<{
-					img: any;
-				}>
-		  >
+			Carousel<{
+				img: any;
+			}>
+		>
 		| undefined
 	>();
 	let onNextPress = () => {
@@ -57,9 +57,10 @@ const IntroView = ({}: IntroProps) => {
 					onSnapToItem={(index) => setActiveSlide(index)}
 					data={data}
 					sliderWidth={windowWidth}
-					sliderHeight={385}
+					sliderHeight={300}
 					itemWidth={windowWidth}
-					itemHeight={385}
+					itemHeight={300}
+					pagingEnabled={true}
 					ref={(r) => (carouselRef.current = r)}
 					renderItem={({ item: { img } }) => (
 						<View style={styles.itemContainer}>

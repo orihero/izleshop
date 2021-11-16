@@ -1,44 +1,42 @@
 import { useNavigation } from '@react-navigation/core';
+import { requests } from 'api/requests';
 import {
 	BagIcon,
 	CardIcon,
-	CarIcon,
-	ChatIcon,
-	ChevronRightIcon,
+	CarIcon, ChevronRightIcon,
 	LogoutIcon,
 	PenIcon,
 	ProfileIcon,
-	SettingIcon,
+	SettingIcon
 } from 'assets/icons/icons';
 import DefaultButton from 'components/general/DefaultButton';
 import Pressable from 'components/general/Pressable';
 import MenuLink from 'components/special/MenuLink';
+import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	Alert,
-	Image,
-	ScrollView,
-	Text,
+	Image, Text,
 	TouchableOpacity,
-	View,
+	TouchableWithoutFeedback,
+	View
 } from 'react-native';
-import { colors } from 'constants/colors';
-import { store } from 'store/configureStore';
 import { selectUser, userLoggedOut } from 'store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
-interface IProfileViewProps {}
+interface IProfileViewProps { }
 
-const ProfileView = ({}: IProfileViewProps) => {
+const ProfileView = ({ }: IProfileViewProps) => {
+	const [banners, setBanners] = useState([])
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
 	let dispatch = useAppDispatch();
-	let onPress = (route: Routes) => {
+	let onPress = (route: Routes, params?: any) => {
 		//@ts-ignore
-		navigation.navigate(Routes.WITHOUT_TABS, { screen: route });
+		navigation.navigate(Routes.WITHOUT_TABS, { screen: route, params });
 	};
 	let onLogout = () => {
 		Alert.alert(strings.warning, strings.logoutPrompt, [
@@ -49,9 +47,22 @@ const ProfileView = ({}: IProfileViewProps) => {
 				style: 'default',
 				text: strings.yes,
 			},
-			{ onPress: () => {}, style: 'cancel', text: strings.cancel },
+			{ onPress: () => { }, style: 'cancel', text: strings.cancel },
 		]);
 	};
+	let effect = async () => {
+		try {
+			let res = await requests.product.getBanners();
+			setBanners(res.data)
+		} catch (error) {
+
+		}
+	}
+
+	useEffect(() => {
+		effect();
+	}, [])
+
 	return (
 		<View style={styles.container}>
 			{!user.token ? (
@@ -142,7 +153,6 @@ const ProfileView = ({}: IProfileViewProps) => {
 						</View>
 						<Text style={styles.line} />
 						<View style={styles.lol}>
-							{/* <ChatIcon size={14} /> */}
 							<TouchableOpacity
 								style={styles.reviews}
 								onPress={() => onPress(Routes.MY_REVIEWS)}
@@ -158,24 +168,29 @@ const ProfileView = ({}: IProfileViewProps) => {
 			)}
 
 			<View style={styles.news}>
-				<TouchableOpacity
-					style={styles.viewAll}
-					onPress={() => onPress(Routes.WHATS_NEW)}
+				<TouchableWithoutFeedback
+					onPress={() => onPress(Routes.WHATS_NEW, { banners })}
 				>
-					<View style={styles.component}>
-						<Text style={styles.textOne}>Что нового?</Text>
-						<View style={styles.md10}>
-							<Text style={styles.textView}>
-								{strings.viewAll}
-							</Text>
-							<ChevronRightIcon size={8} />
+					<View
+						style={styles.viewAll}
+					>
+						<View style={styles.component}>
+							<Text style={styles.textOne}>Что нового?</Text>
+							<View style={styles.md10}>
+								<Text style={styles.textView}>
+									{strings.viewAll}
+								</Text>
+								<ChevronRightIcon size={8} />
+							</View>
 						</View>
+						<TouchableWithoutFeedback onPress={() => onPress(Routes.WHATS_NEW, { banners })}>
+							<Image
+								style={styles.img}
+								source={banners.length > 0 ? { uri: banners[0].image } : undefined}
+							/>
+						</TouchableWithoutFeedback>
 					</View>
-				</TouchableOpacity>
-				<Image
-					style={styles.img}
-					source={require('../../../assets/images/img21.png')}
-				/>
+				</TouchableWithoutFeedback>
 			</View>
 			<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
 				<MenuLink text={strings.helpSupport} />

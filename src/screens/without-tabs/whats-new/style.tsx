@@ -1,14 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
-    container: {
+	container: {
 		flex: 1,
 		backgroundColor: colors.lightBlue
 	},
 	box: {
 		top: 15,
-		width: 360,
+		width: Dimensions.get('window').width - 50,
 		height: 215,
 		marginBottom: 10,
 		marginHorizontal: 25,

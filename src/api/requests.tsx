@@ -10,6 +10,13 @@ axios.interceptors.request.use((e) => {
 	return e;
 });
 
+axios.interceptors.response.use(e => {
+	if (!!e?.data?.status && !!e?.data?.message) {
+		throw {}
+	}
+	return e
+})
+
 export let requests = {
 	helpers: {
 		getRegions: () => {

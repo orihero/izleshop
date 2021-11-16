@@ -2,6 +2,8 @@ import LocalizedStrings from 'react-native-localization';
 
 export let strings = new LocalizedStrings({
 	ru: {
+		alreadyInCart: "Товар уже в корзине",
+		noSuchProduct: "Товар не существует или был удален",
 		searchs: 'Поиск',
 		yes: 'Да',
 		warning: 'Внимание!',

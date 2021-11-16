@@ -11,6 +11,7 @@ import {
 } from './controller';
 import { styles } from './style';
 import RangeSlider from 'components/general/range-slider/RangeSlider';
+import { Routes } from 'constants/routes';
 
 const arr1 = [
 	'Телефоны',
@@ -44,11 +45,11 @@ interface IFilterView {
 	categories: any;
 }
 
-const FilterView = ({ navigation, route, categories }: IFilterView) => {
+const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 	const isCategory = route.params.from === 'categories';
-	const [selected, setSelected] = useState(0);
-	console.log(categories);
-
+	const [selected, setSelected] = useState(-1);
+	const [low, setLow] = useState(1200000);
+	const [high, setHigh] = useState(18000000);
 	return (
 		<View style={styles.container}>
 			<Header
@@ -60,42 +61,50 @@ const FilterView = ({ navigation, route, categories }: IFilterView) => {
 			<ScrollView showsVerticalScrollIndicator={true}>
 				<Text style={styles.title}>{strings.sort}</Text>
 				<View style={styles.range}>
-					<RangeSlider />
+					<RangeSlider {...{ high, low, setLow, setHigh }} />
 				</View>
 				<Text style={styles.title}>
 					{isCategory ? strings.categories : strings.manufacturers}
 				</Text>
 				<View style={styles.box}>
 					{isCategory
-						? categories.map((e, i) => (
-								<TouchableOpacity
-									onPress={() => setSelected(i)}
-									key={i}
-									style={styles.row}
-								>
-									<Text style={styles.text}>{e}</Text>
-									<View style={styles.circle}>
-										{selected === i && (
-											<View style={styles.dot} />
-										)}
-									</View>
-								</TouchableOpacity>
-						  ))
-						: arr2.map((e, i) => (
-								<View key={i} style={styles.row}>
-									<Text style={styles.text}>{e}</Text>
-									<View style={styles.circle} />
+						? categories?.map((e, i) => (
+							<TouchableOpacity
+								onPress={() => setSelected(i)}
+								key={i}
+								style={styles.row}
+							>
+								<Text style={styles.text}>{e.title}</Text>
+								<View style={styles.circle}>
+									{selected === i && (
+										<View style={styles.dot} />
+									)}
 								</View>
-						  ))}
+							</TouchableOpacity>
+						))
+						: arr2.map((e, i) => (
+							<View key={i} style={styles.row}>
+								<Text style={styles.text}>{e}</Text>
+								<View style={styles.circle} />
+							</View>
+						))}
 				</View>
 				<View style={styles.buttonRow}>
 					<SecondButton
-						onPress={() => {}}
+						onPress={() => {
+							navigation.goBack();
+						}}
 						ph={32}
 						text={isCategory ? strings.cancel : strings.allBrands}
 					/>
 					<SecondButton
-						onPress={() => {}}
+						onPress={() => {
+							navigation.navigate(Routes.PRODUCTS, {
+								filters: {
+
+								}
+							})
+						}}
 						ph={16}
 						bg={colors.darkBlue}
 						bl={colors.darkBlue}

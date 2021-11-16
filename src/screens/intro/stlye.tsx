@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 import { paddingVertical } from 'constants/sizes';
 
@@ -13,10 +13,10 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.blue,
 	},
 	boxOne: {
-		width: 415,
-		height: 500,
+		width: Dimensions.get('window').width,
 		justifyContent: 'center',
 		alignItems: 'center',
+		flex: 1.2
 	},
 	img: {
 		width: 350,

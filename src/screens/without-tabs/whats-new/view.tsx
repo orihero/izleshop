@@ -4,7 +4,7 @@ import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import ProfileLayout from '../ProfileLayout';
 import { styles } from './style';
 import { strings } from 'locales/locales';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import { Routes } from 'constants/routes';
 
 interface IWhatsNewViewProps {
@@ -14,14 +14,15 @@ interface IWhatsNewViewProps {
 	navigate: () => void;
 }
 
-const WhatsNewView = ({}: IWhatsNewViewProps) => {
+const WhatsNewView = ({ }: IWhatsNewViewProps) => {
 	let navigation = useNavigation();
-
-	let onNextPress = () => {
+	let route = useRoute();
+	let { banners = [] } = route?.params || {}
+	let onNextPress = (id: number) => {
 		//@ts-ignore
-		navigation.navigate(Routes.WHATS_NEWS);
+		navigation.navigate(Routes.TABS, { screen: Routes.HOME_STACK, params: { screen: Routes.PRODUCT_DETAILS, params: { id } } });
 	};
-
+	console.log({ route });
 	return (
 		<ProfileLayout headerTitle={strings.whatsNew || ''}>
 			<ScrollView
@@ -29,30 +30,16 @@ const WhatsNewView = ({}: IWhatsNewViewProps) => {
 				contentContainerStyle={{ paddingBottom: 20 }}
 			>
 				<View style={styles.container}>
-					<TouchableOpacity onPress={onNextPress}>
-						<View style={styles.box}>
-							<Image
-								style={styles.img}
-								source={require('assets/images/image16.png')}
-							/>
-						</View>
-					</TouchableOpacity>
-					<TouchableOpacity onPress={onNextPress}>
-						<View style={styles.box}>
-							<Image
-								style={styles.img}
-								source={require('assets/images/image17.png')}
-							/>
-						</View>
-					</TouchableOpacity>
-					<TouchableOpacity onPress={onNextPress}>
-						<View style={styles.box}>
-							<Image
-								style={styles.img}
-								source={require('assets/images/image18.png')}
-							/>
-						</View>
-					</TouchableOpacity>
+					{banners.map(e => {
+						return <TouchableOpacity onPress={() => onNextPress(e.product_id)}>
+							<View style={styles.box}>
+								<Image
+									style={styles.img}
+									source={{ uri: e.image }}
+								/>
+							</View>
+						</TouchableOpacity>
+					})}
 				</View>
 			</ScrollView>
 		</ProfileLayout>

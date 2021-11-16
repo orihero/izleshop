@@ -9,9 +9,7 @@ import RangeSlider from 'rn-range-slider';
 import Text from '../Text';
 import { strings } from 'locales/locales';
 
-const CustomRangeSlider = () => {
-	const [low, setLow] = useState(1200000);
-	const [high, setHigh] = useState(18000000);
+const CustomRangeSlider = ([high, low, setLow, setHigh]) => {
 	const renderThumb = useCallback(() => <Thumb />, []);
 	const renderRail = useCallback(() => <Rail />, []);
 	const renderRailSelected = useCallback(() => <RailSelected />, []);
