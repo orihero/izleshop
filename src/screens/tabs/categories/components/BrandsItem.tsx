@@ -45,7 +45,7 @@ const BrandsItem = ({ item }: ListRenderItemInfo<typeof el>) => {
 					numberOfLines={1}
 					style={styles.title}
 				>
-					{item.title}
+					{item.name}
 				</Text>
 			</View>
 		</Pressable>
