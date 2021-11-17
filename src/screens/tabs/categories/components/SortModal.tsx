@@ -1,15 +1,21 @@
-import React from 'react';
-import {
-	View,
-	Text,
-	Modal,
-	StyleSheet,
-	TouchableWithoutFeedback,
-} from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Pressable from 'components/general/Pressable';
 import { colors } from 'constants/colors';
 import { strings } from 'locales/locales';
+import React from 'react';
+import {
+	Modal,
+	StyleSheet, Text, View
+} from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+export let sorts = [
+	{ name: strings.default, },
+	{ name: strings.ascendingPrice, tag: 'priceSort', value: 'asc' },
+	{ name: strings.descendingPrice, tag: 'priceSort', value: "desc" },
+	{ name: strings.byRating + strings.startingFromTop, tag: 'rating', value: "asc" },
+	{ name: strings.byRating + strings.startingFromLow, tag: 'rating', value: "desc" },
+
+]
 
 interface ISortModal {
 	sortOpen: boolean;
@@ -47,153 +53,29 @@ const SortModal = ({
 					<View style={styles.childContainer}>
 						<View style={styles.content}>
 							<Text style={styles.title}>{strings.sort}</Text>
-							<Pressable onPress={() => onPress(0)}>
-								<View
-									style={[
-										styles.row,
-										activeIndex === 0
-											? styles.bgBlue
-											: styles.bgWhite,
-									]}
-								>
-									<Text
+							{sorts.map((e, i) => {
+								return <Pressable key={i} onPress={() => onPress(i)}>
+									<View
 										style={[
-											styles.text,
-											activeIndex === 0
-												? styles.cwhite
-												: styles.cblack,
+											styles.row,
+											activeIndex === i
+												? styles.bgBlue
+												: styles.bgWhite,
 										]}
 									>
-										{strings.default}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => onPress(1)}>
-								<View
-									style={[
-										styles.row,
-										activeIndex === 1
-											? styles.bgBlue
-											: styles.bgWhite,
-									]}
-								>
-									<Text
-										style={[
-											styles.text,
-											activeIndex === 1
-												? styles.cwhite
-												: styles.cblack,
-										]}
-									>
-										{`${strings.nameFrom} ( A-Z )`}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => onPress(2)}>
-								<View
-									style={[
-										styles.row,
-										activeIndex === 2
-											? styles.bgBlue
-											: styles.bgWhite,
-									]}
-								>
-									<Text
-										style={[
-											styles.text,
-											activeIndex === 2
-												? styles.cwhite
-												: styles.cblack,
-										]}
-									>
-										{`${strings.nameFrom} (Z - A)`}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => onPress(3)}>
-								<View
-									style={[
-										styles.row,
-										activeIndex === 3
-											? styles.bgBlue
-											: styles.bgWhite,
-									]}
-								>
-									<Text
-										style={[
-											styles.text,
-											activeIndex === 3
-												? styles.cwhite
-												: styles.cblack,
-										]}
-									>
-										{strings.ascendingPrice}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => onPress(4)}>
-								<View
-									style={[
-										styles.row,
-										activeIndex === 4
-											? styles.bgBlue
-											: styles.bgWhite,
-									]}
-								>
-									<Text
-										style={[
-											styles.text,
-											activeIndex === 4
-												? styles.cwhite
-												: styles.cblack,
-										]}
-									>
-										{strings.descendingPrice}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => onPress(5)}>
-								<View
-									style={[
-										styles.row,
-										activeIndex === 5
-											? styles.bgBlue
-											: styles.bgWhite,
-									]}
-								>
-									<Text
-										style={[
-											styles.text,
-											activeIndex === 5
-												? styles.cwhite
-												: styles.cblack,
-										]}
-									>
-										{`${strings.byRating} ${strings.startingFromTop}`}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => onPress(6)}>
-								<View
-									style={[
-										styles.row,
-										activeIndex === 6
-											? styles.bgBlue
-											: styles.bgWhite,
-									]}
-								>
-									<Text
-										style={[
-											styles.text,
-											activeIndex === 6
-												? styles.cwhite
-												: styles.cblack,
-										]}
-									>
-										{`${strings.byRating} ${strings.startingFromLow}`}
-									</Text>
-								</View>
-							</Pressable>
+										<Text
+											style={[
+												styles.text,
+												activeIndex === i
+													? styles.cwhite
+													: styles.cblack,
+											]}
+										>
+											{e.name}
+										</Text>
+									</View>
+								</Pressable>
+							})}
 						</View>
 					</View>
 				</Pressable>

@@ -5,6 +5,8 @@ import { UserData, UserFullData } from 'store/slices/userSlice';
 export let url = 'https://izleshop.uz/api';
 
 axios.interceptors.request.use((e) => {
+	console.log("REQUEST",e);
+
 	if (!!store.getState().user.token)
 		e.headers.Authorization = `Bearer ${store.getState().user.token}`;
 	return e;

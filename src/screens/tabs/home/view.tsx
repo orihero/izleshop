@@ -57,14 +57,6 @@ const HomeView = ({
 	products,
 	banners,
 }: HomeViewProps) => {
-	// const [items, setItems] = useState([]);
-	// const [banners, setBanners] = useState([]);
-	// useEffect(() => {
-	// 	setTimeout(() => {
-	// 		// setItems(products);
-	// 		// setBanners(data);
-	// 	}, 1500);
-	// }, []);
 
 	return (
 		<ScrollView

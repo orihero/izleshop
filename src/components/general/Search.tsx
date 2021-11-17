@@ -3,10 +3,17 @@ import { StyleSheet, View, TextInput, Pressable } from 'react-native';
 import { SearchIcon } from '../../assets/icons/icons';
 import { colors } from 'constants/colors';
 import { windowWidth } from '../../constants/sizes';
+import { useNavigation } from '@react-navigation/core';
+import { Routes } from 'constants/routes';
 
-export interface SearchInputProps {}
+export interface SearchInputProps { }
 
-const SearchInput = ({}: SearchInputProps) => {
+const SearchInput = ({ }: SearchInputProps) => {
+	const navigation = useNavigation();
+	let onNextPress = () => {
+		// @ts-ignore
+		navigation.navigate(Routes.SEARCH);
+	};
 	return (
 		<View style={styles.container}>
 			<Pressable
@@ -16,6 +23,7 @@ const SearchInput = ({}: SearchInputProps) => {
 					radius: 20,
 					borderless: true,
 				}}
+				onPress={onNextPress}
 			>
 				<SearchIcon size={17} color={colors.gray} />
 			</Pressable>
@@ -44,5 +52,6 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		paddingLeft: 15,
 		paddingRight: 30,
+		width: '100%'
 	},
 });

@@ -22,6 +22,7 @@ import {
 	ProductsScreenRouteProp,
 } from './controller';
 import { styles } from './style';
+import { sorts } from '../../components/SortModal'
 
 interface IProductsView {
 	route?: ProductsScreenRouteProp;
@@ -41,7 +42,7 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 		console.log(route.params);
 
 		let res = await requests.product.getProducts(
-			route.params || {}
+			{ ...route.params || {}, [sorts[activeIndex].tag]: sorts[activeIndex].value }
 		);
 		setProducts(res.data.data);
 	};
@@ -49,7 +50,7 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 
 	useEffect(() => {
 		effect();
-	}, [route?.params]);
+	}, [route?.params, activeIndex]);
 
 	return (
 		<View style={styles.flex1}>
