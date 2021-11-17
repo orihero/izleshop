@@ -12,6 +12,7 @@ import { selectUser, setUserPhone } from 'store/slices/userSlice';
 import { clearCart } from 'store/slices/cartSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
+import SweetAlert from 'react-native-sweet-alert';
 
 const arr1 = [
 	'Value 1',
@@ -71,7 +72,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 		try {
 			let res = await requests.helpers.getRegions();
 			setRegions(res.data);
-		} catch (error) { }
+		} catch (error) {}
 	};
 
 	useEffect(() => {
@@ -108,17 +109,32 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				index: '111201',
 				city: city,
 				products: products,
-				installment_plan: paymentMethod ? null : installment_plan + 1
+				installment_plan: paymentMethod ? null : installment_plan + 1,
 			};
 			let response = await requests.product.makeOrder(req);
 			console.log(response.data);
 			console.log(city);
 			console.log(response);
-			if (!!response) {
-				dispatch(clearCart());
-				Linking.openURL(response.data.paymentUrl);
-				navigation.navigate(Routes.HOME_STACK);
-			}
+			SweetAlert.showAlertWithOptions(
+				{
+					title: strings.warning,
+					subTitle: strings.success,
+					confirmButtonTitle: 'OK',
+					confirmButtonColor: '#000',
+					otherButtonTitle: 'Cancel',
+					otherButtonColor: '#dedede',
+					style: 'success',
+					cancellable: true,
+				},
+				() => {
+					if (!!response) {
+						dispatch(clearCart());
+
+						Linking.openURL(response.data.paymentUrl);
+						navigation.navigate(Routes.HOME_STACK);
+					}
+				}
+			);
 		} catch (error) {
 			console.log(error);
 		} finally {

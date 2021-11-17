@@ -89,11 +89,13 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 									{strings.changeTheLanguage}
 								</Text>
 							</View>
-							<Image
-								style={styles.flag}
-								source={require('assets/images/flag.png')}
-							/>
-							<ChevronRightIcon size={15} />
+							<View style={styles.sos}>
+								<Image
+									style={styles.flag}
+									source={require('assets/images/flag.png')}
+								/>
+								<ChevronRightIcon size={15} />
+							</View>
 						</TouchableOpacity>
 					</View>
 				</View>

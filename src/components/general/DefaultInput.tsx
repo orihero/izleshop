@@ -1,6 +1,12 @@
 import { colors } from 'constants/colors';
 import React, { useState } from 'react';
-import { Dimensions, KeyboardTypeOptions, StyleSheet, TextInput, View } from 'react-native';
+import {
+	Dimensions,
+	KeyboardTypeOptions,
+	StyleSheet,
+	TextInput,
+	View,
+} from 'react-native';
 
 interface DefaultInputProps {
 	value: string;
@@ -13,7 +19,7 @@ interface DefaultInputProps {
 
 const DefaultInput = ({
 	value,
-	onChange = (value: string) => { },
+	onChange = (value: string) => {},
 	isPassword,
 	isTextArea,
 	placeholder = `(99) 456-95-50`,
@@ -46,11 +52,12 @@ export default DefaultInput;
 
 const styles = StyleSheet.create({
 	input: {
-		width: Dimensions.get("window").width - 20,
+		width: Dimensions.get('window').width - 35,
 		height: 55,
 		borderRadius: 10,
+		color: colors.black,
 		backgroundColor: colors.white,
-		alignSelf: 'center'
+		alignSelf: 'center',
 	},
 	absolute: {
 		top: 0,
@@ -70,8 +77,9 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		paddingBottom: 18,
 		borderRadius: 10,
+		color: colors.black,
 		backgroundColor: colors.white,
-		width: Dimensions.get("window").width - 20
+		width: Dimensions.get('window').width - 20,
 	},
 	text1: {},
 });

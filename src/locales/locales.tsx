@@ -2,6 +2,7 @@ import LocalizedStrings from 'react-native-localization';
 
 export let strings = new LocalizedStrings({
 	ru: {
+		success: 'Заказ оформлен',
 		alreadyInCart: 'Товар уже в корзине',
 		noSuchProduct: 'Товар не существует или был удален',
 		searchs: 'Поиск',

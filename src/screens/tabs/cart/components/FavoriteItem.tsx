@@ -117,6 +117,11 @@ const FavoriteItem = ({
 		navigation.navigate(Routes.PRODUCT_DETAILS, { id: id });
 	};
 
+	let p = (newPrice * dollarRate)
+		.toString()
+		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+	p = p.substr(0, p.length - 2) + '00';
+
 	return (
 		<TouchableWithoutFeedback onPress={onItemPress}>
 			<View style={styles.container}>
@@ -149,9 +154,7 @@ const FavoriteItem = ({
 							{title}
 						</Text>
 					</View>
-					<Text style={styles.text4}>{`${
-						newPrice * dollarRate
-					} ${currency}`}</Text>
+					<Text style={styles.text4}>{`${p} ${currency}`}</Text>
 					{!hasRemove && <Rating count={5} active={4} />}
 					<View style={styles.plus}>
 						{hasRating ? (

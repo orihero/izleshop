@@ -26,7 +26,7 @@ import { selectUser } from 'store/slices/userSlice';
 export interface IVerticalItemModel {
 	id?: number;
 	name?: string;
-	price?: string;
+	price?: number;
 	currency?: string;
 	ratingCount?: number;
 	rating?: number;
@@ -57,7 +57,7 @@ const VerticalItem = ({
 	const { id, name, price, currency, ratingCount, rating, status, image } =
 		item || {};
 
-	let { dollarRate } = useAppSelector(selectUser)
+	let { dollarRate } = useAppSelector(selectUser);
 
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
@@ -67,7 +67,6 @@ const VerticalItem = ({
 	let naviation = useNavigation();
 
 	console.log({ dollarRate });
-
 
 	let onHeartPress = () => {
 		if (isFavorite) {
@@ -89,6 +88,13 @@ const VerticalItem = ({
 		//@ts-ignore
 		naviation.navigate(Routes.PRODUCT_DETAILS, { id });
 	};
+	let locoled = price?.toLocaleString('ru');
+
+	console.log(price?.toLocaleString('ru'));
+	let p = (price * dollarRate)
+		.toString()
+		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+	p = p.substr(0, p.length - 2) + '00';
 
 	return item ? (
 		<TouchableWithoutFeedback onPress={onItemPress}>
@@ -133,9 +139,9 @@ const VerticalItem = ({
 					>
 						{name}
 					</Text>
-					<Text
-						style={styles.newPrice}
-					>{`${price * dollarRate} ${strings.currency}`}</Text>
+					<Text style={styles.newPrice}>
+						{p} {strings.currency}
+					</Text>
 				</View>
 			</View>
 		</TouchableWithoutFeedback>

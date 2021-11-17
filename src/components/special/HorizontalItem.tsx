@@ -28,6 +28,7 @@ import Pressable from '../general/Pressable';
 import ItemCounter from './ItemCounter';
 import Rating from './Rating';
 import { selectUser } from 'store/slices/userSlice';
+import { windowWidth } from 'constants/sizes';
 
 export interface IHorizontalItemModel {
 	id?: number;
@@ -75,7 +76,7 @@ const HorizontalItem = ({
 	} = item.data || item;
 
 	const dispatch = useAppDispatch();
-	let { dollarRate } = useAppSelector(selectUser)
+	let { dollarRate } = useAppSelector(selectUser);
 
 	const [isChecked, setIsChecked] = useState(false);
 
@@ -111,6 +112,11 @@ const HorizontalItem = ({
 	let onCheck = () => {
 		setIsChecked(!isChecked);
 	};
+	let p = (price * dollarRate)
+		.toLocaleString('ru')
+		.toString()
+		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+	p = p.substr(0, p.length - 2) + '00';
 
 	console.log(item.data, image);
 
@@ -152,7 +158,7 @@ const HorizontalItem = ({
 						numberOfLines={1}
 						textBreakStrategy={'simple'}
 						lineBreakMode="tail"
-					>{` ${(price * dollarRate).toLocaleString("ru")} ${currency}`}</Text>
+					>{` ${p} ${currency}`}</Text>
 					{hasRating ? (
 						<Rating
 							defaultStyle
@@ -271,7 +277,7 @@ const styles = StyleSheet.create({
 	},
 	plus: {
 		height: 40,
-		width: 200,
+		width: windowWidth - 170,
 		flexShrink: 1,
 		right: 5,
 		marginHorizontal: 5,

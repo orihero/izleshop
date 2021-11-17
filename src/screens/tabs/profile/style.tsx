@@ -1,5 +1,6 @@
 import { colors } from 'constants/colors';
 import { StyleSheet } from 'react-native';
+import { windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
 	container: {
@@ -68,8 +69,9 @@ export const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	img: {
-		width: 300,
+		width: windowWidth - 60,
 		height: 130,
+		// marginHorizontal: 30,
 	},
 	myProfile: {
 		height: 50,
@@ -116,12 +118,13 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 10,
 	},
 	orders: {
+		width: windowWidth - 40,
 		height: 130,
-		marginHorizontal: 10,
+		marginHorizontal: 20,
 		marginTop: 10,
 		borderRadius: 7,
 		backgroundColor: colors.white,
-		paddingRight: 10
+		paddingRight: 10,
 	},
 	myOrders: {
 		height: 30,
@@ -187,7 +190,8 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	reviews: {
-		width: 330,
+		width: windowWidth - 70,
+		marginHorizontal: 5,
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
@@ -203,7 +207,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		flexDirection: 'row',
-		paddingLeft: 10
+		paddingLeft: 10,
 	},
 	chat: {
 		width: 15,

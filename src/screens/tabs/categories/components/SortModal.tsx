@@ -43,7 +43,7 @@ const SortModal = ({
 
 	return (
 		<Modal
-			animationType="slide"
+			animationType="fade"
 			transparent={true}
 			visible={sortOpen}
 			onRequestClose={closeModal}

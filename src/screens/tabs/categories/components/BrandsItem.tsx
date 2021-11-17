@@ -36,8 +36,7 @@ const BrandsItem = ({ item }: ListRenderItemInfo<typeof el>) => {
 						source={{
 							uri: item.image,
 						}}
-						style={{ width: 100, height: 100 }}
-						resizeMode={'contain'}
+						style={styles.img}
 					/>
 				</View>
 				<Text
@@ -82,6 +81,11 @@ const styles = StyleSheet.create({
 	},
 	parentContainer: {
 		width: width / 3,
+	},
+	img: {
+		width: 85,
+		height: 85,
+		resizeMode: 'contain',
 	},
 	image: {
 		height: 40,
