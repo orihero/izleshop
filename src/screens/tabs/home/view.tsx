@@ -1,16 +1,18 @@
+import { useNavigation } from '@react-navigation/core';
 import SearchInput from 'components/general/Search';
 import Text from 'components/general/Text';
 import SliderItem from 'components/special/SliderItem';
 import VerticalItem from 'components/special/VerticalItem';
 import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
-import React, { useEffect, useState } from 'react';
-import { FlatList, ScrollView, View } from 'react-native';
+import React from 'react';
+import { FlatList, ScrollView, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Shimmer from 'react-native-shimmer-placeholder';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import { data, products } from './data';
+import { Route } from 'react-native-tab-view';
 import styles from './style';
 
 export interface HomeViewProps {
@@ -57,14 +59,10 @@ const HomeView = ({
 	products,
 	banners,
 }: HomeViewProps) => {
-	// const [items, setItems] = useState([]);
-	// const [banners, setBanners] = useState([]);
-	// useEffect(() => {
-	// 	setTimeout(() => {
-	// 		// setItems(products);
-	// 		// setBanners(data);
-	// 	}, 1500);
-	// }, []);
+	let navigation = useNavigation();
+	let onPress = (route: Route, params: any) => {
+		navigation.navigate(route, params);
+	};
 
 	return (
 		<ScrollView
@@ -77,7 +75,17 @@ const HomeView = ({
 			) : (
 				<Carousel
 					data={banners}
-					renderItem={(props) => <SliderItem {...props} dwh />}
+					renderItem={(props) => (
+						<TouchableOpacity
+							onPress={() =>
+								onPress(Routes.PRODUCT_DETAILS, {
+									id: props.item.product_id,
+								})
+							}
+						>
+							<SliderItem {...props} dwh />
+						</TouchableOpacity>
+					)}
 					sliderWidth={width}
 					itemWidth={width}
 					containerCustomStyle={styles.carousel}

@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.lightBlue,
 	},
 	textBox: {
-		right: 100,
+		right: 90,
 		marginHorizontal: 20,
 	},
 	phoneInput: {
@@ -25,6 +25,6 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 20,
 	},
 	center: {
-		alignItems: 'center',
+		marginHorizontal: 12,
 	},
 });

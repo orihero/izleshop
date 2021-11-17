@@ -37,7 +37,7 @@ const SortModal = ({
 
 	return (
 		<Modal
-			animationType="slide"
+			animationType="fade"
 			transparent={true}
 			visible={sortOpen}
 			onRequestClose={closeModal}
@@ -65,48 +65,6 @@ const SortModal = ({
 										]}
 									>
 										{strings.default}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => onPress(1)}>
-								<View
-									style={[
-										styles.row,
-										activeIndex === 1
-											? styles.bgBlue
-											: styles.bgWhite,
-									]}
-								>
-									<Text
-										style={[
-											styles.text,
-											activeIndex === 1
-												? styles.cwhite
-												: styles.cblack,
-										]}
-									>
-										{`${strings.nameFrom} ( A-Z )`}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => onPress(2)}>
-								<View
-									style={[
-										styles.row,
-										activeIndex === 2
-											? styles.bgBlue
-											: styles.bgWhite,
-									]}
-								>
-									<Text
-										style={[
-											styles.text,
-											activeIndex === 2
-												? styles.cwhite
-												: styles.cblack,
-										]}
-									>
-										{`${strings.nameFrom} (Z - A)`}
 									</Text>
 								</View>
 							</Pressable>

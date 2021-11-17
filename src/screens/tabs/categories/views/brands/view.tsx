@@ -7,44 +7,44 @@ import BrandsItem from '../../components/BrandsItem';
 import { CategoriesNavigationProp } from '../../controller';
 import { styles } from './style';
 
-let ListEmptyComponent = () => {
-	return (
-		<View style={styles.emptyContainer}>
-			<Shimmer
-				LinearGradient={LinearGradient}
-				style={[styles.emptyCard]}
-			/>
-			<Shimmer
-				LinearGradient={LinearGradient}
-				style={[styles.emptyCard]}
-			/>
-			<Shimmer
-				LinearGradient={LinearGradient}
-				style={[styles.emptyCard]}
-			/>
-			<Shimmer
-				LinearGradient={LinearGradient}
-				style={[styles.emptyCard]}
-			/>
-			<Shimmer
-				LinearGradient={LinearGradient}
-				style={[styles.emptyCard]}
-			/>
-			<Shimmer
-				LinearGradient={LinearGradient}
-				style={[styles.emptyCard]}
-			/>
-			<Shimmer
-				LinearGradient={LinearGradient}
-				style={[styles.emptyCard]}
-			/>
-			<Shimmer
-				LinearGradient={LinearGradient}
-				style={[styles.emptyCard]}
-			/>
-		</View>
-	);
-};
+// let ListEmptyComponent = () => {
+// 	return (
+// 		<View style={styles.emptyContainer}>
+// 			<Shimmer
+// 				LinearGradient={LinearGradient}
+// 				style={[styles.emptyCard]}
+// 			/>
+// 			<Shimmer
+// 				LinearGradient={LinearGradient}
+// 				style={[styles.emptyCard]}
+// 			/>
+// 			<Shimmer
+// 				LinearGradient={LinearGradient}
+// 				style={[styles.emptyCard]}
+// 			/>
+// 			<Shimmer
+// 				LinearGradient={LinearGradient}
+// 				style={[styles.emptyCard]}
+// 			/>
+// 			<Shimmer
+// 				LinearGradient={LinearGradient}
+// 				style={[styles.emptyCard]}
+// 			/>
+// 			<Shimmer
+// 				LinearGradient={LinearGradient}
+// 				style={[styles.emptyCard]}
+// 			/>
+// 			<Shimmer
+// 				LinearGradient={LinearGradient}
+// 				style={[styles.emptyCard]}
+// 			/>
+// 			<Shimmer
+// 				LinearGradient={LinearGradient}
+// 				style={[styles.emptyCard]}
+// 			/>
+// 		</View>
+// 	);
+// };
 
 export interface BrandsViewProps {
 	brands: any;
@@ -61,7 +61,7 @@ const BrandsView = ({ brands }: BrandsViewProps) => {
 				renderItem={(props) => <BrandsItem {...props} />}
 				showsVerticalScrollIndicator={false}
 				numColumns={3}
-				ListEmptyComponent={ListEmptyComponent}
+				// ListEmptyComponent={ListEmptyComponent}
 			/>
 		</View>
 	);

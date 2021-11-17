@@ -12,7 +12,15 @@ import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
 import { accordionData, item } from 'mockup/data';
 import React from 'react';
-import { FlatList, ScrollView, Text, View } from 'react-native';
+import {
+	FlatList,
+	Platform,
+	ScrollView,
+	Text,
+	ToastAndroid,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
@@ -78,16 +86,32 @@ const ProductDetailsView = ({
 	};
 	let onNextPress = () => {
 		if (isInCart) {
-			Toast.show({
-				text1: strings.warning,
-				text2: strings.alreadyInCart,
-			});
+			// Toast.show({
+			// 	text1: strings.warning,
+			// 	text2: strings.alreadyInCart,
+			// 	position: 'bottom',
+			// 	visibilityTime: 1000,
+			// });
+			if (Platform.OS === 'android') {
+				ToastAndroid.show(strings.alreadyInCart, 500);
+			} else {
+				alert(strings.alreadyInCart);
+			}
 			return;
 		} else {
 			dispatch(addToCart(details));
 		}
 		navigation.navigate(Routes.CART);
 	};
+
+	let onBackPress = () => {
+		navigation.navigate(Routes.HOME);
+	};
+
+	let p = (details.price * dollarRate)
+		.toString()
+		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+	p = p.substr(0, p.length - 2) + '00';
 
 	return (
 		<View style={styles.container}>
@@ -142,7 +166,7 @@ const ProductDetailsView = ({
 					<Rating styleChanged />
 					<View style={styles.pr}>
 						<Text style={styles.text3}>
-							{`${details.price * dollarRate} ${item.currency}`}
+							{`${p} ${item.currency}`}
 						</Text>
 						{details.old_price && (
 							<Text style={styles.text2}>

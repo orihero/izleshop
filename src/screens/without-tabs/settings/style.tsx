@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
+import { windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
 	row: {
@@ -11,12 +12,12 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		paddingTop: 5,
 		// textAlign: 'center',
-		marginHorizontal: 20,
+		marginHorizontal: 10,
 		backgroundColor: colors.lightBlue,
 	},
 	profilePage: {
 		// marginHorizontal: 10,
-		width: 360,
+		width: windowWidth - 20,
 		height: 60,
 		paddingLeft: 50,
 		paddingHorizontal: 20,
@@ -26,14 +27,14 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	profile: {
-		left: 20,
+		left: 15,
 		// right: 150,
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 	},
 	textProfile: {
-		width: 350,
+		width: windowWidth - 50,
 		fontSize: 18,
 		fontFamily: 'Lato',
 		fontWeight: '600',
@@ -41,12 +42,12 @@ export const styles = StyleSheet.create({
 		// lineHeight: 16,
 	},
 	icon: {
-		right: 78,
+		right: 65,
 	},
 	settingProfile: {
-		width: 390,
+		width: windowWidth - 20,
 		height: 112,
-		right: 10,
+		// right: 10,
 		marginTop: 5,
 		paddingHorizontal: 10,
 		backgroundColor: colors.white,
@@ -89,7 +90,7 @@ export const styles = StyleSheet.create({
 		borderColor: colors.lightGray,
 	},
 	phoneString: {
-		width: 350,
+		width: windowWidth - 45,
 		paddingHorizontal: 20,
 		alignItems: 'center',
 		flexDirection: 'row',
@@ -129,6 +130,10 @@ export const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		// fontFamily: 'Poppins',
 		alignItems: 'center',
+	},
+	sos: {
+		right: 33,
+		flexDirection: 'row',
 	},
 	flag: {
 		width: 18,

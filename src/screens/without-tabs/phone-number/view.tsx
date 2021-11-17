@@ -49,10 +49,10 @@ const PhoneNumberView = ({}: IPhoneNumberViewProps) => {
 						<Text style={styles.text}>{strings.phoneNamber}</Text>
 					</View>
 					<PhoneInput
-						placeholder={'(307) 555-0133'}
+						placeholder={'+998 99 555-0133'}
 						value={user.phone}
 						onChange={setPhone}
-						keyboardType={'numeric'}
+						keyboardType="phone-pad"
 						Icon={PhoneIcon}
 					/>
 				</View>

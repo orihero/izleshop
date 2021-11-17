@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
 		fontSize: 14,
 		lineHeight: 17,
 		fontWeight: '700',
-		marginLeft: 10,
+		// marginLeft: 10,
 		marginBottom: 12,
 	},
 	input: {
@@ -19,9 +19,9 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	center: {
-		marginRight: 20,
+		left: 0,
+		right: 0,
 		marginTop: 10,
-		alignItems: 'center',
 	},
 	izle: {
 		fontSize: 144,

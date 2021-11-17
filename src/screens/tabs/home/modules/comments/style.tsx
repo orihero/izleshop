@@ -1,11 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
+import { windowWidth } from 'constants/sizes';
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 	},
 	boxOne: {
+		// width: windowWidth - 50,
 		flexDirection: 'row',
 	},
 	userImage: {
@@ -25,11 +27,11 @@ const styles = StyleSheet.create({
 		height: 15,
 	},
 	rating: {
-		marginLeft: 100,
-		marginHorizontal: 20,
+		marginHorizontal: 50,
 	},
 	data: {
 		marginVertical: 10,
+		// fontSize: 12,
 		flexDirection: 'column',
 	},
 	dataText: {
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
 		color: colors.gray,
 	},
 	lorem: {
-		width: 315,
+		width: windowWidth - 115,
 		fontSize: 15,
 		fontWeight: '600',
 		paddingTop: 10,

@@ -2,7 +2,8 @@ import {
 	ButtonIcon,
 	CircleIcon,
 	CreditCardIcon,
-	CreditCardsPaymentIcon, WalletIcon
+	CreditCardsPaymentIcon,
+	WalletIcon,
 } from 'assets/icons/icons';
 import DefaultButton from 'components/general/DefaultButton';
 import Header from 'components/navigation/Header';
@@ -12,19 +13,20 @@ import { strings } from 'locales/locales';
 import React, { useState } from 'react';
 import {
 	Image,
-	ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View
+	ScrollView,
+	Text,
+	TouchableOpacity,
+	TouchableWithoutFeedback,
+	View,
 } from 'react-native';
 import { IHorizontalItemModel } from 'src/components/special/HorizontalItem';
 import { selectDollarRate } from 'store/slices/userSlice';
 import { useAppSelector } from 'utils/hooks';
 import {
 	PreCheckoutScreenNavigationProps,
-	PreCheckoutScreenRouteProps
+	PreCheckoutScreenRouteProps,
 } from './controller';
 import { styles } from './style';
-
-
-
 
 const paymeLogo = require('mockup/images/payme.png');
 const clickLogo = require('mockup/images/click.png');
@@ -84,7 +86,7 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 		navigation.navigate(Routes.CHECKOUT, {
 			products: products,
 			paymentMethod: paymentType,
-			installment_plan: activeIndex + 1
+			installment_plan: activeIndex + 1,
 		});
 	};
 	let dollarRate = useAppSelector(selectDollarRate);
@@ -92,6 +94,10 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 	let onBackPress = () => {
 		navigation.navigate(Routes.HOME);
 	};
+	let p = (total * dollarRate)
+		.toString()
+		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+	p = p.substr(0, p.length - 2) + '00';
 
 	return (
 		<ScrollView
@@ -100,19 +106,17 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 		>
 			<Header
 				title={strings.cart}
-			// rightEdge={() => <SearchIcon size={20} />}
+				// rightEdge={() => <SearchIcon size={20} />}
 			/>
 			<View style={styles.top}>
 				<View style={styles.topChild}>
 					<Text style={styles.text1}>{strings.yourOrder}</Text>
-					<Text style={styles.text1}>
-						{count}
-					</Text>
+					<Text style={styles.text1}>{count}</Text>
 				</View>
 				<View style={styles.topChild}>
 					<Text style={styles.text2}>{`${strings.sum}:`}</Text>
 					<Text style={styles.text3}>
-						{`${total * dollarRate} ${strings.currency}`}
+						{`${p} ${strings.currency}`}
 					</Text>
 				</View>
 				<View style={styles.topChild}>
@@ -122,7 +126,7 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 				<View style={styles.topChild}>
 					<Text style={styles.text4}>{`${strings.outcome}:`}</Text>
 					<Text style={styles.text5}>
-						{`${total * dollarRate} ${strings.currency}`}
+						{`${p} ${strings.currency}`}
 					</Text>
 				</View>
 			</View>

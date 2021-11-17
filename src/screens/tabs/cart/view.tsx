@@ -25,6 +25,10 @@ const CartView = ({ navigation }: ICartViewProps) => {
 	let total = useAppSelector(selectCartTotal);
 	let cartItems = useAppSelector(selectCartList);
 	let dollarRate = useAppSelector(selectDollarRate);
+	let p = (total * dollarRate)
+		.toString()
+		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+	p = p.substr(0, p.length - 2) + '00';
 
 	console.log({ total, cartItems });
 
@@ -62,7 +66,8 @@ const CartView = ({ navigation }: ICartViewProps) => {
 							{strings.total}
 						</Text>
 						<Text style={styles.totalPriceText2}>
-							{total * dollarRate} {strings.soum}
+							{p}
+							{strings.soum}
 						</Text>
 					</View>
 					<View style={styles.button}>

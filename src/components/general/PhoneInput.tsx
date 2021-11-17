@@ -15,7 +15,7 @@ interface PhoneInputProps {
 	isTextArea?: boolean;
 	placeholder?: string;
 	keyboardType?: string;
-    Icon?: (props:IconProps)=> JSX.Element;
+	Icon?: (props: IconProps) => JSX.Element;
 }
 
 const PhoneInput = ({
@@ -26,7 +26,7 @@ const PhoneInput = ({
 	placeholder = `Номер телефона 
 	+998 (99) 456-95-50`,
 	keyboardType,
-    Icon 
+	Icon,
 }: PhoneInputProps) => {
 	const [showPassword, setShowPassword] = useState(false);
 
@@ -36,8 +36,9 @@ const PhoneInput = ({
 
 	return (
 		<View style={isTextArea ? styles.textarea : styles.input}>
-            {Icon===undefined? null:<Icon/>}
+			{Icon === undefined ? null : <Icon />}
 			<TextInput
+				style={styles.textInput}
 				value={value}
 				multiline={isTextArea}
 				onChangeText={(e) => onChange(e)}
@@ -47,7 +48,6 @@ const PhoneInput = ({
 				secureTextEntry={isPassword}
 				keyboardType={keyboardType}
 			></TextInput>
-
 		</View>
 	);
 };
@@ -59,14 +59,18 @@ const styles = StyleSheet.create({
 		width: 345,
 		height: 55,
 		marginLeft: 3,
-        marginTop: 12,
+		marginTop: 12,
 		paddingLeft: 10,
 		borderRadius: 5,
-        borderWidth: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderColor: colors.blueLight,
+		borderWidth: 1,
+		flexDirection: 'row',
+		alignItems: 'center',
+		color: colors.black,
+		borderColor: colors.blueLight,
 		backgroundColor: colors.white,
+	},
+	textInput: {
+		color: colors.black,
 	},
 	absolute: {
 		top: 0,
@@ -85,7 +89,8 @@ const styles = StyleSheet.create({
 		height: 78,
 		borderRadius: 10,
 		fontSize: 14,
+		color: colors.black,
 		backgroundColor: colors.white,
 	},
-	text1: {}
+	text1: {},
 });

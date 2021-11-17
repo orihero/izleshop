@@ -24,7 +24,10 @@ export const styles = StyleSheet.create({
 		marginTop: 12,
 	},
 	center: {
-		alignItems: 'center',
+		left: 0,
+		right: 0,
+		marginHorizontal: 34,
 		// marginRight: 30,
+		// alignItems: 'center',
 	},
 });
