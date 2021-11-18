@@ -13,6 +13,7 @@ import { clearCart } from 'store/slices/cartSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 import SweetAlert from 'react-native-sweet-alert';
+import MaskInput, { createNumberMask, Masks } from 'react-native-mask-input';
 
 const arr1 = [
 	'Value 1',
@@ -90,6 +91,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	const [district, setDistrict] = useState('');
 	const [address, setAddress] = useState('');
 	const [note, setNote] = useState('');
+	const [value, setValue] = React.useState('');
 
 	const [loading, setLoading] = useState(false);
 
@@ -142,6 +144,27 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 		}
 	};
 
+	const localPhoneMask = [
+		'+',
+		'9',
+		'9',
+		'8',
+		'(',
+		/\d/,
+		/\d/,
+		')',
+		' ',
+		/\d/,
+		/\d/,
+		/\d/,
+		' ',
+		/\d/,
+		/\d/,
+		' ',
+		/\d/,
+		/\d/,
+	];
+
 	return (
 		<View style={styles.container}>
 			<Header title={strings.checkout} />
@@ -165,11 +188,14 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 								style={styles.text1}
 							>{`${strings.phoneNumber}*`}</Text>
 							<View style={styles.mt10}>
-								<DefaultInput
-									placeholder={'+998901234567'}
-									value={phone}
-									onChange={setPhone}
-									keyboardType="phone-pad"
+								<MaskInput
+									value={value}
+									onChangeText={(masked, unmasked) => {
+										setValue(masked);
+										setPhone(unmasked);
+									}}
+									mask={localPhoneMask}
+									onFocus={() => setValue('+998')}
 								/>
 							</View>
 						</View>
@@ -190,36 +216,38 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							>{`${strings.selectDistrict}*`}</Text>
 							<View style={styles.mt10}>
 								<DefaultInput
-									placeholder={'Видите район '}
+									placeholder={'Введите район '}
 									value={district}
 									onChange={setDistrict}
 								/>
 							</View>
 						</View>
-						<View style={styles.mt19}>
-							<Text
-								style={styles.text5}
-							>{`${strings.address}*`}</Text>
-							<View style={styles.mt12}>
-								<DefaultInput
-									placeholder={''}
-									isTextArea
-									value={address}
-									onChange={setAddress}
-								/>
+						<View style={styles.mt9}>
+							<View style={styles.mt19}>
+								<Text
+									style={styles.text5}
+								>{`${strings.address}*`}</Text>
+								<View style={styles.mt12}>
+									<DefaultInput
+										placeholder={''}
+										isTextArea
+										value={address}
+										onChange={setAddress}
+									/>
+								</View>
 							</View>
-						</View>
-						<View style={styles.mt19}>
-							<Text
-								style={styles.text5}
-							>{`${strings.note}*`}</Text>
-							<View style={styles.mt12}>
-								<DefaultInput
-									placeholder={''}
-									isTextArea
-									value={note}
-									onChange={setNote}
-								/>
+							<View style={styles.mt19}>
+								<Text
+									style={styles.text5}
+								>{`${strings.note}*`}</Text>
+								<View style={styles.mt12}>
+									<DefaultInput
+										placeholder={''}
+										isTextArea
+										value={note}
+										onChange={setNote}
+									/>
+								</View>
 							</View>
 						</View>
 						<View style={styles.mt21}>

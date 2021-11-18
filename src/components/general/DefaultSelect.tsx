@@ -79,8 +79,7 @@ const DefaultSelect = ({
 export default DefaultSelect;
 
 const styles = StyleSheet.create({
-	container: {
-	},
+	container: {},
 	box: {
 		padding: 14,
 		marginTop: 12,
@@ -89,7 +88,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: colors.white,
 		justifyContent: 'space-between',
-		height: 55
+		height: 55,
 	},
 	modalContainer: {
 		flex: 1,
@@ -98,10 +97,10 @@ const styles = StyleSheet.create({
 		backgroundColor: 'rgba(0,0,0,.3)',
 	},
 	modalBox: {
-		flex: 0.4,
+		flex: 0.8,
 		width: '90%',
 		paddingTop: 10,
-		paddingBottom: 10,
+		paddingBottom: 20,
 		backgroundColor: colors.white,
 	},
 	item: {

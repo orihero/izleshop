@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
+import { windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
 	container: {
@@ -46,6 +47,7 @@ export const styles = StyleSheet.create({
 		marginBottom: 80,
 	},
 	box: {
+		width: windowWidth - 5,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
@@ -57,10 +59,16 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	mt10: {
-		marginHorizontal: 5,
-		// right: 20,
 		marginTop: 5,
-		alignItems: 'center',
+		borderRadius: 10,
+		marginHorizontal: 5,
+		width: windowWidth - 30,
+		backgroundColor: colors.white,
+	},
+	input: {
+		height: 40,
+		margin: 10,
+		// borderWidth: 1,
 	},
 	mt1: {
 		right: 20,
@@ -72,12 +80,11 @@ export const styles = StyleSheet.create({
 		marginTop: 10,
 		left: 0,
 		right: 0,
-		// right: 18,
-		// marginHorizontal: 20,
-		// marginHorizontal: 30,
+		marginHorizontal: 10,
 	},
 	mt25: {
-		marginHorizontal: 6,
+		marginTop: 5,
+		marginHorizontal: 12,
 	},
 	text4: {
 		fontSize: 16,
@@ -87,8 +94,11 @@ export const styles = StyleSheet.create({
 		color: 'rgba(0,0,0,.8)',
 		marginTop: 8,
 	},
+	mt9: {
+		// marginHorizontal: 10,
+	},
 	mt19: {
-		marginHorizontal: 5,
+		marginHorizontal: 10,
 		marginTop: 10,
 	},
 	text5: {

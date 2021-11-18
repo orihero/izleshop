@@ -2142,6 +2142,11 @@ big-integer@1.6.x:
   resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.50.tgz#299a4be8bd441c73dcc492ed46b7169c34e92e70"
   integrity sha512-+O2uoQWFRo8ysZNo/rjtri2jIwjr3XfeAgRjAUADRqGG+ZITvyn8J1kvXLTaKVr3hhGXk+f23tKfdzmklVM9vQ==
 
+bignumber.js@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-9.0.1.tgz#8d7ba124c882bfd8e43260c67475518d0689e4e5"
+  integrity sha512-IdZR9mh6ahOBv/hYGiXyVuyCetmGJhtYkqLBpTStdhEGjegpPlUawydyaF3pbIOFynJTpllEs+NP+CS9jKFLjA==
+
 boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
@@ -6201,6 +6206,18 @@ react-native-maps@^0.29.3:
   integrity sha512-742ipC71NdGHXmrCHPY9SEGDuKoSx2l0RMC1W9WXe/jd6+Eg5OllRBcR6Y+ORnzvuYZrd0Hj6q6bK3QR5ZL8sA==
   dependencies:
     "@types/geojson" "^7946.0.7"
+
+react-native-mask-input@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-mask-input/-/react-native-mask-input-1.0.5.tgz#f215e3b20f4489341da04f8df1fc0c76b89cc142"
+  integrity sha512-Pivd0+zB4kqSF4x0HneisWBDx1AGAf6kJC6Or+7BbC3+n1hnVsHlGhHxRuDgzcrWv6+vyjItf8nNGHYr2FuJFA==
+
+react-native-mask-text@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-mask-text/-/react-native-mask-text-0.5.0.tgz#0482bb10b88fdfd91681dd544ae80eb041e81158"
+  integrity sha512-Lc2rFv8HoV1E/j6XXA1yd6pUNsXPe7r4b3RIk6erwdN8drt5UKCqrC0xGQJJ1ExcoZp9kQNx/ilt7CpsNe03Dg==
+  dependencies:
+    bignumber.js "^9.0.1"
 
 react-native-modal-dropdown@^1.0.2:
   version "1.0.2"

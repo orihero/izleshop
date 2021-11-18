@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		color: colors.black,
 		backgroundColor: colors.white,
-		width: Dimensions.get('window').width - 20,
+		width: Dimensions.get('window').width - 35,
 	},
 	text1: {},
 });
