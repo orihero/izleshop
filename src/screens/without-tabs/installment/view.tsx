@@ -1,14 +1,20 @@
 import React, { useState, useRef } from 'react';
 
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import Header from 'components/navigation/Header';
 import ModalDropdown from 'react-native-modal-dropdown';
 import { styles } from './style';
 import { strings } from 'locales/locales';
 import { SearchIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
+import DefaultButton from 'components/general/DefaultButton';
+import { useNavigation } from '@react-navigation/core';
+import SweetAlert from 'react-native-sweet-alert';
+import { Routes } from 'constants/routes';
+
 
 const InstallmentView = () => {
+	let navigation = useNavigation();
 	let options = useRef([
 		'Месяцы',
 		'Месяцы',
@@ -23,6 +29,24 @@ const InstallmentView = () => {
 		'Месяцы',
 		'Месяцы',
 	]).current;
+	const [selectedIndex, setSelectedIndex] = useState(0)
+	let onOrder = () => {
+		SweetAlert.showAlertWithOptions(
+			{
+				title: strings.warning,
+				subTitle: strings.success,
+				confirmButtonTitle: 'OK',
+				confirmButtonColor: '#000',
+				otherButtonTitle: 'Cancel',
+				otherButtonColor: '#dedede',
+				style: 'success',
+				cancellable: true,
+			},
+			() => {
+				navigation.navigate(Routes.HOME_STACK);
+			}
+		);
+	}
 	return (
 		<View style={styles.container}>
 			<Header
@@ -52,20 +76,23 @@ const InstallmentView = () => {
 								...style,
 								top: style.top + 28,
 								left: style.left - 6,
-								height: style.height + 27 * options.length,
+								height: style.height + 10 * options.length,
 								flex: 1,
 							};
 						}}
-						defaultValue={options[0]}
+						defaultValue={options[selectedIndex]}
 						renderRow={(option, index) => (
-							<View style={styles.value}>
-								<Text style={styles.valueText}>
-									{index + 1}
-								</Text>
-								<Text style={styles.valueTexts}>{option}</Text>
-							</View>
+							<TouchableOpacity onPress={() => setSelectedIndex(index)}>
+								<View style={styles.value}>
+									<Text style={styles.valueText}>
+										{index + 1}
+									</Text>
+									<Text style={styles.valueTexts}>{option}</Text>
+								</View>
+							</TouchableOpacity>
 						)}
 						style={styles.dropdownStyle}
+						showsVerticalScrollIndicator={false}
 					/>
 				</View>
 				<View style={styles.boxTwo}>
@@ -73,6 +100,7 @@ const InstallmentView = () => {
 						Я согласен с правилами покупки товаров
 					</Text>
 				</View>
+				<DefaultButton text={strings.order} onPress={onOrder} />
 			</View>
 		</View>
 	);

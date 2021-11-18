@@ -19,4 +19,8 @@ export const styles = StyleSheet.create({
 	mt20: {
 		marginTop: 20,
 	},
+	flatList: {
+		paddingRight: 20,
+		paddingVertical: 10,
+	},
 });

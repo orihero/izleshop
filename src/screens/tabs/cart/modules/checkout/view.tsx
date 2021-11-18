@@ -68,11 +68,12 @@ interface ICheckoutViewProps {
 }
 
 const ChecoutView = ({ route }: ICheckoutViewProps) => {
+	let user = useAppSelector(selectUser)
 	let effect = async () => {
 		try {
 			let res = await requests.helpers.getRegions();
 			setRegions(res.data);
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	useEffect(() => {
@@ -96,6 +97,19 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	let dispatch = useAppDispatch();
 
 	let onNextPress = async () => {
+		if (!user.token) {
+			SweetAlert.showAlertWithOptions({
+				title: strings.warning,
+				subTitle: strings.plzLogin,
+				confirmButtonTitle: 'OK',
+				confirmButtonColor: '#000',
+				otherButtonTitle: 'Cancel',
+				otherButtonColor: '#dedede',
+				style: 'error',
+				cancellable: true
+			}, () => navigation.navigate(Routes.PROFILE_STACK));
+			return
+		}
 		setLoading(true);
 		//@ts-ignore
 		try {
@@ -109,12 +123,12 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				index: '111201',
 				city: city,
 				products: products,
-				installment_plan: paymentMethod ? null : installment_plan + 1,
+				installment_plan: installment_plan + 1,
 			};
+			console.log("REQUEST DATA", req);
 			let response = await requests.product.makeOrder(req);
 			console.log(response.data);
-			console.log(city);
-			console.log(response);
+			console.log("RESPONSE", response);
 			SweetAlert.showAlertWithOptions(
 				{
 					title: strings.warning,
@@ -129,14 +143,17 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				() => {
 					if (!!response) {
 						dispatch(clearCart());
-
-						Linking.openURL(response.data.paymentUrl);
+						if (response.data.paymentUrl) {
+							Linking.openURL(response.data.paymentUrl);
+						}
 						navigation.navigate(Routes.HOME_STACK);
 					}
 				}
 			);
 		} catch (error) {
-			console.log(error);
+			console.log(error.response);
+			console.log("ERROR", error);
+
 		} finally {
 			setLoading(false);
 		}

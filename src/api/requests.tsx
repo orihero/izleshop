@@ -5,19 +5,19 @@ import { UserData, UserFullData } from 'store/slices/userSlice';
 export let url = 'https://izleshop.uz/api';
 
 axios.interceptors.request.use((e) => {
-	console.log("REQUEST",e);
+	console.log("REQUEST", e);
 
 	if (!!store.getState().user.token)
 		e.headers.Authorization = `Bearer ${store.getState().user.token}`;
 	return e;
 });
 
-axios.interceptors.response.use((e) => {
-	if (!!e?.data?.status && !!e?.data?.message) {
-		throw {};
-	}
-	return e;
-});
+// axios.interceptors.response.use((e) => {
+// 	if (!!e?.data?.status && !!e?.data?.message) {
+// 		throw { statsus: e.data.status, message: e.data.message };
+// 	}
+// 	return e;
+// });
 
 export let requests = {
 	helpers: {

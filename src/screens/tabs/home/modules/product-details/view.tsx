@@ -34,17 +34,20 @@ import Toast from 'react-native-toast-message';
 import Shimmer from 'react-native-shimmer';
 import LinearGradient from 'react-native-linear-gradient';
 import { selectDollarRate } from 'store/slices/userSlice';
+import { ActivityIndicator } from 'react-native-paper';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
 	activeSlide: number;
 	details: any;
+	loading: boolean
 }
 
 const ProductDetailsView = ({
 	setActiveSlide,
 	activeSlide,
 	details,
+	loading
 }: ProductDetailsViewProps) => {
 	let navigation = useNavigation();
 	let favorites = useAppSelector(selectFavorites);
@@ -73,6 +76,8 @@ const ProductDetailsView = ({
 		if (isFavorite) {
 			dispatch(removeItem(details.id.toString()));
 		} else {
+			console.log({ details });
+
 			dispatch(addItem(details));
 		}
 	};
@@ -86,12 +91,6 @@ const ProductDetailsView = ({
 	};
 	let onNextPress = () => {
 		if (isInCart) {
-			// Toast.show({
-			// 	text1: strings.warning,
-			// 	text2: strings.alreadyInCart,
-			// 	position: 'bottom',
-			// 	visibilityTime: 1000,
-			// });
 			if (Platform.OS === 'android') {
 				ToastAndroid.show(strings.alreadyInCart, 500);
 			} else {
@@ -114,7 +113,9 @@ const ProductDetailsView = ({
 	p = p.substr(0, p.length - 2) + '00';
 
 	return (
-		<View style={styles.container}>
+		loading ? <View style={styles.indicatorContainer}>
+			<ActivityIndicator size="large" />
+		</View> : <View style={styles.container}>
 			<Header hasBorder hasCartIcon title={'Смартфон'} />
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.bgw}>
@@ -130,6 +131,7 @@ const ProductDetailsView = ({
 						itemWidth={windowWidth}
 						containerCustomStyle={styles.carousel}
 						onSnapToItem={(index) => setActiveSlide(index)}
+						pagingEnabled
 					/>
 					<View style={styles.row}>
 						<PressableIcon onPress={onCartPress}>
@@ -170,9 +172,8 @@ const ProductDetailsView = ({
 						</Text>
 						{details.old_price && (
 							<Text style={styles.text2}>
-								{`${details.old_price * dollarRate} ${
-									item.currency
-								}`}
+								{`${details.old_price * dollarRate} ${item.currency
+									}`}
 							</Text>
 						)}
 					</View>
@@ -183,8 +184,8 @@ const ProductDetailsView = ({
 						characteristics={details.characteristics}
 					/>
 				</View>
-				<Text style={styles.text4}>{strings.similarProducts}</Text>
-				<View style={styles.mt20}>
+				{details.relatedProducts && details.relatedProducts.length > 0 && <View style={styles.mt20}>
+					<Text style={styles.text4}>{strings.similarProducts}</Text>
 					<FlatList
 						snapToInterval={windowWidth / 3 - 5}
 						data={details.relatedProducts}
@@ -197,9 +198,8 @@ const ProductDetailsView = ({
 						decelerationRate={'fast'}
 						showsHorizontalScrollIndicator={false}
 						keyExtractor={(e) => e.id.toString()}
-						ListEmptyComponent={ListEmptyComponent}
 					/>
-				</View>
+				</View>}
 				<View style={styles.mb60} />
 			</ScrollView>
 			<View style={styles.btnCont}>
