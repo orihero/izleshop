@@ -11,7 +11,7 @@ import { Routes } from 'constants/routes';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
 import { accordionData, item } from 'mockup/data';
-import React from 'react';
+import React, { useState } from 'react';
 import {
 	FlatList,
 	Platform,
@@ -19,6 +19,7 @@ import {
 	Text,
 	ToastAndroid,
 	TouchableOpacity,
+	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
@@ -35,20 +36,26 @@ import Shimmer from 'react-native-shimmer';
 import LinearGradient from 'react-native-linear-gradient';
 import { selectDollarRate } from 'store/slices/userSlice';
 import { ActivityIndicator } from 'react-native-paper';
+import { Modal } from 'react-native';
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
 	activeSlide: number;
 	details: any;
-	loading: boolean
+	loading: boolean;
+	value: string;
 }
 
 const ProductDetailsView = ({
 	setActiveSlide,
 	activeSlide,
 	details,
-	loading
+	loading,
+	value,
 }: ProductDetailsViewProps) => {
+	const [modalVisible, setModalVisible] = useState(false);
+
 	let navigation = useNavigation();
 	let favorites = useAppSelector(selectFavorites);
 	let cart = useAppSelector(selectCart);
@@ -71,7 +78,6 @@ const ProductDetailsView = ({
 			</View>
 		);
 	};
-
 	let onHeartPress = () => {
 		if (isFavorite) {
 			dispatch(removeItem(details.id.toString()));
@@ -112,20 +118,30 @@ const ProductDetailsView = ({
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 	p = p.substr(0, p.length - 2) + '00';
 
-	return (
-		loading ? <View style={styles.indicatorContainer}>
+	let onModalToggle = () => {
+		console.log('MDOALLLL');
+
+		setModalVisible((e) => !e);
+	};
+
+	return loading ? (
+		<View style={styles.indicatorContainer}>
 			<ActivityIndicator size="large" />
-		</View> : <View style={styles.container}>
+		</View>
+	) : (
+		<View style={styles.container}>
 			<Header hasBorder hasCartIcon title={'Смартфон'} />
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.bgw}>
 					<Carousel
 						data={!!details.images ? details.images : []}
 						renderItem={(props) => (
-							<SliderItem
-								{...{ item: { image: props.item } }}
-								contain
-							/>
+							<TouchableOpacity onPress={onModalToggle}>
+								<SliderItem
+									{...{ item: { image: props.item } }}
+									contain
+								/>
+							</TouchableOpacity>
 						)}
 						sliderWidth={windowWidth}
 						itemWidth={windowWidth}
@@ -172,8 +188,9 @@ const ProductDetailsView = ({
 						</Text>
 						{details.old_price && (
 							<Text style={styles.text2}>
-								{`${details.old_price * dollarRate} ${item.currency
-									}`}
+								{`${details.old_price * dollarRate} ${
+									item.currency
+								}`}
 							</Text>
 						)}
 					</View>
@@ -184,27 +201,39 @@ const ProductDetailsView = ({
 						characteristics={details.characteristics}
 					/>
 				</View>
-				{details.relatedProducts && details.relatedProducts.length > 0 && <View style={styles.mt20}>
-					<Text style={styles.text4}>{strings.similarProducts}</Text>
-					<FlatList
-						snapToInterval={windowWidth / 3 - 5}
-						data={details.relatedProducts}
-						horizontal
-						renderItem={(props) => (
-							<View style={styles.margin}>
-								<VerticalItem {...props} />
-							</View>
-						)}
-						decelerationRate={'fast'}
-						showsHorizontalScrollIndicator={false}
-						keyExtractor={(e) => e.id.toString()}
-					/>
-				</View>}
+				{details.relatedProducts && details.relatedProducts.length > 0 && (
+					<View style={styles.mt20}>
+						<Text style={styles.text4}>
+							{strings.similarProducts}
+						</Text>
+						<FlatList
+							snapToInterval={windowWidth / 3 - 5}
+							data={details.relatedProducts}
+							horizontal
+							renderItem={(props) => (
+								<View style={styles.margin}>
+									<VerticalItem {...props} />
+								</View>
+							)}
+							decelerationRate={'fast'}
+							showsHorizontalScrollIndicator={false}
+							keyExtractor={(e) => e.id.toString()}
+						/>
+					</View>
+				)}
 				<View style={styles.mb60} />
 			</ScrollView>
 			<View style={styles.btnCont}>
 				<DefaultButton onPress={onNextPress} text={strings.addToCart} />
 			</View>
+			<Modal visible={modalVisible} onRequestClose={onModalToggle}>
+				<ImageViewer
+					imageUrls={details?.images?.map((e) => ({
+						url: e,
+						props: { style: { width: windowWidth, height: 100 } },
+					}))}
+				/>
+			</Modal>
 		</View>
 	);
 };

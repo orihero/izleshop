@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
+import { windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
 	container: {
@@ -12,7 +13,7 @@ export const styles = StyleSheet.create({
 		flex: 0.1,
 		justifyContent: 'center',
 		borderRadius: 19,
-		paddingHorizontal: 20
+		paddingHorizontal: 20,
 	},
 	bottom: {
 		flex: 0.4,
@@ -72,5 +73,17 @@ export const styles = StyleSheet.create({
 		fontSize: 25,
 		fontFamily: 'Lato',
 		fontWeight: 'bold',
-	}
+	},
+	mt10: {
+		marginTop: 5,
+		borderRadius: 10,
+		marginHorizontal: 15,
+		width: windowWidth - 35,
+		color: colors.black,
+		backgroundColor: colors.white,
+	},
+	input: {
+		paddingLeft: 10,
+		color: colors.black,
+	},
 });

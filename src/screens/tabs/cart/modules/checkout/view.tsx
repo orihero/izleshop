@@ -14,6 +14,7 @@ import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 import SweetAlert from 'react-native-sweet-alert';
 import MaskInput, { createNumberMask, Masks } from 'react-native-mask-input';
+import { colors } from 'constants/colors';
 
 const arr1 = [
 	'Value 1',
@@ -69,12 +70,12 @@ interface ICheckoutViewProps {
 }
 
 const ChecoutView = ({ route }: ICheckoutViewProps) => {
-	let user = useAppSelector(selectUser)
+	let user = useAppSelector(selectUser);
 	let effect = async () => {
 		try {
 			let res = await requests.helpers.getRegions();
 			setRegions(res.data);
-		} catch (error) { }
+		} catch (error) {}
 	};
 
 	useEffect(() => {
@@ -100,17 +101,20 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 
 	let onNextPress = async () => {
 		if (!user.token) {
-			SweetAlert.showAlertWithOptions({
-				title: strings.warning,
-				subTitle: strings.plzLogin,
-				confirmButtonTitle: 'OK',
-				confirmButtonColor: '#000',
-				otherButtonTitle: 'Cancel',
-				otherButtonColor: '#dedede',
-				style: 'error',
-				cancellable: true
-			}, () => navigation.navigate(Routes.PROFILE_STACK));
-			return
+			SweetAlert.showAlertWithOptions(
+				{
+					title: strings.warning,
+					subTitle: strings.plzLogin,
+					confirmButtonTitle: 'OK',
+					confirmButtonColor: '#000',
+					otherButtonTitle: 'Cancel',
+					otherButtonColor: '#dedede',
+					style: 'error',
+					cancellable: true,
+				},
+				() => navigation.navigate(Routes.PROFILE_STACK)
+			);
+			return;
 		}
 		setLoading(true);
 		//@ts-ignore
@@ -127,10 +131,10 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				products: products,
 				installment_plan: installment_plan + 1,
 			};
-			console.log("REQUEST DATA", req);
+			console.log('REQUEST DATA', req);
 			let response = await requests.product.makeOrder(req);
 			console.log(response.data);
-			console.log("RESPONSE", response);
+			console.log('RESPONSE', response);
 			SweetAlert.showAlertWithOptions(
 				{
 					title: strings.warning,
@@ -154,8 +158,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 			);
 		} catch (error) {
 			console.log(error.response);
-			console.log("ERROR", error);
-
+			console.log('ERROR', error);
 		} finally {
 			setLoading(false);
 		}
@@ -213,6 +216,9 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 									}}
 									mask={localPhoneMask}
 									onFocus={() => setValue('+998')}
+									keyboardType="numeric"
+									placeholderTextColor={colors.black}
+									style={styles.inputColor}
 								/>
 							</View>
 						</View>
@@ -256,7 +262,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							<View style={styles.mt19}>
 								<Text
 									style={styles.text5}
-								>{`${strings.note}*`}</Text>
+								>{`${strings.note}`}</Text>
 								<View style={styles.mt12}>
 									<DefaultInput
 										placeholder={''}

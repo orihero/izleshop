@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { orderItems } from 'mockup/data';
-// import { Image } from 'react-native-paper/lib/typescript/components/Avatar/Avatar'?
 
 export interface OrderItemProps {
 	item: typeof orderItems[0];

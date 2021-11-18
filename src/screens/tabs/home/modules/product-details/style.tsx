@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: colors.lightBlue,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
 	},
 	emptyBanner: {
 		width: windowWidth - 30,

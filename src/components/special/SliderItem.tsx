@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 		height: (windowWidth - 2 * paddingVertical) / 2,
 	},
 	oh: {
-		height: (windowWidth - 2 * paddingVertical) / 2,
+		height: (windowWidth - 2 * paddingVertical) / 1.2,
 	},
 	rc: {
 		resizeMode: 'contain',

@@ -11,6 +11,8 @@ import { requests } from 'api/requests';
 import { selectUser, setUserPhone } from 'store/slices/userSlice';
 import { useAppSelector } from 'utils/hooks';
 import { styles } from './style';
+import MaskInput from 'react-native-mask-input';
+import { colors } from 'constants/colors';
 
 interface ILoginViewProps {}
 
@@ -44,6 +46,29 @@ const LoginView = ({}: ILoginViewProps) => {
 		//@ts-ignore
 		navigation.navigate(Routes.TABS);
 	};
+	const [value, setValue] = React.useState('');
+
+	const localPhoneMask = [
+		'+',
+		'9',
+		'9',
+		'8',
+		'(',
+		/\d/,
+		/\d/,
+		')',
+		' ',
+		/\d/,
+		/\d/,
+		/\d/,
+		' ',
+		/\d/,
+		/\d/,
+		' ',
+		/\d/,
+		/\d/,
+	];
+
 	console.log(user);
 
 	return (
@@ -54,11 +79,20 @@ const LoginView = ({}: ILoginViewProps) => {
 						<Text style={styles.textAuth}>
 							{strings.authorization}
 						</Text>
-						<DefaultInput
-							value={user.phone}
-							onChange={setPhone}
-							keyboardType="phone-pad"
-						/>
+						<View style={styles.mt10}>
+							<MaskInput
+								value={value}
+								onChangeText={(masked, unmasked) => {
+									setValue(masked);
+									setPhone(unmasked);
+								}}
+								mask={localPhoneMask}
+								onFocus={() => setValue('+998')}
+								keyboardType="numeric"
+								placeholderTextColor={colors.black}
+								style={styles.input}
+							/>
+						</View>
 					</View>
 				</View>
 			</View>

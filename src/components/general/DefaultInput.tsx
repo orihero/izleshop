@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
 		width: Dimensions.get('window').width - 35,
 		height: 55,
 		borderRadius: 10,
+		paddingLeft: 10,
 		color: colors.black,
 		backgroundColor: colors.white,
 		alignSelf: 'center',

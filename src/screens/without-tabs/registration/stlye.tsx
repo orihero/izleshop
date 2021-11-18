@@ -10,9 +10,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 	},
 	center: {
-		// width: 300,
-		// borderWidth: 1,
-		// flex: 0.4,
+		marginHorizontal: 15,
 		borderRadius: 19,
 	},
 	bottom: {
@@ -85,7 +83,7 @@ export const styles = StyleSheet.create({
 		marginTop: 20,
 		marginBottom: 30,
 		backgroundColor: colors.white,
-		marginHorizontal: 10
+		marginHorizontal: 15,
 	},
 	lrow: {
 		padding: 15,

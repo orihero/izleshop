@@ -4,7 +4,7 @@ import { windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
 	container: {
-		// marginHorizontal: 5,
+		// paddingHorizontal: 10,
 		backgroundColor: colors.lightBlue,
 	},
 	mapContainer: {
@@ -39,7 +39,8 @@ export const styles = StyleSheet.create({
 		marginTop: 12,
 	},
 	mt20: {
-		marginHorizontal: 5,
+		width: windowWidth - 20,
+		marginHorizontal: 10,
 		// marginLeft: 10,
 		marginTop: 15,
 	},
@@ -47,7 +48,8 @@ export const styles = StyleSheet.create({
 		marginBottom: 80,
 	},
 	box: {
-		width: windowWidth - 5,
+		width: windowWidth - 10,
+		marginHorizontal: 5,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
@@ -62,8 +64,13 @@ export const styles = StyleSheet.create({
 		marginTop: 5,
 		borderRadius: 10,
 		marginHorizontal: 5,
-		width: windowWidth - 30,
+		width: windowWidth - 36,
 		backgroundColor: colors.white,
+	},
+	inputColor: {
+		paddingLeft: 10,
+		alignItems: 'center',
+		color: colors.black,
 	},
 	input: {
 		height: 40,
@@ -83,8 +90,9 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 10,
 	},
 	mt25: {
+		width: windowWidth - 36,
 		marginTop: 5,
-		marginHorizontal: 12,
+		marginHorizontal: 15,
 	},
 	text4: {
 		fontSize: 16,
@@ -94,11 +102,10 @@ export const styles = StyleSheet.create({
 		color: 'rgba(0,0,0,.8)',
 		marginTop: 8,
 	},
-	mt9: {
-		// marginHorizontal: 10,
-	},
+	mt9: {},
 	mt19: {
-		marginHorizontal: 10,
+		width: windowWidth - 35,
+		marginHorizontal: 15,
 		marginTop: 10,
 	},
 	text5: {

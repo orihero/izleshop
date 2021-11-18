@@ -133,7 +133,7 @@ const VerticalItem = ({
 					{/* <View style={styles.ratingRow}></View> */}
 					<Text
 						style={styles.text}
-						numberOfLines={1}
+						numberOfLines={2}
 						textBreakStrategy={'simple'}
 						lineBreakMode="tail"
 					>
@@ -183,22 +183,26 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	imgS1: {
+		top: 15,
 		width: '100%',
 		height: '100%',
 		resizeMode: 'contain',
 	},
 	imgS2: {
+		top: 15,
 		width: '100%',
 		height: '100%',
 		resizeMode: 'contain',
 	},
 	btnRow1: {
-		marginTop: 20,
+		marginTop: 10,
+		marginBottom: 10,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'flex-end',
 	},
 	btnRow2: {
+		marginBottom: 15,
 		marginTop: 12,
 		flexDirection: 'row',
 		alignItems: 'center',
@@ -226,15 +230,15 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	text: {
+		height: 50,
 		fontSize: 16,
-		marginTop: 5,
+		// marginTop: 5,
 		lineHeight: 19,
 		fontWeight: 'bold',
-		color: colors.neutralDark,
 		textAlign: 'justify',
+		color: colors.neutralDark,
 	},
 	newPrice: {
-		paddingTop: 10,
 		fontSize: 15,
 		fontWeight: 'bold',
 		textAlign: 'left',

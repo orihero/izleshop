@@ -57,6 +57,32 @@ export const accordionData: IAccordion[] = [
 		hasRoute: true,
 	},
 	{
+		title: 'Информация',
+		finally: '',
+		content: [
+			{
+				preTitle: '',
+				items: [
+					{
+						key: 'Модель',
+						value: 'A725',
+						row: true,
+					},
+					{
+						key: 'Производитель',
+						value: 'Samsung',
+						row: true,
+					},
+					{
+						key: 'Наличие',
+						value: 'Есть в наличие',
+						row: true,
+					},
+				],
+			},
+		],
+	},
+	{
 		title: 'Характеристика',
 		characteristics: true,
 	},

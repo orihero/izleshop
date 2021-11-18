@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
 	},
 	buttom: {
 		marginTop: 10,
-		marginRight: 8,
+		// marginRight: 8,
 	},
 	izle: {
 		fontSize: 144,

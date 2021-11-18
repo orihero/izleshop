@@ -19,7 +19,7 @@ interface IVerificationProps {
 	onPress: () => {};
 }
 
-const VerificationView = ({ }: IVerificationProps) => {
+const VerificationView = ({}: IVerificationProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	const dispatch = useDispatch();
@@ -42,7 +42,6 @@ const VerificationView = ({ }: IVerificationProps) => {
 			return;
 		} finally {
 			setLoading(false);
-
 		}
 		//@ts-ignore
 		navigation.navigate(Routes.REGISTER);
@@ -63,6 +62,7 @@ const VerificationView = ({ }: IVerificationProps) => {
 					loading={loading}
 					text={strings.toComeIn}
 					onPress={onNextPress}
+					marginDisabled
 				/>
 			</View>
 			<Text style={styles.izle}>izle</Text>
