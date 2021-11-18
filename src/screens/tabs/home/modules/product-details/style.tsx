@@ -3,6 +3,12 @@ import { colors } from 'constants/colors';
 import { paddingVertical, windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
+	indicatorContainer: {
+		flex: 1,
+		backgroundColor: colors.lightBlue,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
 	emptyBanner: {
 		width: windowWidth - 30,
 		height: windowWidth / 2 - 30,
@@ -130,7 +136,7 @@ export const styles = StyleSheet.create({
 		marginLeft: 10,
 	},
 	mb60: {
-		marginBottom: 60,
+		marginBottom: 80,
 	},
 	btnCont: {
 		left: 0,

@@ -69,20 +69,15 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 			active: false,
 		},
 	]);
-	const products = cartList.map((product, index) => {
-		let newProduct = product.data;
-		newProduct.amount = product.count;
-		newProduct.option = '';
-		newProduct.color = '';
-		newProduct.color_name = '';
-		return newProduct;
-	});
+	const products = cartList.map(({ count: amount, data: { id } }, index) => ({ amount, id, color_name: "", color: "", option: "" }));
+	console.log("PRODUCTS", cartList);
+
 
 	const onPress = () => {
 		let paymentType =
 			activeIndex === 2
 				? payMethods.find((e) => e.active)?.payment
-				: null;
+				: "payme";
 		navigation.navigate(Routes.CHECKOUT, {
 			products: products,
 			paymentMethod: paymentType,
@@ -106,7 +101,7 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 		>
 			<Header
 				title={strings.cart}
-				// rightEdge={() => <SearchIcon size={20} />}
+			// rightEdge={() => <SearchIcon size={20} />}
 			/>
 			<View style={styles.top}>
 				<View style={styles.topChild}>

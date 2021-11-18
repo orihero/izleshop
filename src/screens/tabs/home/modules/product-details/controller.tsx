@@ -5,9 +5,10 @@ import { strings } from 'locales/locales';
 
 const ProductDetailsController = ({ route, navigation }) => {
 	const [details, setDetails] = useState({});
-
+	const [loading, setLoading] = useState(false);
 
 	let effect = async () => {
+		setLoading(true)
 		try {
 			let res = await requests.product.getDetails(route.params?.id);
 			setDetails(res.data);
@@ -15,6 +16,7 @@ const ProductDetailsController = ({ route, navigation }) => {
 			alert(strings.noSuchProduct)
 			navigation.goBack();
 		}
+		setLoading(false)
 	};
 
 	useEffect(() => {
@@ -22,7 +24,7 @@ const ProductDetailsController = ({ route, navigation }) => {
 	}, [route.params?.id]);
 
 	const [activeSlide, setActiveSlide] = useState(0);
-	return <ProductDetailsView {...{ activeSlide, setActiveSlide, details, }} />;
+	return <ProductDetailsView {...{ activeSlide, setActiveSlide, details, loading }} />;
 };
 
 export default ProductDetailsController;

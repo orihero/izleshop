@@ -155,62 +155,39 @@ const FavoriteItem = ({
 						</Text>
 					</View>
 					<Text style={styles.text4}>{`${p} ${currency}`}</Text>
-					{!hasRemove && <Rating count={5} active={4} />}
 					<View style={styles.plus}>
-						{hasRating ? (
-							<Rating
-								defaultStyle
-								active={rating}
-								count={ratingCount}
-							/>
-						) : null}
-						{hasCounter ? (
-							<ItemCounter
-								count={item.count}
-								onDecrement={onDecrement}
-								onIncrement={onIncrement}
-							/>
-						) : null}
-					</View>
-				</View>
-				{/* <View style={styles.exit}>
-					<ExitIcon size={15} color={colors.gray2} />
-				</View> */}
-				<View style={styles.rightEdge}>
-					<View style={styles.irow}>
-						{hasBasket ? (
-							<TouchableOpacity onPress={onCartPress}>
-								<View style={[styles.square, styles.mr10]}>
-									<CartIcon
-										size={22}
-										color={colors.blue}
-										active={isInCart}
-									/>
-								</View>
-							</TouchableOpacity>
-						) : null}
-						{hasRemove && (
-							<TouchableOpacity onPress={onRemove}>
+						<Rating
+							defaultStyle
+							active={rating}
+							count={ratingCount}
+						/>
+						<View style={styles.rightEdge}>
+							<View style={styles.irow}>
+								{hasBasket ? (
+									<TouchableOpacity onPress={onCartPress}>
+										<View style={[styles.square, styles.mr10]}>
+											<CartIcon
+												size={22}
+												color={colors.blue}
+												active={isInCart}
+											/>
+										</View>
+									</TouchableOpacity>
+								) : null}
+							</View>
+							<TouchableOpacity onPress={onLike}>
 								<View style={styles.square}>
-									<TrashIcon
-										size={18}
-										color={'rgba(0,0,0,.3)'}
+									<HeartIcon
+										size={22}
+										color={
+											isFavorite ? colors.red : colors.leghtGrey1
+										}
+										active={isFavorite}
 									/>
 								</View>
 							</TouchableOpacity>
-						)}
-					</View>
-					<TouchableOpacity onPress={onLike}>
-						<View style={styles.square}>
-							<HeartIcon
-								size={22}
-								color={
-									isFavorite ? colors.red : colors.leghtGrey1
-								}
-								active={isFavorite}
-							/>
 						</View>
-					</TouchableOpacity>
+					</View>
 				</View>
 			</View>
 		</TouchableWithoutFeedback>
@@ -221,7 +198,7 @@ export default FavoriteItem;
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 15,
+		padding: 5,
 		borderRadius: 15,
 		flexDirection: 'row',
 		backgroundColor: colors.white,
@@ -283,11 +260,8 @@ const styles = StyleSheet.create({
 		color: colors.black,
 	},
 	plus: {
-		// height: 10,
 		flexDirection: 'row',
-		flexShrink: 1,
 		justifyContent: 'space-between',
-		alignItems: 'center',
 	},
 	text4: {
 		paddingTop: 7,
@@ -303,8 +277,6 @@ const styles = StyleSheet.create({
 	},
 	rightEdge: {
 		flexDirection: 'row',
-		alignItems: 'flex-end',
-		justifyContent: 'center',
 	},
 	irow: {
 		height: 5,

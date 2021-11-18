@@ -23,7 +23,7 @@ export interface HomeViewProps {
 	banners: [];
 }
 
-let ListEmptyComponent = () => {
+export let ListEmptyComponent = () => {
 	return (
 		<View style={styles.emptyContainer}>
 			<Shimmer

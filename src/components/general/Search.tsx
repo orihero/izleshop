@@ -6,9 +6,9 @@ import { windowWidth } from '../../constants/sizes';
 import { useNavigation } from '@react-navigation/core';
 import { Routes } from 'constants/routes';
 
-export interface SearchInputProps { }
+export interface SearchInputProps { setText: () => {} }
 
-const SearchInput = ({ }: SearchInputProps) => {
+const SearchInput = React.forwardRef(({ setText = () => { } }: SearchInputProps, ref = null) => {
 	const navigation = useNavigation();
 	let onNextPress = () => {
 		// @ts-ignore
@@ -28,12 +28,15 @@ const SearchInput = ({ }: SearchInputProps) => {
 				<SearchIcon size={17} color={colors.gray} />
 			</Pressable>
 			<TextInput
+				ref={ref}
 				style={styles.text}
 				placeholder={'Что вы ищете?'}
+				onFocus={onNextPress}
+				onChangeText={setText}
 			></TextInput>
 		</View>
 	);
-};
+});
 
 export default SearchInput;
 
