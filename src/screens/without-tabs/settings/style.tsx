@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	textProfile: {
-		width: windowWidth - 50,
+		width: windowWidth - 55,
 		fontSize: 18,
 		fontFamily: 'Lato',
 		fontWeight: '600',
@@ -118,27 +118,26 @@ export const styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	languageString: {
-		width: 350,
+		width: windowWidth - 45,
 		paddingHorizontal: 20,
+		justifyContent: 'space-between',
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
 	titleText: {
 		left: 20,
 		fontSize: 12,
-		paddingRight: 164,
 		fontWeight: 'bold',
 		// fontFamily: 'Poppins',
 		alignItems: 'center',
 	},
 	sos: {
-		right: 33,
 		flexDirection: 'row',
 	},
 	flag: {
 		width: 18,
 		height: 18,
-		marginRight: 6,
+
 		// right: 12,
 	},
 	text3: {

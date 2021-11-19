@@ -3,6 +3,12 @@ import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
+	indicatorContainer: {
+		flex: 1,
+		backgroundColor: colors.lightBlue,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 	container: {
 		flex: 1,
 		borderTopWidth: 2,
@@ -13,10 +19,19 @@ export const styles = StyleSheet.create({
 		width: windowWidth,
 		padding: 20,
 		elevation: 7,
+		marginVertical: 5,
 		backgroundColor: colors.white,
 	},
 	textBox: {
 		// flexDirection: 'row'
+	},
+	numberBox: {
+		flexDirection: 'row',
+	},
+	text1: {
+		paddingRight: 5,
+		fontWeight: '400',
+		lineHeight: 19,
 	},
 	text: {
 		fontSize: 12,

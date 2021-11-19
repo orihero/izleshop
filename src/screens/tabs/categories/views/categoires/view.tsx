@@ -4,6 +4,7 @@ import { FlatList, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 // import LinearGradient from 'react-native-linear-gradient';
 import Shimmer from 'react-native-shimmer';
+import Content from '../../components/Content';
 import Item from '../../components/Item';
 import { CategoriesNavigationProp } from '../../controller';
 import { styles } from './style';
@@ -59,9 +60,9 @@ const CategoriesView = ({ categories }: CategoriesViewProps) => {
 		<View style={styles.container}>
 			<FlatList
 				data={categories.length ? categories : []} // categories are {} before loading; FIX
-				renderItem={(props) => <Item {...props} />}
+				renderItem={(props) => <Content {...props} />}
 				showsVerticalScrollIndicator={false}
-				numColumns={3}
+				// numColumns={3}
 				ListEmptyComponent={ListEmptyComponent}
 			/>
 		</View>

@@ -55,6 +55,7 @@ const VerificationView = ({}: IVerificationProps) => {
 					value={code}
 					onChange={(e) => setCode(e)}
 					placeholder={strings.confirmationCode}
+					keyboardType="numeric"
 				/>
 			</View>
 			<View style={styles.buttom}>
