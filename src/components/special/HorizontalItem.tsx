@@ -17,6 +17,7 @@ import {
 	incrementCount,
 	removeFromCart,
 	selectCart,
+	setActiveCartItem,
 } from 'store/slices/cartSlice';
 import {
 	addItem,
@@ -78,8 +79,6 @@ const HorizontalItem = ({
 	const dispatch = useAppDispatch();
 	let { dollarRate } = useAppSelector(selectUser);
 
-	const [isChecked, setIsChecked] = useState(false);
-
 	let favorites = useAppSelector(selectFavorites);
 	let cartItems = useAppSelector(selectCart);
 	let isFavorite = !!favorites[item.data?.id || id];
@@ -110,7 +109,7 @@ const HorizontalItem = ({
 		dispatch(isInCart ? removeFromCart(id) : addToCart(item.data || item));
 	};
 	let onCheck = () => {
-		setIsChecked(!isChecked);
+		dispatch(setActiveCartItem({ id, isActive: !item.isActive }))
 	};
 	let p = (price * dollarRate)
 		.toLocaleString('ru')
@@ -125,7 +124,7 @@ const HorizontalItem = ({
 			<View style={styles.imgCont}>
 				{hasRemove && (
 					<TouchableOpacity onPress={onCheck} style={styles.checkBox}>
-						{isChecked && (
+						{item.isActive && (
 							<Image
 								style={styles.imgCheck}
 								source={require('../../assets/images/check.png')}

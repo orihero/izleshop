@@ -30,9 +30,9 @@ import { selectUser, userLoggedOut } from 'store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
-interface IProfileViewProps {}
+interface IProfileViewProps { }
 
-const ProfileView = ({}: IProfileViewProps) => {
+const ProfileView = ({ }: IProfileViewProps) => {
 	const [banners, setBanners] = useState([]);
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
@@ -50,14 +50,14 @@ const ProfileView = ({}: IProfileViewProps) => {
 				style: 'default',
 				text: strings.yes,
 			},
-			{ onPress: () => {}, style: 'cancel', text: strings.cancel },
+			{ onPress: () => { }, style: 'cancel', text: strings.cancel },
 		]);
 	};
 	let effect = async () => {
 		try {
 			let res = await requests.product.getBanners();
 			setBanners(res.data);
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	useEffect(() => {
@@ -67,7 +67,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 	return (
 		<ScrollView
 			showsVerticalScrollIndicator={false}
-			// style={styles.container}
+		// style={styles.container}
 		>
 			<View style={styles.container}>
 				{!user.token ? (
