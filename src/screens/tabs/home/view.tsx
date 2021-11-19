@@ -8,7 +8,7 @@ import { Routes } from 'constants/routes';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
 import React from 'react';
-import { FlatList, ScrollView, TouchableOpacity, View } from 'react-native';
+import { FlatList, Linking, ScrollView, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Shimmer from 'react-native-shimmer-placeholder';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
@@ -77,9 +77,7 @@ const HomeView = ({
 					renderItem={(props) => (
 						<TouchableOpacity
 							onPress={() =>
-								onPress(Routes.PRODUCT_DETAILS, {
-									id: props.item.product_id,
-								})
+								Linking.openURL(props.item.url)
 							}
 						>
 							<SliderItem {...props} dwh />

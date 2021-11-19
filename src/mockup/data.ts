@@ -47,7 +47,8 @@ export interface IAccordion {
 	content?: IAccordionContent[] | null;
 	hasCount?: Boolean;
 	hasRoute?: Boolean;
-	characteristics?: true;
+	characteristics?: boolean;
+	hasInformation?: boolean
 }
 
 export const accordionData: IAccordion[] = [
@@ -58,29 +59,7 @@ export const accordionData: IAccordion[] = [
 	},
 	{
 		title: 'Информация',
-		finally: '',
-		content: [
-			{
-				preTitle: '',
-				items: [
-					{
-						key: 'Модель',
-						value: 'A725',
-						row: true,
-					},
-					{
-						key: 'Производитель',
-						value: 'Samsung',
-						row: true,
-					},
-					{
-						key: 'Наличие',
-						value: 'Есть в наличие',
-						row: true,
-					},
-				],
-			},
-		],
+		hasInformation: true
 	},
 	{
 		title: 'Характеристика',

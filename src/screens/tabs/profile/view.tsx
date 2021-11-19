@@ -32,8 +32,36 @@ import { styles } from './style';
 
 interface IProfileViewProps { }
 
+export let ordersMap = [
+	{
+		string: strings.paymentPending,
+		icon: CardIcon,
+		status: 0,
+		size: 25,
+	},
+	{
+		string: strings.awaitingDispatch,
+		icon: BagIcon,
+		status: null,
+		size: 25,
+	},
+	{
+		string: strings.orderSent,
+		icon: CarIcon,
+		status: null,
+		size: 27,
+	},
+	{
+		string: strings.reviewAwaiteng,
+		icon: PenIcon,
+		size: 25,
+		status: 1
+	},
+]
+
 const ProfileView = ({ }: IProfileViewProps) => {
 	const [banners, setBanners] = useState([]);
+	const [orders, setOrders] = useState([])
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
 	let dispatch = useAppDispatch();
@@ -56,7 +84,9 @@ const ProfileView = ({ }: IProfileViewProps) => {
 	let effect = async () => {
 		try {
 			let res = await requests.product.getBanners();
-			setBanners(res.data);
+			let ordersRes = await requests.product.getUserOrders();
+			setOrders(ordersRes.data)
+			setBanners(res.data.filter(e => e.for_app === 1));
 		} catch (error) { }
 	};
 
@@ -133,30 +163,16 @@ const ProfileView = ({ }: IProfileViewProps) => {
 							</View>
 							<Text style={styles.line} />
 							<View style={styles.dispatch}>
-								<View style={styles.payment}>
-									<CardIcon size={25} />
-									<Text style={styles.textPayment}>
-										{strings.paymentPending}
-									</Text>
-								</View>
-								<View style={styles.payment}>
-									<BagIcon size={25} />
-									<Text style={styles.textPayment}>
-										{strings.awaitingDispatch}
-									</Text>
-								</View>
-								<View style={styles.payment}>
-									<CarIcon size={27} />
-									<Text style={styles.textPayment}>
-										{strings.orderSent}
-									</Text>
-								</View>
-								<View style={styles.payments}>
-									<PenIcon size={25} />
-									<Text style={styles.textPayments}>
-										{strings.reviewAwaiteng}
-									</Text>
-								</View>
+								{ordersMap.map(({ icon: Icon, size, string, status }) => {
+									let count = orders.reduce((p, c) => (p + c.status === status ? 1 : 0), 0)
+									return <View style={styles.payment}>
+										<Icon size={size} />
+										<Text style={styles.textPayment}>
+											{string}
+										</Text>
+										{count > 0 && <Text style={styles.countIndicator}>{count}</Text>}
+									</View>
+								})}
 							</View>
 							<Text style={styles.line} />
 							<View style={styles.lol}>

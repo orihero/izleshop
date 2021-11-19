@@ -6,7 +6,8 @@ import {
 	IAccordion, IAccordionContent, IAccordionItem
 } from 'mockup/data';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import RenderHTML from 'react-native-render-html';
 import { CommentsScreen as Comments } from 'screens/tabs';
 import Pressable from '../general/Pressable';
 
@@ -17,19 +18,17 @@ interface IAccordionProps {
 }
 
 
-const Accordion = ({ items, characteristics: data, information, title }: IAccordionProps) => {
+const Accordion = ({ items, characteristics: data, information, title: name }: IAccordionProps) => {
 	const [open, setOpen] = useState(0);
 	const navigation = useNavigation();
 
 	let renderContent = ({ title, characteristics, content, hasCount, hasInformation, hasRoute }: IAccordion) => {
 		if (hasInformation) {
-			return <View>
+			return <View style={{ padding: 10 }}>
 				<Text style={styles.text6}>
-					{title}
+					{name}
 				</Text>
-				<Text style={styles.text7}>
-					{information}
-				</Text>
+				<RenderHTML source={{ html: information }} contentWidth={Dimensions.get("window").width-50} />
 			</View>
 		}
 		if (characteristics) {
@@ -137,6 +136,7 @@ const styles = StyleSheet.create({
 	characteristics: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		padding: 5
 	},
 	text6: {
 		fontSize: 12,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Linking, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 import ProfileLayout from '../ProfileLayout';
 import { styles } from './style';
@@ -31,7 +31,7 @@ const WhatsNewView = ({ }: IWhatsNewViewProps) => {
 			>
 				<View style={styles.container}>
 					{banners.map(e => {
-						return <TouchableOpacity onPress={() => onNextPress(e.product_id)}>
+						return <TouchableOpacity onPress={() => Linking.openURL(e.url)}>
 							<View style={styles.box}>
 								<Image
 									style={styles.img}

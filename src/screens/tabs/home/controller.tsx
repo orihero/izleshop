@@ -15,7 +15,7 @@ const HomeController = () => {
 			dispatch(setDollarRate(dRes.data[0].dollar_rate))
 			let res = await requests.product.getProducts();
 			let bannersRes = await requests.product.getBanners();
-			setBanners(bannersRes.data);
+			setBanners(bannersRes.data.filter(e => e.for_app !== 1));
 			setProducts(res.data.data);
 		} catch (error) {
 			// alert ('Error in product page');

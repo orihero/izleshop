@@ -188,9 +188,8 @@ const ProductDetailsView = ({
 						</Text>
 						{details.old_price && (
 							<Text style={styles.text2}>
-								{`${details.old_price * dollarRate} ${
-									item.currency
-								}`}
+								{`${details.old_price * dollarRate} ${item.currency
+									}`}
 							</Text>
 						)}
 					</View>
@@ -199,6 +198,8 @@ const ProductDetailsView = ({
 					<Accordion
 						items={accordionData}
 						characteristics={details.characteristics}
+						information={details.description}
+						title={details.name}
 					/>
 				</View>
 				{details.relatedProducts && details.relatedProducts.length > 0 && (
