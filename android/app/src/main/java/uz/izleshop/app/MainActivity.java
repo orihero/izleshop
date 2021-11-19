@@ -2,6 +2,9 @@ package uz.izleshop.app;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
+import org.devio.rn.splashscreen.SplashScreen; // here
+// react-native-splash-screen < 0.3.1
+
 
 public class MainActivity extends ReactActivity {
 
@@ -14,7 +17,9 @@ public class MainActivity extends ReactActivity {
     return "izleshop";
   }
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-	super.onCreate(null);
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this);  // here
+        super.onCreate(savedInstanceState);
+    }
   }
-}
+

@@ -165,7 +165,9 @@ const FavoriteItem = ({
 							<View style={styles.irow}>
 								{hasBasket ? (
 									<TouchableOpacity onPress={onCartPress}>
-										<View style={[styles.square, styles.mr10]}>
+										<View
+											style={[styles.square, styles.mr10]}
+										>
 											<CartIcon
 												size={22}
 												color={colors.blue}
@@ -180,7 +182,9 @@ const FavoriteItem = ({
 									<HeartIcon
 										size={22}
 										color={
-											isFavorite ? colors.red : colors.leghtGrey1
+											isFavorite
+												? colors.red
+												: colors.leghtGrey1
 										}
 										active={isFavorite}
 									/>

@@ -14,19 +14,29 @@ import { useDispatch } from 'react-redux';
 import { selectUser } from 'store/slices/userSlice';
 import { Routes } from 'constants/routes';
 import { colors } from 'constants/colors';
+import { ActivityIndicator } from 'react-native-paper';
 
-const MyOrdersView = ({ userOrders, products }) => {
+export interface MyOrdersViewProps {
+	loading: boolean;
+}
+
+const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
+	let { dollarRate } = useAppSelector(selectUser);
 	let dispatch = useDispatch();
 	let onNextPress = () => {
 		//@ts-ignore
 		navigation.navigate(Routes.LEAVE_FEEDBACK);
 	};
-	console.log('userOrders: ', JSON.stringify(userOrders, null, 4));
+	let p = console.log('userOrders: ', JSON.stringify(userOrders, null, 4));
 	// console.log('userOrders');
 
-	return (
+	return loading ? (
+		<View style={styles.indicatorContainer}>
+			<ActivityIndicator size="large" />
+		</View>
+	) : (
 		<ProfileLayout headerTitle={strings.myOrders || ''}>
 			<ScrollView>
 				<View style={styles.container}>
@@ -42,14 +52,23 @@ const MyOrdersView = ({ userOrders, products }) => {
 							return (
 								<View style={styles.boxOne} key={e.id}>
 									<View style={styles.textBox}>
-										<Text style={styles.text}>
-											{strings.orderNumber} {e.order_id}
-										</Text>
-										<Text style={styles.text}>
-											{strings.orderTime}
-											{time.toLocaleDateString()}{' '}
-											{time.toLocaleTimeString()}
-										</Text>
+										<View style={styles.numberBox}>
+											<Text style={styles.text1}>
+												{strings.orderNumber}{' '}
+											</Text>
+											<Text style={styles.text}>
+												{e.order_id}
+											</Text>
+										</View>
+										<View style={styles.numberBox}>
+											<Text style={styles.text1}>
+												{strings.orderTime}
+											</Text>
+											<Text style={styles.text}>
+												{time.toLocaleDateString()}{' '}
+												{time.toLocaleTimeString()}
+											</Text>
+										</View>
 									</View>
 									{e?.items?.map((el) => {
 										let img = products?.find(
@@ -91,7 +110,12 @@ const MyOrdersView = ({ userOrders, products }) => {
 												{e.amount}
 											</Text>
 											<Text style={styles.textRow}>
-												{e.price}
+												{(e.price * dollarRate)
+													.toString()
+													.replace(
+														/\B(?=(\d{3})+(?!\d))/g,
+														' '
+													)}
 											</Text>
 										</View>
 									</View>

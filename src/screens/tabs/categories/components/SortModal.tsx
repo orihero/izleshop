@@ -2,20 +2,24 @@ import Pressable from 'components/general/Pressable';
 import { colors } from 'constants/colors';
 import { strings } from 'locales/locales';
 import React from 'react';
-import {
-	Modal,
-	StyleSheet, Text, View
-} from 'react-native';
+import { Modal, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export let sorts = [
-	{ name: strings.default, },
+	{ name: strings.default },
 	{ name: strings.ascendingPrice, tag: 'priceSort', value: 'asc' },
-	{ name: strings.descendingPrice, tag: 'priceSort', value: "desc" },
-	{ name: strings.byRating + strings.startingFromTop, tag: 'rating', value: "asc" },
-	{ name: strings.byRating + strings.startingFromLow, tag: 'rating', value: "desc" },
-
-]
+	{ name: strings.descendingPrice, tag: 'priceSort', value: 'desc' },
+	{
+		name: strings.byRating + strings.startingFromTop,
+		tag: 'rating',
+		value: 'asc',
+	},
+	{
+		name: strings.byRating + strings.startingFromLow,
+		tag: 'rating',
+		value: 'desc',
+	},
+];
 
 interface ISortModal {
 	sortOpen: boolean;
@@ -54,27 +58,32 @@ const SortModal = ({
 						<View style={styles.content}>
 							<Text style={styles.title}>{strings.sort}</Text>
 							{sorts.map((e, i) => {
-								return <Pressable key={i} onPress={() => onPress(i)}>
-									<View
-										style={[
-											styles.row,
-											activeIndex === i
-												? styles.bgBlue
-												: styles.bgWhite,
-										]}
+								return (
+									<Pressable
+										key={i}
+										onPress={() => onPress(i)}
 									>
-										<Text
+										<View
 											style={[
-												styles.text,
+												styles.row,
 												activeIndex === i
-													? styles.cwhite
-													: styles.cblack,
+													? styles.bgBlue
+													: styles.bgWhite,
 											]}
 										>
-											{e.name}
-										</Text>
-									</View>
-								</Pressable>
+											<Text
+												style={[
+													styles.text,
+													activeIndex === i
+														? styles.cwhite
+														: styles.cblack,
+												]}
+											>
+												{e.name}
+											</Text>
+										</View>
+									</Pressable>
+								);
 							})}
 						</View>
 					</View>

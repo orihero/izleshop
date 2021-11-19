@@ -24,7 +24,7 @@ const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
 		if (fromPage === 'categories') {
 			navigation.navigate(Routes.PRODUCTS, {
 				from: fromPage,
-				title: item.title || 'title',
+				title: item.name || 'title',
 				categoryId: item.id,
 			});
 		}
@@ -37,16 +37,20 @@ const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
 		}
 	};
 
+	console.log('asass', item.image);
+
 	return (
 		<Pressable onPress={onPress}>
 			<View style={styles.parentContainer}>
 				<View style={styles.container}>
-					{/* <SvgXml xml={item.svg} width={60} height={60} /> */}
 					<Image
 						source={{
 							uri: item.image,
 						}}
-						style={{ width: 100, height: 100 }}
+						style={{
+							width: 90,
+							height: 90,
+						}}
 						resizeMode={'contain'}
 					/>
 				</View>
@@ -55,7 +59,7 @@ const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
 					numberOfLines={1}
 					style={styles.title}
 				>
-					{item.title}
+					{item.name}
 				</Text>
 			</View>
 		</Pressable>
@@ -68,27 +72,26 @@ let { width, height } = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: colors.white,
-		padding: 15,
-		shadowOpacity: 0.25,
-		shadowOffset: { width: 0, height: 0 },
-		borderRadius: 10,
 		width: 110,
 		height: 105,
-		marginHorizontal: 5,
+		padding: 15,
 		marginTop: 14,
-		justifyContent: 'center',
+		borderRadius: 10,
+		shadowOpacity: 0.25,
+		marginHorizontal: 5,
 		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: colors.white,
+		shadowOffset: { width: 0, height: 0 },
 	},
 	title: {
-		fontWeight: '500',
-		fontSize: 10,
 		width: 100,
+		fontSize: 10,
+		paddingTop: 10,
+		paddingLeft: 20,
+		fontWeight: '500',
 		textAlign: 'center',
 		color: colors.black,
-		paddingLeft: 20,
-		// paddingVertical: 20,
-		paddingTop: 10,
 	},
 	parentContainer: {
 		width: width / 3,
