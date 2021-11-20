@@ -2,7 +2,7 @@ import LocalizedStrings from 'react-native-localization';
 
 export let strings = new LocalizedStrings({
 	ru: {
-		plzLogin: "Пожалуйста, войдите, чтобы иметь возможность делать заказы",
+		plzLogin: 'Пожалуйста, войдите, чтобы иметь возможность делать заказы',
 		success: 'Заказ оформлен',
 		alreadyInCart: 'Товар уже в корзине',
 		noSuchProduct: 'Товар не существует или был удален',
@@ -128,5 +128,11 @@ export let strings = new LocalizedStrings({
 		send: 'Отправить ',
 		installment: 'Рассрочка',
 		version: 'Версия:',
+		month: 'месяц',
+		months: 'месяца',
+		firstPaymentText: 'Предоплата ',
+		monthlyPaymentText: 'Ежемесячный платеж',
+		cartText: 'К сожалению, в вашей корзине еще нет товаров.',
+		heartText: 'К сожалению, в вашей избранное  еще нет товаров.',
 	},
 });

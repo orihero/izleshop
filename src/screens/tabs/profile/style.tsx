@@ -89,11 +89,12 @@ export const styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	textProfile: {
-		paddingTop: 5,
-		justifyContent: 'flex-start',
-		fontFamily: 'Lato',
-		fontWeight: '600',
 		fontSize: 18,
+		paddingTop: 5,
+		fontWeight: '600',
+		fontFamily: 'Lato',
+		color: colors.black,
+		justifyContent: 'flex-start',
 	},
 	flag: {
 		paddingTop: 5,

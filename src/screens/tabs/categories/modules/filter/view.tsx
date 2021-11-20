@@ -75,11 +75,10 @@ const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 						>
 							<Text style={styles.text}>{e.title}</Text>
 							<View style={styles.circle}>
-								{selected === i && (
-									<View style={styles.dot} />
-								)}
+								{selected === i && <View style={styles.dot} />}
 							</View>
-						</TouchableOpacity>))}
+						</TouchableOpacity>
+					))}
 				</View>
 				<View style={styles.buttonRow}>
 					<SecondButton
@@ -94,11 +93,11 @@ const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 							let params = {
 								priceMax: high,
 								priceMin: low,
-							}
+							};
 							if (selected !== -1) {
-								params.categoryId = categories[selected].id
+								params.categoryId = categories[selected].id;
 							}
-							navigation.navigate(Routes.PRODUCTS, params)
+							navigation.navigate(Routes.PRODUCTS, params);
 						}}
 						ph={16}
 						bg={colors.darkBlue}

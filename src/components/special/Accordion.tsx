@@ -20,11 +20,13 @@ interface IAccordionProps {
 	items: any;
 }
 
-const Accordion = ({ items, characteristics: data }: IAccordionProps) => {
+const Accordion = ({
+	items,
+	characteristcs: data,
+	details,
+}: IAccordionProps) => {
 	const [open, setOpen] = useState(0);
 	const navigation = useNavigation();
-
-	console.log({ data });
 
 	const onChangeContent = (index: number) => {
 		console.log({ index });
@@ -32,6 +34,7 @@ const Accordion = ({ items, characteristics: data }: IAccordionProps) => {
 			//@ts-ignore
 			navigation.navigate(Routes.WITHOUT_TABS, {
 				screen: Routes.INSTALLMENT,
+				params: { data: details },
 			});
 		} else if (open === index) {
 			setOpen(0);

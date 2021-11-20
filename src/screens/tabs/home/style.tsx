@@ -57,8 +57,10 @@ const styles = StyleSheet.create({
 		color: colors.black,
 		fontSize: 18,
 		marginHorizontal: 20,
+		marginBottom: 10,
 	},
 	flatList: {
+		paddingBottom: 60,
 		paddingRight: 20,
 		paddingVertical: 10,
 	},

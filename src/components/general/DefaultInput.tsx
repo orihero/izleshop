@@ -30,13 +30,15 @@ const DefaultInput = ({
 	const onPress = () => {
 		setShowPassword(!showPassword);
 	};
-
+	const onTextChange = (e) => {
+		onChange(e);
+	};
 	return (
 		<View>
 			<TextInput
 				value={value}
 				multiline={isTextArea}
-				onChangeText={(e) => onChange(e)}
+				onChangeText={onTextChange}
 				numberOfLines={isTextArea ? 3 : 1}
 				placeholder={placeholder}
 				placeholderTextColor="gray"

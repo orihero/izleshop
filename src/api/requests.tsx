@@ -5,7 +5,7 @@ import { UserData, UserFullData } from 'store/slices/userSlice';
 export let url = 'https://izleshop.uz/api';
 
 axios.interceptors.request.use((e) => {
-	console.log("REQUEST", e);
+	console.log('REQUEST', e);
 
 	if (!!store.getState().user.token)
 		e.headers.Authorization = `Bearer ${store.getState().user.token}`;
@@ -34,10 +34,13 @@ export let requests = {
 			axios.post<UserData>(`${url}/edit/profile`, payload),
 	},
 	product: {
-		getProducts: (params?: any) => {
-			return axios.get(`${url}/getProducts`, {
-				params,
-			});
+		getProducts: (page, pageSize) => {
+			return axios.get(
+				`${url}/getProducts?page=${page}&pageSize=${pageSize}`
+				// {
+				// 	params,
+				// }
+			);
 		},
 		getCategories: () => {
 			return axios.get(`${url}/getCategories`);
@@ -59,8 +62,8 @@ export let requests = {
 		},
 		getDetails: (id: string) =>
 			axios.get(`${url}/getProductDetails?id=${id}`),
-		makeOrder: (credentials: any) => axios.post(`${url}/makeOrder`, credentials),
-		getDollarRate: () => axios.get(`${url}/getDollarRate`)
-
+		makeOrder: (credentials: any) =>
+			axios.post(`${url}/makeOrder`, credentials),
+		getDollarRate: () => axios.get(`${url}/getDollarRate`),
 	},
 };

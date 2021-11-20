@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 20,
 		backgroundColor: colors.white,
 		justifyContent: 'space-between',
-		marginHorizontal: 20
+		marginHorizontal: 20,
 	},
 	totalPriceText1: {
 		fontSize: 18,
@@ -52,5 +52,15 @@ export const styles = StyleSheet.create({
 	},
 	mt15: {
 		marginTop: 15,
+	},
+	emptyContent: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		flex: 1,
+	},
+	cartText: {
+		fontSize: 20,
+		marginBottom: 20,
+		textAlign: 'center',
 	},
 });

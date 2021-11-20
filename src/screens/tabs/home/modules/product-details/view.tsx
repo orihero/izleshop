@@ -199,6 +199,7 @@ const ProductDetailsView = ({
 					<Accordion
 						items={accordionData}
 						characteristics={details.characteristics}
+						details={details}
 					/>
 				</View>
 				{details.relatedProducts && details.relatedProducts.length > 0 && (

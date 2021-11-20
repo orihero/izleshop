@@ -235,7 +235,7 @@ export const styles = StyleSheet.create({
 		// marginTop: 5,
 		lineHeight: 19,
 		fontWeight: 'bold',
-		textAlign: 'justify',
+		textAlign: 'left',
 		color: colors.neutralDark,
 	},
 	newPrice: {

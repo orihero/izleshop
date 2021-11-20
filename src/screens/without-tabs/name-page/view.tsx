@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 
 import ProfileLayout from '../ProfileLayout';
@@ -23,10 +23,12 @@ const NamePageView = ({}: ILanguageProps) => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	let dispatch = useDispatch();
+	// let [username, setUsername] = useState(user.userData?.first_name);
 	let setName = (name: string) => {
 		dispatch(setUserName(name));
 	};
 	const [loading, setLoading] = useState(false);
+
 	let onNextPress = async () => {
 		//@ts-ignore
 		setLoading(true);

@@ -3,6 +3,7 @@ import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
 	flatList: {
+		flex: 1,
 		paddingTop: 0,
 		paddingHorizontal: 20,
 	},
@@ -12,5 +13,15 @@ export const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.lightBlue,
 		flex: 1,
+	},
+	emptyContent: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		flex: 1,
+	},
+	cartText: {
+		fontSize: 20,
+		marginBottom: 20,
+		textAlign: 'center',
 	},
 });

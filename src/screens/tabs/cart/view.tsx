@@ -5,7 +5,7 @@ import { CartScreenNavigationProp } from './controller';
 import { selectCartList, selectCartTotal } from 'store/slices/cartSlice';
 import { useAppSelector } from 'utils/hooks';
 
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, View, Image } from 'react-native';
 import Header from 'components/navigation/Header';
 import DefaultButton from 'components/general/DefaultButton';
 import CartItem from 'components/special/CartItem';
@@ -16,6 +16,7 @@ import { strings } from 'locales/locales';
 import { styles } from './style';
 import { Routes } from 'constants/routes';
 import { SearchIcon } from 'assets/icons/icons';
+import { colors } from 'constants/colors';
 
 interface ICartViewProps {
 	navigation: CartScreenNavigationProp;
@@ -47,13 +48,30 @@ const CartView = ({ navigation }: ICartViewProps) => {
 			{cartItems ? (
 				<FlatList
 					data={cartItems}
-					contentContainerStyle={{ paddingBottom: 180 }}
+					contentContainerStyle={{ flex: 1 }}
 					style={styles.mh20}
 					keyExtractor={(e) => e.data.id.toString()}
 					showsVerticalScrollIndicator={false}
 					renderItem={(props) => (
 						<View style={styles.mt15}>
 							<HorizontalItem hasCounter {...props} />
+						</View>
+					)}
+					ListEmptyComponent={() => (
+						<View style={styles.emptyContent}>
+							<Text style={styles.cartText}>
+								{' '}
+								{strings.cartText}{' '}
+							</Text>
+							<Image
+								style={{
+									width: 150,
+									height: 150,
+									resizeMode: 'contain',
+									backgroundColor: colors.lightBlue,
+								}}
+								source={require('../../../assets/images/cart.png')}
+							/>
 						</View>
 					)}
 				/>

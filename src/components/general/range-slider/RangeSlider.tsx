@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import Label from './Label';
 import Notch from './Notch';
 import Rail from './Rail';
@@ -8,6 +8,7 @@ import Thumb from './Thumb';
 import RangeSlider from 'rn-range-slider';
 import Text from '../Text';
 import { strings } from 'locales/locales';
+import { colors } from 'constants/colors';
 
 const CustomRangeSlider = ({ high, low, setLow, setHigh }) => {
 	const renderThumb = useCallback(() => <Thumb />, []);
@@ -20,28 +21,23 @@ const CustomRangeSlider = ({ high, low, setLow, setHigh }) => {
 		setHigh(high);
 	}, []);
 	return (
-		<View>
-			<View style={styles.row}>
-				<Text>
-					{strings.from}: {low.toLocaleString('ru')} {strings.soum}
-				</Text>
-				<Text>
-					{strings.to}: {high.toLocaleString('ru')} {strings.soum}
-				</Text>
+		<View style={styles.container}>
+			<View style={styles.inputBox}>
+				<View style={styles.text}>
+					<Text>{strings.from} :</Text>
+				</View>
+				<View style={styles.inputRow}>
+					<TextInput keyboardType={'numeric'} style={styles.input} />
+					<Text>{strings.soum}</Text>
+				</View>
 			</View>
-			<RangeSlider
-				min={0}
-				max={40000000}
-				step={2}
-				disableRange={false}
-				floatingLabel
-				renderThumb={renderThumb}
-				renderRail={renderRail}
-				renderRailSelected={renderRailSelected}
-				renderLabel={renderLabel}
-				renderNotch={renderNotch}
-				onValueChanged={handleValueChange}
-			/>
+			<View style={styles.inputBox}>
+				<Text>{strings.to} :</Text>
+				<View style={styles.inputRow}>
+					<TextInput keyboardType={'numeric'} style={styles.input} />
+					<Text>{strings.soum}</Text>
+				</View>
+			</View>
 		</View>
 	);
 };
@@ -49,9 +45,34 @@ const CustomRangeSlider = ({ high, low, setLow, setHigh }) => {
 export default CustomRangeSlider;
 
 const styles = StyleSheet.create({
-	row: {
-		flexDirection: 'row',
+	container: {
 		justifyContent: 'space-between',
-		marginBottom: 15,
+		flexDirection: 'row',
+	},
+	inputBox: {
+		// flexDirection: 'row',
+		marginHorizontal: 10,
+		justifyContent: 'space-between',
+	},
+	input: {
+		padding: 5,
+		marginTop: 5,
+		width: 100,
+		height: 40,
+		color: colors.black,
+		borderRadius: 10,
+	},
+	text: {
+		justifyContent: 'space-between',
+		flexDirection: 'row',
+	},
+	inputRow: {
+		marginTop: 5,
+		height: 40,
+		padding: 5,
+		borderWidth: 1,
+		borderRadius: 10,
+		flexDirection: 'row',
+		alignItems: 'center',
 	},
 });

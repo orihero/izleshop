@@ -152,7 +152,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 						if (response.data.paymentUrl) {
 							Linking.openURL(response.data.paymentUrl);
 						}
-						navigation.navigate(Routes.HOME_STACK);
+						navigation.navigate(Routes.CART);
 					}
 				}
 			);

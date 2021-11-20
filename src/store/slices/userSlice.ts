@@ -51,7 +51,7 @@ let userSlice = createSlice({
 		setUserName: (state, action: PayloadAction<string>) => {
 			return {
 				...state,
-				userData: { ...state.userData, name: action.payload },
+				userData: { ...state.userData, first_name: action.payload },
 			};
 		},
 		setUserLanguage: (state, action: PayloadAction<number>) => {

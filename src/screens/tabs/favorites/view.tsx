@@ -3,7 +3,8 @@ import Header from 'components/navigation/Header';
 import HorizontalItem from 'components/special/HorizontalItem';
 import { strings } from 'locales/locales';
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, View, Text, Image } from 'react-native';
+import { colors } from 'constants/colors';
 import { selectFavoritesList } from 'store/slices/favoritesSlice';
 import { useAppSelector } from 'utils/hooks';
 import FavoriteItem from '../cart/components/FavoriteItem';
@@ -24,6 +25,23 @@ const FavoritesView = () => {
 							hasBasket={true}
 							hasRemove={false}
 							{...props}
+						/>
+					</View>
+				)}
+				ListEmptyComponent={() => (
+					<View style={styles.emptyContent}>
+						<Text style={styles.cartText}>
+							{' '}
+							{strings.cartText}{' '}
+						</Text>
+						<Image
+							style={{
+								width: 150,
+								height: 150,
+								resizeMode: 'contain',
+								backgroundColor: colors.lightBlue,
+							}}
+							source={require('../../../assets/images/heart.png')}
 						/>
 					</View>
 				)}
