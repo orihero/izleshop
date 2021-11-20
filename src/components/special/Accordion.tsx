@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
-
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import Pressable from '../general/Pressable';
-
+import { useNavigation } from '@react-navigation/core';
 import { ChevronRightIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
-import {
-	IAccordionItem,
-	IAccordionContent,
-	IAccordion,
-	item,
-} from 'mockup/data';
-import { CommentsScreen as Comments } from 'screens/tabs';
-import { useNavigation } from '@react-navigation/core';
 import { Routes } from 'constants/routes';
+import { IAccordion, IAccordionContent, IAccordionItem } from 'mockup/data';
+import React, { useState } from 'react';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import RenderHTML from 'react-native-render-html';
+import { CommentsScreen as Comments } from 'screens/tabs';
+import Pressable from '../general/Pressable';
 
 interface IAccordionProps {
 	items: any;
@@ -29,7 +22,6 @@ const Accordion = ({
 	const navigation = useNavigation();
 
 	const onChangeContent = (index: number) => {
-		console.log({ index });
 		if (index === 1) {
 			//@ts-ignore
 			navigation.navigate(Routes.WITHOUT_TABS, {
@@ -46,18 +38,16 @@ const Accordion = ({
 
 	return (
 		<View style={styles.container}>
-			{items.map(
-				(
-					{
-						title,
-						content,
-						finally: f,
-						hasCount,
-						hasRoute,
-						characteristics,
-					}: IAccordion,
-					i: number
-				) => (
+			{items.map((e: IAccordion, i: number) => {
+				let {
+					title,
+					content,
+					finally: f,
+					hasCount,
+					hasRoute,
+					characteristics,
+				} = e;
+				return (
 					<View key={`${i}`}>
 						<Pressable onPress={() => onChangeContent(i + 1)}>
 							<View style={styles.item}>
@@ -80,161 +70,10 @@ const Accordion = ({
 								</View>
 							</View>
 						</Pressable>
-						{open === i + 1 && !hasRoute ? (
-							<View style={styles.content}>
-								{!content ? (
-									hasCount ? (
-										<Comments />
-									) : (
-										characteristics &&
-										Object.keys(data || {})?.map((e) => {
-											return (
-												<View
-													style={
-														styles.characteristics
-													}
-												>
-													<Text style={styles.text6}>
-														{e}
-													</Text>
-													<Text style={styles.text7}>
-														{data[e]}
-													</Text>
-												</View>
-											);
-										})
-									)
-								) : (
-									// characteristics &&
-									// Object.keys(
-									// 	data.characteristics || {}
-									// )?.map((e) => {
-									// 	return (
-									// 		<View>
-									// 			<Text>{e}</Text>
-									// 			<Text>
-									// 				{
-									// 					data
-									// 						.characteristics[
-									// 						e
-									// 					]
-									// 				}
-									// 			</Text>
-									// 		</View>
-									// 	);
-									// })
-									content.map(
-										(
-											{
-												preTitle,
-												items,
-											}: IAccordionContent,
-											ii: number
-										) => (
-											<View key={`${i}/${ii}`}>
-												{preTitle ? (
-													<Text
-														style={[
-															styles.text2,
-															ii
-																? styles.mt20
-																: null,
-														]}
-													>
-														{preTitle}
-													</Text>
-												) : null}
-												{items.map(
-													(
-														{
-															key,
-															value,
-															row,
-														}: IAccordionItem,
-														iii: number
-													) =>
-														row ? (
-															<View
-																key={`${i}/${ii}/${iii}`}
-																style={[
-																	styles.row,
-																	iii
-																		? styles.mt10
-																		: i ===
-																		  2
-																		? styles.mt20
-																		: null,
-																]}
-															>
-																<View
-																	style={
-																		styles.left
-																	}
-																>
-																	<Text
-																		style={
-																			styles.text3
-																		}
-																	>
-																		{key}
-																	</Text>
-																</View>
-																<View
-																	style={
-																		styles.right
-																	}
-																>
-																	<Text
-																		style={
-																			styles.text4
-																		}
-																	>
-																		{value}
-																	</Text>
-																</View>
-															</View>
-														) : (
-															<View
-																key={`${i}/${ii}/${iii}`}
-																style={
-																	iii
-																		? styles.mt10
-																		: styles.mt20
-																}
-															>
-																<Text
-																	style={
-																		styles.text3
-																	}
-																>
-																	{key}
-																</Text>
-																<Text
-																	style={
-																		styles.text4
-																	}
-																>
-																	{value}
-																</Text>
-															</View>
-														)
-												)}
-											</View>
-										)
-									)
-								)}
-								{f ? (
-									<View style={styles.mt14}>
-										<Text style={styles.text5}>
-											{`${f} +99871 123 45 67`}
-										</Text>
-									</View>
-								) : null}
-							</View>
-						) : null}
+						{open === i + 1 && !hasRoute ? renderContent(e) : null}
 					</View>
-				)
-			)}
+				);
+			})}
 		</View>
 	);
 };
@@ -262,6 +101,7 @@ const styles = StyleSheet.create({
 	characteristics: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		padding: 5,
 	},
 	text6: {
 		fontSize: 12,

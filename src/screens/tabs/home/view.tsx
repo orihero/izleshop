@@ -81,11 +81,7 @@ const HomeView = ({
 					data={banners}
 					renderItem={(props) => (
 						<TouchableOpacity
-							onPress={() =>
-								onPress(Routes.PRODUCT_DETAILS, {
-									id: props.item.product_id,
-								})
-							}
+							onPress={() => Linking.openURL(props.item.url)}
 						>
 							<SliderItem {...props} dwh />
 						</TouchableOpacity>

@@ -214,4 +214,18 @@ export const styles = StyleSheet.create({
 		width: 15,
 		paddingTop: 4,
 	},
+	countIndicator: {
+		position: 'absolute',
+		width: 18,
+		height: 18,
+		backgroundColor: colors.red,
+		right: 10,
+		borderRadius: 18,
+		top: 4,
+		color: colors.white,
+		textAlignVertical: 'center',
+		textAlign: 'center',
+		fontSize: 10,
+		lineHeight: 12
+	}
 });
