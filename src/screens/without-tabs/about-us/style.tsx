@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { windowWidth } from 'constants/sizes';
+import { windowHeight, windowWidth } from 'constants/sizes';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
@@ -20,13 +20,15 @@ export const styles = StyleSheet.create({
 		width: windowWidth - 30,
 		alignItems: 'center',
 		marginHorizontal: 10,
+		paddingHorizontal: 20,
 		backgroundColor: colors.white,
 	},
 	text: {
-		width: 370,
+		width: windowWidth - 40,
 		fontSize: 15,
 		padding: 20,
-		textAlign: 'left',
+		alignItems: 'center',
+		marginHorizontal: 20,
 		paddingHorizontal: 20,
 	},
 });
