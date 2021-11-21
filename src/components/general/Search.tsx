@@ -6,37 +6,41 @@ import { windowWidth } from '../../constants/sizes';
 import { useNavigation } from '@react-navigation/core';
 import { Routes } from 'constants/routes';
 
-export interface SearchInputProps { setText: () => {} }
+export interface SearchInputProps {
+	setText: () => {};
+}
 
-const SearchInput = React.forwardRef(({ setText = () => { } }: SearchInputProps, ref = null) => {
-	const navigation = useNavigation();
-	let onNextPress = () => {
-		// @ts-ignore
-		navigation.navigate(Routes.SEARCH);
-	};
-	return (
-		<View style={styles.container}>
-			<Pressable
-				hitSlop={5}
-				android_ripple={{
-					color: colors.lightPink,
-					radius: 20,
-					borderless: true,
-				}}
-				onPress={onNextPress}
-			>
-				<SearchIcon size={17} color={colors.gray} />
-			</Pressable>
-			<TextInput
-				ref={ref}
-				style={styles.text}
-				placeholder={'Что вы ищете?'}
-				onFocus={onNextPress}
-				onChangeText={setText}
-			></TextInput>
-		</View>
-	);
-});
+const SearchInput = React.forwardRef(
+	({ setText = () => {}, containerStyle }: SearchInputProps, ref = null) => {
+		const navigation = useNavigation();
+		let onNextPress = () => {
+			// @ts-ignore
+			navigation.navigate(Routes.SEARCH);
+		};
+		return (
+			<View style={[styles.container, containerStyle]}>
+				<Pressable
+					hitSlop={5}
+					android_ripple={{
+						color: colors.lightPink,
+						radius: 20,
+						borderless: true,
+					}}
+					onPress={onNextPress}
+				>
+					<SearchIcon size={17} color={colors.gray} />
+				</Pressable>
+				<TextInput
+					ref={ref}
+					style={styles.text}
+					placeholder={'Что вы ищете?'}
+					onFocus={onNextPress}
+					onChangeText={setText}
+				></TextInput>
+			</View>
+		);
+	}
+);
 
 export default SearchInput;
 
@@ -55,6 +59,6 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		paddingLeft: 15,
 		paddingRight: 30,
-		width: '100%'
+		width: '100%',
 	},
 });

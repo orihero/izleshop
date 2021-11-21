@@ -34,7 +34,6 @@ const Calendar = () => {
         }
         days.push(week)
     }
-    console.log({ days, monthDays })
 
     return (
         <View style={styles.container}>

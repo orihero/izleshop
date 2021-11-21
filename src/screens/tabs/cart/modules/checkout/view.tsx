@@ -129,7 +129,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				index: '111201',
 				city: city,
 				products: products,
-				installment_plan: installment_plan + 1,
+				installment_plan: installment_plan,
 			};
 			console.log('REQUEST DATA', req);
 			let response = await requests.product.makeOrder(req);
@@ -149,7 +149,10 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				() => {
 					if (!!response) {
 						dispatch(clearCart());
-						if (response.data.paymentUrl) {
+						if (
+							response.data.paymentUrl &&
+							installment_plan === null
+						) {
 							Linking.openURL(response.data.paymentUrl);
 						}
 						navigation.navigate(Routes.CART);
@@ -157,7 +160,6 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				}
 			);
 		} catch (error) {
-			console.log(error.response);
 			console.log('ERROR', error);
 		} finally {
 			setLoading(false);

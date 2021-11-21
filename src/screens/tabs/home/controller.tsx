@@ -12,20 +12,21 @@ export interface IPage {
 const HomeController = () => {
 	const [products, setProducts] = useState([]);
 	const [banners, setBanners] = useState([]);
-	const [page, setPage] = useState(0);
+	const [page, setPage] = useState(1);
 
 	let loadMoreProducts = async () => {
 		console.log('Loading more product');
 
 		try {
-			let res = await requests.product.getProducts(page, 10);
+			let res = await requests.product.getProducts({
+				page: page + 1,
+				pageSize: 10,
+			});
 			console.log(res.data.data.length, 'new data');
 			if (res.data.data) {
 				setProducts([...products, ...res.data.data]);
-				// setProducts(res.data.data);
 			}
 		} catch (error) {
-			console.log({ error });
 		}
 	};
 
@@ -34,9 +35,12 @@ const HomeController = () => {
 		try {
 			let dRes = await requests.product.getDollarRate();
 			dispatch(setDollarRate(dRes.data[0].dollar_rate));
-			let res = await requests.product.getProducts(page, 10);
+			let res = await requests.product.getProducts({
+				page,
+				pageSize: 10,
+			});
 			let bannersRes = await requests.product.getBanners();
-			setBanners(bannersRes.data.filter(e => e.for_app !== 1));
+			setBanners(bannersRes.data.filter((e) => e.for_app !== 1));
 			setProducts(res.data.data);
 		} catch (error) {
 			// alert ('Error in product page');

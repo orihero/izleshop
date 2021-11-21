@@ -12,12 +12,13 @@ axios.interceptors.request.use((e) => {
 	return e;
 });
 
-// axios.interceptors.response.use((e) => {
-// 	if (!!e?.data?.status && !!e?.data?.message) {
-// 		throw { statsus: e.data.status, message: e.data.message };
-// 	}
-// 	return e;
-// });
+axios.interceptors.response.use((e) => {
+	if (!!e?.data?.status && !!e?.data?.message) {
+		throw { statsus: e.data.status, message: e.data.message };
+	}
+	return e;
+});
+//?page=${page}&pageSize=${pageSize}
 
 export let requests = {
 	helpers: {
@@ -34,13 +35,10 @@ export let requests = {
 			axios.post<UserData>(`${url}/edit/profile`, payload),
 	},
 	product: {
-		getProducts: (page, pageSize) => {
-			return axios.get(
-				`${url}/getProducts?page=${page}&pageSize=${pageSize}`
-				// {
-				// 	params,
-				// }
-			);
+		getProducts: (params: any) => {
+			return axios.get(`${url}/getProducts`, {
+				params,
+			});
 		},
 		getCategories: () => {
 			return axios.get(`${url}/getCategories`);
@@ -60,8 +58,8 @@ export let requests = {
 		getPartners: () => {
 			return axios.get(`${url}/getPartners`);
 		},
-		getDetails: (id: string) =>
-			axios.get(`${url}/getProductDetails?id=${id}`),
+		getDetails: (id: string) => axios.get(`${url}/getProductDetails?id=${id}`),
+		getComments: () => axios.get(`${url}/getReviews`),
 		makeOrder: (credentials: any) =>
 			axios.post(`${url}/makeOrder`, credentials),
 		getDollarRate: () => axios.get(`${url}/getDollarRate`),

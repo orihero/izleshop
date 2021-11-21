@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { useNavigation } from '@react-navigation/core';
+import { useFocusEffect, useNavigation } from '@react-navigation/core';
 
 import ProfileView from './view';
 import { Routes } from 'constants/routes';
@@ -31,6 +31,9 @@ const ProfileController = () => {
 	useEffect(() => {
 		effect();
 	}, []);
+	useFocusEffect(() => {
+		effect();
+	});
 	//TODO styles and move hooks to controller
 	let itemWidth = windowWidth - 2 * paddingVertical;
 

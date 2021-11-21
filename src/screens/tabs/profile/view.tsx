@@ -30,7 +30,7 @@ import { selectUser, userLoggedOut } from 'store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
-interface IProfileViewProps { }
+interface IProfileViewProps {}
 
 export let ordersMap = [
 	{
@@ -55,16 +55,18 @@ export let ordersMap = [
 		string: strings.reviewAwaiteng,
 		icon: PenIcon,
 		size: 25,
-		status: 1
+		status: 1,
 	},
-]
+];
 
-const ProfileView = ({ }: IProfileViewProps) => {
+const ProfileView = ({}: IProfileViewProps) => {
 	const [banners, setBanners] = useState([]);
-	const [orders, setOrders] = useState([])
+	const [orders, setOrders] = useState([]);
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
 	let dispatch = useAppDispatch();
+	console.log('ORDERS', { orders });
+
 	let onPress = (route: Routes, params?: any) => {
 		//@ts-ignore
 		navigation.navigate(Routes.WITHOUT_TABS, { screen: route, params });
@@ -78,16 +80,16 @@ const ProfileView = ({ }: IProfileViewProps) => {
 				style: 'default',
 				text: strings.yes,
 			},
-			{ onPress: () => { }, style: 'cancel', text: strings.cancel },
+			{ onPress: () => {}, style: 'cancel', text: strings.cancel },
 		]);
 	};
 	let effect = async () => {
 		try {
 			let res = await requests.product.getBanners();
 			let ordersRes = await requests.product.getUserOrders();
-			setOrders(ordersRes.data)
-			setBanners(res.data.filter(e => e.for_app === 1));
-		} catch (error) { }
+			setOrders(ordersRes.data);
+			setBanners(res.data.filter((e) => e.for_app === 1));
+		} catch (error) {}
 	};
 
 	useEffect(() => {
@@ -97,7 +99,7 @@ const ProfileView = ({ }: IProfileViewProps) => {
 	return (
 		<ScrollView
 			showsVerticalScrollIndicator={false}
-		// style={styles.container}
+			// style={styles.container}
 		>
 			<View style={styles.container}>
 				{!user.token ? (
@@ -163,16 +165,35 @@ const ProfileView = ({ }: IProfileViewProps) => {
 							</View>
 							<Text style={styles.line} />
 							<View style={styles.dispatch}>
-								{ordersMap.map(({ icon: Icon, size, string, status }) => {
-									let count = orders.reduce((p, c) => (p + c.status === status ? 1 : 0), 0)
-									return <View style={styles.payment}>
-										<Icon size={size} />
-										<Text style={styles.textPayment}>
-											{string}
-										</Text>
-										{count > 0 && <Text style={styles.countIndicator}>{count}</Text>}
-									</View>
-								})}
+								{ordersMap.map(
+									({ icon: Icon, size, string, status }) => {
+										let count = orders.reduce(
+											(p, c) =>
+												p +
+												(c.status === status ? 1 : 0),
+											0
+										);
+										return (
+											<View style={styles.payment}>
+												<Icon size={size} />
+												<Text
+													style={styles.textPayment}
+												>
+													{string}
+												</Text>
+												{count > 0 && (
+													<Text
+														style={
+															styles.countIndicator
+														}
+													>
+														{count}
+													</Text>
+												)}
+											</View>
+										);
+									}
+								)}
 							</View>
 							<Text style={styles.line} />
 							<View style={styles.lol}>

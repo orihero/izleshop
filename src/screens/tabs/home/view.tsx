@@ -4,15 +4,15 @@ import Text from 'components/general/Text';
 import SliderItem from 'components/special/SliderItem';
 import VerticalItem from 'components/special/VerticalItem';
 import { colors } from 'constants/colors';
-import { Routes } from 'constants/routes';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
-import React, { SetStateAction, useState } from 'react';
-import { FlatList, ScrollView, TouchableOpacity, View } from 'react-native';
+import React, { SetStateAction } from 'react';
+import { FlatList, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Shimmer from 'react-native-shimmer-placeholder';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { Route } from 'react-native-tab-view';
+import _ from 'underscore';
 import { IPage } from './controller';
 import styles from './style';
 
@@ -74,42 +74,12 @@ const HomeView = ({
 	return (
 		<View showsVerticalScrollIndicator={false} style={styles.container}>
 			<SearchInput />
-			{banners.length === 0 ? (
-				<EmptyBanner />
-			) : (
-				<Carousel
-					data={banners}
-					renderItem={(props) => (
-						<TouchableOpacity
-							onPress={() => Linking.openURL(props.item.url)}
-						>
-							<SliderItem {...props} dwh />
-						</TouchableOpacity>
-					)}
-					sliderWidth={width}
-					itemWidth={width}
-					containerCustomStyle={styles.carousel}
-					onSnapToItem={(index) => setActiveSlide(index)}
-					pagingEnabled
-				/>
-			)}
-			<Pagination
-				dotColor={colors.blue}
-				dotStyle={styles.pdot}
-				dotsLength={banners.length}
-				dotContainerStyle={styles.pdotcont}
-				containerStyle={{ paddingVertical: 10 }}
-				inactiveDotScale={1}
-				inactiveDotOpacity={0.5}
-				activeDotIndex={activeSlide}
-				inactiveDotColor={colors.gray}
-				inactiveDotStyle={{ backgroundColor: colors.gray }}
-			/>
-			<Text style={styles.text}>{strings.recomendedForYou}</Text>
+
 			<FlatList
 				onMomentumScrollBegin={() => {
 					dontFetch = false;
 				}}
+				extraData={[banners]}
 				contentContainerStyle={styles.flatList}
 				snapToInterval={windowWidth / 2 - 5}
 				data={products.length ? products : []}
@@ -118,19 +88,65 @@ const HomeView = ({
 					<VerticalItem {...props} bigSize hasMargin />
 				)}
 				decelerationRate={'fast'}
-				showsHorizontalScrollIndicator={false}
-				// keyExtractor={(e) => e.id.toString()}
+				showsVerticalScrollIndicator={false}
+				keyExtractor={(e) => e.id.toString()}
 				ListEmptyComponent={ListEmptyComponent}
 				onEndReachedThreshold={0.01}
 				onEndReached={({ distanceFromEnd }) => {
+					_.throttle(() => loadMoreProducts(), 1000)();
+					setPage(page + 1);
 					if (!dontFetch) {
 						// loadMoreProducts();
-						loadMoreProducts();
-						setPage(page + 1);
 					} else {
 						console.log('----------not working-----------');
 					}
 					dontFetch = true;
+				}}
+				ListHeaderComponent={() => {
+					return (
+						<View>
+							{banners.length === 0 ? (
+								<EmptyBanner />
+							) : (
+								<Carousel
+									data={banners}
+									renderItem={(props) => (
+										<TouchableOpacity
+											onPress={() =>
+												Linking.openURL(props.item.url)
+											}
+										>
+											<SliderItem {...props} dwh />
+										</TouchableOpacity>
+									)}
+									sliderWidth={width}
+									itemWidth={width}
+									containerCustomStyle={styles.carousel}
+									onSnapToItem={(index) =>
+										setActiveSlide(index)
+									}
+									pagingEnabled
+								/>
+							)}
+							<Pagination
+								dotColor={colors.blue}
+								dotStyle={styles.pdot}
+								dotsLength={banners.length}
+								dotContainerStyle={styles.pdotcont}
+								containerStyle={{ paddingVertical: 10 }}
+								inactiveDotScale={1}
+								inactiveDotOpacity={0.5}
+								activeDotIndex={activeSlide}
+								inactiveDotColor={colors.gray}
+								inactiveDotStyle={{
+									backgroundColor: colors.gray,
+								}}
+							/>
+							<Text style={styles.text}>
+								{strings.recomendedForYou}
+							</Text>
+						</View>
+					);
 				}}
 			/>
 		</View>

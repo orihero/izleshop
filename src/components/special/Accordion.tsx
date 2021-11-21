@@ -20,6 +20,39 @@ const Accordion = ({
 }: IAccordionProps) => {
 	const [open, setOpen] = useState(0);
 	const navigation = useNavigation();
+	console.log('INFORMATION', details.information);
+
+	let renderContent = ({
+		title,
+		characteristics,
+		content,
+		hasCount,
+		hasInformation,
+		hasRoute,
+	}: IAccordion) => {
+		if (hasInformation) {
+			return (
+				<View style={{ padding: 10 }}>
+					<Text style={styles.text6}>{details.name}</Text>
+					<RenderHTML
+						source={{ html: details.description }}
+						contentWidth={Dimensions.get('window').width - 50}
+					/>
+				</View>
+			);
+		}
+		if (characteristics) {
+			return Object.keys(data || {})?.map((e) => {
+				return (
+					<View style={styles.characteristics}>
+						<Text style={styles.text6}>{e}</Text>
+						<Text style={styles.text7}>{data[e]}</Text>
+					</View>
+				);
+			});
+		}
+		return <Comments />;
+	};
 
 	const onChangeContent = (index: number) => {
 		if (index === 1) {

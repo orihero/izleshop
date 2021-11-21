@@ -52,7 +52,6 @@ export interface BrandsViewProps {
 
 const BrandsView = ({ brands }: BrandsViewProps) => {
 	const navigation = useNavigation<CategoriesNavigationProp>();
-	console.log({ brands });
 
 	return (
 		<View style={{ paddingTop: 20 }}>
