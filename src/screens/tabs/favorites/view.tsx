@@ -32,7 +32,7 @@ const FavoritesView = () => {
 					<View style={styles.emptyContent}>
 						<Text style={styles.cartText}>
 							{' '}
-							{strings.cartText}{' '}
+							{strings.heartText}{' '}
 						</Text>
 						<Image
 							style={{

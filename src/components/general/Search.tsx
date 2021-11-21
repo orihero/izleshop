@@ -34,6 +34,7 @@ const SearchInput = React.forwardRef(
 					ref={ref}
 					style={styles.text}
 					placeholder={'Что вы ищете?'}
+					placeholderTextColor={colors.black}
 					onFocus={onNextPress}
 					onChangeText={setText}
 				></TextInput>

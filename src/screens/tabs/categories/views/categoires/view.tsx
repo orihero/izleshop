@@ -44,6 +44,22 @@ let ListEmptyComponent = () => {
 				LinearGradient={LinearGradient}
 				style={[styles.emptyCard]}
 			/>
+			<Shimmer
+				LinearGradient={LinearGradient}
+				style={[styles.emptyCard]}
+			/>
+			<Shimmer
+				LinearGradient={LinearGradient}
+				style={[styles.emptyCard]}
+			/>
+			<Shimmer
+				LinearGradient={LinearGradient}
+				style={[styles.emptyCard]}
+			/>
+			<Shimmer
+				LinearGradient={LinearGradient}
+				style={[styles.emptyCard]}
+			/>
 		</View>
 	);
 };
