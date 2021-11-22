@@ -20,8 +20,8 @@ export const styles = StyleSheet.create({
 		flex: 1,
 	},
 	cartText: {
-		fontSize: 20,
+		fontSize: 13,
 		marginBottom: 20,
-		textAlign: 'center',
+		// textAlign: 'center',
 	},
 });

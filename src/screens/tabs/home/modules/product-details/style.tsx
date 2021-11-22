@@ -96,7 +96,8 @@ export const styles = StyleSheet.create({
 		justifyContent: 'flex-start',
 	},
 	text1: {
-		fontSize: 16,
+		fontSize: 20,
+		paddingTop: 5,
 		lineHeight: 19,
 		fontWeight: 'bold',
 		marginRight: 60,

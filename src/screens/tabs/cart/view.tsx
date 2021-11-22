@@ -65,8 +65,8 @@ const CartView = ({ navigation }: ICartViewProps) => {
 							</Text>
 							<Image
 								style={{
-									width: 150,
-									height: 150,
+									width: 140,
+									height: 140,
 									resizeMode: 'contain',
 									backgroundColor: colors.lightBlue,
 								}}

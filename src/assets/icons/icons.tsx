@@ -525,6 +525,34 @@ export function MailIcon({
 	);
 }
 
+export function HeartsIcon({
+	color = 'white',
+	active,
+	size = 20,
+	style,
+}: IconProps) {
+	let props = { fill: color, stroke: color, height: size, width: size };
+	return (
+		<Svg
+			id="Layer_1"
+			viewBox="0 0 128 128"
+			stroke={colors.black}
+			width={size}
+			height={size}
+		>
+			<Path d="M108.8 60.8a50.8 50.8 0 007.2-25C116 20.447 103.554 8 88.2 8H88c-12.2 0-24 7.8-28 18.6C56 15.8 44.2 8 32 8 16.647 7.89 4.111 20.247 4 35.6v.2C4 59.8 24.6 84 60 108l4.8-3.2" />
+			<Circle cx={92} cy={88} r={32} />
+			<Path
+				d="M92 73v30m15-15H77"
+				fill="none"
+				stroke="#0e0f0e"
+				strokeWidth={2}
+				strokeMiterlimit={10}
+			/>
+		</Svg>
+	);
+}
+
 export function MapIcon({
 	color = colors.blacks,
 	active,

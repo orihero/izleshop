@@ -1,4 +1,4 @@
-import { SearchIcon } from 'assets/icons/icons';
+import { HeartsIcon, SearchIcon } from 'assets/icons/icons';
 import Header from 'components/navigation/Header';
 import HorizontalItem from 'components/special/HorizontalItem';
 import { strings } from 'locales/locales';
@@ -34,15 +34,7 @@ const FavoritesView = () => {
 							{' '}
 							{strings.heartText}{' '}
 						</Text>
-						<Image
-							style={{
-								width: 150,
-								height: 150,
-								resizeMode: 'contain',
-								backgroundColor: colors.lightBlue,
-							}}
-							source={require('../../../assets/images/heart.png')}
-						/>
+						<HeartsIcon size={140} />
 					</View>
 				)}
 				decelerationRate={'normal'}
