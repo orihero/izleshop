@@ -70,7 +70,6 @@ export interface CategoriesViewProps {
 
 const CategoriesView = ({ categories }: CategoriesViewProps) => {
 	const navigation = useNavigation<CategoriesNavigationProp>();
-	console.log({ categories });
 
 	return (
 		<View style={styles.container}>

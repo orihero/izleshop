@@ -66,7 +66,6 @@ const VerticalItem = ({
 	let dispatch = useAppDispatch();
 	let naviation = useNavigation();
 
-	console.log({ dollarRate });
 
 	let onHeartPress = () => {
 		if (isFavorite) {

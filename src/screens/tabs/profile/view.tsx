@@ -65,6 +65,8 @@ const ProfileView = ({}: IProfileViewProps) => {
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
 	let dispatch = useAppDispatch();
+	console.log('ORDERS', { orders });
+
 	let onPress = (route: Routes, params?: any) => {
 		//@ts-ignore
 		navigation.navigate(Routes.WITHOUT_TABS, { screen: route, params });
@@ -167,7 +169,8 @@ const ProfileView = ({}: IProfileViewProps) => {
 									({ icon: Icon, size, string, status }) => {
 										let count = orders.reduce(
 											(p, c) =>
-												p + c.status === status ? 1 : 0,
+												p +
+												(c.status === status ? 1 : 0),
 											0
 										);
 										return (

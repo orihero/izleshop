@@ -4,8 +4,6 @@ import { colors } from 'constants/colors';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		// padding: 20,
-		paddingTop: 30,
 		backgroundColor: colors.lightBlue,
 	},
 	text: {

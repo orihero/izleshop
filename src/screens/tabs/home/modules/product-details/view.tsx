@@ -82,7 +82,6 @@ const ProductDetailsView = ({
 		if (isFavorite) {
 			dispatch(removeItem(details.id.toString()));
 		} else {
-			console.log({ details });
 
 			dispatch(addItem(details));
 		}

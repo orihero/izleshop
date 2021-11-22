@@ -11,14 +11,14 @@ export interface SearchInputProps {
 }
 
 const SearchInput = React.forwardRef(
-	({ setText = () => {} }: SearchInputProps, ref = null) => {
+	({ setText = () => {}, containerStyle }: SearchInputProps, ref = null) => {
 		const navigation = useNavigation();
 		let onNextPress = () => {
 			// @ts-ignore
 			navigation.navigate(Routes.SEARCH);
 		};
 		return (
-			<View style={styles.container}>
+			<View style={[styles.container, containerStyle]}>
 				<Pressable
 					hitSlop={5}
 					android_ripple={{

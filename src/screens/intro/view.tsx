@@ -44,7 +44,6 @@ const IntroView = ({ }: IntroProps) => {
 	>();
 	let onNextPress = () => {
 		carouselRef.current?.snapToNext();
-		console.log({ activeSlide, l: data.length });
 
 		if (activeSlide === data.length - 1) {
 			navigation.navigate(Routes.TABS);

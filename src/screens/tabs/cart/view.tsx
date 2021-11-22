@@ -5,7 +5,14 @@ import { CartScreenNavigationProp } from './controller';
 import { selectCartList, selectCartTotal } from 'store/slices/cartSlice';
 import { useAppSelector } from 'utils/hooks';
 
-import { FlatList, Text, View, Image } from 'react-native';
+import {
+	FlatList,
+	Text,
+	View,
+	Image,
+	Platform,
+	ToastAndroid,
+} from 'react-native';
 import Header from 'components/navigation/Header';
 import DefaultButton from 'components/general/DefaultButton';
 import CartItem from 'components/special/CartItem';
@@ -31,14 +38,21 @@ const CartView = ({ navigation }: ICartViewProps) => {
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 	p = p.substr(0, p.length - 2) + '00';
 
-	console.log({ total, cartItems });
 
 	const onPress = () => {
-		navigation.navigate(Routes.PRE_CHECKOUT, {
-			total: total,
-			count: cartItems.length,
-			cartList: cartItems,
-		});
+		if (total > 0) {
+			navigation.navigate(Routes.PRE_CHECKOUT, {
+				total: total,
+				count: cartItems.length,
+				cartList: cartItems,
+			});
+		} else {
+			if (Platform.OS == 'android') {
+				ToastAndroid.show(strings.cartEmpty, 1000);
+			} else {
+				alert(strings.cartEmpty);
+			}
+		}
 	};
 
 	return (

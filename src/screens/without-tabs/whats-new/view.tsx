@@ -22,7 +22,6 @@ const WhatsNewView = ({ }: IWhatsNewViewProps) => {
 		//@ts-ignore
 		navigation.navigate(Routes.TABS, { screen: Routes.HOME_STACK, params: { screen: Routes.PRODUCT_DETAILS, params: { id } } });
 	};
-	console.log({ route });
 	return (
 		<ProfileLayout headerTitle={strings.whatsNew || ''}>
 			<ScrollView

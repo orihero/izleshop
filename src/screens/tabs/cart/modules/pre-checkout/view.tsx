@@ -69,19 +69,31 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 			active: false,
 		},
 	]);
-	const products = cartList.map(({ count: amount, data: { id } }, index) => ({ amount, id, color_name: "", color: "", option: "" }));
-	console.log("PRODUCTS", cartList);
-
+	const products = cartList.map(({ count: amount, data: { id } }, index) => ({
+		amount,
+		id,
+		color_name: '',
+		color: '',
+		option: '',
+	}));
+	console.log('PRODUCTS', cartList);
 
 	const onPress = () => {
 		let paymentType =
 			activeIndex === 2
 				? payMethods.find((e) => e.active)?.payment
-				: "payme";
+				: 'payme';
+		let installment_plan = null;
+		if (activeIndex === 0) {
+			installment_plan = 2;
+		}
+		if (activeIndex === 1) {
+			installment_plan = 3;
+		}
 		navigation.navigate(Routes.CHECKOUT, {
 			products: products,
 			paymentMethod: paymentType,
-			installment_plan: activeIndex + 1,
+			installment_plan,
 		});
 	};
 	let dollarRate = useAppSelector(selectDollarRate);
@@ -101,7 +113,7 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 		>
 			<Header
 				title={strings.cart}
-			// rightEdge={() => <SearchIcon size={20} />}
+				// rightEdge={() => <SearchIcon size={20} />}
 			/>
 			<View style={styles.top}>
 				<View style={styles.topChild}>

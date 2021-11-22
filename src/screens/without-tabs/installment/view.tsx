@@ -18,8 +18,10 @@ import SweetAlert from 'react-native-sweet-alert';
 import { Routes } from 'constants/routes';
 import { useSelector } from 'react-redux';
 import { selectDollarRate } from 'store/slices/userSlice';
+import { requests } from 'src/api/requests';
 
 const InstallmentView = ({}) => {
+	const [loading, setLoading] = useState(false);
 	let navigation = useNavigation();
 	let options = useRef([
 		'1 ' + strings.month,
@@ -47,22 +49,26 @@ const InstallmentView = ({}) => {
 		);
 	}, [monthlyRate]);
 
-	let onOrder = () => {
-		SweetAlert.showAlertWithOptions(
-			{
-				title: strings.warning,
-				subTitle: strings.success,
-				confirmButtonTitle: 'OK',
-				confirmButtonColor: '#000',
-				otherButtonTitle: 'Cancel',
-				otherButtonColor: '#dedede',
-				style: 'success',
-				cancellable: true,
+	let onOrder = async () => {
+		navigation.navigate(Routes.TABS, {
+			screen: Routes.CART_STACK,
+			params: {
+				screen: Routes.CHECKOUT,
+				params: {
+					products: [
+						{
+							id: data.id,
+							amount: 1,
+							option: '',
+							color: '',
+							color_name: '',
+						},
+					],
+					paymentMethod: 'payme',
+					installment_plan: 1,
+				},
 			},
-			() => {
-				navigation.navigate(Routes.HOME_STACK);
-			}
-		);
+		});
 	};
 
 	const onSelect = (index) => {
