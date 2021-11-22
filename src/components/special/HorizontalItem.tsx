@@ -109,7 +109,7 @@ const HorizontalItem = ({
 		dispatch(isInCart ? removeFromCart(id) : addToCart(item.data || item));
 	};
 	let onCheck = () => {
-		dispatch(setActiveCartItem({ id, isActive: !item.isActive }))
+		dispatch(setActiveCartItem({ id, isActive: !item.isActive }));
 	};
 	let p = (price * dollarRate)
 		.toLocaleString('ru')
@@ -270,6 +270,8 @@ const styles = StyleSheet.create({
 	text3: {
 		fontSize: 14,
 		marginTop: 3,
+		paddingLeft: 5,
+		// paddingHorizontal: 2,
 		lineHeight: 17,
 		fontWeight: '600',
 		color: colors.neutralDark,

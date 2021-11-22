@@ -88,6 +88,8 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		lineHeight: 18,
 		fontWeight: '400',
+		textAlign: 'center',
+		paddingHorizontal: 10,
 		color: colors.black,
 	},
 	bold: {

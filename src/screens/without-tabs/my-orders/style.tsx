@@ -5,9 +5,9 @@ import { windowWidth } from 'constants/sizes';
 export const styles = StyleSheet.create({
 	indicatorContainer: {
 		flex: 1,
-		backgroundColor: colors.lightBlue,
 		justifyContent: 'center',
 		alignItems: 'center',
+		backgroundColor: colors.lightBlue,
 	},
 	container: {
 		flex: 1,

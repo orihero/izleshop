@@ -4,20 +4,23 @@ import { colors } from 'constants/colors';
 export const styles = StyleSheet.create({
 	flatList: {
 		flex: 1,
-		paddingTop: 0,
+		paddingTop: 10,
+		paddingBottom: 20,
 		paddingHorizontal: 20,
 	},
 	mt15: {
+		paddingTop: 5,
 		marginTop: 5,
 	},
 	container: {
-		backgroundColor: colors.lightBlue,
 		flex: 1,
+		backgroundColor: colors.lightBlue,
 	},
 	emptyContent: {
-		justifyContent: 'center',
-		alignItems: 'center',
 		flex: 1,
+		marginTop: 260,
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	cartText: {
 		fontSize: 13,

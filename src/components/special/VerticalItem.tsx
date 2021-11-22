@@ -66,7 +66,6 @@ const VerticalItem = ({
 	let dispatch = useAppDispatch();
 	let naviation = useNavigation();
 
-
 	let onHeartPress = () => {
 		if (isFavorite) {
 			dispatch(removeItem(id.toString()));
@@ -194,7 +193,7 @@ export const styles = StyleSheet.create({
 		resizeMode: 'contain',
 	},
 	btnRow1: {
-		marginTop: 10,
+		marginTop: 15,
 		marginBottom: 10,
 		flexDirection: 'row',
 		alignItems: 'center',

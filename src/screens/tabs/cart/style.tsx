@@ -48,15 +48,17 @@ export const styles = StyleSheet.create({
 		// backgroundColor: 'rgba(0, 0, 0, 0.1 )',
 	},
 	mh20: {
+		paddingBottom: 160,
 		marginHorizontal: 10,
 	},
 	mt15: {
 		marginTop: 15,
 	},
 	emptyContent: {
-		justifyContent: 'center',
-		alignItems: 'center',
 		flex: 1,
+		marginTop: 260,
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	cartText: {
 		fontSize: 13,

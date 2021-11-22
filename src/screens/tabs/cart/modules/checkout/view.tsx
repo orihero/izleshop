@@ -200,7 +200,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							<View style={styles.mt10}>
 								<DefaultInput
 									placeholder={'ФИО'}
-									value={name}
+									value={user.userData?.first_name}
 									onChange={setName}
 								/>
 							</View>

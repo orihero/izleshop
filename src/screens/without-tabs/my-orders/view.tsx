@@ -110,7 +110,7 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 												{e.amount}
 											</Text>
 											<Text style={styles.textRow}>
-												{(e.price * dollarRate)
+												{e.price
 													.toString()
 													.replace(
 														/\B(?=(\d{3})+(?!\d))/g,

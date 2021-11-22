@@ -12,6 +12,7 @@ import {
 	Image,
 	Platform,
 	ToastAndroid,
+	ScrollView,
 } from 'react-native';
 import Header from 'components/navigation/Header';
 import DefaultButton from 'components/general/DefaultButton';
@@ -38,7 +39,6 @@ const CartView = ({ navigation }: ICartViewProps) => {
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 	p = p.substr(0, p.length - 2) + '00';
 
-
 	const onPress = () => {
 		if (total > 0) {
 			navigation.navigate(Routes.PRE_CHECKOUT, {
@@ -58,38 +58,40 @@ const CartView = ({ navigation }: ICartViewProps) => {
 	return (
 		<View style={styles.container}>
 			<Header title={strings.cart} bold rightEdge={() => null} />
-
-			{cartItems ? (
-				<FlatList
-					data={cartItems}
-					contentContainerStyle={{ flex: 1 }}
-					style={styles.mh20}
-					keyExtractor={(e) => e.data.id.toString()}
-					showsVerticalScrollIndicator={false}
-					renderItem={(props) => (
-						<View style={styles.mt15}>
-							<HorizontalItem hasCounter {...props} />
-						</View>
-					)}
-					ListEmptyComponent={() => (
-						<View style={styles.emptyContent}>
-							<Text style={styles.cartText}>
-								{' '}
-								{strings.cartText}{' '}
-							</Text>
-							<Image
-								style={{
-									width: 140,
-									height: 140,
-									resizeMode: 'contain',
-									backgroundColor: colors.lightBlue,
-								}}
-								source={require('../../../assets/images/cart.png')}
-							/>
-						</View>
-					)}
-				/>
-			) : null}
+			<ScrollView showsVerticalScrollIndicator={false}>
+				{cartItems ? (
+					<FlatList
+						data={cartItems}
+						contentContainerStyle={{ flex: 1 }}
+						style={styles.mh20}
+						keyExtractor={(e) => e.data.id.toString()}
+						showsVerticalScrollIndicator={false}
+						renderItem={(props) => (
+							<View style={styles.mt15}>
+								<HorizontalItem hasCounter {...props} />
+							</View>
+						)}
+						ListEmptyComponent={() => (
+							<View style={styles.emptyContent}>
+								<Text style={styles.cartText}>
+									{' '}
+									{strings.cartText}{' '}
+								</Text>
+								<Image
+									style={{
+										width: 140,
+										height: 140,
+										alignItems: 'center',
+										resizeMode: 'contain',
+										backgroundColor: colors.lightBlue,
+									}}
+									source={require('../../../assets/images/cart.png')}
+								/>
+							</View>
+						)}
+					/>
+				) : null}
+			</ScrollView>
 
 			{cartItems.length > 0 && (
 				<View style={styles.absolute}>

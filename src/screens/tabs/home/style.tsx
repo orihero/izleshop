@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
 		paddingVertical: 10,
 	},
 	carousel: {
-		height: 220,
 		borderRadius: 7.5,
 		overflow: 'hidden',
 		marginHorizontal: 20,
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 	},
 	flatList: {
-		paddingBottom: 90,
+		paddingBottom: 40,
 		paddingRight: 20,
 		paddingVertical: 10,
 	},

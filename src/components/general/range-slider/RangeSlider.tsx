@@ -27,14 +27,26 @@ const CustomRangeSlider = ({ high, low, setLow, setHigh }) => {
 					<Text>{strings.from} :</Text>
 				</View>
 				<View style={styles.inputRow}>
-					<TextInput keyboardType={'numeric'} style={styles.input} />
+					<TextInput
+						keyboardType={'numeric'}
+						style={styles.input}
+						onChangeText={() =>
+							handleValueChange(setHigh(), setLow())
+						}
+					/>
 					<Text>{strings.soum}</Text>
 				</View>
 			</View>
 			<View style={styles.inputBox}>
 				<Text>{strings.to} :</Text>
 				<View style={styles.inputRow}>
-					<TextInput keyboardType={'numeric'} style={styles.input} />
+					<TextInput
+						keyboardType={'numeric'}
+						style={styles.input}
+						onChangeText={() =>
+							handleValueChange(setHigh(), setLow())
+						}
+					/>
 					<Text>{strings.soum}</Text>
 				</View>
 			</View>

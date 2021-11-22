@@ -22,7 +22,7 @@ import {
 	ProductsScreenRouteProp,
 } from './controller';
 import { styles } from './style';
-import { sorts } from '../../components/SortModal'
+import { sorts } from '../../components/SortModal';
 
 interface IProductsView {
 	route?: ProductsScreenRouteProp;
@@ -41,9 +41,10 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 	let effect = async () => {
 		console.log(route.params);
 
-		let res = await requests.product.getProducts(
-			{ ...route.params || {}, [sorts[activeIndex].tag]: sorts[activeIndex].value }
-		);
+		let res = await requests.product.getProducts({
+			...(route.params || {}),
+			[sorts[activeIndex].tag]: sorts[activeIndex].value,
+		});
 		setProducts(res.data.data);
 	};
 	let productss = divideArr(products, 2);
@@ -99,27 +100,27 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 						</View>
 						{isList
 							? products.map((e, i) => (
-								<View key={i} style={styles.mt10}>
-									<FavoriteItem
-										hasBasket={true}
-										hasRemove={false}
-										item={{ data: e }}
-									/>
-								</View>
-							))
+									<View key={i} style={styles.mt10}>
+										<FavoriteItem
+											hasBasket={true}
+											hasRemove={false}
+											item={{ data: e }}
+										/>
+									</View>
+							  ))
 							: productss.map((e, i) => (
-								<View key={i} style={styles.productRow}>
-									{e.map((ee, ii) =>
-										e ? (
-											<VerticalItem
-												key={`${i}/${ii}`}
-												item={ee}
-												sizeChanged
-											/>
-										) : null
-									)}
-								</View>
-							))}
+									<View key={i} style={styles.productRow}>
+										{e.map((ee, ii) =>
+											e ? (
+												<VerticalItem
+													key={`${i}/${ii}`}
+													item={ee}
+													sizeChanged
+												/>
+											) : null
+										)}
+									</View>
+							  ))}
 					</View>
 				</ScrollView>
 			</View>

@@ -226,6 +226,6 @@ export const styles = StyleSheet.create({
 		textAlignVertical: 'center',
 		textAlign: 'center',
 		fontSize: 10,
-		lineHeight: 12
-	}
+		lineHeight: 12,
+	},
 });
