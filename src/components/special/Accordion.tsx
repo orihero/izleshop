@@ -20,7 +20,6 @@ const Accordion = ({
 }: IAccordionProps) => {
 	const [open, setOpen] = useState(0);
 	const navigation = useNavigation();
-	console.log('INFORMATION', details.information);
 
 	let renderContent = ({
 		title,

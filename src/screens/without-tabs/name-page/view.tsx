@@ -36,10 +36,9 @@ const NamePageView = ({}: ILanguageProps) => {
 			//TODO edit profile
 			let res = await requests.auth.editProfile(user?.userData?.id, {
 				...user.userData,
-				first_name: user.userData?.first_name,
+				name: user.userData?.first_name,
 			});
 		} catch (error) {
-			console.log(error);
 		} finally {
 			setLoading(false);
 		}

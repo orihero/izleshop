@@ -13,6 +13,7 @@ import { PhoneIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import DefaultButton from 'components/general/DefaultButton';
 import { Routes } from 'constants/routes';
+import MaskInput from 'react-native-mask-input';
 
 interface IPhoneNumberViewProps {
 	password: string;
@@ -28,6 +29,7 @@ const PhoneNumberView = ({}: IPhoneNumberViewProps) => {
 	let setPhone = (num: string) => {
 		dispatch(setUserPhone(num));
 	};
+
 	const [loading, setLoading] = useState(false);
 	let onNextPress = () => {
 		if (loading) {
@@ -36,9 +38,30 @@ const PhoneNumberView = ({}: IPhoneNumberViewProps) => {
 		setLoading(true);
 		setLoading(false);
 		//@ts-ignore
-		navigation.navigate(Routes.CONFIRATION_CODE);
+		navigation.navigate(Routes.SETTINGS);
 	};
+	const [value, setValue] = React.useState('');
 
+	const localPhoneMask = [
+		'+',
+		'9',
+		'9',
+		'8',
+		'(',
+		/\d/,
+		/\d/,
+		')',
+		' ',
+		/\d/,
+		/\d/,
+		/\d/,
+		' ',
+		/\d/,
+		/\d/,
+		' ',
+		/\d/,
+		/\d/,
+	];
 	const [code, setCode] = useState('');
 
 	return (
@@ -48,17 +71,31 @@ const PhoneNumberView = ({}: IPhoneNumberViewProps) => {
 					<View style={styles.textBox}>
 						<Text style={styles.text}>{strings.phoneNamber}</Text>
 					</View>
-					<PhoneInput
+					{/* <PhoneInput
 						placeholder={'+998 99 555-0133'}
 						value={user.phone}
 						onChange={setPhone}
 						keyboardType="phone-pad"
 						Icon={PhoneIcon}
-					/>
+					/> */}
+					<View style={styles.mt10}>
+						<MaskInput
+							value={value}
+							onChangeText={(masked, unmasked) => {
+								setValue(masked);
+								setPhone(unmasked);
+							}}
+							mask={localPhoneMask}
+							onFocus={() => setValue('+998')}
+							keyboardType="numeric"
+							placeholderTextColor={colors.black}
+							style={styles.input}
+						/>
+					</View>
 				</View>
 				<View style={styles.center}>
 					<DefaultButton
-						text={strings.send}
+						text={strings.save}
 						marginDisabled
 						onPress={onNextPress}
 						loading={loading}

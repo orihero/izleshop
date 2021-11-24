@@ -34,7 +34,6 @@ const LoginView = ({}: ILoginViewProps) => {
 				user.userData?.phone || ''
 			);
 		} catch (error) {
-			console.log(error, user);
 			alert('Что-то пошло не так');
 			return;
 		}
@@ -68,8 +67,6 @@ const LoginView = ({}: ILoginViewProps) => {
 		/\d/,
 		/\d/,
 	];
-
-	console.log(user);
 
 	return (
 		<ScrollView style={styles.container}>

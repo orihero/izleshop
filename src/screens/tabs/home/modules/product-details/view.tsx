@@ -82,7 +82,6 @@ const ProductDetailsView = ({
 		if (isFavorite) {
 			dispatch(removeItem(details.id.toString()));
 		} else {
-
 			dispatch(addItem(details));
 		}
 	};
@@ -118,8 +117,6 @@ const ProductDetailsView = ({
 	p = p.substr(0, p.length - 2) + '00';
 
 	let onModalToggle = () => {
-		console.log('MDOALLLL');
-
 		setModalVisible((e) => !e);
 	};
 

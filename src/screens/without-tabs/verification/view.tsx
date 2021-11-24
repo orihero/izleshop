@@ -35,7 +35,6 @@ const VerificationView = ({}: IVerificationProps) => {
 				user.userData?.phone || '',
 				code
 			);
-			console.log(res.data);
 			dispatch(setUserData(res.data));
 		} catch (error) {
 			alert('Что-то пошло не так');

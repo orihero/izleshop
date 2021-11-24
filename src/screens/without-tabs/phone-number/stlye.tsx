@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
+import { windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
 	container: {
@@ -26,8 +27,17 @@ export const styles = StyleSheet.create({
 	center: {
 		left: 0,
 		right: 0,
-		marginHorizontal: 34,
-		// marginRight: 30,
-		// alignItems: 'center',
+		marginHorizontal: 30,
+	},
+	input: {
+		paddingLeft: 10,
+		color: colors.black,
+	},
+	mt10: {
+		marginTop: 10,
+		borderRadius: 10,
+		marginHorizontal: 30,
+		width: windowWidth - 60,
+		backgroundColor: colors.white,
 	},
 });

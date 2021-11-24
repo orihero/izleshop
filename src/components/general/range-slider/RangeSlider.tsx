@@ -11,15 +11,6 @@ import { strings } from 'locales/locales';
 import { colors } from 'constants/colors';
 
 const CustomRangeSlider = ({ high, low, setLow, setHigh }) => {
-	const renderThumb = useCallback(() => <Thumb />, []);
-	const renderRail = useCallback(() => <Rail />, []);
-	const renderRailSelected = useCallback(() => <RailSelected />, []);
-	const renderLabel = useCallback((value) => <Label text={value} />, []);
-	const renderNotch = useCallback(() => <Notch />, []);
-	const handleValueChange = useCallback((low, high) => {
-		setLow(low);
-		setHigh(high);
-	}, []);
 	return (
 		<View style={styles.container}>
 			<View style={styles.inputBox}>
@@ -30,9 +21,9 @@ const CustomRangeSlider = ({ high, low, setLow, setHigh }) => {
 					<TextInput
 						keyboardType={'numeric'}
 						style={styles.input}
-						onChangeText={() =>
-							handleValueChange(setHigh(), setLow())
-						}
+						onChangeText={(e) => {
+							setLow(e);
+						}}
 					/>
 					<Text>{strings.soum}</Text>
 				</View>
@@ -43,9 +34,7 @@ const CustomRangeSlider = ({ high, low, setLow, setHigh }) => {
 					<TextInput
 						keyboardType={'numeric'}
 						style={styles.input}
-						onChangeText={() =>
-							handleValueChange(setHigh(), setLow())
-						}
+						onChangeText={(e) => setHigh(e)}
 					/>
 					<Text>{strings.soum}</Text>
 				</View>

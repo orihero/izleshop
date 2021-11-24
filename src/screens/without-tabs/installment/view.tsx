@@ -39,15 +39,7 @@ const InstallmentView = ({}) => {
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	let _modal = useRef(null);
 
-	useEffect(() => {
-		console.log(
-			(data.price * dollar * monthlyRate) / (selectedIndex + 1),
-			data.price,
-			dollar,
-			monthlyRate,
-			selectedIndex + 1
-		);
-	}, [monthlyRate]);
+	useEffect(() => {}, [monthlyRate]);
 
 	let onOrder = async () => {
 		navigation.navigate(Routes.TABS, {

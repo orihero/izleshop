@@ -69,6 +69,12 @@ interface ICheckoutViewProps {
 	navigate: () => void;
 }
 
+let convertToMaskedPhone = (num: string) => {
+	let first = num.substr(0, 2);
+	let last = num.substr(2, num.length);
+	return `(${first}) ${last}`;
+};
+
 const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	let user = useAppSelector(selectUser);
 	let effect = async () => {
@@ -87,13 +93,15 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	let navigation = useNavigation();
 	// let user = useAppSelector(selectUser);
 
+	let el = convertToMaskedPhone(user.userData?.phone || '');
+
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
 	const [city, setCity] = useState('');
 	const [district, setDistrict] = useState('');
 	const [address, setAddress] = useState('');
 	const [note, setNote] = useState('');
-	const [value, setValue] = React.useState('');
+	const [value, setValue] = useState(el);
 
 	const [loading, setLoading] = useState(false);
 
@@ -131,10 +139,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				products: products,
 				installment_plan: installment_plan,
 			};
-			console.log('REQUEST DATA', req);
 			let response = await requests.product.makeOrder(req);
-			console.log(response.data);
-			console.log('RESPONSE', response);
 			SweetAlert.showAlertWithOptions(
 				{
 					title: strings.warning,
@@ -160,7 +165,6 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				}
 			);
 		} catch (error) {
-			console.log('ERROR', error);
 		} finally {
 			setLoading(false);
 		}

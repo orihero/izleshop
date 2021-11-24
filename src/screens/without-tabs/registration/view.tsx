@@ -15,6 +15,7 @@ import {
 	setUserLanguage,
 	setUserName,
 } from 'store/slices/userSlice';
+import { requests } from 'api/requests';
 
 export const languagesList = ['Русский', 'O’zbekcha', 'English'];
 
@@ -34,11 +35,12 @@ const RegistrationView = ({ language }: ILanguageProps) => {
 	};
 	const [loading, setLoading] = useState(false);
 	let onNextPress = async () => {
-		if (loading) {
-			return;
-		}
-		setLoading(true);
-		setLoading(false);
+		let res = await requests.auth.editProfile(user?.userData?.id, {
+			...user.userData,
+			name: user.userData?.first_name,
+		});
+		console.log({ d: res.data });
+
 		//@ts-ignore
 		navigation.navigate(Routes.TABS);
 	};

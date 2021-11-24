@@ -76,7 +76,6 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 		color: '',
 		option: '',
 	}));
-	console.log('PRODUCTS', cartList);
 
 	const onPress = () => {
 		let paymentType =

@@ -33,6 +33,11 @@ export const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-evenly',
 	},
+	flatList: {
+		justifyContent: 'space-between',
+		marginHorizontal: 10,
+		marginTop: 10,
+	},
 	flex1: {
 		flex: 1,
 	},

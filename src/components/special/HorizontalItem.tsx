@@ -93,8 +93,6 @@ const HorizontalItem = ({
 	};
 
 	let onIncrement = () => {
-		console.log('INC');
-
 		dispatch(incrementCount(id.toString()));
 	};
 
@@ -116,8 +114,6 @@ const HorizontalItem = ({
 		.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 	p = p.substr(0, p.length - 2) + '00';
-
-	console.log(item.data, image);
 
 	return (
 		<View style={styles.container}>

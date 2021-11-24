@@ -65,7 +65,6 @@ const ProfileView = ({}: IProfileViewProps) => {
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
 	let dispatch = useAppDispatch();
-	console.log('ORDERS', { orders });
 
 	let onPress = (route: Routes, params?: any) => {
 		//@ts-ignore
@@ -83,12 +82,19 @@ const ProfileView = ({}: IProfileViewProps) => {
 			{ onPress: () => {}, style: 'cancel', text: strings.cancel },
 		]);
 	};
+
+	let onPickOrders = (status: number) => {
+		navigation.navigate(Routes.WITHOUT_TABS, {
+			screen: Routes.MY_ORDERS,
+			params: { orders: orders.filter((e) => e.status === status) },
+		});
+	};
 	let effect = async () => {
 		try {
-			let res = await requests.product.getBanners();
+			// let res = await requests.product.getBanners();
 			let ordersRes = await requests.product.getUserOrders();
 			setOrders(ordersRes.data);
-			setBanners(res.data.filter((e) => e.for_app === 1));
+			// setBanners(res.data.filter((e) => e.for_app === 1));
 		} catch (error) {}
 	};
 
@@ -145,7 +151,9 @@ const ProfileView = ({}: IProfileViewProps) => {
 							<View style={styles.myOrders}>
 								<TouchableOpacity
 									style={styles.orderView}
-									onPress={() => onPress(Routes.MY_ORDERS)}
+									onPress={() =>
+										onPress(Routes.MY_ORDERS, { orders })
+									}
 								>
 									<Text
 										onPress={() =>
@@ -174,23 +182,31 @@ const ProfileView = ({}: IProfileViewProps) => {
 											0
 										);
 										return (
-											<View style={styles.payment}>
-												<Icon size={size} />
-												<Text
-													style={styles.textPayment}
-												>
-													{string}
-												</Text>
-												{count > 0 && (
+											<TouchableOpacity
+												onPress={() =>
+													onPickOrders(status)
+												}
+											>
+												<View style={styles.payment}>
+													<Icon size={size} />
 													<Text
 														style={
-															styles.countIndicator
+															styles.textPayment
 														}
 													>
-														{count}
+														{string}
 													</Text>
-												)}
-											</View>
+													{count > 0 && (
+														<Text
+															style={
+																styles.countIndicator
+															}
+														>
+															{count}
+														</Text>
+													)}
+												</View>
+											</TouchableOpacity>
 										);
 									}
 								)}

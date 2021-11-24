@@ -12,7 +12,7 @@ import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
 import React, { useEffect, useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { FlatList, ScrollView, Text, View } from 'react-native';
 import FavoriteItem from 'screens/tabs/cart/components/FavoriteItem';
 import { requests } from 'api/requests';
 import { divideArr } from 'utils/divideArr';
@@ -39,13 +39,19 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 	};
 
 	let effect = async () => {
-		console.log(route.params);
-
-		let res = await requests.product.getProducts({
+		let params = {
 			...(route.params || {}),
-			[sorts[activeIndex].tag]: sorts[activeIndex].value,
-		});
-		setProducts(res.data.data);
+		};
+		if (activeIndex !== -1) {
+			params = {
+				...params,
+				[sorts[activeIndex].tag]: sorts[activeIndex].value,
+			};
+		}
+		try {
+			let res = await requests.product.getProducts(params);
+			setProducts(res.data.data);
+		} catch (error) {}
 	};
 	let productss = divideArr(products, 2);
 

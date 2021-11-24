@@ -165,11 +165,12 @@ export const styles = StyleSheet.create({
 	payment: {
 		// width: 90,
 		paddingLeft: 5,
+		marginVertical: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
 	textPayment: {
-		width: 65,
+		width: 64,
 		fontSize: 11,
 		paddingTop: 2,
 		fontFamily: 'Lato',

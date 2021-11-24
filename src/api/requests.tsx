@@ -5,10 +5,10 @@ import { UserData, UserFullData } from 'store/slices/userSlice';
 export let url = 'https://izleshop.uz/api';
 
 axios.interceptors.request.use((e) => {
-	console.log('REQUEST', e);
-
 	if (!!store.getState().user.token)
 		e.headers.Authorization = `Bearer ${store.getState().user.token}`;
+	console.log(e);
+
 	return e;
 });
 
@@ -16,6 +16,8 @@ axios.interceptors.response.use((e) => {
 	if (!!e?.data?.status && !!e?.data?.message) {
 		throw { statsus: e.data.status, message: e.data.message };
 	}
+	console.log('RESPONSE', e.data);
+
 	return e;
 });
 //?page=${page}&pageSize=${pageSize}
@@ -58,7 +60,8 @@ export let requests = {
 		getPartners: () => {
 			return axios.get(`${url}/getPartners`);
 		},
-		getDetails: (id: string) => axios.get(`${url}/getProductDetails?id=${id}`),
+		getDetails: (id: string) =>
+			axios.get(`${url}/getProductDetails?id=${id}`),
 		getComments: () => axios.get(`${url}/getReviews`),
 		makeOrder: (credentials: any) =>
 			axios.post(`${url}/makeOrder`, credentials),

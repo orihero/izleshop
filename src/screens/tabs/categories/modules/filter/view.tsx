@@ -97,13 +97,14 @@ const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 							if (selected !== -1) {
 								params.categoryId = categories[selected].id;
 							}
+							console.log({ params });
 							navigation.navigate(Routes.PRODUCTS, params);
 						}}
 						ph={16}
 						bg={colors.darkBlue}
 						bl={colors.darkBlue}
 						cl={colors.white}
-						text={isCategory ? strings.sort : strings.byRating}
+						text={strings.sort}
 					/>
 				</View>
 				<View style={styles.mb20} />

@@ -640,7 +640,11 @@ export function PenIcon({
 }: IconProps) {
 	let props = { fill: color, stroke: color, height: size, width: size };
 	return (
-		<Svg viewBox="0 0 19 17" {...props}>
+		<Svg
+			viewBox="0 0 19 17"
+			style={{ marginBottom: -15, marginTop: 3 }}
+			{...props}
+		>
 			<Path
 				fillRule="evenodd"
 				clipRule="evenodd"

@@ -17,7 +17,6 @@ import { SvgFromUri, SvgXml } from 'react-native-svg';
 let el = categories[0].childs[0];
 
 const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
-	console.log('This is an item', item, 'in items');
 	let navigation = useNavigation();
 	let fromPage = 'categories';
 	const onPress = () => {
@@ -36,8 +35,6 @@ const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
 			});
 		}
 	};
-
-	console.log('asass', item.image);
 
 	return (
 		<Pressable onPress={onPress}>

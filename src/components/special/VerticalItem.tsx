@@ -88,7 +88,6 @@ const VerticalItem = ({
 	};
 	let locoled = price?.toLocaleString('ru');
 
-	console.log(price?.toLocaleString('ru'));
 	let p = (price * dollarRate)
 		.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');

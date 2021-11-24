@@ -32,8 +32,6 @@ const Content = ({
 	navigation,
 	fromPage,
 }: IContentProps) => {
-	console.log('child', item.childs);
-
 	return (
 		<View>
 			{disableTitle ? null : (

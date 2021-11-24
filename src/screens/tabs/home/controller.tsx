@@ -15,19 +15,15 @@ const HomeController = () => {
 	const [page, setPage] = useState(1);
 
 	let loadMoreProducts = async () => {
-		console.log('Loading more product');
-
 		try {
 			let res = await requests.product.getProducts({
 				page: page + 1,
 				pageSize: 10,
 			});
-			console.log(res.data.data.length, 'new data');
 			if (res.data.data) {
 				setProducts([...products, ...res.data.data]);
 			}
-		} catch (error) {
-		}
+		} catch (error) {}
 	};
 
 	let dispatch = useAppDispatch();

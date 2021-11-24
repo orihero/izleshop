@@ -16,7 +16,6 @@ import { useNavigation } from '@react-navigation/core';
 let el = categories[0].childs[0];
 
 const BrandsItem = ({ item }: ListRenderItemInfo<typeof el>) => {
-	console.log('This is an item', item, 'in items');
 	let navigation = useNavigation();
 	let fromPage = 'categories';
 	const onPress = () => {

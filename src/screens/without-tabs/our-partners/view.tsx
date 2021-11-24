@@ -11,8 +11,6 @@ export interface OurPartnersViewProps {
 }
 
 const OurPartnersView = ({ partners }: OurPartnersViewProps) => {
-	// console.log(partners.image);
-	console.log('CJARARARA', partners.image);
 	return (
 		<ProfileLayout headerTitle={strings.ourPartners || ''}>
 			<View style={styles.container}>

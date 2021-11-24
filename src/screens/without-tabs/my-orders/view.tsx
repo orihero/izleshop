@@ -25,12 +25,10 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 	let user = useAppSelector(selectUser);
 	let { dollarRate } = useAppSelector(selectUser);
 	let dispatch = useDispatch();
-	let onNextPress = () => {
+	let onNextPress = (id) => {
 		//@ts-ignore
-		navigation.navigate(Routes.LEAVE_FEEDBACK);
+		navigation.navigate(Routes.LEAVE_FEEDBACK, { product_id: id });
 	};
-	let p = console.log('userOrders: ', JSON.stringify(userOrders, null, 4));
-	// console.log('userOrders');
 
 	return loading ? (
 		<View style={styles.indicatorContainer}>
@@ -74,7 +72,6 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 										let img = products?.find(
 											(e) => el.product_id === e.id
 										)?.image;
-										console.log(img);
 
 										return (
 											<View
@@ -120,19 +117,24 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 										</View>
 									</View>
 									{e.status === 1 ? (
-										<TouchableOpacity onPress={onNextPress}>
+										<TouchableOpacity
+											onPress={() =>
+												onNextPress(el.product_id)
+											}
+										>
 											<View style={styles.button}>
 												<Text style={styles.colorText}>
 													{strings.leaveFeedback}
 												</Text>
 											</View>
 										</TouchableOpacity>
-									) : // <View style={styles.mt12}>
-									// 	<Text style={styles.mt13}>
-									// 		{'ОПЛАТИТЬ'}
-									// 	</Text>
-									// </View>
-									null}
+									) : (
+										<View style={styles.mt12}>
+											<Text style={styles.mt13}>
+												{'ОПЛАТИТЬ'}
+											</Text>
+										</View>
+									)}
 								</View>
 							);
 						})}

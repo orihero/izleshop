@@ -98,7 +98,6 @@ const HomeView = ({
 					if (!dontFetch) {
 						// loadMoreProducts();
 					} else {
-						console.log('----------not working-----------');
 					}
 					dontFetch = true;
 				}}
