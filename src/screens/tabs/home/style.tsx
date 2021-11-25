@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.lightBlue,
 		// paddingHorizontal: 20,
 		paddingVertical: 10,
+		flex: 1,
 	},
 	carousel: {
 		borderRadius: 7.5,

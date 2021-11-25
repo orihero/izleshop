@@ -5,6 +5,7 @@ import {
 	Products,
 	FilterScreen,
 	SearchScreen,
+	ProductDetailsScreen,
 } from 'screens/tabs';
 import { Routes } from 'constants/routes';
 
@@ -13,6 +14,7 @@ export type CategoriesStackParamList = {
 	[Routes.PRODUCTS]: { from?: string; title?: string };
 	[Routes.FILTER]: { from?: string; title?: string };
 	[Routes.SEARCH]: { from?: string };
+	[Routes.PRODUCT_DETAILS]: { from?: string };
 };
 
 let Stack = createNativeStackNavigator<CategoriesStackParamList>();
@@ -27,6 +29,10 @@ const CategoriesStack = () => {
 			<Stack.Screen name={Routes.PRODUCTS} component={Products} />
 			<Stack.Screen name={Routes.FILTER} component={FilterScreen} />
 			<Stack.Screen name={Routes.SEARCH} component={SearchScreen} />
+			<Stack.Screen
+				name={Routes.PRODUCT_DETAILS}
+				component={ProductDetailsScreen}
+			/>
 		</Stack.Navigator>
 	);
 };

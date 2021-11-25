@@ -15,11 +15,12 @@ interface IAccordionProps {
 
 const Accordion = ({
 	items,
-	characteristcs: data,
+	characteristics: data,
 	details,
 }: IAccordionProps) => {
 	const [open, setOpen] = useState(0);
 	const navigation = useNavigation();
+	console.log({ details });
 
 	let renderContent = ({
 		title,

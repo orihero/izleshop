@@ -154,6 +154,8 @@ export const styles = StyleSheet.create({
 	},
 	width2: {
 		width: windowWidth / 2 - 20,
+		marginVertical: 10,
+		top: -20,
 	},
 	cont1: {
 		padding: 15,

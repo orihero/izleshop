@@ -2,6 +2,12 @@ import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
+	indicatorContainer: {
+		flex: 1,
+		backgroundColor: colors.lightBlue,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 	container: {
 		flex: 1,
 		backgroundColor: colors.lightBlue,

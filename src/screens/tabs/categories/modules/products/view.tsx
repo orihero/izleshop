@@ -11,7 +11,7 @@ import VerticalItem from 'components/special/VerticalItem';
 import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
-import React, { useEffect, useState } from 'react';
+import React, { SetStateAction, useEffect, useState } from 'react';
 import { FlatList, ScrollView, Text, View } from 'react-native';
 import FavoriteItem from 'screens/tabs/cart/components/FavoriteItem';
 import { requests } from 'api/requests';
@@ -22,14 +22,29 @@ import {
 	ProductsScreenRouteProp,
 } from './controller';
 import { styles } from './style';
+import _ from 'underscore';
 import { sorts } from '../../components/SortModal';
+import { IPage } from 'screens/tabs/home/controller';
+import { windowWidth } from 'constants/sizes';
+import { ActivityIndicator } from 'react-native-paper';
 
 interface IProductsView {
 	route?: ProductsScreenRouteProp;
 	navigation?: ProductsScreenNavigationProp;
+	setPage: (prev: number) => SetStateAction<IPage>;
+	page: number;
+	banners: [];
+	loading: boolean;
 }
 
-const ProductsView = ({ route, navigation }: IProductsView) => {
+const ProductsView = ({
+	route,
+	navigation,
+	setPage,
+	page,
+	banners,
+	loadMoreProducts,
+}: IProductsView) => {
 	const [isList, setIsList] = useState(false);
 	const [sortOpen, setSortOpen] = useState(false);
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -37,6 +52,7 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 	const onFilterPress = () => {
 		navigation?.navigate(Routes.FILTER, { from: route?.params.from });
 	};
+	let dontFetch = true;
 
 	let effect = async () => {
 		let params = {
@@ -118,10 +134,53 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 									<View key={i} style={styles.productRow}>
 										{e.map((ee, ii) =>
 											e ? (
-												<VerticalItem
-													key={`${i}/${ii}`}
-													item={ee}
-													sizeChanged
+												<FlatList
+													onMomentumScrollBegin={() => {
+														dontFetch = false;
+													}}
+													extraData={[banners]}
+													contentContainerStyle={
+														styles.flatList
+													}
+													snapToInterval={
+														windowWidth / 2 - 5
+													}
+													data={
+														products.length
+															? products
+															: []
+													}
+													numColumns={2}
+													renderItem={() => (
+														<VerticalItem
+															key={`${i}/${ii}`}
+															item={ee}
+															sizeChanged
+														/>
+													)}
+													decelerationRate={'fast'}
+													showsVerticalScrollIndicator={
+														false
+													}
+													keyExtractor={(e) =>
+														e.id.toString()
+													}
+													onEndReachedThreshold={0.01}
+													// onEndReached={({
+													// 	distanceFromEnd,
+													// }) => {
+													// 	_.throttle(
+													// 		() =>
+													// 			loadMoreProducts(),
+													// 		1000
+													// 	)();
+													// 	setPage(page + 1);
+													// 	if (!dontFetch) {
+													// 		// loadMoreProducts();
+													// 	} else {
+													// 	}
+													// 	dontFetch = true;
+													// }}
 												/>
 											) : null
 										)}

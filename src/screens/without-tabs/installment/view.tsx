@@ -93,7 +93,7 @@ const InstallmentView = ({}) => {
 
 		_modal.current.hide();
 	};
-	let p = (dollar * data.price + '')
+	let p = (dollar * data?.price + '')
 		.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 	p = p.substr(0, p.length - 2) + '00';
@@ -164,7 +164,7 @@ const InstallmentView = ({}) => {
 							{strings.firstPaymentText} 30% :
 						</Text>
 						<Text style={styles.textTwo}>
-							{Math.round(data.price * dollar * 0.3)
+							{Math.round(data?.price * dollar * 0.3)
 								.toString()
 								.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 								.substr(0, p.length - 4) + '00'}{' '}
@@ -177,7 +177,7 @@ const InstallmentView = ({}) => {
 						</Text>
 						<Text style={styles.textTwo}>
 							{Math.round(
-								(data.price * 0.7 * dollar * monthlyRate) /
+								(data?.price * 0.7 * dollar * monthlyRate) /
 									(selectedIndex + 1)
 							)
 								.toString()

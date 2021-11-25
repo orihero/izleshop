@@ -16,7 +16,6 @@ axios.interceptors.response.use((e) => {
 	if (!!e?.data?.status && !!e?.data?.message) {
 		throw { statsus: e.data.status, message: e.data.message };
 	}
-	console.log('RESPONSE', e.data);
 
 	return e;
 });

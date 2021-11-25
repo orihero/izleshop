@@ -69,13 +69,15 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 			active: false,
 		},
 	]);
-	const products = cartList.map(({ count: amount, data: { id } }, index) => ({
-		amount,
-		id,
-		color_name: '',
-		color: '',
-		option: '',
-	}));
+	const products = cartList
+		.filter((e) => e.isActive)
+		.map(({ count: amount, data: { id } }, index) => ({
+			amount,
+			id,
+			color_name: '',
+			color: '',
+			option: '',
+		}));
 
 	const onPress = () => {
 		let paymentType =

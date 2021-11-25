@@ -39,7 +39,6 @@ const RegistrationView = ({ language }: ILanguageProps) => {
 			...user.userData,
 			name: user.userData?.first_name,
 		});
-		console.log({ d: res.data });
 
 		//@ts-ignore
 		navigation.navigate(Routes.TABS);

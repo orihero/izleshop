@@ -1,30 +1,24 @@
+import DefaultButton from 'components/general/DefaultButton';
+import Header from 'components/navigation/Header';
+import HorizontalItem from 'components/special/HorizontalItem';
+import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
+import { strings } from 'locales/locales';
 import React from 'react';
-
-import { CartScreenNavigationProp } from './controller';
-
-import { selectCartList, selectCartTotal } from 'store/slices/cartSlice';
-import { useAppSelector } from 'utils/hooks';
-
 import {
 	FlatList,
-	Text,
-	View,
 	Image,
 	Platform,
-	ToastAndroid,
 	ScrollView,
+	Text,
+	ToastAndroid,
+	View,
 } from 'react-native';
-import Header from 'components/navigation/Header';
-import DefaultButton from 'components/general/DefaultButton';
-import CartItem from 'components/special/CartItem';
-import HorizontalItem from 'components/special/HorizontalItem';
+import { selectCartList, selectCartTotal } from 'store/slices/cartSlice';
 import { selectDollarRate } from 'store/slices/userSlice';
-
-import { strings } from 'locales/locales';
+import { useAppSelector } from 'utils/hooks';
+import { CartScreenNavigationProp } from './controller';
 import { styles } from './style';
-import { Routes } from 'constants/routes';
-import { SearchIcon } from 'assets/icons/icons';
-import { colors } from 'constants/colors';
 
 interface ICartViewProps {
 	navigation: CartScreenNavigationProp;
@@ -43,7 +37,7 @@ const CartView = ({ navigation }: ICartViewProps) => {
 		if (total > 0) {
 			navigation.navigate(Routes.PRE_CHECKOUT, {
 				total: total,
-				count: cartItems.length,
+				count: cartItems.filter((e) => e.isActive).length,
 				cartList: cartItems,
 			});
 		} else {
