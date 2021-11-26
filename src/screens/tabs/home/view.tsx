@@ -7,7 +7,13 @@ import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
 import React, { SetStateAction, useState } from 'react';
-import { FlatList, ScrollView, TouchableOpacity, View } from 'react-native';
+import {
+	FlatList,
+	Linking,
+	ScrollView,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Shimmer from 'react-native-shimmer-placeholder';
 import Carousel, { Pagination } from 'react-native-snap-carousel';

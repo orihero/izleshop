@@ -35,9 +35,16 @@ const VerificationView = ({}: IVerificationProps) => {
 				user.userData?.phone || '',
 				code
 			);
+			console.log(res.data, 'RESRRRR');
+
+			if (res.data.success === 'false') {
+				alert(res.data.message);
+				setLoading(false);
+				return;
+			}
 			dispatch(setUserData(res.data));
 		} catch (error) {
-			alert('Что-то пошло не так');
+			alert('код введён неправильно');
 			return;
 		} finally {
 			setLoading(false);
