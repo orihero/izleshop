@@ -54,7 +54,7 @@ export let ordersMap = [
 	{
 		string: strings.reviewAwaiteng,
 		icon: PenIcon,
-		size: 25,
+		size: 27,
 		status: 1,
 	},
 ];

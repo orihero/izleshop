@@ -1,27 +1,22 @@
-import React from 'react';
-import { Image, Text, TextInputComponent, View, TextInput, TouchableOpacity } from 'react-native';
-
-import ProfileLayout from '../ProfileLayout';
-import { styles } from './style';
-import { strings } from 'locales/locales';
-import { orderItems } from 'mockup/data';
+import { useNavigation, useRoute } from '@react-navigation/core';
+import DefaultButton from 'components/general/DefaultButton';
 import OrderItem from 'components/special/OrderItem';
 import Rating from 'components/special/Rating';
-import DefaultButton from 'components/general/DefaultButton';
-import { useNavigation } from '@react-navigation/core';
-import { useAppSelector } from 'utils/hooks';
-import { selectUser } from 'store/slices/userSlice';
-import { useDispatch } from 'react-redux';
 import { Routes } from 'constants/routes';
-
-
-
+import { strings } from 'locales/locales';
+import React from 'react';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { selectUser } from 'store/slices/userSlice';
+import { useAppSelector } from 'utils/hooks';
+import ProfileLayout from '../ProfileLayout';
+import { styles } from './style';
 
 const LeaveFeedbackView = () => {
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	let dispatch = useDispatch();
-
+	let { orderItems } = useRoute().params || {};
 	let onNextPress = () => {
 		//@ts-ignore
 		navigation.navigate(Routes.TABS);
@@ -30,7 +25,7 @@ const LeaveFeedbackView = () => {
 		<ProfileLayout headerTitle={strings.leaveFeedbacks || ''}>
 			<View style={styles.container}>
 				<View style={styles.header}>
-					{orderItems.map((e, i) => (
+					{orderItems?.map((e, i) => (
 						<View key={i} style={styles.mt10}>
 							<OrderItem item={e} />
 						</View>

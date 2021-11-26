@@ -25,7 +25,10 @@ const SearchView = ({ route, navigation }: ISearchView) => {
 	}, []);
 	let effect = async () => {
 		try {
-			let res = await requests.product.getProducts({ searchQuery });
+			let res = await requests.product.getProducts({
+				searchQuery,
+				pageSize: 100,
+			});
 			setProducts(res.data.data);
 		} catch (error) {}
 	};

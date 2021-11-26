@@ -12,6 +12,8 @@ import {
 import { styles } from './style';
 import RangeSlider from 'components/general/range-slider/RangeSlider';
 import { Routes } from 'constants/routes';
+import { useAppSelector } from 'utils/hooks';
+import { selectUser } from 'store/slices/userSlice';
 
 const arr1 = [
 	'Телефоны',
@@ -48,8 +50,10 @@ interface IFilterView {
 const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 	const isCategory = route.params.from === 'categories';
 	const [selected, setSelected] = useState(-1);
-	const [low, setLow] = useState(1200000);
-	const [high, setHigh] = useState(18000000);
+	const [low, setLow] = useState(0);
+	const [high, setHigh] = useState(180000000);
+
+	let { dollarRate } = useAppSelector(selectUser);
 	return (
 		<View style={styles.container}>
 			<Header
@@ -91,8 +95,8 @@ const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 					<SecondButton
 						onPress={() => {
 							let params = {
-								priceMax: high,
-								priceMin: low,
+								priceMax: parseInt(high) / dollarRate,
+								priceMin: parseInt(low) / dollarRate,
 							};
 							if (selected !== -1) {
 								params.categoryId = categories[selected].id;

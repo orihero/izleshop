@@ -33,22 +33,22 @@ interface IProductsView {
 	navigation?: ProductsScreenNavigationProp;
 	setPage: (prev: number) => SetStateAction<IPage>;
 	page: number;
-	banners: [];
+	products: [];
 	loading: boolean;
 }
 
 const ProductsView = ({
 	route,
 	navigation,
-	setPage,
 	page,
-	banners,
-	loadMoreProducts,
+	products,
+	setProducts,
+	setPage,
 }: IProductsView) => {
 	const [isList, setIsList] = useState(false);
 	const [sortOpen, setSortOpen] = useState(false);
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [products, setProducts] = useState([]);
+	// const [products, setProducts] = useState([]);
 	const onFilterPress = () => {
 		navigation?.navigate(Routes.FILTER, { from: route?.params.from });
 	};
@@ -65,14 +65,18 @@ const ProductsView = ({
 			};
 		}
 		try {
-			let res = await requests.product.getProducts(params);
+			let res = await requests.product.getProducts({
+				...params,
+				pageSize: 100,
+			});
 			setProducts(res.data.data);
 		} catch (error) {}
 	};
-	let productss = divideArr(products, 2);
-
+	// let productss = divideArr(products, 2);
+	let productss = products || [];
 	useEffect(() => {
 		effect();
+		console.log('RERENDERING');
 	}, [route?.params, activeIndex]);
 
 	return (
@@ -120,72 +124,36 @@ const ProductsView = ({
 								</View>
 							</Pressable>
 						</View>
-						{isList
-							? products.map((e, i) => (
-									<View key={i} style={styles.mt10}>
-										<FavoriteItem
-											hasBasket={true}
-											hasRemove={false}
-											item={{ data: e }}
+						{isList ? (
+							products?.map((e, i) => (
+								<View key={i} style={styles.mt10}>
+									<FavoriteItem
+										hasBasket={true}
+										hasRemove={false}
+										item={{ data: e }}
+									/>
+								</View>
+							))
+						) : (
+							<FlatList
+								contentContainerStyle={styles.flatList}
+								snapToInterval={windowWidth / 2 - 5}
+								data={products.length ? products : []}
+								numColumns={2}
+								renderItem={({ item, index }) => (
+									<View style={styles.flatBox}>
+										<VerticalItem
+											key={`${index}`}
+											item={item}
+											sizeChanged
 										/>
 									</View>
-							  ))
-							: productss.map((e, i) => (
-									<View key={i} style={styles.productRow}>
-										{e.map((ee, ii) =>
-											e ? (
-												<FlatList
-													onMomentumScrollBegin={() => {
-														dontFetch = false;
-													}}
-													extraData={[banners]}
-													contentContainerStyle={
-														styles.flatList
-													}
-													snapToInterval={
-														windowWidth / 2 - 5
-													}
-													data={
-														products.length
-															? products
-															: []
-													}
-													numColumns={2}
-													renderItem={() => (
-														<VerticalItem
-															key={`${i}/${ii}`}
-															item={ee}
-															sizeChanged
-														/>
-													)}
-													decelerationRate={'fast'}
-													showsVerticalScrollIndicator={
-														false
-													}
-													keyExtractor={(e) =>
-														e.id.toString()
-													}
-													onEndReachedThreshold={0.01}
-													// onEndReached={({
-													// 	distanceFromEnd,
-													// }) => {
-													// 	_.throttle(
-													// 		() =>
-													// 			loadMoreProducts(),
-													// 		1000
-													// 	)();
-													// 	setPage(page + 1);
-													// 	if (!dontFetch) {
-													// 		// loadMoreProducts();
-													// 	} else {
-													// 	}
-													// 	dontFetch = true;
-													// }}
-												/>
-											) : null
-										)}
-									</View>
-							  ))}
+								)}
+								decelerationRate={'fast'}
+								showsVerticalScrollIndicator={false}
+								keyExtractor={(e) => e.id.toString()}
+							/>
+						)}
 					</View>
 				</ScrollView>
 			</View>

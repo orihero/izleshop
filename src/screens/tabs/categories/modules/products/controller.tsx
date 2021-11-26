@@ -26,23 +26,23 @@ const ProductsController = ({ route, navigation }: ProductsScreenProps) => {
 	const [page, setPage] = useState(1);
 	const [loading, setLoading] = useState(false);
 
-	let loadMoreProducts = async () => {
-		setLoading(true);
-		try {
-			let res = await requests.product.getProducts({
-				pageSize: 100,
-			});
-			if (res.data.data) {
-				setProducts(res.data.data);
-			}
-		} catch (error) {}
-		setLoading(false);
-	};
+	// let loadMoreProducts = async () => {
+	// 	setLoading(true);
+	// 	try {
+	// 		let res = await requests.product.getProducts({
+	// 			pageSize: 100,
+	// 		});
+	// 		if (res.data.data) {
+	// 			setProducts(res.data.data);
+	// 		}
+	// 	} catch (error) {}
+	// 	setLoading(false);
+	// };
 	return (
 		<ProductsView
 			route={route}
 			navigation={navigation}
-			{...{ setPage, page, loadMoreProducts, loading, products }}
+			{...{ setPage, page, setProducts, loading, products }}
 		/>
 	);
 };

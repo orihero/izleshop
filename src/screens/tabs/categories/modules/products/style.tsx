@@ -39,10 +39,13 @@ export const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-evenly',
 	},
-	flatList: {
-		justifyContent: 'space-between',
+	flatBox: {
 		marginHorizontal: 10,
+	},
+	flatList: {
 		marginTop: 10,
+		// marginHorizontal: 5,
+		justifyContent: 'space-between',
 	},
 	flex1: {
 		flex: 1,

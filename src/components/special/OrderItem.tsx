@@ -13,7 +13,7 @@ export interface OrderItemProps {
 	item: typeof orderItems[0];
 }
 
-const OrderItem = ({ item }: OrderItemProps) => {
+const OrderItem = ({ item = {} }: OrderItemProps) => {
 	let navigation = useNavigation();
 	let { dollarRate } = useAppSelector(selectUser);
 	let p = (item.product?.price * dollarRate)
@@ -30,7 +30,9 @@ const OrderItem = ({ item }: OrderItemProps) => {
 		<View style={styles.container}>
 			<View style={styles.img}>
 				<Image
-					source={{ uri: item.img }}
+					source={{
+						uri: typeof item.img === 'string' ? item.img : '',
+					}}
 					style={{ width: 60, height: 60, resizeMode: 'contain' }}
 				/>
 			</View>
@@ -41,13 +43,6 @@ const OrderItem = ({ item }: OrderItemProps) => {
 				<Text style={styles.sumText}>
 					{p}- {item.amount} шт
 				</Text>
-				<TouchableOpacity onPress={() => onNextPress(el.product_id)}>
-					<View style={styles.button}>
-						<Text style={styles.colorText}>
-							{strings.leaveFeedback}
-						</Text>
-					</View>
-				</TouchableOpacity>
 			</View>
 		</View>
 	);

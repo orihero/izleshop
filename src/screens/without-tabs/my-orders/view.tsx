@@ -25,9 +25,12 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 	let user = useAppSelector(selectUser);
 	let { dollarRate } = useAppSelector(selectUser);
 	let dispatch = useDispatch();
-	let onNextPress = (id) => {
+	let onNextPress = (items) => {
 		//@ts-ignore
-		navigation.navigate(Routes.LEAVE_FEEDBACK, { product_id: id });
+		navigation.navigate(Routes.LEAVE_FEEDBACK, {
+			product_id: id,
+			orderItems: items,
+		});
 	};
 
 	return loading ? (
@@ -119,7 +122,7 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 									{e.status === 1 ? (
 										<TouchableOpacity
 											onPress={() =>
-												onNextPress(el.product_id)
+												onNextPress(e?.items || [])
 											}
 										>
 											<View style={styles.button}>
