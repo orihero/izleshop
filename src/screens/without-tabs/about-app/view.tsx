@@ -17,7 +17,7 @@ const AboutAppView = () => {
 					/>
 				</View>
 				<View style={styles.versionBox}>
-					<Text style={styles.version}>{strings.version} 1.3</Text>
+					<Text style={styles.version}>{strings.version} 1.4</Text>
 				</View>
 			</View>
 		</ProfileLayout>
