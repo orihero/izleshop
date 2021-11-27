@@ -15,6 +15,7 @@ interface DefaultInputProps {
 	isTextArea?: boolean;
 	placeholder?: string;
 	keyboardType?: KeyboardTypeOptions | undefined;
+	maxLength?: number;
 }
 
 const DefaultInput = ({
@@ -24,6 +25,7 @@ const DefaultInput = ({
 	isTextArea,
 	placeholder = `(99) 456-95-50`,
 	keyboardType,
+	maxLength,
 }: DefaultInputProps) => {
 	const [showPassword, setShowPassword] = useState(false);
 
@@ -45,6 +47,7 @@ const DefaultInput = ({
 				secureTextEntry={isPassword}
 				style={isTextArea ? styles.textarea : styles.input}
 				keyboardType={keyboardType}
+				maxLength={maxLength}
 			/>
 		</View>
 	);

@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/core';
+import { useFocusEffect, useNavigation } from '@react-navigation/core';
 import { requests } from 'api/requests';
 import {
 	BagIcon,
@@ -60,7 +60,7 @@ export let ordersMap = [
 ];
 
 const ProfileView = ({}: IProfileViewProps) => {
-	const [banners, setBanners] = useState([]);
+	const [news, setNews] = useState([]);
 	const [orders, setOrders] = useState([]);
 	let user = useAppSelector(selectUser);
 	let navigation = useNavigation();
@@ -91,12 +91,17 @@ const ProfileView = ({}: IProfileViewProps) => {
 	};
 	let effect = async () => {
 		try {
-			// let res = await requests.product.getBanners();
+			let res = await requests.product.getNews();
 			let ordersRes = await requests.product.getUserOrders();
 			setOrders(ordersRes.data);
+			setNews(res.data);
 			// setBanners(res.data.filter((e) => e.for_app === 1));
 		} catch (error) {}
 	};
+
+	useFocusEffect(() => {
+		effect();
+	});
 
 	useEffect(() => {
 		effect();
@@ -229,7 +234,9 @@ const ProfileView = ({}: IProfileViewProps) => {
 
 				<View style={styles.news}>
 					<TouchableWithoutFeedback
-						onPress={() => onPress(Routes.WHATS_NEW, { banners })}
+						onPress={() =>
+							onPress(Routes.WHATS_NEW, { banners: news })
+						}
 					>
 						<View style={styles.viewAll}>
 							<View style={styles.component}>
@@ -243,14 +250,14 @@ const ProfileView = ({}: IProfileViewProps) => {
 							</View>
 							<TouchableWithoutFeedback
 								onPress={() =>
-									onPress(Routes.WHATS_NEW, { banners })
+									onPress(Routes.WHATS_NEW, { banners: news })
 								}
 							>
 								<Image
 									style={styles.img}
 									source={
-										banners.length > 0
-											? { uri: banners[0].image }
+										news.length > 0
+											? { uri: news[0].image }
 											: undefined
 									}
 								/>

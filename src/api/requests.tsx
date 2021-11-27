@@ -7,7 +7,6 @@ export let url = 'https://izleshop.uz/api';
 axios.interceptors.request.use((e) => {
 	if (!!store.getState().user.token)
 		e.headers.Authorization = `Bearer ${store.getState().user.token}`;
-	console.log(e);
 	return e;
 });
 
@@ -15,7 +14,6 @@ axios.interceptors.response.use((e) => {
 	if (!!e?.data?.status && !!e?.data?.message) {
 		throw { statsus: e.data.status, message: e.data.message };
 	}
-	console.log(e.data);
 
 	return e;
 });
@@ -58,6 +56,9 @@ export let requests = {
 		},
 		getPartners: () => {
 			return axios.get(`${url}/getPartners`);
+		},
+		getNews: () => {
+			return axios.get(`${url}/getNews`);
 		},
 		getDetails: (id: string) =>
 			axios.get(`${url}/getProductDetails?id=${id}`),

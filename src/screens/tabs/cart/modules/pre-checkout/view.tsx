@@ -54,7 +54,7 @@ export interface IPreCheckoutProductsModel {
 
 const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 	const [activeIndex, setActiveIndex] = useState(0);
-	const { total, count, cartList } = route.params;
+	const { total, count, cartList } = route.params || {};
 	const [payMethods, setPayMethods] = useState([
 		{
 			id: 1,

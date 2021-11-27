@@ -15,6 +15,7 @@ import { styles } from './style';
 import SweetAlert from 'react-native-sweet-alert';
 import MaskInput, { createNumberMask, Masks } from 'react-native-mask-input';
 import { colors } from 'constants/colors';
+import { first } from 'underscore';
 
 const arr1 = [
 	'Value 1',

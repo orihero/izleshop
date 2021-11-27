@@ -1,5 +1,12 @@
 import React from 'react';
-import { Image, Linking, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import {
+	Image,
+	Linking,
+	ScrollView,
+	Text,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 
 import ProfileLayout from '../ProfileLayout';
 import { styles } from './style';
@@ -12,15 +19,14 @@ interface IWhatsNewViewProps {
 	setPassword: (e: string) => void;
 	onPress: () => void;
 	navigate: () => void;
+	news: any;
 }
 
-const WhatsNewView = ({ }: IWhatsNewViewProps) => {
+const WhatsNewView = ({ news }: IWhatsNewViewProps) => {
 	let navigation = useNavigation();
-	let route = useRoute();
-	let { banners = [] } = route?.params || {}
-	let onNextPress = (id: number) => {
+	let onNextPress = (item) => {
 		//@ts-ignore
-		navigation.navigate(Routes.TABS, { screen: Routes.HOME_STACK, params: { screen: Routes.PRODUCT_DETAILS, params: { id } } });
+		navigation.navigate(Routes.WHATS_NEWS, { item });
 	};
 	return (
 		<ProfileLayout headerTitle={strings.whatsNew || ''}>
@@ -29,15 +35,17 @@ const WhatsNewView = ({ }: IWhatsNewViewProps) => {
 				contentContainerStyle={{ paddingBottom: 20 }}
 			>
 				<View style={styles.container}>
-					{banners.map(e => {
-						return <TouchableOpacity onPress={() => Linking.openURL(e.url)}>
-							<View style={styles.box}>
-								<Image
-									style={styles.img}
-									source={{ uri: e.image }}
-								/>
-							</View>
-						</TouchableOpacity>
+					{news.map((e) => {
+						return (
+							<TouchableOpacity onPress={() => onNextPress(e)}>
+								<View style={styles.box}>
+									<Image
+										style={styles.img}
+										source={{ uri: e.image }}
+									/>
+								</View>
+							</TouchableOpacity>
+						);
 					})}
 				</View>
 			</ScrollView>

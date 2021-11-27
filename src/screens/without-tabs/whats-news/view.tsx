@@ -1,33 +1,56 @@
 import React from 'react';
-import { ScrollView, Text, TouchableOpacity, View, Image} from 'react-native'; 
+import {
+	ScrollView,
+	Text,
+	TouchableOpacity,
+	View,
+	Image,
+	Dimensions,
+} from 'react-native';
 
 import ProfileLayout from '../ProfileLayout';
 import { styles } from './style';
 import { strings } from 'locales/locales';
+import { useRoute } from '@react-navigation/core';
+import RenderHTML from 'react-native-render-html';
 
+interface IWhatsNewsViewProps {
+	password: string;
+	setPassword: (e: string) => void;
+	onPress: () => void;
+	navigate: () => void;
+	news: any;
+}
 
-
-const WhatsNewsView = () => {
+const WhatsNewsView = ({}: IWhatsNewsViewProps) => {
+	let { item } = useRoute().params || {};
 	return (
-		<ProfileLayout headerTitle={strings.viewAll || ''}>
-			<ScrollView
-				showsVerticalScrollIndicator={false}
-				contentContainerStyle={{ paddingBottom: 20 }}
-			>
+		<ScrollView
+			showsVerticalScrollIndicator={false}
+			contentContainerStyle={{ paddingBottom: 20 }}
+		>
+			<ProfileLayout headerTitle={strings.viewAll || ''}>
 				<View style={styles.container}>
-						<View style={styles.box}>
-							<Image
-								style={styles.img}
-								source={require('assets/images/image16.png')}
+					<View style={styles.box}>
+						<Image
+							style={styles.img}
+							source={{ uri: item.image }}
+						/>
+						<Text style={styles.textOne}>{item?.title}</Text>
+						<Text style={styles.text}>{item?.description}</Text>
+						<View style={styles.render}>
+							<RenderHTML
+								source={{ html: item.body }}
+								contentWidth={
+									Dimensions.get('window').width - 50
+								}
 							/>
-						<Text style={styles.text}>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, nihil aut? Molestiae sequi deserunt magnam suscipit, placeat nobis autem natus repellat, veritatis vero illo totam dolores provident optio amet explicabo.
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et, voluptas? Exercitationem libero iure temporibus consequatur, officiis eius sit, eos earum dolorem, incidunt cupiditate eum cum quia quisquam laudantium recusandae blanditiis.
-						</Text>
 						</View>
+						{/* <Text style={styles.text}>{item?.body}</Text> */}
+					</View>
 				</View>
-			</ScrollView>
-		</ProfileLayout>
+			</ProfileLayout>
+		</ScrollView>
 	);
 };
 

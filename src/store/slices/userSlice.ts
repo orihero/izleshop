@@ -64,8 +64,8 @@ let userSlice = createSlice({
 				token: action.payload.token,
 			};
 		},
-		userLoggedOut: () => {
-			return initialState;
+		userLoggedOut: (state) => {
+			return { dollarRate: state.dollarRate };
 		},
 		setProfileData: (state, action: PayloadAction<UserData>) => {
 			return { ...state, userData: action.payload };

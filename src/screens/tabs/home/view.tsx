@@ -78,7 +78,7 @@ const HomeView = ({
 	let dontFetch = true;
 
 	return (
-		<View style={styles.container}>
+		<ScrollView style={styles.container}>
 			<SearchInput />
 
 			<View>
@@ -155,7 +155,7 @@ const HomeView = ({
 					// }}
 				/>
 			</View>
-		</View>
+		</ScrollView>
 	);
 };
 

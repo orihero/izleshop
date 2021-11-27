@@ -37,9 +37,7 @@ const OrderItem = ({ item = {} }: OrderItemProps) => {
 				/>
 			</View>
 			<View style={styles.boxText}>
-				<Text numberOfLines={1} style={styles.text}>
-					{item.product?.name}
-				</Text>
+				<Text style={styles.text}> {item.product?.name}</Text>
 				<Text style={styles.sumText}>
 					{p}- {item.amount} шт
 				</Text>
@@ -61,17 +59,20 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	boxText: {
-		right: 10,
+		right: 20,
+		marginHorizontal: 10,
 	},
 	text: {
+		width: windowWidth - 110,
 		fontSize: 14,
 		lineHeight: 17,
 		fontWeight: '400',
-		alignItems: 'center',
+		alignSelf: 'center',
 	},
 	sumText: {
 		paddingTop: 5,
 		fontSize: 14,
+		paddingHorizontal: 5,
 		fontWeight: '800',
 		lineHeight: 17,
 		alignItems: 'center',

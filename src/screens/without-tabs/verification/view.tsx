@@ -35,7 +35,6 @@ const VerificationView = ({}: IVerificationProps) => {
 				user.userData?.phone || '',
 				code
 			);
-			console.log(res.data, 'RESRRRR');
 
 			if (res.data.success === 'false') {
 				alert(res.data.message);
@@ -62,6 +61,7 @@ const VerificationView = ({}: IVerificationProps) => {
 					onChange={(e) => setCode(e)}
 					placeholder={strings.confirmationCode}
 					keyboardType="numeric"
+					maxLength={6}
 				/>
 			</View>
 			<View style={styles.buttom}>

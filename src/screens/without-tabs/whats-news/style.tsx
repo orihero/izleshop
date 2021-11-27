@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
+import { windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
 	container: {
@@ -9,7 +10,7 @@ export const styles = StyleSheet.create({
 	box: {
 		top: 15,
 		width: 360,
-		height: 420,
+		// height: 420,
 		marginBottom: 10,
 		marginHorizontal: 25,
 		alignItems: 'center',
@@ -23,9 +24,23 @@ export const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 	text: {
-		width: 300,
+		width: windowWidth - 50,
 		fontSize: 15,
 		lineHeight: 17,
+		paddingHorizontal: 25,
+		marginVertical: 20,
+	},
+	textOne: {
+		fontSize: 18,
+		lineHeight: 17,
 		marginVertical: 15,
-	}
+		fontWeight: 'bold',
+		textAlign: 'center',
+	},
+	render: {
+		width: windowWidth - 70,
+		marginBottom: 10,
+		color: colors.black,
+		paddingHorizontal: 15,
+	},
 });

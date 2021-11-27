@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
-
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import HorizontalItem from 'components/special/HorizontalItem';
-import ProfileLayout from '../ProfileLayout';
-import OrderItem from 'components/special/OrderItem';
-
-import { styles } from './style';
-import { strings } from 'locales/locales';
-import { items, orderItems } from 'mockup/data';
 import { useNavigation } from '@react-navigation/core';
-import { useAppSelector } from 'utils/hooks';
+import { requests } from 'api/requests';
+import OrderItem from 'components/special/OrderItem';
+import { Routes } from 'constants/routes';
+import { strings } from 'locales/locales';
+import React from 'react';
+import {
+	Linking,
+	ScrollView,
+	Text,
+	TouchableOpacity,
+	View,
+} from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 import { selectUser } from 'store/slices/userSlice';
-import { Routes } from 'constants/routes';
-import { colors } from 'constants/colors';
-import { ActivityIndicator } from 'react-native-paper';
+import { useAppSelector } from 'utils/hooks';
+import ProfileLayout from '../ProfileLayout';
+import { styles } from './style';
 
 export interface MyOrdersViewProps {
 	loading: boolean;
@@ -31,6 +33,40 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 			product_id: id,
 			orderItems: items,
 		});
+	};
+	console.log({ userOrders });
+
+	let onBackPress = async (el) => {
+		//@ts-ignore
+		console.log(el);
+
+		let req = {
+			receiverName: el.name,
+			paymentType: el.payment_option,
+			receiverPhone: el.phone,
+			address: el.address,
+			district: el.district,
+			note: el.message,
+			index: '111201',
+			city: el.city,
+			products: el.items.map(({ product_id: id, amount }) => ({
+				id,
+				amount,
+				option: '',
+				color_name: '',
+				color: '',
+			})),
+			installment_plan: el.installment_plan,
+		};
+		try {
+			let response = await requests.product.makeOrder(req);
+			if (response.data.paymentUrl && el.installment_plan === null) {
+				Linking.openURL(response.data.paymentUrl);
+			}
+			navigation.navigate(Routes.CART);
+		} catch (error) {
+			console.error(error);
+		}
 	};
 
 	return loading ? (
@@ -131,13 +167,17 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 												</Text>
 											</View>
 										</TouchableOpacity>
-									) : (
-										<View style={styles.mt12}>
-											<Text style={styles.mt13}>
-												{'ОПЛАТИТЬ'}
-											</Text>
-										</View>
-									)}
+									) : e.installment_plan === null ? (
+										<TouchableOpacity
+											onPress={() => onBackPress(e)}
+										>
+											<View style={styles.mt12}>
+												<Text style={styles.mt13}>
+													{'ОПЛАТИТЬ'}
+												</Text>
+											</View>
+										</TouchableOpacity>
+									) : null}
 								</View>
 							);
 						})}

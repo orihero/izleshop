@@ -48,6 +48,7 @@ const ProductsView = ({
 	const [isList, setIsList] = useState(false);
 	const [sortOpen, setSortOpen] = useState(false);
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [loading, setLoading] = useState(false);
 	// const [products, setProducts] = useState([]);
 	const onFilterPress = () => {
 		navigation?.navigate(Routes.FILTER, { from: route?.params.from });
@@ -55,6 +56,10 @@ const ProductsView = ({
 	let dontFetch = true;
 
 	let effect = async () => {
+		if (loading) {
+			return;
+		}
+		setLoading(true);
 		let params = {
 			...(route.params || {}),
 		};
@@ -71,15 +76,19 @@ const ProductsView = ({
 			});
 			setProducts(res.data.data);
 		} catch (error) {}
+		setLoading(false);
 	};
 	// let productss = divideArr(products, 2);
 	let productss = products || [];
 	useEffect(() => {
 		effect();
-		console.log('RERENDERING');
 	}, [route?.params, activeIndex]);
 
-	return (
+	return loading ? (
+		<View style={styles.indicatorContainer}>
+			<ActivityIndicator size="large" />
+		</View>
+	) : (
 		<View style={styles.flex1}>
 			{sortOpen ? (
 				<SortModal

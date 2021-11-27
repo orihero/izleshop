@@ -4,7 +4,7 @@ import { colors } from 'constants/colors';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: colors.lightBlue
+		backgroundColor: colors.lightBlue,
 	},
 	box: {
 		top: 15,
@@ -14,10 +14,10 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 25,
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
 	},
 	img: {
 		width: 275,
-		height: 150,
-	}
-})
+		height: 200,
+	},
+});
