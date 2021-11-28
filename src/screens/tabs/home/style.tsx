@@ -34,6 +34,9 @@ const styles = StyleSheet.create({
 		paddingVertical: 10,
 		flex: 1,
 	},
+	scroll: {
+		marginTop: 10,
+	},
 	carousel: {
 		borderRadius: 7.5,
 		overflow: 'hidden',

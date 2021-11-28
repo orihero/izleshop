@@ -17,7 +17,7 @@ const HomeController = () => {
 	let loadMoreProducts = async () => {
 		try {
 			let res = await requests.product.getProducts({
-				pageSize: 1000,
+				pageSize: 100,
 				page: page + 1,
 			});
 			if (res.data.data) {

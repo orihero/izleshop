@@ -34,11 +34,9 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 			orderItems: items,
 		});
 	};
-	console.log({ userOrders });
 
 	let onBackPress = async (el) => {
 		//@ts-ignore
-		console.log(el);
 
 		let req = {
 			receiverName: el.name,

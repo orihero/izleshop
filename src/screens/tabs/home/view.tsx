@@ -78,84 +78,88 @@ const HomeView = ({
 	let dontFetch = true;
 
 	return (
-		<ScrollView style={styles.container}>
+		<View style={styles.container}>
 			<SearchInput />
 
-			<View>
-				{banners.length === 0 ? (
-					<EmptyBanner />
-				) : (
-					<Carousel
-						data={banners}
-						renderItem={(props) => (
-							<TouchableOpacity
-								onPress={() => Linking.openURL(props.item.url)}
-							>
-								<SliderItem {...props} dwh />
-							</TouchableOpacity>
-						)}
-						sliderWidth={width}
-						itemWidth={width}
-						containerCustomStyle={styles.carousel}
-						onSnapToItem={(index) => {
-							setActiveSlide(index);
-						}}
-						pagingEnabled
-					/>
-				)}
-				<Pagination
-					dotColor={colors.blue}
-					dotStyle={styles.pdot}
-					dotsLength={banners.length}
-					dotContainerStyle={styles.pdotcont}
-					containerStyle={{ paddingVertical: 10 }}
-					inactiveDotScale={1}
-					inactiveDotOpacity={0.5}
-					activeDotIndex={activeSlide}
-					inactiveDotColor={colors.gray}
-					inactiveDotStyle={{
-						backgroundColor: colors.gray,
-					}}
-				/>
-				<Text style={styles.text}>{strings.recomendedForYou}</Text>
-			</View>
-
-			<View style={{ flex: 1 }}>
-				<FlatList
-					onMomentumScrollBegin={() => {
-						dontFetch = false;
-					}}
-					contentContainerStyle={styles.flatList}
-					// snapToInterval={windowWidth / 2 - 5}
-					data={products.length ? products : []}
-					numColumns={2}
-					renderItem={(props) => (
-						<VerticalItem {...props} bigSize hasMargin />
+			<ScrollView style={styles.scroll}>
+				<View>
+					{banners.length === 0 ? (
+						<EmptyBanner />
+					) : (
+						<Carousel
+							data={banners}
+							renderItem={(props) => (
+								<TouchableOpacity
+									onPress={() =>
+										Linking.openURL(props.item.url)
+									}
+								>
+									<SliderItem {...props} dwh />
+								</TouchableOpacity>
+							)}
+							sliderWidth={width}
+							itemWidth={width}
+							containerCustomStyle={styles.carousel}
+							onSnapToItem={(index) => {
+								setActiveSlide(index);
+							}}
+							pagingEnabled
+						/>
 					)}
-					columnWrapperStyle={{
-						flex: 1,
-					}}
-					decelerationRate={'fast'}
-					showsVerticalScrollIndicator={false}
-					keyExtractor={(e) => e.id.toString()}
-					ListEmptyComponent={ListEmptyComponent}
-					onEndReachedThreshold={0.01}
-					onEndReached={({ distanceFromEnd }) => {
-						_.throttle(() => loadMoreProducts(), 1000)();
-						setPage(page + 1);
-						if (!dontFetch) {
-							// loadMoreProducts();
-						} else {
-						}
-						dontFetch = true;
-					}}
-					// ListHeaderComponent={() => {
-					// 	// return (
-					// 							// );
-					// }}
-				/>
-			</View>
-		</ScrollView>
+					<Pagination
+						dotColor={colors.blue}
+						dotStyle={styles.pdot}
+						dotsLength={banners.length}
+						dotContainerStyle={styles.pdotcont}
+						containerStyle={{ paddingVertical: 10 }}
+						inactiveDotScale={1}
+						inactiveDotOpacity={0.5}
+						activeDotIndex={activeSlide}
+						inactiveDotColor={colors.gray}
+						inactiveDotStyle={{
+							backgroundColor: colors.gray,
+						}}
+					/>
+					<Text style={styles.text}>{strings.recomendedForYou}</Text>
+				</View>
+
+				<View style={{ flex: 1 }}>
+					<FlatList
+						onMomentumScrollBegin={() => {
+							dontFetch = false;
+						}}
+						contentContainerStyle={styles.flatList}
+						// snapToInterval={windowWidth / 2 - 5}
+						data={products.length ? products : []}
+						numColumns={2}
+						renderItem={(props) => (
+							<VerticalItem {...props} bigSize hasMargin />
+						)}
+						columnWrapperStyle={{
+							flex: 1,
+						}}
+						decelerationRate={'fast'}
+						showsVerticalScrollIndicator={false}
+						keyExtractor={(e) => e.id.toString()}
+						ListEmptyComponent={ListEmptyComponent}
+						onEndReachedThreshold={0.01}
+						onEndReached={({ distanceFromEnd }) => {
+							_.throttle(() => loadMoreProducts(), 1000)();
+							setPage(page + 1);
+							if (!dontFetch) {
+								// loadMoreProducts();
+							} else {
+							}
+							dontFetch = true;
+						}}
+						// ListHeaderComponent={() => {
+						// 	// return (
+						// 							// );
+						// }}
+					/>
+				</View>
+			</ScrollView>
+		</View>
 	);
 };
 
