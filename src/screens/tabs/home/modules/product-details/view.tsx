@@ -55,6 +55,7 @@ const ProductDetailsView = ({
 	value,
 }: ProductDetailsViewProps) => {
 	const [modalVisible, setModalVisible] = useState(false);
+	console.log({ details });
 
 	let navigation = useNavigation();
 	let favorites = useAppSelector(selectFavorites);
@@ -194,7 +195,7 @@ const ProductDetailsView = ({
 				<View style={styles.accordion}>
 					<Accordion
 						items={accordionData}
-						characteristics={details.characteristics}
+						characteristic={details.characteristic}
 						details={details}
 					/>
 				</View>

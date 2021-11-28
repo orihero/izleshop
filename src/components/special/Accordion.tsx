@@ -17,6 +17,7 @@ const Accordion = ({
 	items,
 	characteristics: data,
 	details,
+	characteristic,
 }: IAccordionProps) => {
 	const [open, setOpen] = useState(0);
 	const navigation = useNavigation();
@@ -40,15 +41,11 @@ const Accordion = ({
 				</View>
 			);
 		}
-		if (characteristics) {
-			return Object.keys(data || {})?.map((e) => {
-				return (
-					<View style={styles.characteristics}>
-						<Text style={styles.text6}>{e}</Text>
-						<Text style={styles.text7}>{data[e]}</Text>
-					</View>
-				);
-			});
+
+		if (characteristic) {
+			{
+				return <RenderHTML source={{ html: characteristic }} />;
+			}
 		}
 		return <Comments />;
 	};
