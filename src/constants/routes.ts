@@ -40,4 +40,5 @@ export enum Routes {
 	CONFIRATION_CODE = 'confirmationcode',
 	INSTALLMENT = 'installment',
 	SEARCH = 'search',
+	COMMENTS = 'comments',
 }

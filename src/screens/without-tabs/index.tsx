@@ -24,6 +24,7 @@ import WhatsNewScreen from './whats-new';
 import WhatsNewsScreen from './whats-news';
 import ConfirmationCodeScreen from './confirmation-code';
 import InstallmentScreen from './installment';
+import CommentsScreen from './comments';
 
 import { Routes } from 'constants/routes';
 
@@ -50,6 +51,7 @@ export type WithoutStackParamList = {
 	[Routes.WHATS_NEWS]: undefined;
 	[Routes.CONFIRATION_CODE]: undefined;
 	[Routes.INSTALLMENT]: undefined;
+	[Routes.COMMENTS]: undefined;
 };
 
 let Stack = createNativeStackNavigator<WithoutStackParamList>();
@@ -86,6 +88,7 @@ const WithoutTabsStack = () => {
 			<Stack.Screen name={Routes.ABOUT_US} component={AboutUsScreen} />
 			<Stack.Screen name={Routes.LANGUAGE} component={LanguageScreen} />
 			<Stack.Screen name={Routes.ABOUT_APP} component={AboutAppScreen} />
+			<Stack.Screen name={Routes.COMMENTS} component={CommentsScreen} />
 			<Stack.Screen
 				name={Routes.LEAVE_FEEDBACK}
 				component={LeaveFeedbackScreen}

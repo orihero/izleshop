@@ -1,1 +1,0 @@
-export { default as CommentsScreen } from './controller'

@@ -147,4 +147,35 @@ export const styles = StyleSheet.create({
 		position: 'absolute',
 		backgroundColor: colors.lightBlue,
 	},
+	box: {
+		padding: 15,
+		width: windowWidth - 30,
+		marginHorizontal: 5,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		backgroundColor: colors.white,
+	},
+	text: {
+		fontSize: 14,
+		lineHeight: 17,
+		fontWeight: '400',
+	},
+	line: {
+		borderWidth: 0.5,
+		marginHorizontal: 10,
+		borderColor: colors.lightBlue,
+	},
+	text6: {
+		fontSize: 12,
+		paddingTop: 3,
+		lineHeight: 14,
+		fontWeight: 'bold',
+	},
+	closed: {
+		// transform: [{ rotate: '45deg' }],
+	},
+	opened: {
+		transform: [{ rotate: '90deg' }],
+	},
 });

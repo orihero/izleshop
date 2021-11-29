@@ -5,10 +5,17 @@ import { windowWidth } from 'constants/sizes';
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		padding: 10,
 	},
 	boxOne: {
 		// width: windowWidth - 50,
+		padding: 10,
+		marginBottom: 6,
+		elevation: 5,
+		marginHorizontal: 5,
+		paddingHorizontal: 10,
 		flexDirection: 'row',
+		backgroundColor: colors.white,
 	},
 	userImage: {
 		width: 50,
@@ -53,9 +60,14 @@ const styles = StyleSheet.create({
 		height: 100,
 	},
 	boxTwo: {
-		marginTop: 20,
+		marginTop: 10,
+		padding: 10,
+		elevation: 5,
+		paddingHorizontal: 10,
+		marginHorizontal: 5,
 		marginVertical: 10,
 		flexDirection: 'row',
+		backgroundColor: colors.white,
 	},
 });
 
