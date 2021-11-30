@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
 	},
 	userName: {
 		// justifyContent: 'space-between',
+		alignItems: 'center',
 		flexDirection: 'row',
 	},
 	flag: {
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
 		height: 15,
 	},
 	rating: {
+		alignItems: 'center',
 		marginHorizontal: 50,
 	},
 	data: {

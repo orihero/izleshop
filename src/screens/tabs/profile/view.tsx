@@ -27,6 +27,7 @@ import {
 	View,
 } from 'react-native';
 import { selectUser, userLoggedOut } from 'store/slices/userSlice';
+import { debounce, throttle } from 'underscore';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
 
@@ -99,9 +100,9 @@ const ProfileView = ({}: IProfileViewProps) => {
 		} catch (error) {}
 	};
 
-	useFocusEffect(() => {
-		effect();
-	});
+	// useFocusEffect(() => {
+	// 	throttle(debounce(effect, 1000), 1000)();
+	// });
 
 	useEffect(() => {
 		effect();

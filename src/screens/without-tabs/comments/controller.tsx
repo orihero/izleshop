@@ -8,7 +8,6 @@ const CommentsController = ({}) => {
 
 	let effect = async () => {
 		let res = await requests.product.getComments();
-		console.log(res.data);
 
 		setComments(res.data);
 	};

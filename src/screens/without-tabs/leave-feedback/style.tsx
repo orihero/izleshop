@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
-import { windowWidth } from 'constants/sizes';
+import { windowHeight, windowWidth } from 'constants/sizes';
 
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: colors.lightBlue
+		backgroundColor: colors.lightBlue,
 	},
 	header: {
 		padding: 20,
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
 		borderTopWidth: 2,
 		width: windowWidth,
 		borderColor: colors.leghtGrey,
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
 	},
 	mt10: {},
 	box: {
@@ -26,18 +26,17 @@ export const styles = StyleSheet.create({
 		flexDirection: 'row',
 		paddingHorizontal: 15,
 		justifyContent: 'space-evenly',
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
 	},
 	text: {
 		fontSize: 16,
-		fontWeight: '400'
+		fontWeight: '400',
 	},
 	rating: {
 		paddingBottom: 10,
 	},
 	numberBox: {
 		flexDirection: 'row',
-
 	},
 	number: {
 		fontSize: 22,
@@ -50,7 +49,7 @@ export const styles = StyleSheet.create({
 	input: {
 		height: 130,
 		width: windowWidth,
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
 	},
 	textBox: {
 		flexDirection: 'row',
@@ -72,13 +71,14 @@ export const styles = StyleSheet.create({
 	},
 	textInput: {
 		width: 320,
+		color: colors.black,
 		borderBottomWidth: 1,
 		marginHorizontal: 40,
 	},
 	button: {
-		height: 250,
+		height: windowHeight - 480,
+		marginVertical: 10,
 		marginHorizontal: 10,
-		justifyContent: "flex-end"
-	}
-
-})
+		justifyContent: 'flex-end',
+	},
+});

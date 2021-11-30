@@ -7,11 +7,11 @@ import { strings } from 'locales/locales';
 import { useRoute } from '@react-navigation/core';
 
 interface ICommentsView {
-	comments: any;
+	// comments: any;
 }
 
-const CommentsView = ({ comments }: ICommentsView) => {
-	console.log({ comments });
+const CommentsView = ({}: ICommentsView) => {
+	let { comments } = useRoute().params || {};
 	return (
 		<ProfileLayout headerTitle={strings.reviews || ''}>
 			<ScrollView>

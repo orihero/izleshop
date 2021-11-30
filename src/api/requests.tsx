@@ -7,6 +7,7 @@ export let url = 'https://izleshop.uz/api';
 axios.interceptors.request.use((e) => {
 	if (!!store.getState().user.token)
 		e.headers.Authorization = `Bearer ${store.getState().user.token}`;
+	console.log(e);
 	return e;
 });
 
@@ -66,5 +67,18 @@ export let requests = {
 		makeOrder: (credentials: any) =>
 			axios.post(`${url}/makeOrder`, credentials),
 		getDollarRate: () => axios.get(`${url}/getDollarRate`),
+		createReview: (data: {
+			user_id: string | number;
+			product_id: string | number;
+			message: string;
+		}) => {
+			let form = new FormData();
+
+			Object.keys(data).forEach((e) => {
+				form.append(e, data[e]);
+			});
+
+			return axios.post(`${url}/createReview`, form);
+		},
 	},
 };

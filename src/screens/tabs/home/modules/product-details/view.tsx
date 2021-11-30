@@ -18,6 +18,7 @@ import { strings } from 'locales/locales';
 import { accordionData, item } from 'mockup/data';
 import React, { useEffect, useState } from 'react';
 import {
+	Alert,
 	Dimensions,
 	FlatList,
 	Platform,
@@ -64,6 +65,7 @@ const ProductDetailsView = ({
 	loading,
 	items,
 	value,
+	comments,
 }: ProductDetailsViewProps) => {
 	const [modalVisible, setModalVisible] = useState(false);
 	const [open, setOpen] = useState(0);
@@ -128,9 +130,13 @@ const ProductDetailsView = ({
 		});
 	};
 	let onReversPress = () => {
+		if (!comments || comments.length <= 0) {
+			Alert.alert(strings.warning, strings.noComments);
+			return;
+		}
 		navigation.navigate(Routes.WITHOUT_TABS, {
 			screen: Routes.COMMENTS,
-			params: { data: details },
+			params: { comments },
 		});
 	};
 	let p = (details.price * dollarRate)

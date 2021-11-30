@@ -27,7 +27,7 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 	let user = useAppSelector(selectUser);
 	let { dollarRate } = useAppSelector(selectUser);
 	let dispatch = useDispatch();
-	let onNextPress = (items) => {
+	let onNextPress = (items, id) => {
 		//@ts-ignore
 		navigation.navigate(Routes.LEAVE_FEEDBACK, {
 			product_id: id,

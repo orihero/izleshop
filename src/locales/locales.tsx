@@ -139,5 +139,7 @@ export let strings = new LocalizedStrings({
 		information: 'Информация',
 		characteristic: 'Характеристика',
 		reviews: 'Отзывы',
+		noComments: 'О  продукте  нет  комментариев',
+		setReviews: 'Отзывы отправлены',
 	},
 });
