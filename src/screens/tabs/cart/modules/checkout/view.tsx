@@ -7,7 +7,7 @@ import Header from 'components/navigation/Header';
 import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
 import React, { useEffect, useState } from 'react';
-import { Linking, ScrollView, Text, View } from 'react-native';
+import { Alert, Linking, Platform, ScrollView, Text, View } from 'react-native';
 import { selectUser, setUserPhone } from 'store/slices/userSlice';
 import { clearCart } from 'store/slices/cartSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
@@ -141,30 +141,52 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				installment_plan: installment_plan,
 			};
 			let response = await requests.product.makeOrder(req);
-			SweetAlert.showAlertWithOptions(
-				{
-					title: strings.warning,
-					subTitle: strings.success,
-					confirmButtonTitle: 'OK',
-					confirmButtonColor: '#000',
-					otherButtonTitle: 'Cancel',
-					otherButtonColor: '#dedede',
-					style: 'success',
-					cancellable: true,
-				},
-				() => {
-					if (!!response) {
-						dispatch(clearCart());
-						if (
-							response.data.paymentUrl &&
-							installment_plan === null
-						) {
-							Linking.openURL(response.data.paymentUrl);
+			console.log(response);
+			if (Platform.OS === 'ios') {
+				Alert.alert(strings.warning, strings.success, [
+					{
+						onPress: () => {
+							if (!!response) {
+								dispatch(clearCart());
+								if (
+									response.data.paymentUrl &&
+									installment_plan === null
+								) {
+									Linking.openURL(response.data.paymentUrl);
+								}
+								navigation.navigate(Routes.CART);
+							}
+						},
+						style: 'default',
+						text: 'OK',
+					},
+				]);
+			} else {
+				SweetAlert.showAlertWithOptions(
+					{
+						title: strings.warning,
+						subTitle: strings.success,
+						confirmButtonTitle: 'OK',
+						confirmButtonColor: '#000',
+						otherButtonTitle: 'Cancel',
+						otherButtonColor: '#dedede',
+						style: 'success',
+						cancellable: true,
+					},
+					() => {
+						if (!!response) {
+							dispatch(clearCart());
+							if (
+								response.data.paymentUrl &&
+								installment_plan === null
+							) {
+								Linking.openURL(response.data.paymentUrl);
+							}
+							navigation.navigate(Routes.CART);
 						}
-						navigation.navigate(Routes.CART);
 					}
-				}
-			);
+				);
+			}
 		} catch (error) {
 		} finally {
 			setLoading(false);

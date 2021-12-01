@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TextInput, Pressable } from 'react-native';
+import { StyleSheet, View, TextInput, Pressable, Platform } from 'react-native';
 import { SearchIcon } from '../../assets/icons/icons';
 import { colors } from 'constants/colors';
 import { windowWidth } from '../../constants/sizes';
@@ -61,5 +61,6 @@ const styles = StyleSheet.create({
 		paddingLeft: 15,
 		paddingRight: 30,
 		width: '100%',
+		...Platform.select({ ios: { padding: 15 } }),
 	},
 });

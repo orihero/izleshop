@@ -202,13 +202,15 @@ const ProfileView = ({}: IProfileViewProps) => {
 														{string}
 													</Text>
 													{count > 0 && (
-														<Text
+														<View style={styles.number}>
+															<Text
 															style={
 																styles.countIndicator
 															}
 														>
 															{count}
 														</Text>
+														</View>
 													)}
 												</View>
 											</TouchableOpacity>

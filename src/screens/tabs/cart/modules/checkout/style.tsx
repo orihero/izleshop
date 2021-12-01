@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 
@@ -71,6 +71,7 @@ export const styles = StyleSheet.create({
 		paddingLeft: 10,
 		alignItems: 'center',
 		color: colors.black,
+		...Platform.select({ ios: { padding: 15 } }),
 	},
 	input: {
 		height: 40,

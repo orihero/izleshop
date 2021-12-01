@@ -1,7 +1,14 @@
 import React, { ReactChild } from 'react';
 import { useNavigation } from '@react-navigation/core';
 
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+	Platform,
+	SafeAreaView,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 import Pressable from '../general/Pressable';
 
 import { colors } from 'constants/colors';
@@ -37,21 +44,23 @@ const Header = ({
 		navigation.navigate(Routes.SEARCH);
 	};
 	return (
-		<View style={[styles.container, hasBorder ? styles.bbw : null]}>
-			<View style={styles.leftEdge}>
-				{disableGoBack ? null : (
-					<Pressable to onPress={onBackPressed}>
-						<BackIcon size={20} />
-					</Pressable>
-				)}
+		<SafeAreaView>
+			<View style={[styles.container, hasBorder ? styles.bbw : null]}>
+				<View style={styles.leftEdge}>
+					{disableGoBack ? null : (
+						<Pressable to onPress={onBackPressed}>
+							<BackIcon size={20} />
+						</Pressable>
+					)}
+				</View>
+				<View>
+					<Text style={[styles.title, styles.bold]}>{title}</Text>
+				</View>
+				<TouchableOpacity onPress={onNextPress} style={styles.box}>
+					<View style={styles.rightEdge}>{rightEdge()}</View>
+				</TouchableOpacity>
 			</View>
-			<View>
-				<Text style={[styles.title, styles.bold]}>{title}</Text>
-			</View>
-			<TouchableOpacity onPress={onNextPress} style={styles.box}>
-				<View style={styles.rightEdge}>{rightEdge()}</View>
-			</TouchableOpacity>
-		</View>
+		</SafeAreaView>
 	);
 };
 
@@ -80,9 +89,10 @@ const styles = StyleSheet.create({
 		// right: 20,
 	},
 	box: {
-		left: 360,
+		left: 350,
 		marginHorizontal: 10,
 		position: 'absolute',
+		...Platform.select({ android: { paddingLeft: 10 } }),
 	},
 	title: {
 		fontSize: 18,

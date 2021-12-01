@@ -215,7 +215,9 @@ export const styles = StyleSheet.create({
 		width: 15,
 		paddingTop: 4,
 	},
-	countIndicator: {
+	number:{
+		justifyContent:'center',
+		alignItems: 'center',
 		position: 'absolute',
 		width: 18,
 		height: 18,
@@ -223,6 +225,9 @@ export const styles = StyleSheet.create({
 		right: 10,
 		borderRadius: 18,
 		top: 4,
+	},
+	countIndicator: {
+		
 		color: colors.white,
 		textAlignVertical: 'center',
 		textAlign: 'center',

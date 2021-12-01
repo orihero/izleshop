@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { colors } from 'constants/colors';
 import { windowWidth } from 'constants/sizes';
 
@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
 	input: {
 		paddingLeft: 10,
 		color: colors.black,
+		...Platform.select({ ios: { padding: 15 } }),
 	},
 	mt10: {
 		marginTop: 10,
