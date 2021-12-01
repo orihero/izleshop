@@ -17,7 +17,8 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	img: {
-		width: 275,
+		resizeMode: 'contain',
+		width: 330,
 		height: 200,
 	},
 });

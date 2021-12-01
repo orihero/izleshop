@@ -5,10 +5,17 @@ import { windowWidth } from 'constants/sizes';
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		padding: 10,
 	},
 	boxOne: {
 		// width: windowWidth - 50,
+		padding: 10,
+		marginBottom: 6,
+		elevation: 5,
+		marginHorizontal: 5,
+		paddingHorizontal: 10,
 		flexDirection: 'row',
+		backgroundColor: colors.white,
 	},
 	userImage: {
 		width: 50,
@@ -18,8 +25,14 @@ const styles = StyleSheet.create({
 		marginLeft: 10,
 	},
 	userName: {
-		// justifyContent: 'space-between',
+		alignItems: 'center',
 		flexDirection: 'row',
+		justifyContent: 'space-between',
+	},
+	name: {
+		alignItems: 'center',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 	flag: {
 		margin: 5,
@@ -27,7 +40,8 @@ const styles = StyleSheet.create({
 		height: 15,
 	},
 	rating: {
-		marginHorizontal: 50,
+		alignItems: 'center',
+		marginBottom: 6,
 	},
 	data: {
 		marginVertical: 10,
@@ -53,9 +67,14 @@ const styles = StyleSheet.create({
 		height: 100,
 	},
 	boxTwo: {
-		marginTop: 20,
+		marginTop: 10,
+		padding: 10,
+		elevation: 5,
+		paddingHorizontal: 10,
+		marginHorizontal: 5,
 		marginVertical: 10,
 		flexDirection: 'row',
+		backgroundColor: colors.white,
 	},
 });
 

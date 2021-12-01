@@ -27,11 +27,13 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 	let user = useAppSelector(selectUser);
 	let { dollarRate } = useAppSelector(selectUser);
 	let dispatch = useDispatch();
-	let onNextPress = (items) => {
+	let onNextPress = (item, id) => {
 		//@ts-ignore
+		console.log(item);
+
 		navigation.navigate(Routes.LEAVE_FEEDBACK, {
 			product_id: id,
-			orderItems: items,
+			orderItem: item,
 		});
 	};
 
@@ -105,7 +107,7 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 											</Text>
 										</View>
 									</View>
-									{e?.items?.map((el) => {
+									{e?.items?.map((el, i) => {
 										let img = products?.find(
 											(e) => el.product_id === e.id
 										)?.image;
@@ -121,6 +123,32 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 														img,
 													}}
 												/>
+												{e.status == 1 && (
+													<TouchableOpacity
+														onPress={() =>
+															onNextPress(
+																e?.items[i],
+																i
+															)
+														}
+													>
+														<View
+															style={
+																styles.button
+															}
+														>
+															<Text
+																style={
+																	styles.colorText
+																}
+															>
+																{
+																	strings.leaveFeedback
+																}
+															</Text>
+														</View>
+													</TouchableOpacity>
+												)}
 											</View>
 										);
 									})}
@@ -153,19 +181,17 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 											</Text>
 										</View>
 									</View>
-									{e.status === 1 ? (
-										<TouchableOpacity
-											onPress={() =>
-												onNextPress(e?.items || [])
-											}
-										>
-											<View style={styles.button}>
-												<Text style={styles.colorText}>
-													{strings.leaveFeedback}
-												</Text>
-											</View>
-										</TouchableOpacity>
-									) : e.installment_plan === null ? (
+									{e.status ===
+									1 ? // 		onNextPress(e?.items || []) // 	onPress={() => // <TouchableOpacity
+									// 	}
+									// >
+									// 	<View style={styles.button}>
+									// 		<Text style={styles.colorText}>
+									// 			{strings.leaveFeedback}
+									// 		</Text>
+									// 	</View>
+									// </TouchableOpacity>
+									null : e.installment_plan === null ? (
 										<TouchableOpacity
 											onPress={() => onBackPress(e)}
 										>

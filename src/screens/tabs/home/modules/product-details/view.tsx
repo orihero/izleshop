@@ -1,5 +1,10 @@
 import { useNavigation } from '@react-navigation/core';
-import { CartIcon, HeartIcon, PressableIcon } from 'assets/icons/icons';
+import {
+	CartIcon,
+	ChevronRightIcon,
+	HeartIcon,
+	PressableIcon,
+} from 'assets/icons/icons';
 import DefaultButton from 'components/general/DefaultButton';
 import Header from 'components/navigation/Header';
 import Accordion from 'components/special/Accordion';
@@ -11,10 +16,13 @@ import { Routes } from 'constants/routes';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
 import { accordionData, item } from 'mockup/data';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
+	Alert,
+	Dimensions,
 	FlatList,
 	Platform,
+	Pressable,
 	ScrollView,
 	Text,
 	ToastAndroid,
@@ -38,6 +46,8 @@ import { selectDollarRate } from 'store/slices/userSlice';
 import { ActivityIndicator } from 'react-native-paper';
 import { Modal } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import { Screen } from 'react-native-screens';
+import RenderHTML from 'react-native-render-html';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
@@ -45,6 +55,7 @@ export interface ProductDetailsViewProps {
 	details: any;
 	loading: boolean;
 	value: string;
+	items: any;
 }
 
 const ProductDetailsView = ({
@@ -52,9 +63,14 @@ const ProductDetailsView = ({
 	activeSlide,
 	details,
 	loading,
+	items,
 	value,
+	comments,
 }: ProductDetailsViewProps) => {
 	const [modalVisible, setModalVisible] = useState(false);
+	const [open, setOpen] = useState(0);
+	const [information, setInformation] = useState(true);
+	const [characteristic, setCharacteristic] = useState(true);
 
 	let navigation = useNavigation();
 	let favorites = useAppSelector(selectFavorites);
@@ -64,19 +80,19 @@ const ProductDetailsView = ({
 	let dispatch = useAppDispatch();
 	let dollarRate = useAppSelector(selectDollarRate);
 
-	let ListEmptyComponent = () => {
-		return (
-			<View style={styles.emptyContainer}>
-				<Shimmer
-					LinearGradient={LinearGradient}
-					style={[styles.emptyCard]}
-				/>
-				<Shimmer
-					LinearGradient={LinearGradient}
-					style={[styles.emptyCard]}
-				/>
-			</View>
-		);
+	const onChangeContent = (index: number) => {
+		if (index === 1) {
+			//@ts-ignore
+			navigation.navigate(Routes.WITHOUT_TABS, {
+				screen: Routes.INSTALLMENT,
+				params: { data: details },
+			});
+		} else if (open === index) {
+			setOpen(0);
+			return;
+		}
+
+		setOpen(index);
 	};
 	let onHeartPress = () => {
 		if (isFavorite) {
@@ -107,10 +123,22 @@ const ProductDetailsView = ({
 		navigation.navigate(Routes.CART);
 	};
 
-	let onBackPress = () => {
-		navigation.navigate(Routes.HOME);
+	let onHindPress = () => {
+		navigation.navigate(Routes.WITHOUT_TABS, {
+			screen: Routes.INSTALLMENT,
+			params: { data: details },
+		});
 	};
-
+	let onReversPress = () => {
+		if (!comments || comments.length <= 0) {
+			Alert.alert(strings.warning, strings.noComments);
+			return;
+		}
+		navigation.navigate(Routes.WITHOUT_TABS, {
+			screen: Routes.COMMENTS,
+			params: { comments },
+		});
+	};
 	let p = (details.price * dollarRate)
 		.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -191,12 +219,114 @@ const ProductDetailsView = ({
 						)}
 					</View>
 				</View>
+
 				<View style={styles.accordion}>
-					<Accordion
-						items={accordionData}
-						characteristics={details.characteristics}
-						details={details}
-					/>
+					<TouchableOpacity onPress={onHindPress}>
+						<View style={styles.box}>
+							<Text style={styles.text}>
+								{strings.installment}
+							</Text>
+							<ChevronRightIcon size={20} />
+						</View>
+					</TouchableOpacity>
+					<View style={styles.line}></View>
+					<View>
+						<TouchableOpacity
+							onPress={() => {
+								setInformation(!information);
+							}}
+						>
+							<View style={styles.box}>
+								<Text style={styles.text}>
+									{strings.information}
+								</Text>
+
+								<View
+									style={
+										information === false
+											? styles.opened
+											: styles.closed
+									}
+								>
+									<ChevronRightIcon
+										size={20}
+										color={
+											information === false
+												? colors.blue
+												: colors.black
+										}
+									/>
+								</View>
+							</View>
+						</TouchableOpacity>
+						{!information ? (
+							<View
+								style={{
+									padding: 10,
+									marginHorizontal: 5,
+									paddingHorizontal: 15,
+									backgroundColor: colors.white,
+								}}
+							>
+								<Text style={styles.text6}>{details.name}</Text>
+								<RenderHTML
+									source={{ html: details.description }}
+									contentWidth={
+										Dimensions.get('window').width - 50
+									}
+								/>
+							</View>
+						) : null}
+					</View>
+					<View style={styles.line}></View>
+					<View>
+						<TouchableOpacity
+							onPress={() => {
+								setCharacteristic(!characteristic);
+							}}
+						>
+							<View style={styles.box}>
+								<Text style={styles.text}>
+									{strings.characteristic}
+								</Text>
+								<View
+									style={
+										characteristic === false
+											? styles.opened
+											: styles.closed
+									}
+								>
+									<ChevronRightIcon
+										size={20}
+										color={
+											characteristic === false
+												? colors.blue
+												: colors.black
+										}
+									/>
+								</View>
+							</View>
+						</TouchableOpacity>
+						{!characteristic ? (
+							<View
+								style={{
+									marginHorizontal: 5,
+									backgroundColor: colors.white,
+								}}
+							>
+								<RenderHTML
+									source={{ html: details.characteristic }}
+								/>
+							</View>
+						) : null}
+					</View>
+					<View style={styles.line}></View>
+					<TouchableOpacity onPress={onReversPress}>
+						<View style={styles.box}>
+							<Text style={styles.text}>{strings.reviews}</Text>
+							<ChevronRightIcon size={20} />
+						</View>
+					</TouchableOpacity>
 				</View>
 				{details.relatedProducts && details.relatedProducts.length > 0 && (
 					<View style={styles.mt20}>

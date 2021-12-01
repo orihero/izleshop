@@ -136,5 +136,10 @@ export let strings = new LocalizedStrings({
 		monthlyPaymentText: 'Ежемесячный платеж',
 		cartText: 'К сожалению, в вашей корзине еще нет товаров.',
 		heartText: 'К сожалению, в вашей избранное  еще нет товаров.',
+		information: 'Информация',
+		characteristic: 'Характеристика',
+		reviews: 'Отзывы',
+		noComments: 'О  продукте  нет  комментариев',
+		setReviews: 'Отзывы отправлены',
 	},
 });

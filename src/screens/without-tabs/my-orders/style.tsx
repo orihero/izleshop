@@ -65,14 +65,14 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	button: {
-		width: 335,
+		width: windowWidth - 40,
 		height: 40,
 		marginTop: 20,
-		marginLeft: 10,
+		borderRadius: 5,
+		marginHorizontal: 4,
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: 'pink',
-		// backgroundColor: colors.lightPink,
 	},
 	colorText: {
 		fontSize: 13,

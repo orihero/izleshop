@@ -33,7 +33,7 @@ const ProductDetailsController = ({ route, navigation }) => {
 	const [activeSlide, setActiveSlide] = useState(0);
 	return (
 		<ProductDetailsView
-			{...{ activeSlide, setActiveSlide, details, loading }}
+			{...{ activeSlide, setActiveSlide, details, loading, comments }}
 		/>
 	);
 };

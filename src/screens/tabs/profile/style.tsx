@@ -83,7 +83,9 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	profile: {
-		width: 260,
+		width: windowWidth - 120,
+		paddingHorizontal: 5,
+		alignItems: 'center',
 		// paddingTop: 5,
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
@@ -98,16 +100,17 @@ export const styles = StyleSheet.create({
 	},
 	flag: {
 		paddingTop: 5,
+		alignItems: 'center',
 		flexDirection: 'row',
-		paddingHorizontal: 2,
+		justifyContent: 'space-between',
 	},
 	imageFlag: {
 		width: 18,
 		height: 18,
 	},
 	setting: {
+		paddingLeft: 10,
 		marginHorizontal: 5,
-		paddingRight: 20,
 	},
 	news: {
 		height: 187,
@@ -120,7 +123,7 @@ export const styles = StyleSheet.create({
 	},
 	orders: {
 		width: windowWidth - 40,
-		height: 130,
+		height: 140,
 		marginHorizontal: 20,
 		marginTop: 10,
 		borderRadius: 7,
@@ -157,7 +160,7 @@ export const styles = StyleSheet.create({
 		borderColor: colors.lightGray,
 	},
 	dispatch: {
-		height: 70,
+		height: 80,
 		marginHorizontal: 10,
 		flexDirection: 'row',
 		justifyContent: 'space-around',
