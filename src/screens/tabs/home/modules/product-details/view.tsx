@@ -264,6 +264,7 @@ const ProductDetailsView = ({
 								style={{
 									padding: 10,
 									marginHorizontal: 5,
+									paddingHorizontal: 15,
 									backgroundColor: colors.white,
 								}}
 							>
@@ -309,8 +310,8 @@ const ProductDetailsView = ({
 						{!characteristic ? (
 							<View
 								style={{
-									backgroundColor: colors.white,
 									marginHorizontal: 5,
+									backgroundColor: colors.white,
 								}}
 							>
 								<RenderHTML

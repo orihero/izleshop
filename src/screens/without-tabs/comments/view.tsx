@@ -28,11 +28,13 @@ const CommentsView = ({}: ICommentsView) => {
 								</View>
 								<View style={styles.textBox}>
 									<View style={styles.userName}>
-										<Text>{e.user_name}</Text>
-										<Image
-											style={styles.flag}
-											source={require('assets/images/flagUzbekiston.jpg')}
-										/>
+										<View style={styles.name}>
+											<Text>{e.user_name}</Text>
+											<Image
+												style={styles.flag}
+												source={require('assets/images/flagUzbekiston.jpg')}
+											/>
+										</View>
 										<View style={styles.rating}>
 											<Rating />
 										</View>

@@ -20,37 +20,41 @@ const LeaveFeedbackView = () => {
 	let user = useAppSelector(selectUser);
 	const [message, setMessage] = useState('');
 	let dispatch = useDispatch();
-	let { orderItems } = useRoute().params || {};
-	let onNextPress = async () => {
-		console.log('DASDAS');
+	let { orderItem } = useRoute().params || {};
+	console.log({ orderItem });
 
+	let onNextPress = async () => {
 		let request = {
-			user_id: user.userData?.id || '',
-			product_id: orderItems[0].product_id,
+			user_name: user.userData?.first_name || '',
+			product_id: orderItem.product_id,
 			message,
 		};
-		console.log({ request });
+		console.log(request);
 
 		try {
 			setLoading(true);
 			let response = await requests.product.createReview(request);
-			Alert.alert(strings.setReviews);
 		} catch (error) {
 			console.error(error);
 		}
+		Alert.alert(strings.warning, strings.setReviews, [
+			{
+				// onPress: () => navigation.navigate(Routes.TABS),
+				onPress: () => navigation.goBack(),
+			},
+		]);
 		setLoading(false);
 		//@ts-ignore
-		navigation.navigate(Routes.TABS);
 	};
 	return (
 		<ProfileLayout headerTitle={strings.leaveFeedbacks || ''}>
 			<View style={styles.container}>
 				<View style={styles.header}>
-					{orderItems?.map((e, i) => (
-						<View key={i} style={styles.mt10}>
-							<OrderItem item={e} />
-						</View>
-					))}
+					{/* {orderItems?.map((e, i) => ( */}
+					<View style={styles.mt10}>
+						<OrderItem item={orderItem} />
+					</View>
+					{/* ))} */}
 				</View>
 				<View style={styles.box}>
 					<Text style={styles.text}>{strings.yourMark}</Text>

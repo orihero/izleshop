@@ -102,15 +102,15 @@ export const styles = StyleSheet.create({
 		paddingTop: 5,
 		alignItems: 'center',
 		flexDirection: 'row',
-		paddingHorizontal: 15,
+		justifyContent: 'space-between',
 	},
 	imageFlag: {
 		width: 18,
 		height: 18,
 	},
 	setting: {
+		paddingLeft: 10,
 		marginHorizontal: 5,
-		paddingRight: 20,
 	},
 	news: {
 		height: 187,

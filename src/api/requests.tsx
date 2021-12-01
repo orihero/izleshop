@@ -68,7 +68,7 @@ export let requests = {
 			axios.post(`${url}/makeOrder`, credentials),
 		getDollarRate: () => axios.get(`${url}/getDollarRate`),
 		createReview: (data: {
-			user_id: string | number;
+			user_name: string | number;
 			product_id: string | number;
 			message: string;
 		}) => {

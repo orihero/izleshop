@@ -100,11 +100,7 @@ const InstallmentView = ({}) => {
 
 	return (
 		<View style={styles.container}>
-			<Header
-				title={strings.installment}
-				bold
-				rightEdge={() => <SearchIcon size={20} />}
-			/>
+			<Header title={strings.installment} bold />
 			<View style={styles.installment}>
 				<Text style={styles.name}>{strings.name} : </Text>
 				<Text numberOfLines={1} style={styles.text}>

@@ -25,9 +25,14 @@ const styles = StyleSheet.create({
 		marginLeft: 10,
 	},
 	userName: {
-		// justifyContent: 'space-between',
 		alignItems: 'center',
 		flexDirection: 'row',
+		justifyContent: 'space-between',
+	},
+	name: {
+		alignItems: 'center',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 	flag: {
 		margin: 5,
@@ -36,7 +41,7 @@ const styles = StyleSheet.create({
 	},
 	rating: {
 		alignItems: 'center',
-		marginHorizontal: 50,
+		marginBottom: 6,
 	},
 	data: {
 		marginVertical: 10,

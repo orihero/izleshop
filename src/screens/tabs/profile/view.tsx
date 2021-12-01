@@ -141,10 +141,14 @@ const ProfileView = ({}: IProfileViewProps) => {
 								</Text>
 							</View>
 							<View style={styles.flag}>
-								<Image
-									style={styles.imageFlag}
-									source={require('assets/images/flag.png')}
-								/>
+								<TouchableOpacity
+									onPress={() => onPress(Routes.LANGUAGE)}
+								>
+									<Image
+										style={styles.imageFlag}
+										source={require('assets/images/flag.png')}
+									/>
+								</TouchableOpacity>
 								<TouchableOpacity
 									style={styles.setting}
 									onPress={() => onPress(Routes.SETTINGS)}

@@ -18,9 +18,10 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	img: {
-		width: 275,
+		width: 300,
 		height: 150,
 		marginTop: 10,
+		resizeMode: 'contain',
 		marginVertical: 10,
 	},
 	text: {
