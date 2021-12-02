@@ -35,19 +35,10 @@ export const styles = StyleSheet.create({
 	rating: {
 		paddingBottom: 10,
 	},
-	numberBox: {
-		flexDirection: 'row',
-	},
-	number: {
-		fontSize: 22,
-	},
-	numbers: {
-		fontSize: 15,
-		paddingTop: 8,
-		color: colors.leghtGrey1,
-	},
+
 	input: {
 		height: 130,
+		elevation: 5,
 		width: windowWidth,
 		backgroundColor: colors.white,
 	},
@@ -76,9 +67,53 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 40,
 	},
 	button: {
-		height: windowHeight - 480,
-		marginVertical: 10,
+		marginTop: 220,
+		marginVertical: 20,
 		marginHorizontal: 10,
 		justifyContent: 'flex-end',
+	},
+	picker: {
+		width: windowWidth,
+		height: 140,
+		marginTop: 10,
+		elevation: 5,
+		backgroundColor: colors.white,
+	},
+	path: {
+		borderWidth: 1,
+	},
+	contain: {
+		flex: 1,
+		padding: 10,
+		backgroundColor: '#fff',
+		alignItems: 'center',
+	},
+	titleText: {
+		fontSize: 22,
+		fontWeight: 'bold',
+		textAlign: 'center',
+		paddingVertical: 20,
+	},
+	textStyle: {
+		padding: 10,
+		borderWidth: 1,
+		color: 'black',
+		textAlign: 'center',
+	},
+	buttonStyle: {
+		alignItems: 'center',
+		backgroundColor: '#DDDDDD',
+		padding: 5,
+		marginVertical: 10,
+		width: 250,
+	},
+	imageStyle: {
+		width: 200,
+		height: 200,
+		margin: 5,
+	},
+	screen: {
+		marginTop: -20,
+		backgroundColor: colors.white,
 	},
 });

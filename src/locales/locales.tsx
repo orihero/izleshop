@@ -141,5 +141,7 @@ export let strings = new LocalizedStrings({
 		reviews: 'Отзывы',
 		noComments: 'О  продукте  нет  комментариев',
 		setReviews: 'Отзывы отправлены',
+		foto: 'Фото',
+		necessary: '(не обязательно)',
 	},
 });

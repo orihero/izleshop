@@ -26,7 +26,11 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
-import { selectUser, userLoggedOut } from 'store/slices/userSlice';
+import {
+	selectUser,
+	setUserOrders,
+	userLoggedOut,
+} from 'store/slices/userSlice';
 import { debounce, throttle } from 'underscore';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
@@ -87,14 +91,16 @@ const ProfileView = ({}: IProfileViewProps) => {
 	let onPickOrders = (status: number) => {
 		navigation.navigate(Routes.WITHOUT_TABS, {
 			screen: Routes.MY_ORDERS,
-			params: { orders: orders.filter((e) => e.status === status) },
+			params: { orders: user.orders.filter((e) => e.status === status) },
 		});
 	};
 	let effect = async () => {
 		try {
 			let res = await requests.product.getNews();
 			let ordersRes = await requests.product.getUserOrders();
-			setOrders(ordersRes.data);
+			console.log(user.orders);
+
+			dispatch(setUserOrders(ordersRes.data));
 			setNews(res.data);
 			// setBanners(res.data.filter((e) => e.for_app === 1));
 		} catch (error) {}
@@ -162,7 +168,9 @@ const ProfileView = ({}: IProfileViewProps) => {
 								<TouchableOpacity
 									style={styles.orderView}
 									onPress={() =>
-										onPress(Routes.MY_ORDERS, { orders })
+										onPress(Routes.MY_ORDERS, {
+											orders: user.orders,
+										})
 									}
 								>
 									<Text
@@ -185,7 +193,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 							<View style={styles.dispatch}>
 								{ordersMap.map(
 									({ icon: Icon, size, string, status }) => {
-										let count = orders.reduce(
+										let count = user.orders.reduce(
 											(p, c) =>
 												p +
 												(c.status === status ? 1 : 0),
@@ -207,14 +215,18 @@ const ProfileView = ({}: IProfileViewProps) => {
 														{string}
 													</Text>
 													{count > 0 && (
-														<View style={styles.number}>
-															<Text
+														<View
 															style={
-																styles.countIndicator
+																styles.number
 															}
 														>
-															{count}
-														</Text>
+															<Text
+																style={
+																	styles.countIndicator
+																}
+															>
+																{count}
+															</Text>
 														</View>
 													)}
 												</View>

@@ -32,7 +32,7 @@ const MyProfileView = ({}: IProfileViewProps) => {
 			>
 				<View style={styles.news}>
 					<View style={styles.component}>
-						<Text style={styles.textOne}>Что нового?</Text>/
+						<Text style={styles.textOne}>Что нового?</Text>
 						<TouchableOpacity
 							style={styles.viewAll}
 							onPress={() => onPress(Routes.VIEW_ALL)}
@@ -43,9 +43,9 @@ const MyProfileView = ({}: IProfileViewProps) => {
 							<ChevronRightIcon size={8} />
 						</TouchableOpacity>
 					</View>
-					<Image
+					{/* <Image
 						source={require('../../../assets/images/image.png')}
-					/>
+					/> */}
 				</View>
 				<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
 					<MenuLink text={strings.helpSupport} />

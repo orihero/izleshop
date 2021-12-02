@@ -8,7 +8,11 @@ import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
 import React, { useEffect, useState } from 'react';
 import { Alert, Linking, Platform, ScrollView, Text, View } from 'react-native';
-import { selectUser, setUserPhone } from 'store/slices/userSlice';
+import {
+	selectUser,
+	setUserOrders,
+	setUserPhone,
+} from 'store/slices/userSlice';
 import { clearCart } from 'store/slices/cartSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
@@ -141,6 +145,8 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				installment_plan: installment_plan,
 			};
 			let response = await requests.product.makeOrder(req);
+			let orderRes = await requests.product.getUserOrders();
+			dispatch(setUserOrders(orderRes.data));
 			console.log(response);
 			if (Platform.OS === 'ios') {
 				Alert.alert(strings.warning, strings.success, [

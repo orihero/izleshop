@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { store } from 'store/configureStore';
 import { UserData, UserFullData } from 'store/slices/userSlice';
+import * as ImagePicker from 'react-native-image-picker';
 
 export let url = 'https://izleshop.uz/api';
 
@@ -19,6 +20,29 @@ axios.interceptors.response.use((e) => {
 	return e;
 });
 //?page=${page}&pageSize=${pageSize}
+
+export let formData = (rawData) => {
+	let form = new FormData();
+	Object.keys(rawData).forEach((key) => {
+		if (Array.isArray(rawData[key])) {
+			let obj = rawData[key];
+			for (let index in obj) {
+				form.append(`${key}[${index}]`, obj[index]);
+			}
+			return;
+		}
+		if (typeof rawData[key] === 'object') {
+			let obj = rawData[key];
+			let i = 0;
+			Object.keys(obj).forEach((id, index) => {
+				if (obj[id]) form.append(`${key}[${i++}]`, parseInt(id));
+			});
+			return;
+		}
+		form.append(key, rawData[key]);
+	});
+	return form;
+};
 
 export let requests = {
 	helpers: {
@@ -71,14 +95,29 @@ export let requests = {
 			user_name: string | number;
 			product_id: string | number;
 			message: string;
+			image: ImagePicker.Asset;
 		}) => {
 			let form = new FormData();
 
 			Object.keys(data).forEach((e) => {
+				if (e == 'image') {
+					console.log('image form');
+					form.append(e, {
+						uri: data.image.uri,
+						type: data.image.type,
+						name: 'image.jpg',
+						// data: data.image.base64,
+					});
+
+					return;
+				}
 				form.append(e, data[e]);
 			});
+			console.log({ form });
 
-			return axios.post(`${url}/createReview`, form);
+			return axios.post(`${url}/createReview`, form, {
+				headers: { 'Content-Type': 'multipart/form-data' },
+			});
 		},
 	},
 };

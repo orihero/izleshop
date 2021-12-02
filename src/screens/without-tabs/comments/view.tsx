@@ -23,7 +23,7 @@ const CommentsView = ({}: ICommentsView) => {
 								<View>
 									<Image
 										style={styles.userImage}
-										source={require('assets/images/user.png')}
+										source={e.image}
 									/>
 								</View>
 								<View style={styles.textBox}>

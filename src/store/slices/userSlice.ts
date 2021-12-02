@@ -26,6 +26,7 @@ export interface UserFullData {
 	userData: UserData;
 	token: string;
 	dollarRate: number;
+	orders: any[];
 }
 
 let initialState: {
@@ -33,6 +34,7 @@ let initialState: {
 	userData?: UserData;
 	languageIndex: number;
 	dollarRate: number;
+	orders: [];
 } = {
 	languageIndex: 0,
 	token: '',
@@ -73,6 +75,9 @@ let userSlice = createSlice({
 		setDollarRate: (state, action: PayloadAction<number>) => {
 			return { ...state, dollarRate: action.payload };
 		},
+		setUserOrders: (state, action: PayloadAction<any[]>) => {
+			return { ...state, orders: action.payload };
+		},
 	},
 });
 export let selectDollarRate = (state: RootState) => state.user.dollarRate;
@@ -85,5 +90,7 @@ export let {
 	setUserData,
 	setProfileData,
 	setDollarRate,
+	setUserOrders,
 } = userSlice.actions;
+
 export default userSlice.reducer;

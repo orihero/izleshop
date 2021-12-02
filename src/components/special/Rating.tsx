@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import {
+	StyleSheet,
+	TouchableOpacity,
+	TouchableWithoutFeedback,
+	View,
+} from 'react-native';
 
 import { StarIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
@@ -36,7 +41,7 @@ const Rating = ({
 		>
 			{arr.map((_, i) => {
 				return (
-					<TouchableWithoutFeedback
+					<TouchableOpacity
 						onPress={
 							readOnly ? undefined : () => onStarPress(i + 1)
 						}
@@ -50,7 +55,7 @@ const Rating = ({
 								i < activeCount ? colors.yellow : colors.gray
 							}
 						/>
-					</TouchableWithoutFeedback>
+					</TouchableOpacity>
 				);
 			})}
 		</View>
