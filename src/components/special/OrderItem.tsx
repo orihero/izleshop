@@ -30,11 +30,11 @@ const OrderItem = ({ item = {} }: OrderItemProps) => {
 
 	let onNextPress = () => {
 		//@ts-ignore
-		navigation.navigate(Routes.PRODUCT_DETAILS);
-		// navigation.navigate(Routes.HOME_STACK, {
-		// 	screen: Routes.PRODUCT_DETAILS,
-		// 	params: { item },
-		// });
+		// navigation.navigate(Routes.PRODUCT_DETAILS);
+		navigation.navigate(Routes.HOME_STACK, {
+			screen: Routes.PRODUCT_DETAILS,
+			params: { id: item.id },
+		});
 	};
 
 	return (

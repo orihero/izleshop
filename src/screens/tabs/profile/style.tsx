@@ -123,7 +123,7 @@ export const styles = StyleSheet.create({
 	},
 	orders: {
 		width: windowWidth - 40,
-		height: 140,
+		height: 120,
 		marginHorizontal: 20,
 		marginTop: 10,
 		borderRadius: 7,
@@ -162,6 +162,7 @@ export const styles = StyleSheet.create({
 	dispatch: {
 		height: 80,
 		marginHorizontal: 10,
+		// alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 	},
@@ -218,8 +219,8 @@ export const styles = StyleSheet.create({
 		width: 15,
 		paddingTop: 4,
 	},
-	number:{
-		justifyContent:'center',
+	number: {
+		justifyContent: 'center',
 		alignItems: 'center',
 		position: 'absolute',
 		width: 18,
@@ -230,7 +231,6 @@ export const styles = StyleSheet.create({
 		top: 4,
 	},
 	countIndicator: {
-		
 		color: colors.white,
 		textAlignVertical: 'center',
 		textAlign: 'center',

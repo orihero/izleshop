@@ -18,12 +18,14 @@ const CommentsView = ({}: ICommentsView) => {
 				<View style={styles.container}>
 					{comments?.map((e) => {
 						let time = new Date(e.created_at);
+						console.log(e.image);
+
 						return (
 							<View style={styles.boxOne}>
 								<View>
 									<Image
 										style={styles.userImage}
-										source={e.image}
+										source={require('assets/images/user.png')}
 									/>
 								</View>
 								<View style={styles.textBox}>
@@ -46,6 +48,12 @@ const CommentsView = ({}: ICommentsView) => {
 										<Text style={styles.lorem}>
 											{e.message}
 										</Text>
+									</View>
+									<View style={styles.imageBox}>
+										<Image
+											style={styles.image}
+											source={e.image}
+										/>
 									</View>
 								</View>
 							</View>

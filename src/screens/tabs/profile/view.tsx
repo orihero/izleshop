@@ -234,7 +234,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 									}
 								)}
 							</View>
-							<Text style={styles.line} />
+							{/* <Text style={styles.line} />
 							<View style={styles.lol}>
 								<TouchableOpacity
 									style={styles.reviews}
@@ -245,7 +245,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 									</Text>
 									<ChevronRightIcon size={10} />
 								</TouchableOpacity>
-							</View>
+							</View> */}
 						</View>
 					</>
 				)}

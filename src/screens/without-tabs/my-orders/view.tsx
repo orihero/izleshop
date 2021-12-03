@@ -36,11 +36,6 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 			orderItem: item,
 		});
 	};
-
-	let onProductPress = (id) => {
-		navigation.navigate(Routes.PRODUCT_DETAILS, { id });
-	};
-
 	let onBackPress = async (el) => {
 		//@ts-ignore
 

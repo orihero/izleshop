@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	avatar: {
+		resizeMode: 'contain',
 		paddingHorizontal: 20,
 		backgroundColor: colors.white,
 	},
