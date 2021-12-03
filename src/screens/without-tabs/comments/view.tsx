@@ -36,7 +36,7 @@ const CommentsView = ({}: ICommentsView) => {
 											/>
 										</View>
 										<View style={styles.rating}>
-											<Rating />
+											<Rating readOnly={true} />
 										</View>
 									</View>
 									<View style={styles.data}>

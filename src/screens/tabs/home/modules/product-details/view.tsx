@@ -120,7 +120,7 @@ const ProductDetailsView = ({
 		} else {
 			dispatch(addToCart(details));
 		}
-		navigation.navigate(Routes.CART);
+		navigation.navigate(Routes.CART_STACK);
 	};
 
 	let onHindPress = () => {
@@ -310,6 +310,8 @@ const ProductDetailsView = ({
 						{!characteristic ? (
 							<View
 								style={{
+									paddingHorizontal: 15,
+									paddingLeft: 10,
 									marginHorizontal: 5,
 									backgroundColor: colors.white,
 								}}

@@ -16,8 +16,6 @@ const HelpSupportView = () => {
 			phoneNumber = `telprompt:${number}`;
 		}
 
-		console.log(number);
-
 		Linking.openURL(phoneNumber);
 	};
 	return (

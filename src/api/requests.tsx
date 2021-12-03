@@ -8,7 +8,6 @@ export let url = 'https://izleshop.uz/api';
 axios.interceptors.request.use((e) => {
 	if (!!store.getState().user.token)
 		e.headers.Authorization = `Bearer ${store.getState().user.token}`;
-	console.log(e);
 	return e;
 });
 
@@ -101,7 +100,6 @@ export let requests = {
 
 			Object.keys(data).forEach((e) => {
 				if (e == 'image') {
-					console.log('image form');
 					form.append(e, {
 						uri: data.image.uri,
 						type: data.image.type,
@@ -113,7 +111,6 @@ export let requests = {
 				}
 				form.append(e, data[e]);
 			});
-			console.log({ form });
 
 			return axios.post(`${url}/createReview`, form, {
 				headers: { 'Content-Type': 'multipart/form-data' },

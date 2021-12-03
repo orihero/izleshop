@@ -48,7 +48,7 @@ export interface IAccordion {
 	hasCount?: Boolean;
 	hasRoute?: Boolean;
 	characteristics?: boolean;
-	hasInformation?: boolean
+	hasInformation?: boolean;
 }
 
 export const accordionData: IAccordion[] = [
@@ -59,7 +59,7 @@ export const accordionData: IAccordion[] = [
 	},
 	{
 		title: 'Информация',
-		hasInformation: true
+		hasInformation: true,
 	},
 	{
 		title: 'Характеристика',

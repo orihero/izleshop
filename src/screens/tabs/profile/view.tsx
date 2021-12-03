@@ -98,7 +98,6 @@ const ProfileView = ({}: IProfileViewProps) => {
 		try {
 			let res = await requests.product.getNews();
 			let ordersRes = await requests.product.getUserOrders();
-			console.log(user.orders);
 
 			dispatch(setUserOrders(ordersRes.data));
 			setNews(res.data);
@@ -193,7 +192,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 							<View style={styles.dispatch}>
 								{ordersMap.map(
 									({ icon: Icon, size, string, status }) => {
-										let count = user.orders.reduce(
+										let count = user.orders?.reduce(
 											(p, c) =>
 												p +
 												(c.status === status ? 1 : 0),

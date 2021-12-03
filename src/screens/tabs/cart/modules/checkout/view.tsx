@@ -147,7 +147,6 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 			let response = await requests.product.makeOrder(req);
 			let orderRes = await requests.product.getUserOrders();
 			dispatch(setUserOrders(orderRes.data));
-			console.log(response);
 			if (Platform.OS === 'ios') {
 				Alert.alert(strings.warning, strings.success, [
 					{

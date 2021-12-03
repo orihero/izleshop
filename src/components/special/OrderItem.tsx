@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import {
+	StyleSheet,
+	Text,
+	View,
+	Image,
+	TouchableOpacity,
+	TouchableWithoutFeedback,
+} from 'react-native';
 import { orderItems } from 'mockup/data';
 import { useAppSelector } from 'utils/hooks';
 import { useNavigation } from '@react-navigation/core';
@@ -21,13 +28,17 @@ const OrderItem = ({ item = {} }: OrderItemProps) => {
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 	p = p.substr(0, p.length - 2) + '00';
 
-	let onNextPress = (id) => {
+	let onNextPress = () => {
 		//@ts-ignore
-		navigation.navigate(Routes.LEAVE_FEEDBACK, { product_id: id });
+		navigation.navigate(Routes.PRODUCT_DETAILS);
+		// navigation.navigate(Routes.HOME_STACK, {
+		// 	screen: Routes.PRODUCT_DETAILS,
+		// 	params: { item },
+		// });
 	};
 
 	return (
-		<View style={styles.container}>
+		<TouchableOpacity onPress={onNextPress} style={styles.container}>
 			<View style={styles.img}>
 				<Image
 					source={{
@@ -42,7 +53,7 @@ const OrderItem = ({ item = {} }: OrderItemProps) => {
 					{p}- {item.amount} шт
 				</Text>
 			</View>
-		</View>
+		</TouchableOpacity>
 	);
 };
 

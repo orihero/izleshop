@@ -46,12 +46,9 @@ const LeaveFeedbackView = () => {
 			image: !!pickerResponse && pickerResponse?.assets[0],
 		};
 
-		console.log(request);
-
 		try {
 			setLoading(true);
 			let response = await requests.product.createReview(request);
-			console.log(response.data);
 		} catch (error) {
 			console.error(error, 'error in creating review');
 		}
@@ -89,9 +86,7 @@ const LeaveFeedbackView = () => {
 	const uri = pickerResponse?.assets && pickerResponse.assets[0].uri;
 	// const base = pickerResponse?.assets && pickerResponse.assets[0].base64;
 
-	useEffect(() => {
-		console.log(pickerResponse);
-	}, [pickerResponse]);
+	useEffect(() => {}, [pickerResponse]);
 
 	return (
 		<ProfileLayout headerTitle={strings.leaveFeedbacks || ''}>

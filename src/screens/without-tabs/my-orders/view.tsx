@@ -9,6 +9,7 @@ import {
 	ScrollView,
 	Text,
 	TouchableOpacity,
+	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
@@ -29,12 +30,15 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 	let dispatch = useDispatch();
 	let onNextPress = (item, id) => {
 		//@ts-ignore
-		console.log(item);
 
 		navigation.navigate(Routes.LEAVE_FEEDBACK, {
 			product_id: id,
 			orderItem: item,
 		});
+	};
+
+	let onProductPress = (id) => {
+		navigation.navigate(Routes.PRODUCT_DETAILS, { id });
 	};
 
 	let onBackPress = async (el) => {
@@ -182,16 +186,7 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 										</View>
 									</View>
 									{e.status ===
-									1 ? // 		onNextPress(e?.items || []) // 	onPress={() => // <TouchableOpacity
-									// 	}
-									// >
-									// 	<View style={styles.button}>
-									// 		<Text style={styles.colorText}>
-									// 			{strings.leaveFeedback}
-									// 		</Text>
-									// 	</View>
-									// </TouchableOpacity>
-									null : e.installment_plan === null ? (
+									1 ? null : e.installment_plan === null ? ( // </TouchableOpacity> // 	</View> // 		</Text> // 			{strings.leaveFeedback} // 		<Text style={styles.colorText}> // 	<View style={styles.button}> // > // 	} // 		onNextPress(e?.items || []) // 	onPress={() => // <TouchableOpacity
 										<TouchableOpacity
 											onPress={() => onBackPress(e)}
 										>
