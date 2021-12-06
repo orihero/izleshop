@@ -275,7 +275,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 									style={styles.img}
 									source={
 										news.length > 0
-											? { uri: news[0].image }
+											? { uri: news[0].image_url }
 											: undefined
 									}
 								/>

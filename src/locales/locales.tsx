@@ -143,5 +143,6 @@ export let strings = new LocalizedStrings({
 		setReviews: 'Отзывы отправлены',
 		foto: 'Фото',
 		necessary: '(не обязательно)',
+		fillAllFields: 'Пожалуйста, заполните все поля',
 	},
 });

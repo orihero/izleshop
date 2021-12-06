@@ -99,6 +99,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	// let user = useAppSelector(selectUser);
 
 	let el = convertToMaskedPhone(user.userData?.phone || '');
+	console.log(user.userData?.phone);
 
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
@@ -113,6 +114,10 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	let dispatch = useAppDispatch();
 
 	let onNextPress = async () => {
+		if (!address || !name || !phone || !city || !district) {
+			Alert.alert(strings.warning, strings.fillAllFields);
+			return;
+		}
 		if (!user.token) {
 			SweetAlert.showAlertWithOptions(
 				{

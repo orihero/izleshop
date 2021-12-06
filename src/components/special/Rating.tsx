@@ -12,22 +12,23 @@ import { colors } from 'constants/colors';
 
 export interface RatingProps {
 	count?: number;
-	active?: number;
+	activeCount?: number;
 	readOnly?: boolean;
 	styleChanged?: boolean;
 	defaultStyle?: boolean;
 	size?: number;
+	setActiveCount: (num: number) => void;
 }
 
 const Rating = ({
 	count = 5,
-	active = 3,
+	activeCount = 3,
 	size = 18,
 	readOnly = false,
 	styleChanged = false,
 	defaultStyle = false,
+	setActiveCount = (n): void => {},
 }: RatingProps) => {
-	const [activeCount, setActiveCount] = useState(active);
 	let onStarPress = (count: number) => {
 		setActiveCount(count);
 	};

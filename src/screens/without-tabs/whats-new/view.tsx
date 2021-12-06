@@ -41,7 +41,7 @@ const WhatsNewView = ({ news }: IWhatsNewViewProps) => {
 								<View style={styles.box}>
 									<Image
 										style={styles.img}
-										source={{ uri: e.image }}
+										source={{ uri: e.image_url }}
 									/>
 								</View>
 							</TouchableOpacity>

@@ -37,6 +37,7 @@ const NamePageView = ({}: ILanguageProps) => {
 			let res = await requests.auth.editProfile(user?.userData?.id, {
 				...user.userData,
 				name: user.userData?.first_name,
+				phne: user.userData?.phone,
 			});
 		} catch (error) {
 		} finally {

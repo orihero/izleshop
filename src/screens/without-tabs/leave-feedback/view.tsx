@@ -1,34 +1,19 @@
 import { useNavigation, useRoute } from '@react-navigation/core';
-import axios from 'axios';
+import { requests } from 'api/requests';
 import DefaultButton from 'components/general/DefaultButton';
 import OrderItem from 'components/special/OrderItem';
 import Rating from 'components/special/Rating';
-import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-	Alert,
-	Text,
-	TextInput,
-	TouchableOpacity,
-	View,
-	Image,
-	Platform,
-	PermissionsAndroid,
-	ScrollView,
-} from 'react-native';
+import { Alert, Text, TextInput, View } from 'react-native';
+import * as ImagePicker from 'react-native-image-picker';
 import { useDispatch } from 'react-redux';
-import { requests } from 'api/requests';
 import { selectUser } from 'store/slices/userSlice';
 import { useAppSelector } from 'utils/hooks';
+import { ImagePickerAvatar } from '../components/image-picker-avatar';
+import { ImagePickerModal } from '../components/image-picker-modal';
 import ProfileLayout from '../ProfileLayout';
 import { styles } from './style';
-
-import * as ImagePicker from 'react-native-image-picker';
-
-import { ImagePickerHeader } from '../components/image-picker-header';
-import { ImagePickerModal } from '../components/image-picker-modal';
-import { ImagePickerAvatar } from '../components/image-picker-avatar';
 
 const LeaveFeedbackView = () => {
 	const [loading, setLoading] = useState(false);
@@ -36,29 +21,34 @@ const LeaveFeedbackView = () => {
 	let user = useAppSelector(selectUser);
 	const [message, setMessage] = useState('');
 	let dispatch = useDispatch();
+	const [activeCount, setActiveCount] = useState(3);
 	let { orderItem } = useRoute().params || {};
 
 	let onNextPress = async () => {
-		let request = {
-			user_name: user.userData?.first_name || '',
-			product_id: orderItem.product_id,
-			message,
-			image: !!pickerResponse && pickerResponse?.assets[0],
-		};
-
 		try {
-			setLoading(true);
-			let response = await requests.product.createReview(request);
+			let request = {
+				user_name: user.userData?.first_name || '',
+				product_id: orderItem.product_id,
+				message,
+				image: !!pickerResponse && pickerResponse?.assets[0],
+				rating: activeCount,
+			};
+
+			try {
+				setLoading(true);
+				let response = await requests.product.createReview(request);
+			} catch (error) {
+				console.error(error.response, 'error in creating review');
+			}
+			Alert.alert(strings.warning, strings.setReviews, [
+				{
+					onPress: () => navigation.goBack(),
+				},
+			]);
+			setLoading(false);
 		} catch (error) {
-			console.error(error, 'error in creating review');
+			console.error(error);
 		}
-		Alert.alert(strings.warning, strings.setReviews, [
-			{
-				// onPress: () => navigation.navigate(Routes.TABS),
-				onPress: () => navigation.goBack(),
-			},
-		]);
-		setLoading(false);
 		//@ts-ignore
 	};
 
@@ -69,24 +59,25 @@ const LeaveFeedbackView = () => {
 		const options = {
 			selectionLimit: 1,
 			mediaType: 'photo',
-			includeBase64: true,
 		};
-		ImagePicker.launchImageLibrary(options, setPickerResponse);
+		ImagePicker.launchImageLibrary(options, (e) => {
+			setPickerResponse(e);
+			setVisible(false);
+		});
 	}, []);
 
 	const onCameraPress = React.useCallback(() => {
 		const options = {
 			saveToPhotos: true,
 			mediaType: 'photo',
-			includeBase64: true,
 		};
-		ImagePicker.launchCamera(options, setPickerResponse);
+		ImagePicker.launchCamera(options, (e) => {
+			setPickerResponse(e);
+			setPickerResponse(false);
+		});
 	}, []);
 
 	const uri = pickerResponse?.assets && pickerResponse.assets[0].uri;
-	// const base = pickerResponse?.assets && pickerResponse.assets[0].base64;
-
-	useEffect(() => {}, [pickerResponse]);
 
 	return (
 		<ProfileLayout headerTitle={strings.leaveFeedbacks || ''}>
@@ -101,13 +92,16 @@ const LeaveFeedbackView = () => {
 				<View style={styles.box}>
 					<Text style={styles.text}>{strings.yourMark}</Text>
 					<View style={styles.rating}>
-						<Rating size={24} />
+						<Rating
+							{...{ activeCount, setActiveCount }}
+							size={24}
+						/>
 					</View>
 				</View>
 				<View style={styles.input}>
 					<View style={styles.textBox}>
 						<Text style={styles.help}>Отзыв </Text>
-						<Text style={styles.size}>(не обязательно)</Text>
+						{/* <Text style={styles.size}>(не обязательно)</Text> */}
 					</View>
 					<TextInput
 						value={message}
@@ -119,7 +113,7 @@ const LeaveFeedbackView = () => {
 				<View style={styles.picker}>
 					<View style={styles.textBox}>
 						<Text style={styles.help}> {strings.foto}</Text>
-						<Text style={styles.size}> {strings.necessary}</Text>
+						{/* <Text style={styles.size}> {strings.necessary}</Text> */}
 					</View>
 					<View style={styles.screen}>
 						<ImagePickerAvatar

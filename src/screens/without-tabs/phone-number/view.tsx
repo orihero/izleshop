@@ -14,6 +14,7 @@ import { colors } from 'constants/colors';
 import DefaultButton from 'components/general/DefaultButton';
 import { Routes } from 'constants/routes';
 import MaskInput from 'react-native-mask-input';
+import { requests } from 'api/requests';
 
 interface IPhoneNumberViewProps {
 	password: string;
@@ -31,11 +32,19 @@ const PhoneNumberView = ({}: IPhoneNumberViewProps) => {
 	};
 
 	const [loading, setLoading] = useState(false);
-	let onNextPress = () => {
+	let onNextPress = async () => {
 		if (loading) {
 			return;
 		}
 		setLoading(true);
+		try {
+			let res = await requests.auth.editProfile(user?.userData?.id, {
+				...user.userData,
+				name: 'user.userData?.first_name',
+				phoneNumber: user.userData?.phone,
+			});
+			console.log({ res: res.data });
+		} catch (error) {}
 		setLoading(false);
 		//@ts-ignore
 		navigation.navigate(Routes.SETTINGS);
