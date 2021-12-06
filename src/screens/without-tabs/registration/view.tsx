@@ -16,6 +16,7 @@ import {
 	setUserName,
 } from 'store/slices/userSlice';
 import { requests } from 'api/requests';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const languagesList = ['Русский', 'O’zbekcha', 'English'];
 
@@ -35,17 +36,21 @@ const RegistrationView = ({ language }: ILanguageProps) => {
 	};
 	const [loading, setLoading] = useState(false);
 	let onNextPress = async () => {
-		let res = await requests.auth.editProfile(user?.userData?.id, {
-			...user.userData,
-			name: user.userData?.first_name,
-		});
+		try {
+			let res = await requests.auth.editProfile(user?.userData?.id, {
+				...user.userData,
+				name: user.userData?.first_name,
+			});
+		} catch (error) {
+			console.error(error);
+		}
 
 		//@ts-ignore
 		navigation.navigate(Routes.TABS);
 	};
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			<View style={styles.top}>
 				<View style={styles.mt20}>
 					<View style={styles.mt12}>
@@ -104,7 +109,7 @@ const RegistrationView = ({ language }: ILanguageProps) => {
 					<Text style={styles.text3}>izle</Text>
 				</View>
 			</View>
-		</View>
+		</SafeAreaView>
 	);
 };
 
