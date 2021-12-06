@@ -38,6 +38,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 	let onPress = (route: Routes) => {
 		navigation.navigate(route);
 	};
+	console.log(user.userData?.phone);
 
 	return (
 		<ProfileLayout headerTitle={strings.settings || ''}>

@@ -35,11 +35,13 @@ const RegistrationView = ({ language }: ILanguageProps) => {
 	};
 	const [loading, setLoading] = useState(false);
 	let onNextPress = async () => {
-		let res = await requests.auth.editProfile(user?.userData?.id, {
-			...user.userData,
-			name: user.userData?.first_name,
-		});
-
+		try {
+			let res = await requests.auth.editProfile(user?.userData?.id, {
+				first_name: user?.userData?.first_name,
+			});
+		} catch (error) {
+			console.error(error);
+		}
 		//@ts-ignore
 		navigation.navigate(Routes.TABS);
 	};

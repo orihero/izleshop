@@ -123,7 +123,7 @@ export const styles = StyleSheet.create({
 	},
 	orders: {
 		width: windowWidth - 40,
-		height: 120,
+		height: 140,
 		marginHorizontal: 20,
 		marginTop: 10,
 		borderRadius: 7,
