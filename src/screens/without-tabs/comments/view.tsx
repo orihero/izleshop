@@ -5,6 +5,7 @@ import styles from './style';
 import ProfileLayout from '../ProfileLayout';
 import { strings } from 'locales/locales';
 import { useRoute } from '@react-navigation/core';
+import { url } from 'src/api/requests';
 
 interface ICommentsView {
 	// comments: any;
@@ -52,7 +53,7 @@ const CommentsView = ({}: ICommentsView) => {
 									<View style={styles.imageBox}>
 										<Image
 											style={styles.image}
-											source={e.image}
+											source={{ uri: e.image }}
 										/>
 									</View>
 								</View>

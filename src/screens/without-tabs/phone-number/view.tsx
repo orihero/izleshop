@@ -71,13 +71,6 @@ const PhoneNumberView = ({}: IPhoneNumberViewProps) => {
 					<View style={styles.textBox}>
 						<Text style={styles.text}>{strings.phoneNamber}</Text>
 					</View>
-					{/* <PhoneInput
-						placeholder={'+998 99 555-0133'}
-						value={user.phone}
-						onChange={setPhone}
-						keyboardType="phone-pad"
-						Icon={PhoneIcon}
-					/> */}
 					<View style={styles.mt10}>
 						<MaskInput
 							value={value}

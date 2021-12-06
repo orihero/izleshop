@@ -40,11 +40,11 @@ const RegistrationView = ({ language }: ILanguageProps) => {
 			let res = await requests.auth.editProfile(user?.userData?.id, {
 				...user.userData,
 				name: user.userData?.first_name,
+				first_name: user?.userData?.first_name,
 			});
 		} catch (error) {
 			console.error(error);
 		}
-
 		//@ts-ignore
 		navigation.navigate(Routes.TABS);
 	};
