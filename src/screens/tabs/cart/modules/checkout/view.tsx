@@ -96,12 +96,9 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	const [regions, setRegions] = useState([]);
 	let { products, paymentMethod, installment_plan } = route.params || {};
 	let navigation = useNavigation();
-	// let user = useAppSelector(selectUser);
 
 	let el = convertToMaskedPhone(user.userData?.phone || '');
-	console.log(user.userData?.phone);
-
-	const [name, setName] = useState('');
+	const [name, setName] = useState(user.userData?.first_name);
 	const [phone, setPhone] = useState('');
 	const [city, setCity] = useState('');
 	const [district, setDistrict] = useState('');
@@ -114,7 +111,9 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	let dispatch = useAppDispatch();
 
 	let onNextPress = async () => {
-		if (!address || !name || !phone || !city || !district) {
+		console.log({ address, name, phone, city, district });
+
+		if (!address || !name || !city || !district) {
 			Alert.alert(strings.warning, strings.fillAllFields);
 			return;
 		}
@@ -237,7 +236,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							<View style={styles.mt10}>
 								<DefaultInput
 									placeholder={'ФИО'}
-									value={user.userData?.first_name}
+									value={name}
 									onChange={setName}
 								/>
 							</View>

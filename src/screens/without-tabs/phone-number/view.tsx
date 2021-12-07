@@ -40,7 +40,7 @@ const PhoneNumberView = ({}: IPhoneNumberViewProps) => {
 		try {
 			let res = await requests.auth.editProfile(user?.userData?.id, {
 				...user.userData,
-				name: 'user.userData?.first_name',
+				name: user.userData?.first_name,
 				phoneNumber: user.userData?.phone,
 			});
 			console.log({ res: res.data });

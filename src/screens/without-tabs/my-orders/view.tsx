@@ -122,34 +122,32 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 														img,
 													}}
 												/>
-												{
-													/**e.status == 1 */ true && (
-														<TouchableOpacity
-															onPress={() =>
-																onNextPress(
-																	e?.items[i],
-																	i
-																)
+												{e.status == 1 && (
+													<TouchableOpacity
+														onPress={() =>
+															onNextPress(
+																e?.items[i],
+																i
+															)
+														}
+													>
+														<View
+															style={
+																styles.button
 															}
 														>
-															<View
+															<Text
 																style={
-																	styles.button
+																	styles.colorText
 																}
 															>
-																<Text
-																	style={
-																		styles.colorText
-																	}
-																>
-																	{
-																		strings.leaveFeedback
-																	}
-																</Text>
-															</View>
-														</TouchableOpacity>
-													)
-												}
+																{
+																	strings.leaveFeedback
+																}
+															</Text>
+														</View>
+													</TouchableOpacity>
+												)}
 											</View>
 										);
 									})}
