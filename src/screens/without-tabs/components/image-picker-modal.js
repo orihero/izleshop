@@ -22,10 +22,10 @@ export function ImagePickerModal({
 					<Image style={styles.buttonIcon} source={images.image} />
 					<Text style={styles.buttonText}>Library</Text>
 				</Pressable>
-				<Pressable style={styles.button} onPress={onCameraPress}>
+				{/* <Pressable style={styles.button} onPress={onCameraPress}>
 					<Image style={styles.buttonIcon} source={images.camera} />
 					<Text style={styles.buttonText}>Camera</Text>
-				</Pressable>
+				</Pressable> */}
 			</SafeAreaView>
 		</Modal>
 	);

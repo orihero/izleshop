@@ -1,17 +1,29 @@
-import React from 'react';
-import { ScrollView, Text, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView, Text, View, Image, TouchableOpacity } from 'react-native';
 
 import ProfileLayout from '../ProfileLayout';
 import { styles } from './stlye';
 import { strings } from 'locales/locales';
 import { useRoute } from '@react-navigation/core';
 import Rating from 'components/special/Rating';
+import { Modal } from 'react-native';
+import ImageViewer from 'react-native-image-zoom-viewer';
+import { windowWidth } from 'constants/sizes';
 
 interface IMyReviewsViewProps {
 	comments: any;
 }
 
 const MyReviewsView = ({ comments }: IMyReviewsViewProps) => {
+	const [modalVisible, setModalVisible] = useState(false);
+	const [uri, setUri] = useState('');
+
+	let onModalToggle = (comment) => {
+		console.log(comment);
+
+		setUri(comment.image);
+		setModalVisible((e) => !e);
+	};
 	return (
 		<ProfileLayout headerTitle={strings.myreviews || ''}>
 			<ScrollView>
@@ -48,15 +60,37 @@ const MyReviewsView = ({ comments }: IMyReviewsViewProps) => {
 										</Text>
 									</View>
 									<View style={styles.imageBox}>
-										<Image
-											style={styles.image}
-											source={{ uri: e.image }}
-										/>
+										<TouchableOpacity
+											onPress={() => onModalToggle(e)}
+										>
+											<Image
+												style={styles.image}
+												source={{ uri: e.image }}
+											/>
+										</TouchableOpacity>
 									</View>
 								</View>
 							</View>
 						);
 					})}
+					<Modal
+						visible={modalVisible}
+						onRequestClose={onModalToggle}
+					>
+						<ImageViewer
+							imageUrls={[
+								{
+									url: uri,
+									props: {
+										style: {
+											width: windowWidth,
+											height: 100,
+										},
+									},
+								},
+							]}
+						/>
+					</Modal>
 				</View>
 			</ScrollView>
 		</ProfileLayout>
