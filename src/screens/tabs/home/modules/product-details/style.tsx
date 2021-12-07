@@ -84,7 +84,7 @@ export const styles = StyleSheet.create({
 		marginHorizontal: 2.5,
 	},
 	main: {
-		height: 150,
+		height: 170,
 		paddingHorizontal: 20,
 		paddingTop: 15,
 		backgroundColor: colors.white,
@@ -98,7 +98,7 @@ export const styles = StyleSheet.create({
 	text1: {
 		fontSize: 20,
 		paddingTop: 5,
-		lineHeight: 19,
+		lineHeight: 22,
 		fontWeight: 'bold',
 		marginRight: 60,
 		color: colors.neutralDark,
@@ -114,6 +114,7 @@ export const styles = StyleSheet.create({
 		fontSize: 20,
 		lineHeight: 24,
 		paddingRight: 14,
+		marginBottom: 20,
 		fontWeight: '800',
 		color: colors.blue,
 	},

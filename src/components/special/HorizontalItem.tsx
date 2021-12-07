@@ -218,7 +218,8 @@ const styles = StyleSheet.create({
 	imgCont: {
 		width: 90,
 		height: 90,
-		marginHorizontal: 10,
+		marginHorizontal: 5,
+		marginRight: 20,
 		justifyContent: 'center',
 		flexDirection: 'row',
 	},
@@ -230,7 +231,8 @@ const styles = StyleSheet.create({
 	checkBox: {
 		width: 20,
 		height: 20,
-		marginLeft: 12,
+		marginHorizontal: 5,
+		marginRight: 8,
 		borderRadius: 30,
 		borderWidth: 3,
 		marginTop: 38,
