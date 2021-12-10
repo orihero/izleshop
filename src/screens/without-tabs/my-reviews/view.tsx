@@ -48,7 +48,10 @@ const MyReviewsView = ({ comments }: IMyReviewsViewProps) => {
 											/>
 										</View>
 										<View style={styles.rating}>
-											<Rating readOnly={true} />
+											<Rating
+												readOnly={true}
+												activeCount={parseInt(e.rating)}
+											/>
 										</View>
 									</View>
 									<View style={styles.data}>

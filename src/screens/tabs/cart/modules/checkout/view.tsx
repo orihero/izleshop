@@ -75,6 +75,9 @@ interface ICheckoutViewProps {
 }
 
 let convertToMaskedPhone = (num: string) => {
+	if (num.length > 7 && num.substr(0, 3) === '998') {
+		num = num.substr(3, num.length);
+	}
 	let first = num.substr(0, 2);
 	let last = num.substr(2, num.length);
 	return `(${first}) ${last}`;

@@ -32,7 +32,7 @@ const VerificationView = ({}: IVerificationProps) => {
 		setLoading(true);
 		try {
 			let res = await requests.auth.login(
-				user.userData?.phone || '',
+				'+998' + user.userData?.phone || '',
 				code
 			);
 

@@ -40,6 +40,14 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 	};
 	console.log(user.userData?.phone);
 
+	let img = require('assets/images/flag.png');
+	if (user.languageIndex === 0) {
+		img = require('assets/images/ru.png');
+	}
+	if (user.languageIndex === 2) {
+		img = require('assets/images/en.png');
+	}
+
 	return (
 		<ProfileLayout headerTitle={strings.settings || ''}>
 			<View style={styles.container}>
@@ -90,10 +98,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 								</Text>
 							</View>
 							<View style={styles.sos}>
-								<Image
-									style={styles.flag}
-									source={require('assets/images/flag.png')}
-								/>
+								<Image style={styles.flag} source={img} />
 								<ChevronRightIcon size={15} />
 							</View>
 						</TouchableOpacity>

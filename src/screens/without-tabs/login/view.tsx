@@ -31,7 +31,7 @@ const LoginView = ({}: ILoginViewProps) => {
 		setLoading(true);
 		try {
 			let res = await requests.auth.requestLogin(
-				user.userData?.phone || ''
+				'998' + user.userData?.phone || ''
 			);
 		} catch (error) {
 			alert('Что-то пошло не так');

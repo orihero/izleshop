@@ -102,11 +102,9 @@ export const styles = StyleSheet.create({
 		color: colors.white,
 	},
 	mt12: {
-		width: 335,
 		height: 30,
 		marginTop: 17,
 		alignItems: 'center',
-		marginHorizontal: 20,
 		justifyContent: 'center',
 		backgroundColor: colors.red,
 	},

@@ -91,7 +91,9 @@ const ProfileView = ({}: IProfileViewProps) => {
 	let onPickOrders = (status: number) => {
 		navigation.navigate(Routes.WITHOUT_TABS, {
 			screen: Routes.MY_ORDERS,
-			params: { orders: user.orders.filter((e) => e.status === status) },
+			params: {
+				orders: user?.orders?.filter((e) => e.status === status),
+			},
 		});
 	};
 	let effect = async () => {
@@ -112,6 +114,14 @@ const ProfileView = ({}: IProfileViewProps) => {
 	useEffect(() => {
 		effect();
 	}, []);
+
+	let img = require('assets/images/flag.png');
+	if (user.languageIndex === 0) {
+		img = require('assets/images/ru.png');
+	}
+	if (user.languageIndex === 2) {
+		img = require('assets/images/en.png');
+	}
 
 	return (
 		<ScrollView
@@ -151,7 +161,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 								>
 									<Image
 										style={styles.imageFlag}
-										source={require('assets/images/flag.png')}
+										source={img}
 									/>
 								</TouchableOpacity>
 								<TouchableOpacity

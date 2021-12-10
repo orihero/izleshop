@@ -41,6 +41,7 @@ const RegistrationView = ({ language }: ILanguageProps) => {
 				...user.userData,
 				name: user.userData?.first_name,
 				first_name: user?.userData?.first_name,
+				phoneNumber: user.userData?.phone,
 			});
 		} catch (error) {
 			console.error(error);

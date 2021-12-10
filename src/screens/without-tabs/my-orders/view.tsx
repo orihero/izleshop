@@ -85,6 +85,10 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 									break;
 							}
 							let time = new Date(e.created_at);
+							let p = e.price
+								.toString()
+								.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+							p = p.substr(0, p.length - 2) + '00';
 							return (
 								<View style={styles.boxOne} key={e.id}>
 									<View style={styles.textBox}>
@@ -101,7 +105,9 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 												{strings.orderTime}
 											</Text>
 											<Text style={styles.text}>
-												{time.toLocaleDateString()}{' '}
+												{`${time.getDate()}/${
+													time.getMonth() + 1
+												}/${time.getFullYear()}`}{' '}
 												{time.toLocaleTimeString()}
 											</Text>
 										</View>
@@ -171,17 +177,12 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 												{e.amount}
 											</Text>
 											<Text style={styles.textRow}>
-												{e.price
-													.toString()
-													.replace(
-														/\B(?=(\d{3})+(?!\d))/g,
-														' '
-													)}
+												{p}
 											</Text>
 										</View>
 									</View>
 									{e.status ===
-									1 ? null : e.installment_plan === null ? ( // </TouchableOpacity> // 	</View> // 		</Text> // 			{strings.leaveFeedback} // 		<Text style={styles.colorText}> // 	<View style={styles.button}> // > // 	} // 		onNextPress(e?.items || []) // 	onPress={() => // <TouchableOpacity
+									1 ? null : e.installment_plan === null ? (
 										<TouchableOpacity
 											onPress={() => onBackPress(e)}
 										>
