@@ -205,7 +205,7 @@ const ProductDetailsView = ({
 				</View>
 				<View style={styles.main}>
 					<Text style={styles.text1}>{details.name}</Text>
-					<Rating styleChanged activeCount={details.} />
+					{/* <Rating styleChanged activeCount={details.} /> */}
 					<View style={styles.pr}>
 						<Text style={styles.text3}>
 							{`${p} ${item.currency}`}
