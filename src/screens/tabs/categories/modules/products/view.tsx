@@ -22,7 +22,7 @@ import {
 	ProductsScreenRouteProp,
 } from './controller';
 import { styles } from './style';
-import _ from 'underscore';
+import _, { throttle } from 'underscore';
 import { sorts } from '../../components/SortModal';
 import { IPage } from 'screens/tabs/home/controller';
 import { windowWidth } from 'constants/sizes';
@@ -37,18 +37,13 @@ interface IProductsView {
 	loading: boolean;
 }
 
-const ProductsView = ({
-	route,
-	navigation,
-	page,
-	products,
-	setProducts,
-	setPage,
-}: IProductsView) => {
+const ProductsView = ({ route, navigation }: IProductsView) => {
 	const [isList, setIsList] = useState(false);
 	const [sortOpen, setSortOpen] = useState(false);
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [loading, setLoading] = useState(false);
+	const [page, setPage] = useState(1);
+	const [products, setProducts] = useState([]);
 	// const [products, setProducts] = useState([]);
 	const onFilterPress = () => {
 		navigation?.navigate(Routes.FILTER, { from: route?.params.from });
@@ -72,23 +67,22 @@ const ProductsView = ({
 		try {
 			let res = await requests.product.getProducts({
 				...params,
-				pageSize: 100,
+				page,
+				pageSize: 10,
 			});
-			setProducts(res.data.data);
+			setProducts([...products, ...res.data.data]);
+			setPage((e) => e + 1);
 		} catch (error) {}
 		setLoading(false);
 	};
+	let onEndReached = throttle(effect, 1000);
 	// let productss = divideArr(products, 2);
 	let productss = products || [];
 	useEffect(() => {
 		effect();
 	}, [route?.params, activeIndex]);
 
-	return loading ? (
-		<View style={styles.indicatorContainer}>
-			<ActivityIndicator size="large" />
-		</View>
-	) : (
+	return (
 		<View style={styles.flex1}>
 			{sortOpen ? (
 				<SortModal
@@ -104,37 +98,34 @@ const ProductsView = ({
 				bold
 			/>
 			<View style={styles.container}>
-				<ScrollView showsVerticalScrollIndicator={false}>
-					<View style={styles.ph20}>
-						<View style={styles.top}>
-							<Pressable onPress={() => onFilterPress()}>
-								<View style={styles.topb}>
-									<FilterIcon color={colors.gray} />
-									<Text style={styles.text1}>
-										{strings.filter}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => setSortOpen(true)}>
-								<View style={styles.topb}>
-									<ArrowsIcon color={colors.gray} />
-									<Text style={styles.text1}>
-										{strings.sort}
-									</Text>
-								</View>
-							</Pressable>
-							<Pressable onPress={() => setIsList(!isList)}>
-								<View style={styles.topb}>
-									{isList ? (
-										<CategoriesIcon active size={20} />
-									) : (
-										<MenuLinkIcon color={colors.gray} />
-									)}
-								</View>
-							</Pressable>
-						</View>
-						{isList ? (
-							products?.map((e, i) => (
+				<View style={styles.ph20}>
+					<View style={styles.top}>
+						<Pressable onPress={() => onFilterPress()}>
+							<View style={styles.topb}>
+								<FilterIcon color={colors.gray} />
+								<Text style={styles.text1}>
+									{strings.filter}
+								</Text>
+							</View>
+						</Pressable>
+						<Pressable onPress={() => setSortOpen(true)}>
+							<View style={styles.topb}>
+								<ArrowsIcon color={colors.gray} />
+								<Text style={styles.text1}>{strings.sort}</Text>
+							</View>
+						</Pressable>
+						<Pressable onPress={() => setIsList(!isList)}>
+							<View style={styles.topb}>
+								{isList ? (
+									<CategoriesIcon active size={20} />
+								) : (
+									<MenuLinkIcon color={colors.gray} />
+								)}
+							</View>
+						</Pressable>
+					</View>
+					{isList
+						? products?.map((e, i) => (
 								<View key={i} style={styles.mt10}>
 									<FavoriteItem
 										hasBasket={true}
@@ -142,29 +133,40 @@ const ProductsView = ({
 										item={{ data: e }}
 									/>
 								</View>
-							))
-						) : (
-							<FlatList
-								contentContainerStyle={styles.flatList}
-								snapToInterval={windowWidth / 2 - 5}
-								data={products.length ? products : []}
-								numColumns={2}
-								renderItem={({ item, index }) => (
-									<View style={styles.flatBox}>
-										<VerticalItem
-											key={`${index}`}
-											item={item}
-											sizeChanged
-										/>
-									</View>
-								)}
-								decelerationRate={'fast'}
-								showsVerticalScrollIndicator={false}
-								keyExtractor={(e) => e.id.toString()}
-							/>
+						  ))
+						: null}
+					<FlatList
+						contentContainerStyle={styles.flatList}
+						data={products.length ? products : []}
+						numColumns={2}
+						renderItem={({ item, index }) => (
+							<View style={styles.flatBox}>
+								<VerticalItem
+									key={`${index}`}
+									item={item}
+									sizeChanged
+								/>
+							</View>
 						)}
-					</View>
-				</ScrollView>
+						decelerationRate={'fast'}
+						showsVerticalScrollIndicator={false}
+						keyExtractor={(e) => e.id.toString()}
+						onEndReachedThreshold={0.5}
+						onEndReached={onEndReached}
+						initialNumToRender={10}
+						ListEmptyComponent={() => (
+							<View
+								style={{
+									flex: 1,
+									justifyContent: 'center',
+									alignItems: 'center',
+								}}
+							>
+								<ActivityIndicator />
+							</View>
+						)}
+					/>
+				</View>
 			</View>
 		</View>
 	);

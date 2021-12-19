@@ -3,10 +3,10 @@ import { colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
 	indicatorContainer: {
-		flex: 1,
-		backgroundColor: colors.lightBlue,
-		justifyContent: 'center',
-		alignItems: 'center',
+		// flex: 1,
+		// backgroundColor: colors.lightBlue,
+		// justifyContent: 'center',
+		// alignItems: 'center',
 	},
 	container: {
 		flex: 1,
@@ -45,7 +45,7 @@ export const styles = StyleSheet.create({
 	flatList: {
 		marginTop: 10,
 		// marginHorizontal: 5,
-		justifyContent: 'space-between',
+		// justifyContent: 'space-between',
 	},
 	flex1: {
 		flex: 1,
@@ -53,6 +53,7 @@ export const styles = StyleSheet.create({
 	ph20: {
 		marginBottom: 10,
 		// paddingHorizontal: 20,
+		flex: 1,
 	},
 	mt10: {
 		marginTop: 10,
