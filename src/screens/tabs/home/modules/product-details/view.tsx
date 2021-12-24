@@ -7,29 +7,30 @@ import {
 } from 'assets/icons/icons';
 import DefaultButton from 'components/general/DefaultButton';
 import Header from 'components/navigation/Header';
-import Accordion from 'components/special/Accordion';
-import Rating from 'components/special/Rating';
 import SliderItem from 'components/special/SliderItem';
 import VerticalItem from 'components/special/VerticalItem';
 import { colors } from 'constants/colors';
 import { Routes } from 'constants/routes';
 import { windowWidth } from 'constants/sizes';
 import { strings } from 'locales/locales';
-import { accordionData, item } from 'mockup/data';
+import { item } from 'mockup/data';
 import React, { useEffect, useState } from 'react';
 import {
 	Alert,
+	BackHandler,
 	Dimensions,
 	FlatList,
+	Modal,
 	Platform,
-	Pressable,
 	ScrollView,
 	Text,
 	ToastAndroid,
 	TouchableOpacity,
-	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
+import ImageViewer from 'react-native-image-zoom-viewer';
+import { ActivityIndicator } from 'react-native-paper';
+import RenderHTML from 'react-native-render-html';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { addToCart, removeFromCart, selectCart } from 'store/slices/cartSlice';
 import {
@@ -37,17 +38,9 @@ import {
 	removeItem,
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
+import { selectDollarRate } from 'store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
-import Toast from 'react-native-toast-message';
-import Shimmer from 'react-native-shimmer';
-import LinearGradient from 'react-native-linear-gradient';
-import { selectDollarRate } from 'store/slices/userSlice';
-import { ActivityIndicator } from 'react-native-paper';
-import { Modal } from 'react-native';
-import ImageViewer from 'react-native-image-zoom-viewer';
-import { Screen } from 'react-native-screens';
-import RenderHTML from 'react-native-render-html';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
@@ -67,7 +60,6 @@ const ProductDetailsView = ({
 	value,
 	comments,
 }: ProductDetailsViewProps) => {
-	const [modalVisible, setModalVisible] = useState(false);
 	const [open, setOpen] = useState(0);
 	const [information, setInformation] = useState(true);
 	const [characteristic, setCharacteristic] = useState(true);
@@ -79,6 +71,19 @@ const ProductDetailsView = ({
 	let isFavorite = !!favorites[details.id];
 	let dispatch = useAppDispatch();
 	let dollarRate = useAppSelector(selectDollarRate);
+
+	const [modalVisible, setModalVisible] = useState(false);
+	const closeModal = () => {
+		if (modalVisible) {
+			setModalVisible(false);
+		}
+	};
+
+	useEffect(() => {
+		BackHandler.addEventListener('hardwareBackPress', closeModal);
+		return () =>
+			BackHandler.removeEventListener('hardwareBackPress', closeModal);
+	}, []);
 
 	const onChangeContent = (index: number) => {
 		if (index === 1) {
@@ -357,10 +362,13 @@ const ProductDetailsView = ({
 			</View>
 			<Modal visible={modalVisible} onRequestClose={onModalToggle}>
 				<ImageViewer
+					enableSwipeDown
 					imageUrls={details?.images?.map((e) => ({
 						url: e,
 						props: { style: { width: windowWidth, height: 100 } },
 					}))}
+					saveToLocalByLongPress={false}
+					onSwipeDown={closeModal}
 				/>
 			</Modal>
 		</View>
