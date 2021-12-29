@@ -144,5 +144,6 @@ export let strings = new LocalizedStrings({
 		foto: 'Фото',
 		necessary: '(не обязательно)',
 		fillAllFields: 'Пожалуйста, заполните все поля',
+		noItems: 'Товаров не найдено',
 	},
 });

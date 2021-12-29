@@ -120,22 +120,6 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 			Alert.alert(strings.warning, strings.fillAllFields);
 			return;
 		}
-		if (!user.token) {
-			SweetAlert.showAlertWithOptions(
-				{
-					title: strings.warning,
-					subTitle: strings.plzLogin,
-					confirmButtonTitle: 'OK',
-					confirmButtonColor: '#000',
-					otherButtonTitle: 'Cancel',
-					otherButtonColor: '#dedede',
-					style: 'error',
-					cancellable: true,
-				},
-				() => navigation.navigate(Routes.PROFILE_STACK)
-			);
-			return;
-		}
 		setLoading(true);
 		//@ts-ignore
 		try {

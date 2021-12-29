@@ -20,13 +20,14 @@ import {
 	View,
 } from 'react-native';
 import { IHorizontalItemModel } from 'src/components/special/HorizontalItem';
-import { selectDollarRate } from 'store/slices/userSlice';
+import { selectDollarRate, selectUser } from 'store/slices/userSlice';
 import { useAppSelector } from 'utils/hooks';
 import {
 	PreCheckoutScreenNavigationProps,
 	PreCheckoutScreenRouteProps,
 } from './controller';
 import { styles } from './style';
+import SweetAlert from 'react-native-sweet-alert';
 
 const paymeLogo = require('mockup/images/payme.png');
 const clickLogo = require('mockup/images/click.png');
@@ -53,6 +54,8 @@ export interface IPreCheckoutProductsModel {
 }
 
 const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
+	let user = useAppSelector(selectUser);
+
 	const [activeIndex, setActiveIndex] = useState(0);
 	const { total, count, cartList } = route.params || {};
 	const [payMethods, setPayMethods] = useState([
@@ -91,6 +94,27 @@ const PreCheckoutView = ({ route, navigation }: IPreCheckoutViewProps) => {
 		if (activeIndex === 1) {
 			installment_plan = 3;
 		}
+		if (!user.token) {
+			SweetAlert.showAlertWithOptions(
+				{
+					title: strings.warning,
+					subTitle: strings.plzLogin,
+					confirmButtonTitle: 'OK',
+					confirmButtonColor: '#000',
+					otherButtonTitle: 'Cancel',
+					otherButtonColor: '#dedede',
+					style: 'error',
+					cancellable: true,
+				},
+				() =>
+					//@ts-ignore
+					navigation.navigate(Routes.WITHOUT_TABS, {
+						screen: Routes.LOGIN,
+					})
+			);
+			return;
+		}
+		//@ts-ignore
 		navigation.navigate(Routes.CHECKOUT, {
 			products: products,
 			paymentMethod: paymentType,

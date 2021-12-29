@@ -58,4 +58,11 @@ export const styles = StyleSheet.create({
 	mt10: {
 		marginTop: 10,
 	},
+	text: {
+		fontSize: 25,
+		marginVertical: 280,
+		textAlign: 'center',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
 });

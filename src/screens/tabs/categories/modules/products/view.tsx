@@ -154,6 +154,7 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 						onEndReachedThreshold={0.5}
 						onEndReached={onEndReached}
 						initialNumToRender={10}
+						extraData={[loading]}
 						ListEmptyComponent={() => (
 							<View
 								style={{
@@ -162,7 +163,13 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 									alignItems: 'center',
 								}}
 							>
-								<ActivityIndicator />
+								{loading ? (
+									<ActivityIndicator />
+								) : (
+									<Text style={styles.text}>
+										{strings.noItems}
+									</Text>
+								)}
 							</View>
 						)}
 					/>
