@@ -96,7 +96,7 @@ const InstallmentView = ({}) => {
 	let p = (dollar * data?.price + '')
 		.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-	p = p.substr(0, p.length - 2) + '00 0';
+	p = p.substr(0, p.length - 2) + '00  ';
 
 	return (
 		<View style={styles.container}>
@@ -163,7 +163,7 @@ const InstallmentView = ({}) => {
 							{Math.round(data?.price * dollar * 0.3)
 								.toString()
 								.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-								.substr(0, p.length - 2) + ' 00'}{' '}
+								.substr(0, p.length - 2) + '   '}{' '}
 							{strings.soum}
 						</Text>
 					</View>
@@ -178,7 +178,7 @@ const InstallmentView = ({}) => {
 							)
 								.toString()
 								.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-								.substr(0, p.length - 2) + ' 00'}{' '}
+								.substr(0, p.length - 2) + '   '}{' '}
 							{strings.soum}
 						</Text>
 					</View>
