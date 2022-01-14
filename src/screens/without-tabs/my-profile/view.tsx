@@ -32,7 +32,7 @@ const MyProfileView = ({}: IProfileViewProps) => {
 			>
 				<View style={styles.news}>
 					<View style={styles.component}>
-						<Text style={styles.textOne}>Что нового?</Text>
+						<Text style={styles.textOne}>{strings.whatsnew}</Text>
 						<TouchableOpacity
 							style={styles.viewAll}
 							onPress={() => onPress(Routes.VIEW_ALL)}

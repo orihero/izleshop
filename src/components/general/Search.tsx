@@ -5,6 +5,7 @@ import { colors } from 'constants/colors';
 import { windowWidth } from '../../constants/sizes';
 import { useNavigation } from '@react-navigation/core';
 import { Routes } from 'constants/routes';
+import { strings } from 'locales/locales';
 
 export interface SearchInputProps {
 	setText: () => {};
@@ -33,7 +34,7 @@ const SearchInput = React.forwardRef(
 				<TextInput
 					ref={ref}
 					style={styles.text}
-					placeholder={'Что вы ищете?'}
+					placeholder={strings.search}
 					placeholderTextColor={colors.black}
 					onFocus={onNextPress}
 					onChangeText={setText}

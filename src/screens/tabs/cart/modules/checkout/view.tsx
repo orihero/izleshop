@@ -89,6 +89,8 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 		try {
 			let res = await requests.helpers.getRegions();
 			setRegions(res.data);
+			let resCity = await requests.helpers.getCity();
+			setCities(resCity.data);
 		} catch (error) {}
 	};
 
@@ -96,7 +98,26 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 		effect();
 	}, []);
 
+	// let effectRegion = async () => {
+	// 	try {
+	// 		// let req = {
+	// 		// 	id: 90,
+	// 		// 	name: el.name,
+	// 		// 	city_id: 6,
+	// 		// 	created_at: '0000-00-00',
+	// 		// 	update_at: '0000-00-00',
+
+	// 		// };
+	// 		setCities(res.data);
+	// 	} catch (error) {}
+	// };
+
+	// useEffect(() => {
+	// 	effectRegion();
+	// }, []);
+
 	const [regions, setRegions] = useState([]);
+	const [cities, setCities] = useState([]);
 	let { products, paymentMethod, installment_plan } = route.params || {};
 	let navigation = useNavigation();
 
@@ -104,6 +125,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	const [name, setName] = useState(user.userData?.first_name);
 	const [phone, setPhone] = useState('');
 	const [city, setCity] = useState('');
+	const [regionCities, setRegionCities] = useState('');
 	const [district, setDistrict] = useState('');
 	const [address, setAddress] = useState('');
 	const [note, setNote] = useState('');
@@ -116,7 +138,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	let onNextPress = async () => {
 		console.log({ address, name, phone, city, district });
 
-		if (!address || !name || !city || !district) {
+		if (!address || !name || !city || !regionCities || !district) {
 			Alert.alert(strings.warning, strings.fillAllFields);
 			return;
 		}
@@ -132,6 +154,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 				note: note,
 				index: '111201',
 				city: city,
+				regionCities: district,
 				products: products,
 				installment_plan: installment_plan,
 			};
@@ -209,7 +232,13 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 		/\d/,
 		/\d/,
 	];
-
+	let currentCity = cities?.find((e) => e.name === city);
+	let regs = [];
+	if (!!currentCity) {
+		regs = regions
+			.filter((e) => e.city_id === currentCity.id)
+			.map((e) => e.name);
+	}
 	return (
 		<View style={styles.container}>
 			<Header title={strings.checkout} />
@@ -222,7 +251,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							>{`${strings.name}*`}</Text>
 							<View style={styles.mt10}>
 								<DefaultInput
-									placeholder={'ФИО'}
+									placeholder={strings.fio}
 									value={name}
 									onChange={setName}
 								/>
@@ -253,8 +282,17 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							>{`${strings.selectCity}*`}</Text>
 							<DefaultSelect
 								value={city}
-								values={regions}
+								values={cities.map((e) => e.name)}
 								setValue={setCity}
+								placeholder={strings.cityNotSelected || ''}
+							/>
+						</View>
+						<View style={styles.mt25}>
+							<Text style={styles.text4}>{`${'asa'}*`}</Text>
+							<DefaultSelect
+								value={district}
+								values={regs}
+								setValue={setDistrict}
 								placeholder={strings.cityNotSelected || ''}
 							/>
 						</View>
@@ -264,7 +302,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							>{`${strings.selectDistrict}*`}</Text>
 							<View style={styles.mt10}>
 								<DefaultInput
-									placeholder={'Введите район '}
+									placeholder={strings.region}
 									value={district}
 									onChange={setDistrict}
 								/>

@@ -159,7 +159,7 @@ const ProductDetailsView = ({
 		</View>
 	) : (
 		<View style={styles.container}>
-			<Header hasBorder hasCartIcon title={'Смартфон'} />
+			<Header hasBorder hasCartIcon title={strings.smartphone} />
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.bgw}>
 					<Carousel

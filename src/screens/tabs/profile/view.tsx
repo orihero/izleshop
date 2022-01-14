@@ -268,7 +268,9 @@ const ProfileView = ({}: IProfileViewProps) => {
 					>
 						<View style={styles.viewAll}>
 							<View style={styles.component}>
-								<Text style={styles.textOne}>Что нового?</Text>
+								<Text style={styles.textOne}>
+									{strings.whatsnew}
+								</Text>
 								<View style={styles.md10}>
 									<Text style={styles.textView}>
 										{strings.viewAll}

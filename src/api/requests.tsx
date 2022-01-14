@@ -47,7 +47,10 @@ export let formData = (rawData) => {
 export let requests = {
 	helpers: {
 		getRegions: () => {
-			return axios.get(`${url}/getRegions`);
+			return axios.get(`${url}/GetRegions`);
+		},
+		getCity: () => {
+			return axios.get(`${url}/GetCities`);
 		},
 	},
 	auth: {
@@ -91,6 +94,7 @@ export let requests = {
 		makeOrder: (credentials: any) =>
 			axios.post(`${url}/makeOrder`, credentials),
 		getDollarRate: () => axios.get(`${url}/getDollarRate`),
+
 		createReview: (data: {
 			user_name: string | number;
 			product_id: string | number;

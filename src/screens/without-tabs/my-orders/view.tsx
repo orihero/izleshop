@@ -188,7 +188,7 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 										>
 											<View style={styles.mt12}>
 												<Text style={styles.mt13}>
-													{'ОПЛАТИТЬ'}
+													{strings.pay}
 												</Text>
 											</View>
 										</TouchableOpacity>

@@ -100,14 +100,14 @@ const LeaveFeedbackView = () => {
 				</View>
 				<View style={styles.input}>
 					<View style={styles.textBox}>
-						<Text style={styles.help}>Отзыв </Text>
+						<Text style={styles.help}>{strings.reviews}</Text>
 						{/* <Text style={styles.size}>(не обязательно)</Text> */}
 					</View>
 					<TextInput
 						value={message}
 						onChangeText={(e) => setMessage(e)}
 						style={styles.textInput}
-						placeholder={'Вы можете оставить отзыв (до 1000 букв)'}
+						placeholder={strings.youCan}
 					/>
 				</View>
 				<View style={styles.picker}>
