@@ -20,6 +20,7 @@ import React, { useEffect, useState } from 'react';
 import {
 	Alert,
 	Image,
+	Linking,
 	ScrollView,
 	Text,
 	TouchableOpacity,
@@ -122,6 +123,12 @@ const ProfileView = ({}: IProfileViewProps) => {
 	if (user.languageIndex === 2) {
 		img = require('assets/images/en.png');
 	}
+
+	const url = 'http://izleshop.uz/#';
+
+	const googlePress = async () => {
+		await Linking.openURL('http://izleshop.uz/#');
+	};
 
 	return (
 		<ScrollView
@@ -298,7 +305,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 				<Pressable to onPress={() => onPress(Routes.HELP_SUPPORT)}>
 					<MenuLink text={strings.helpSupport} />
 				</Pressable>
-				<Pressable to onPress={() => onPress(Routes.ABOUT_US)}>
+				<Pressable to onPress={googlePress}>
 					<MenuLink text={strings.aboutUs} />
 				</Pressable>
 				<Pressable to onPress={() => onPress(Routes.OUR_PARTNERS)}>
