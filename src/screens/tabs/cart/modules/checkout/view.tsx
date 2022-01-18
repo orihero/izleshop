@@ -98,24 +98,6 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 		effect();
 	}, []);
 
-	// let effectRegion = async () => {
-	// 	try {
-	// 		// let req = {
-	// 		// 	id: 90,
-	// 		// 	name: el.name,
-	// 		// 	city_id: 6,
-	// 		// 	created_at: '0000-00-00',
-	// 		// 	update_at: '0000-00-00',
-
-	// 		// };
-	// 		setCities(res.data);
-	// 	} catch (error) {}
-	// };
-
-	// useEffect(() => {
-	// 	effectRegion();
-	// }, []);
-
 	const [regions, setRegions] = useState([]);
 	const [cities, setCities] = useState([]);
 	let { products, paymentMethod, installment_plan } = route.params || {};
@@ -138,7 +120,7 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 	let onNextPress = async () => {
 		console.log({ address, name, phone, city, district });
 
-		if (!address || !name || !city || !regionCities || !district) {
+		if (!address || !name || !city || !district) {
 			Alert.alert(strings.warning, strings.fillAllFields);
 			return;
 		}
@@ -288,25 +270,15 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 							/>
 						</View>
 						<View style={styles.mt25}>
-							<Text style={styles.text4}>{`${'asa'}*`}</Text>
+							<Text
+								style={styles.text4}
+							>{`${strings.selectDistrict}*`}</Text>
 							<DefaultSelect
 								value={district}
 								values={regs}
 								setValue={setDistrict}
 								placeholder={strings.cityNotSelected || ''}
 							/>
-						</View>
-						<View style={styles.mt20}>
-							<Text
-								style={styles.text1}
-							>{`${strings.selectDistrict}*`}</Text>
-							<View style={styles.mt10}>
-								<DefaultInput
-									placeholder={strings.region}
-									value={district}
-									onChange={setDistrict}
-								/>
-							</View>
 						</View>
 						<View style={styles.mt9}>
 							<View style={styles.mt19}>

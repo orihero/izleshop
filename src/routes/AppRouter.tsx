@@ -10,6 +10,7 @@ import { Routes } from 'constants/routes';
 import TestScreen from 'screens/TestScreen';
 import { useAppSelector } from 'utils/hooks';
 import { selectUser } from 'store/slices/userSlice';
+import { store } from '../store/configureStore';
 
 export type RootStackParamList = {
 	[Routes.TABS]: undefined;
@@ -23,7 +24,7 @@ let RootStack = createNativeStackNavigator<RootStackParamList>();
 const AppRouter = () => {
 	let user = useAppSelector(selectUser);
 	return (
-		<NavigationContainer>
+		<NavigationContainer key={store?.getState()?.user?.languageIndex}>
 			<RootStack.Navigator screenOptions={{ headerShown: false }}>
 				{!user.token && (
 					<RootStack.Screen
@@ -31,7 +32,11 @@ const AppRouter = () => {
 						component={IntroScreen}
 					/>
 				)}
-				<RootStack.Screen name={Routes.TABS} component={Tabs} />
+				<RootStack.Screen
+					name={Routes.TABS}
+					component={Tabs}
+					key={store?.getState()?.user?.languageIndex}
+				/>
 				<RootStack.Screen
 					name={Routes.WITHOUT_TABS}
 					component={WithoutTabs}
