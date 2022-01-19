@@ -38,34 +38,33 @@ import { styles } from './style';
 
 interface IProfileViewProps {}
 
-export let ordersMap = [
-	{
-		string: strings.paymentPending,
-		icon: CardIcon,
-		status: 0,
-		size: 25,
-	},
-	{
-		string: strings.awaitingDispatch,
-		icon: BagIcon,
-		status: null,
-		size: 25,
-	},
-	{
-		string: strings.orderSent,
-		icon: CarIcon,
-		status: null,
-		size: 27,
-	},
-	{
-		string: strings.reviewAwaiteng,
-		icon: PenIcon,
-		size: 27,
-		status: 1,
-	},
-];
-
 const ProfileView = ({}: IProfileViewProps) => {
+	let ordersMap = [
+		{
+			string: strings.paymentPending,
+			icon: CardIcon,
+			status: 0,
+			size: 25,
+		},
+		{
+			string: strings.awaitingDispatch,
+			icon: BagIcon,
+			status: null,
+			size: 25,
+		},
+		{
+			string: strings.orderSent,
+			icon: CarIcon,
+			status: null,
+			size: 27,
+		},
+		{
+			string: strings.reviewAwaiteng,
+			icon: PenIcon,
+			size: 27,
+			status: 1,
+		},
+	];
 	const [news, setNews] = useState([]);
 	const [orders, setOrders] = useState([]);
 	let user = useAppSelector(selectUser);
@@ -116,12 +115,12 @@ const ProfileView = ({}: IProfileViewProps) => {
 		effect();
 	}, []);
 
-	let img = require('assets/images/flag.png');
+	let img = require('assets/images/ru.png');
 	if (user.languageIndex === 0) {
-		img = require('assets/images/ru.png');
+		img = require('assets/images/qq.jpg');
 	}
 	if (user.languageIndex === 2) {
-		img = require('assets/images/en.png');
+		img = require('assets/images/flag.png');
 	}
 
 	const url = 'http://izleshop.uz/#';

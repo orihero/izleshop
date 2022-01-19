@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { strings } from 'locales/locales';
 import { RootState } from '../configureStore';
 
 export interface UserData {
@@ -57,6 +58,23 @@ let userSlice = createSlice({
 			};
 		},
 		setUserLanguage: (state, action: PayloadAction<number>) => {
+			// let l = 'kk';
+			// console.log('ru');
+
+			// switch (action.payload) {
+			// 	case 0:
+			// 		l = 'kk';
+			// 		break;
+			// 	case 1:
+			// 		l = 'ru';
+			// 		break;
+			// 	case 2:
+			// 		l = 'uz';
+			// 	default:
+			// 		l = 'uz';
+			// }
+			// strings.setLanguage(l);
+			// strings.setContent(l);
 			return { ...state, languageIndex: action.payload };
 		},
 		setUserData: (state, action: PayloadAction<UserFullData>) => {

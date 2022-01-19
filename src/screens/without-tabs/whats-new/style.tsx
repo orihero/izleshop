@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
 	},
 	img: {
 		resizeMode: 'contain',
-		width: 330,
+		width: Dimensions.get('window').width - 60,
 		height: 200,
 	},
 });

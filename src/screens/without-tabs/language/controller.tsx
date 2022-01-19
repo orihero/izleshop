@@ -8,6 +8,7 @@ import LanguageView from './view';
 import { selectUser, setUserLanguage } from 'store/slices/userSlice';
 import { strings } from 'locales/locales';
 import { useSelector } from 'react-redux';
+import { DevSettings } from 'react-native';
 
 const arr = ['Karakalpakstan', 'Русский', 'O’zbekcha'];
 
@@ -21,30 +22,16 @@ export type LoginScreenProps = {
 };
 
 const LanguageController = ({}: LoginScreenProps) => {
-	const [language, setLanguage] = useState(0);
-	let dispatch = useAppDispatch();
 	let user = useSelector(selectUser);
+	const [language, setLanguage] = useState(user.languageIndex);
+	let dispatch = useAppDispatch();
 	let navigation = useNavigation();
 	console.log(user.languageIndex);
 
-	const onPress = () => {
+	const onPress = async () => {
+		// await new Promise((resolve) => setTimeout(resolve, 1000));
 		dispatch(setUserLanguage(language));
-		let l = 'kk';
-		console.log('ru');
-
-		switch (language) {
-			case 0:
-				l = 'kk';
-				break;
-			case 1:
-				l = 'ru';
-				break;
-			case 2:
-				l = 'uz';
-			default:
-				l = 'uz';
-		}
-		strings.setLanguage(l);
+		// DevSettings.reload();
 		navigation.goBack();
 	};
 

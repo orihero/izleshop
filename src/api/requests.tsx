@@ -8,7 +8,6 @@ export let url = 'https://izleshop.uz/api';
 axios.interceptors.request.use((e) => {
 	if (!!store.getState().user.token)
 		e.headers.Authorization = `Bearer ${store.getState().user.token}`;
-	console.log(e);
 	return e;
 });
 

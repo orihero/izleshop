@@ -24,7 +24,7 @@ let RootStack = createNativeStackNavigator<RootStackParamList>();
 const AppRouter = () => {
 	let user = useAppSelector(selectUser);
 	return (
-		<NavigationContainer key={store?.getState()?.user?.languageIndex}>
+		<NavigationContainer key={user.languageIndex}>
 			<RootStack.Navigator screenOptions={{ headerShown: false }}>
 				{!user.token && (
 					<RootStack.Screen
@@ -32,11 +32,7 @@ const AppRouter = () => {
 						component={IntroScreen}
 					/>
 				)}
-				<RootStack.Screen
-					name={Routes.TABS}
-					component={Tabs}
-					key={store?.getState()?.user?.languageIndex}
-				/>
+				<RootStack.Screen name={Routes.TABS} component={Tabs} />
 				<RootStack.Screen
 					name={Routes.WITHOUT_TABS}
 					component={WithoutTabs}

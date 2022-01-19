@@ -124,8 +124,9 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 							</View>
 						</Pressable>
 					</View>
-					{isList
-						? products?.map((e, i) => (
+					{isList ? (
+						<ScrollView>
+							{products?.map((e, i) => (
 								<View key={i} style={styles.mt10}>
 									<FavoriteItem
 										hasBasket={true}
@@ -133,46 +134,48 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 										item={{ data: e }}
 									/>
 								</View>
-						  ))
-						: null}
-					<FlatList
-						contentContainerStyle={styles.flatList}
-						data={products.length ? products : []}
-						numColumns={2}
-						renderItem={({ item, index }) => (
-							<View style={styles.flatBox}>
-								<VerticalItem
-									key={`${index}`}
-									item={item}
-									sizeChanged
-								/>
-							</View>
-						)}
-						decelerationRate={'fast'}
-						showsVerticalScrollIndicator={false}
-						keyExtractor={(e) => e.id.toString()}
-						onEndReachedThreshold={0.5}
-						onEndReached={onEndReached}
-						initialNumToRender={10}
-						extraData={[loading]}
-						ListEmptyComponent={() => (
-							<View
-								style={{
-									flex: 1,
-									justifyContent: 'center',
-									alignItems: 'center',
-								}}
-							>
-								{loading ? (
-									<ActivityIndicator />
-								) : (
-									<Text style={styles.text}>
-										{strings.noItems}
-									</Text>
-								)}
-							</View>
-						)}
-					/>
+							))}
+						</ScrollView>
+					) : (
+						<FlatList
+							contentContainerStyle={styles.flatList}
+							data={products.length ? products : []}
+							numColumns={2}
+							renderItem={({ item, index }) => (
+								<View style={styles.flatBox}>
+									<VerticalItem
+										key={`${index}`}
+										item={item}
+										sizeChanged
+									/>
+								</View>
+							)}
+							decelerationRate={'fast'}
+							showsVerticalScrollIndicator={false}
+							keyExtractor={(e) => e.id.toString()}
+							onEndReachedThreshold={0.5}
+							onEndReached={onEndReached}
+							initialNumToRender={10}
+							extraData={[loading]}
+							ListEmptyComponent={() => (
+								<View
+									style={{
+										flex: 1,
+										justifyContent: 'center',
+										alignItems: 'center',
+									}}
+								>
+									{loading ? (
+										<ActivityIndicator />
+									) : (
+										<Text style={styles.text}>
+											{strings.noItems}
+										</Text>
+									)}
+								</View>
+							)}
+						/>
+					)}
 				</View>
 			</View>
 		</View>

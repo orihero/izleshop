@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import AppRouter from 'routes/AppRouter';
@@ -7,13 +7,13 @@ import { PersistGate } from 'redux-persist/integration/react';
 import SplashScreen from 'react-native-splash-screen';
 import { LogBox, StatusBar } from 'react-native';
 import { colors } from 'constants/colors';
+import { strings } from 'locales/locales';
 
 const App = () => {
 	useEffect(() => {
 		SplashScreen.hide();
 	}, []);
 	LogBox.ignoreLogs(['Warning: ...']);
-
 	return (
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>

@@ -126,84 +126,74 @@ const FavoriteItem = ({
 	return (
 		<TouchableWithoutFeedback onPress={onItemPress}>
 			<View style={styles.container}>
-				<ScrollView
-					showsVerticalScrollIndicator={false}
-					contentContainerStyle={styles.container}
-				>
-					<View style={styles.imgCont}>
-						{hasRemove && (
-							<View style={styles.checkBox}>
-								{isChecked && (
-									<Image
-										style={styles.imgCheck}
-										source={require('../../../../assets/images/check.png')}
+				<View style={styles.imgCont}>
+					{hasRemove && (
+						<View style={styles.checkBox}>
+							{isChecked && (
+								<Image
+									style={styles.imgCheck}
+									source={require('../../../../assets/images/check.png')}
+								/>
+							)}
+						</View>
+					)}
+					<Image source={{ uri: image }} style={styles.image} />
+				</View>
+				<View style={styles.center}>
+					<View style={styles.box}>
+						{status ? (
+							<View style={styles.row}>
+								<Text style={styles.text1}>{`ID: ${id}`}</Text>
+								<Text style={styles.text2}>{status}</Text>
+							</View>
+						) : null}
+						<Text
+							style={styles.text3}
+							numberOfLines={2}
+							lineBreakMode={'tail'}
+						>
+							{title}
+						</Text>
+					</View>
+					<Text style={styles.text4}>{`${p} ${currency}`}</Text>
+					<View style={styles.plus}>
+						<Rating
+							defaultStyle
+							active={rating}
+							count={ratingCount}
+						/>
+						<View style={styles.rightEdge}>
+							<View style={styles.irow}>
+								{hasBasket ? (
+									<TouchableOpacity onPress={onCartPress}>
+										<View
+											style={[styles.square, styles.mr10]}
+										>
+											<CartIcon
+												size={22}
+												color={colors.blue}
+												active={isInCart}
+											/>
+										</View>
+									</TouchableOpacity>
+								) : null}
+							</View>
+							<TouchableOpacity onPress={onLike}>
+								<View style={styles.square}>
+									<HeartIcon
+										size={22}
+										color={
+											isFavorite
+												? colors.red
+												: colors.leghtGrey1
+										}
+										active={isFavorite}
 									/>
-								)}
-							</View>
-						)}
-						<Image source={{ uri: image }} style={styles.image} />
-					</View>
-					<View style={styles.center}>
-						<View style={styles.box}>
-							{status ? (
-								<View style={styles.row}>
-									<Text
-										style={styles.text1}
-									>{`ID: ${id}`}</Text>
-									<Text style={styles.text2}>{status}</Text>
 								</View>
-							) : null}
-							<Text
-								style={styles.text3}
-								numberOfLines={2}
-								lineBreakMode={'tail'}
-							>
-								{title}
-							</Text>
-						</View>
-						<Text style={styles.text4}>{`${p} ${currency}`}</Text>
-						<View style={styles.plus}>
-							<Rating
-								defaultStyle
-								active={rating}
-								count={ratingCount}
-							/>
-							<View style={styles.rightEdge}>
-								<View style={styles.irow}>
-									{hasBasket ? (
-										<TouchableOpacity onPress={onCartPress}>
-											<View
-												style={[
-													styles.square,
-													styles.mr10,
-												]}
-											>
-												<CartIcon
-													size={22}
-													color={colors.blue}
-													active={isInCart}
-												/>
-											</View>
-										</TouchableOpacity>
-									) : null}
-								</View>
-								<TouchableOpacity onPress={onLike}>
-									<View style={styles.square}>
-										<HeartIcon
-											size={22}
-											color={
-												isFavorite
-													? colors.red
-													: colors.leghtGrey1
-											}
-											active={isFavorite}
-										/>
-									</View>
-								</TouchableOpacity>
-							</View>
+							</TouchableOpacity>
 						</View>
 					</View>
-				</ScrollView>
+				</View>
 			</View>
 		</TouchableWithoutFeedback>
 	);

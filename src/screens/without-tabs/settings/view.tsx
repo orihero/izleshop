@@ -45,7 +45,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 		img = require('assets/images/ru.png');
 	}
 	if (user.languageIndex === 2) {
-		img = require('assets/images/en.png');
+		img = require('assets/images/qq.jpg');
 	}
 
 	return (

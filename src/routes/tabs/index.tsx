@@ -14,6 +14,8 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FavoritesScreen, ProfileScreen } from 'screens/tabs';
+import { selectUser } from 'store/slices/userSlice';
+import { useAppSelector } from 'utils/hooks';
 import { store } from 'store/configureStore';
 import CartStack from './CartStack';
 import CategoriesStack from './CategoriesStack';
@@ -46,20 +48,20 @@ let renderIcon = (Icon: typeof HomeIcon) => {
 	};
 };
 
-let labelMapper = {
-	[Routes.HOME_STACK]: strings.home,
-	[Routes.CATEGORIES_STACK]: strings.category,
-	[Routes.FAVORITES]: strings.favorites,
-	[Routes.CART_STACK]: strings.cart,
-	[Routes.PROFILE_STACK]: strings.profile,
-};
-
 const Tabs = () => {
+	let labelMapper = {
+		[Routes.HOME_STACK]: strings.home,
+		[Routes.CATEGORIES_STACK]: strings.category,
+		[Routes.FAVORITES]: strings.favorites,
+		[Routes.CART_STACK]: strings.cart,
+		[Routes.PROFILE_STACK]: strings.profile,
+	};
 	const insets = useSafeAreaInsets();
-
+	const user = useAppSelector(selectUser);
 	return (
 		<View style={{ ...styles.container, paddingTop: insets.top }}>
 			<Tab.Navigator
+				key={user?.languageIndex}
 				barStyle={styles.bar}
 				renderTouchable={(props) => <TouchableOpacity {...props} />}
 				shifting={false}

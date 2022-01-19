@@ -57,6 +57,7 @@ export const styles = StyleSheet.create({
 	},
 	mt10: {
 		marginTop: 10,
+		marginHorizontal: 10,
 	},
 	text: {
 		fontSize: 25,
