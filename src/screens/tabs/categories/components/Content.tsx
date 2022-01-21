@@ -14,6 +14,7 @@ import { categories } from '../data';
 import Item from './Item';
 import { CategoriesNavigationProp } from '../controller';
 import { strings } from 'locales/locales';
+import { store } from 'store/configureStore';
 
 export type ContentItemProps = typeof categories[0];
 
@@ -35,19 +36,30 @@ const Content = ({
 }: IContentProps) => {
 	let lang = strings.getLanguage();
 	let title = item.title;
-	switch (lang){
-		case "kk":
-			title = item.title_qr
-		case "ru":
-			title = item.title
+	// switch (lang) {
+	// 	case 'kk':
+	// 		title = item.title_qr;
+	// 	case 'ru':
+	// 		title = item.title;
+	// 	default:
+	// 		title = item.title_uz;
+	// }
+	switch (store.getState().user.languageIndex) {
+		case 0:
+			title = item.title_qr;
+			break;
+		case 1:
+			title = item.title;
+			break;
 		default:
-			title = item.title_uz	
+			title = item.title_uz;
+	}
+	if (lang !== title) {
+		strings.setLanguage(title);
 	}
 	return (
 		<View>
-			{disableTitle ? null : (
-				<Text style={styles.title}>{title}</Text>
-			)}
+			{disableTitle ? null : <Text style={styles.title}>{title}</Text>}
 			<FlatList
 				horizontal
 				renderItem={(props) => (

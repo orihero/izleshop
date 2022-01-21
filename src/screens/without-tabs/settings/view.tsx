@@ -40,12 +40,12 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 	};
 	console.log(user.userData?.phone);
 
-	let img = require('assets/images/flag.png');
+	let img = require('assets/images/ru.png');
 	if (user.languageIndex === 0) {
-		img = require('assets/images/ru.png');
+		img = require('assets/images/qq.jpg');
 	}
 	if (user.languageIndex === 2) {
-		img = require('assets/images/qq.jpg');
+		img = require('assets/images/flag.png');
 	}
 
 	return (

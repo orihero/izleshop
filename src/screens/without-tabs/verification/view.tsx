@@ -49,7 +49,7 @@ const VerificationView = ({}: IVerificationProps) => {
 			setLoading(false);
 		}
 		//@ts-ignore
-		navigation.navigate(Routes.REGISTER);
+		navigation.navigate(Routes.TABS);
 	};
 	return (
 		<View style={styles.container}>

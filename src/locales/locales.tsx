@@ -135,6 +135,7 @@ export let strings = new LocalizedStrings({
 		cartText: 'К сожалению, в вашей корзине еще нет товаров.',
 		heartText: 'К сожалению, в вашей избранное  еще нет товаров.',
 
+		SelectLanguage: 'Выберите язык',
 		error: 'Что-то пошло не так',
 		cartEmpty: 'Пожалуйста выберите продукты',
 		information: 'Информация',
@@ -287,6 +288,7 @@ export let strings = new LocalizedStrings({
 		cartText: 'Keshiresiz, sebetińizge ele tovar salmaǵansiz',
 		heartText: 'Keshiresiz, siz ele tovar saylamaǵansiz.',
 
+		SelectLanguage: 'Tilni tanlang',
 		error: 'Qátelik júz berdi….',
 		cartEmpty: 'Ótinish, tovarlardi saylań ',
 		information: 'Tovar haqinda',
@@ -440,6 +442,7 @@ export let strings = new LocalizedStrings({
 		cartText: 'Kechirasiz, savatingizga hali tovar so`lmagansiz',
 		heartText: 'Kechirasiz, siz hali tovar saylamagansiz .',
 
+		SelectLanguage: 'Tilni tanlang',
 		error: 'Nimadir no to`g`ri bajarildi….',
 		cartEmpty: 'Iltimos, mahsulotlarni tanlang',
 		information: 'Mahsulot haqinda',

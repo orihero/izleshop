@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { Text, View } from 'react-native';
+import {
+	Text,
+	TouchableOpacity,
+	TouchableWithoutFeedback,
+	View,
+} from 'react-native';
 import ProfileLayout from '../ProfileLayout';
 import Pressable from 'components/general/Pressable';
 import DefaultButton from 'components/general/DefaultButton';
@@ -55,11 +60,13 @@ const LanguageView = ({
 						</Pressable>
 					))}
 				</View>
-				<View style={styles.button}>
-					<Text style={styles.textCancel} onPress={onPress}>
-						{strings.save}
-					</Text>
-				</View>
+				<TouchableWithoutFeedback onPress={onPress}>
+					<View style={styles.button}>
+						<Text style={styles.textCancel} onPress={onPress}>
+							{strings.save}
+						</Text>
+					</View>
+				</TouchableWithoutFeedback>
 				<View style={styles.content}>
 					<View style={styles.box}>
 						<Text style={styles.text}>{'izle'}</Text>

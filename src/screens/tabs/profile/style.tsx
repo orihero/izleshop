@@ -105,11 +105,11 @@ export const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	imageFlag: {
-		width: 18,
-		height: 18,
+		width: 20,
+		height: 20,
 	},
 	setting: {
-		paddingLeft: 10,
+		paddingLeft: 8,
 		marginHorizontal: 5,
 	},
 	news: {
@@ -236,5 +236,20 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 		fontSize: 10,
 		lineHeight: 12,
+	},
+	languageBox: {
+		height: 50,
+		marginVertical: 10,
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginHorizontal: 20,
+		paddingHorizontal: 10,
+		width: windowWidth - 40,
+		backgroundColor: colors.white,
+		justifyContent: 'space-between',
+	},
+	languageText: {
+		fontSize: 14,
+		color: colors.black,
 	},
 });

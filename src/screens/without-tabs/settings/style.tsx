@@ -132,11 +132,12 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	sos: {
+		alignItems: 'center',
 		flexDirection: 'row',
 	},
 	flag: {
-		width: 18,
-		height: 18,
+		width: 20,
+		height: 20,
 
 		// right: 12,
 	},

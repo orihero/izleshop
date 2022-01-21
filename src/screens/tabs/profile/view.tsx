@@ -27,6 +27,7 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
+import LanguageView from 'screens/without-tabs/language/view';
 import {
 	selectUser,
 	setUserOrders,
@@ -74,6 +75,11 @@ const ProfileView = ({}: IProfileViewProps) => {
 	let onPress = (route: Routes, params?: any) => {
 		//@ts-ignore
 		navigation.navigate(Routes.WITHOUT_TABS, { screen: route, params });
+	};
+	let onLanguage = () => {
+		navigation.navigate(Routes.WITHOUT_TABS, {
+			screen: Routes.LANGUAGE,
+		});
 	};
 	let onLogout = () => {
 		Alert.alert(strings.warning, strings.logoutPrompt, [
@@ -313,13 +319,26 @@ const ProfileView = ({}: IProfileViewProps) => {
 				<Pressable to onPress={() => onPress(Routes.ABOUT_APP)}>
 					<MenuLink text={strings.aboutApp} />
 				</Pressable>
-				{!!user.token && (
+				{!!user.token ? (
 					<Pressable to onPress={onLogout}>
 						<MenuLink
 							text={strings.singAccount}
 							Icon={LogoutIcon}
 						/>
 					</Pressable>
+				) : (
+					<>
+						<View>
+							<TouchableOpacity onPress={onLanguage}>
+								<View style={styles.languageBox}>
+									<Text style={styles.languageText}>
+										{strings.SelectLanguage}
+									</Text>
+									<ChevronRightIcon />
+								</View>
+							</TouchableOpacity>
+						</View>
+					</>
 				)}
 			</View>
 		</ScrollView>
