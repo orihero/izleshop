@@ -13,16 +13,15 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		16DA56027A884320A25F28CC /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2534AADF1D48433499399F72 /* Poppins-BoldItalic.ttf */; };
+		1965DD3E002ABF421C6B45E4 /* libPods-izleshop-izleshopTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3442875F7CE5ABA38E229784 /* libPods-izleshop-izleshopTests.a */; };
 		296B17BB276940F5A858E999 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76EF8FBE22F54B0EB283A37A /* Poppins-Light.ttf */; };
 		316983BA7D454E5AB16756C5 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A69C62C975834823880C2EC5 /* Poppins-Medium.ttf */; };
 		347A01C0DFED4BCE94910091 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6001B8F4A8E843ED8478C677 /* Lato-Bold.ttf */; };
 		39181B6F35DB49E88F1689AE /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D9E7DD5CD12433C84D5DB96 /* Lato-Regular.ttf */; };
-		40F2C3CF2F065FE522D19322 /* libPods-izleshop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C5EB394ED6CD7134B2BEFD /* libPods-izleshop.a */; };
 		49EE570707654937B5C90CE6 /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE04072629DD492D931EFD26 /* Poppins-ExtraBoldItalic.ttf */; };
 		58FF32FF14EE47E692D07716 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC3FC355F6174537BEE17A4C /* Poppins-ExtraLightItalic.ttf */; };
 		74463614D3BD467EBD4304F6 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7CBA7FA20EB4737B4B194C7 /* Poppins-Thin.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		84E6BD226CDB11578905CBA7 /* libPods-izleshop-izleshopTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72036B60D9EA6810BD046A2C /* libPods-izleshop-izleshopTests.a */; };
 		853916DA4577419AA3AA0ADC /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A09DD13689444BF91FBE062 /* Poppins-ExtraBold.ttf */; };
 		92BB1495437040ADBDC69814 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52F70B95101B4651912267F7 /* Poppins-BlackItalic.ttf */; };
 		97001D26E6474A7282EF0680 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9F81C432378470096975CD3 /* Poppins-Italic.ttf */; };
@@ -35,6 +34,7 @@
 		E7359A9E95C1443495D2F4E5 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02E7EECF5D2C413792CDFCE5 /* Poppins-SemiBoldItalic.ttf */; };
 		E8E65AA62715DCCC00808597 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E65AA52715DCCC00808597 /* File.swift */; };
 		EE4E2BEDF40F4C06B0D36CA2 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38178BAE933E41B7A79043BC /* Poppins-ExtraLight.ttf */; };
+		F3167C22CB881EAA2BF3B72B /* libPods-izleshop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8CA931C94179B8205A323F /* libPods-izleshop.a */; };
 		F34C41A1AA264C62AA857356 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3DC595DFEF479884F3F046 /* Poppins-LightItalic.ttf */; };
 		F971AE2363C44CE9B6BDEF52 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98AF9B0ECEE942168DEFA764 /* Poppins-Bold.ttf */; };
 		FE88EA0F481644109415E633 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 973693E24AAF4670ADBC1E22 /* Lato-Light.ttf */; };
@@ -55,21 +55,21 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* izleshopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = izleshopTests.m; sourceTree = "<group>"; };
 		02E7EECF5D2C413792CDFCE5 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../src/assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		03F3C2913ACBBE35DEC5EDFC /* Pods-izleshop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izleshop.release.xcconfig"; path = "Target Support Files/Pods-izleshop/Pods-izleshop.release.xcconfig"; sourceTree = "<group>"; };
 		0413B4358D674DF2A718D4FC /* Lato-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Thin.ttf"; path = "../src/assets/fonts/Lato-Thin.ttf"; sourceTree = "<group>"; };
+		0F8CA931C94179B8205A323F /* libPods-izleshop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-izleshop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* izleshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = izleshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = izleshop/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = izleshop/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = izleshop/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = izleshop/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = izleshop/main.m; sourceTree = "<group>"; };
-		16A3123BDBF18D8242D3D065 /* Pods-izleshop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izleshop.debug.xcconfig"; path = "Target Support Files/Pods-izleshop/Pods-izleshop.debug.xcconfig"; sourceTree = "<group>"; };
 		1980CE0C2B774E83ABF56F97 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		1FA5A17EF0E84D1BAD264192 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		21701C787AF941EFA533F15E /* Lato-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Black.ttf"; path = "../src/assets/fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		2534AADF1D48433499399F72 /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../src/assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
 		28D097CA1381426398274BD4 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		2DCEC80F89EA42D38EDAAD2B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		3442875F7CE5ABA38E229784 /* libPods-izleshop-izleshopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-izleshop-izleshopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38178BAE933E41B7A79043BC /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../src/assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		38BD3924AFF9413280DF54B2 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		3D9E7DD5CD12433C84D5DB96 /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../src/assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
@@ -79,29 +79,29 @@
 		52F70B95101B4651912267F7 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../src/assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
 		5A09DD13689444BF91FBE062 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../src/assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		6001B8F4A8E843ED8478C677 /* Lato-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Bold.ttf"; path = "../src/assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
-		72036B60D9EA6810BD046A2C /* libPods-izleshop-izleshopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-izleshop-izleshopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76588806038044CE983E9053 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		76EF8FBE22F54B0EB283A37A /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../src/assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		7A32EB59B66146E68F352E76 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		8196640394A44573A6C9E891 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = izleshop/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		82004722DBE3F8180D79B30F /* Pods-izleshop-izleshopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izleshop-izleshopTests.debug.xcconfig"; path = "Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		824FB71AA9CF4562B68F9C6D /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../src/assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		861E2D0A8B374EF688159469 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../src/assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		968118745DCC4B1494BC75C0 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		973693E24AAF4670ADBC1E22 /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../src/assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
 		983AE1DED659428DB9F53F42 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		98AF9B0ECEE942168DEFA764 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		9ADDD6993D1F8C06B89F62E9 /* Pods-izleshop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izleshop.release.xcconfig"; path = "Target Support Files/Pods-izleshop/Pods-izleshop.release.xcconfig"; sourceTree = "<group>"; };
 		9F3DC595DFEF479884F3F046 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-LightItalic.ttf"; path = "../src/assets/fonts/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		A2C6220AE60EEBBD440BFFF8 /* Pods-izleshop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izleshop.debug.xcconfig"; path = "Target Support Files/Pods-izleshop/Pods-izleshop.debug.xcconfig"; sourceTree = "<group>"; };
 		A69C62C975834823880C2EC5 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
-		AB8B9D49E2390D2B5AA44C08 /* Pods-izleshop-izleshopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izleshop-izleshopTests.release.xcconfig"; path = "Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests.release.xcconfig"; sourceTree = "<group>"; };
 		AE04072629DD492D931EFD26 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		B9C5EB394ED6CD7134B2BEFD /* libPods-izleshop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-izleshop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3C775C3227A95B3BEAB7868 /* Pods-izleshop-izleshopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izleshop-izleshopTests.release.xcconfig"; path = "Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests.release.xcconfig"; sourceTree = "<group>"; };
 		BEAC879DEF22493F947C86BE /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../src/assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
 		C08793D6A01C4D1B8E1380F5 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		C7CBA7FA20EB4737B4B194C7 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		C9F81C432378470096975CD3 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../src/assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		CB2FF903399A4FF58CA6375A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		D060CD52592EF963B598A6E8 /* Pods-izleshop-izleshopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-izleshop-izleshopTests.debug.xcconfig"; path = "Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5FA500E4D324C25866433F3 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		E1B0196DEBAA49F2B820694D /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		E8E65AA42715DCCB00808597 /* izleshop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "izleshop-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E6BD226CDB11578905CBA7 /* libPods-izleshop-izleshopTests.a in Frameworks */,
+				1965DD3E002ABF421C6B45E4 /* libPods-izleshop-izleshopTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40F2C3CF2F065FE522D19322 /* libPods-izleshop.a in Frameworks */,
+				F3167C22CB881EAA2BF3B72B /* libPods-izleshop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,10 +166,10 @@
 		2A67E42287C1AFEE11F6AEF8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				16A3123BDBF18D8242D3D065 /* Pods-izleshop.debug.xcconfig */,
-				03F3C2913ACBBE35DEC5EDFC /* Pods-izleshop.release.xcconfig */,
-				D060CD52592EF963B598A6E8 /* Pods-izleshop-izleshopTests.debug.xcconfig */,
-				AB8B9D49E2390D2B5AA44C08 /* Pods-izleshop-izleshopTests.release.xcconfig */,
+				A2C6220AE60EEBBD440BFFF8 /* Pods-izleshop.debug.xcconfig */,
+				9ADDD6993D1F8C06B89F62E9 /* Pods-izleshop.release.xcconfig */,
+				82004722DBE3F8180D79B30F /* Pods-izleshop-izleshopTests.debug.xcconfig */,
+				B3C775C3227A95B3BEAB7868 /* Pods-izleshop-izleshopTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -178,8 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				B9C5EB394ED6CD7134B2BEFD /* libPods-izleshop.a */,
-				72036B60D9EA6810BD046A2C /* libPods-izleshop-izleshopTests.a */,
+				0F8CA931C94179B8205A323F /* libPods-izleshop.a */,
+				3442875F7CE5ABA38E229784 /* libPods-izleshop-izleshopTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,12 +269,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "izleshopTests" */;
 			buildPhases = (
-				46EA7FABFC9D32729316CA90 /* [CP] Check Pods Manifest.lock */,
+				F088EADEABDE5B3FC639519C /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				B79647E3CC3D100F1227BA7C /* [CP] Embed Pods Frameworks */,
-				BC70B081F35DB04E3C9D389E /* [CP] Copy Pods Resources */,
+				BD830392723EC801E4826DCC /* [CP] Embed Pods Frameworks */,
+				A01A2E0022081918FD4F2EBE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -290,14 +290,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "izleshop" */;
 			buildPhases = (
-				5D01D518FDBCD72B1A60F7F3 /* [CP] Check Pods Manifest.lock */,
+				C7CFBECB8784311ECE53BE4D /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				6CEAF5F26A89164757B893D8 /* [CP] Embed Pods Frameworks */,
-				9539F6E32690D16B4B1D91DF /* [CP] Copy Pods Resources */,
+				3CA1AA3CFCCFAA1C8EF2DFF8 /* [CP] Embed Pods Frameworks */,
+				A5B96E1929726A19E33778DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -401,29 +401,75 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		46EA7FABFC9D32729316CA90 /* [CP] Check Pods Manifest.lock */ = {
+		3CA1AA3CFCCFAA1C8EF2DFF8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-izleshop-izleshopTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5D01D518FDBCD72B1A60F7F3 /* [CP] Check Pods Manifest.lock */ = {
+		A01A2E0022081918FD4F2EBE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5B96E1929726A19E33778DC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD830392723EC801E4826DCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7CFBECB8784311ECE53BE4D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -445,72 +491,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6CEAF5F26A89164757B893D8 /* [CP] Embed Pods Frameworks */ = {
+		F088EADEABDE5B3FC639519C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-izleshop-izleshopTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9539F6E32690D16B4B1D91DF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-izleshop/Pods-izleshop-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B79647E3CC3D100F1227BA7C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BC70B081F35DB04E3C9D389E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-izleshop-izleshopTests/Pods-izleshop-izleshopTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -566,7 +566,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D060CD52592EF963B598A6E8 /* Pods-izleshop-izleshopTests.debug.xcconfig */;
+			baseConfigurationReference = 82004722DBE3F8180D79B30F /* Pods-izleshop-izleshopTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -594,7 +594,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB8B9D49E2390D2B5AA44C08 /* Pods-izleshop-izleshopTests.release.xcconfig */;
+			baseConfigurationReference = B3C775C3227A95B3BEAB7868 /* Pods-izleshop-izleshopTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -619,7 +619,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16A3123BDBF18D8242D3D065 /* Pods-izleshop.debug.xcconfig */;
+			baseConfigurationReference = A2C6220AE60EEBBD440BFFF8 /* Pods-izleshop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -648,7 +648,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03F3C2913ACBBE35DEC5EDFC /* Pods-izleshop.release.xcconfig */;
+			baseConfigurationReference = 9ADDD6993D1F8C06B89F62E9 /* Pods-izleshop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

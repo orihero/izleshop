@@ -13,6 +13,7 @@ import { colors } from 'constants/colors';
 import { categories } from '../data';
 import Item from './Item';
 import { CategoriesNavigationProp } from '../controller';
+import { strings } from 'locales/locales';
 
 export type ContentItemProps = typeof categories[0];
 
@@ -32,10 +33,20 @@ const Content = ({
 	navigation,
 	fromPage,
 }: IContentProps) => {
+	let lang = strings.getLanguage();
+	let title = item.title;
+	switch (lang){
+		case "kk":
+			title = item.title_qr
+		case "ru":
+			title = item.title
+		default:
+			title = item.title_uz	
+	}
 	return (
 		<View>
 			{disableTitle ? null : (
-				<Text style={styles.title}>{item.title}</Text>
+				<Text style={styles.title}>{title}</Text>
 			)}
 			<FlatList
 				horizontal

@@ -101,6 +101,7 @@ const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 							if (selected !== -1) {
 								params.categoryId = categories[selected].id;
 							}
+
 							navigation.navigate(Routes.PRODUCTS, params);
 						}}
 						ph={16}

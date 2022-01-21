@@ -18,7 +18,8 @@ import {
 import { requests } from 'api/requests';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export const languagesList = ['Русский', 'O’zbekcha', 'English'];
+const languagesList = ['Karakalpakstan', 'Русский', 'O’zbekcha'];
+
 
 interface ILanguageProps {
 	language: number;

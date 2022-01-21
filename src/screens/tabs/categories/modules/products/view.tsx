@@ -1,3 +1,4 @@
+import { requests } from 'api/requests';
 import {
 	ArrowsIcon,
 	CategoriesIcon,
@@ -13,20 +14,16 @@ import { Routes } from 'constants/routes';
 import { strings } from 'locales/locales';
 import React, { SetStateAction, useEffect, useState } from 'react';
 import { FlatList, ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 import FavoriteItem from 'screens/tabs/cart/components/FavoriteItem';
-import { requests } from 'api/requests';
-import { divideArr } from 'utils/divideArr';
-import SortModal from '../../components/SortModal';
+import { IPage } from 'screens/tabs/home/controller';
+import { throttle } from 'underscore';
+import SortModal, { sorts } from '../../components/SortModal';
 import {
 	ProductsScreenNavigationProp,
 	ProductsScreenRouteProp,
 } from './controller';
 import { styles } from './style';
-import _, { throttle } from 'underscore';
-import { sorts } from '../../components/SortModal';
-import { IPage } from 'screens/tabs/home/controller';
-import { windowWidth } from 'constants/sizes';
-import { ActivityIndicator } from 'react-native-paper';
 
 interface IProductsView {
 	route?: ProductsScreenRouteProp;
@@ -51,6 +48,8 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 	let dontFetch = true;
 
 	let effect = async () => {
+		console.log(route?.params);
+
 		if (loading) {
 			return;
 		}
@@ -70,7 +69,11 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 				page,
 				pageSize: 10,
 			});
-			setProducts([...products, ...res.data.data]);
+			if (activeIndex !== -1) {
+				setProducts(res.data.data);
+			} else {
+				setProducts([...products, ...res.data.data]);
+			}
 			setPage((e) => e + 1);
 		} catch (error) {}
 		setLoading(false);
