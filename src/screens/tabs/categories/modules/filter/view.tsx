@@ -15,32 +15,6 @@ import { Routes } from 'constants/routes';
 import { useAppSelector } from 'utils/hooks';
 import { selectUser } from 'store/slices/userSlice';
 
-const arr1 = [
-	'Телефоны',
-	'Телевизоры',
-	'Стиральные машины',
-	'Ноутбуки',
-	'Планшеты',
-	'Микроволновки',
-];
-
-const arr2 = [
-	'Apple',
-	'Doogee',
-	'Huawei',
-	'Samsung',
-	'OnePlus',
-	'Realme',
-	'Techno',
-	'BQ',
-	'Xiomi',
-	'Honor',
-	'Nokia',
-	'OPPO',
-	'Vivo',
-	'ZTE',
-];
-
 interface IFilterView {
 	navigation: FilterScreenNavigationProp;
 	route: FilterScreenRouteProp;
@@ -94,14 +68,20 @@ const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 					/>
 					<SecondButton
 						onPress={() => {
+							console.log(route.params);
 							let params = {
 								priceMax: parseInt(high) / dollarRate,
 								priceMin: parseInt(low) / dollarRate,
+								from: route.params.from,
+								title:
+									selected !== -1
+										? categories[selected].title
+										: route.params.title,
 							};
 							if (selected !== -1) {
 								params.categoryId = categories[selected].id;
 							}
-
+							route.params.setProducts([]);
 							navigation.navigate(Routes.PRODUCTS, params);
 						}}
 						ph={16}

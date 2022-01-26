@@ -17,7 +17,7 @@ export let persistor = persistStore(store);
 store.subscribe(() => {
 	let lang = strings.getLanguage();
 	console.log({ lang });
-	let l = 'kk';
+	let l = 'ru';
 	switch (store.getState().user.languageIndex) {
 		case 0:
 			l = 'kk';

@@ -41,11 +41,13 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 	const [loading, setLoading] = useState(false);
 	const [page, setPage] = useState(1);
 	const [products, setProducts] = useState([]);
-	// const [products, setProducts] = useState([]);
 	const onFilterPress = () => {
-		navigation?.navigate(Routes.FILTER, { from: route?.params.from });
+		navigation?.navigate(Routes.FILTER, {
+			from: route?.params.from,
+			setProducts,
+			title: route?.params.title,
+		});
 	};
-	let dontFetch = true;
 
 	let effect = async () => {
 		console.log(route?.params);
@@ -69,18 +71,12 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 				page,
 				pageSize: 10,
 			});
-			if (activeIndex !== -1) {
-				setProducts(res.data.data);
-			} else {
-				setProducts([...products, ...res.data.data]);
-			}
+			setProducts([...products, ...res.data.data]);
 			setPage((e) => e + 1);
 		} catch (error) {}
 		setLoading(false);
 	};
 	let onEndReached = throttle(effect, 1000);
-	// let productss = divideArr(products, 2);
-	let productss = products || [];
 	useEffect(() => {
 		effect();
 	}, [route?.params, activeIndex]);
@@ -153,7 +149,7 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 									/>
 								</View>
 							)}
-							decelerationRate={'fast'}
+							// decelerationRate={'fast'}
 							showsVerticalScrollIndicator={false}
 							keyExtractor={(e) => e.id.toString()}
 							onEndReachedThreshold={0.5}

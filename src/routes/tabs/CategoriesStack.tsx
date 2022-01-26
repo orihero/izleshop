@@ -12,7 +12,11 @@ import { Routes } from 'constants/routes';
 export type CategoriesStackParamList = {
 	[Routes.CATEGORIES]: undefined;
 	[Routes.PRODUCTS]: { from?: string; title?: string };
-	[Routes.FILTER]: { from?: string; title?: string };
+	[Routes.FILTER]: {
+		from?: string;
+		title?: string;
+		setProducts: (data: any) => void;
+	};
 	[Routes.SEARCH]: { from?: string };
 	[Routes.PRODUCT_DETAILS]: { from?: string };
 };

@@ -77,6 +77,7 @@ const ProductDetailsView = ({
 		if (modalVisible) {
 			setModalVisible(false);
 		}
+		return true
 	};
 
 	useEffect(() => {

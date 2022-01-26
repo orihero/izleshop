@@ -37,7 +37,7 @@ let initialState: {
 	dollarRate: number;
 	orders: [];
 } = {
-	languageIndex: 0,
+	languageIndex: 1,
 	token: '',
 	dollarRate: 1,
 };
