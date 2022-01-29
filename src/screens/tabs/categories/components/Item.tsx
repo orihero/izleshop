@@ -1,3 +1,7 @@
+import { useNavigation } from '@react-navigation/core';
+import Pressable from 'components/general/Pressable';
+import { colors } from 'constants/colors';
+import { Routes } from 'constants/routes';
 import React from 'react';
 import {
 	Dimensions,
@@ -7,34 +11,51 @@ import {
 	Text,
 	View,
 } from 'react-native';
-import Pressable from 'components/general/Pressable';
-import { colors } from 'constants/colors';
+import { store } from 'store/configureStore';
 import { categories } from '../data';
-import { Routes } from 'constants/routes';
-import { useNavigation } from '@react-navigation/core';
-import { SvgFromUri, SvgXml } from 'react-native-svg';
 
 let el = categories[0].childs[0];
 
 const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
 	let navigation = useNavigation();
 	let fromPage = 'categories';
+	let name = item.name;
+
+	switch (store.getState().user.languageIndex) {
+		case 0:
+			name = item.name_qr;
+			break;
+		case 1:
+			name = item.name;
+			break;
+		default:
+			name = item.name_uz;
+	}
+	if (!name) {
+		name = item.name;
+	}
+
 	const onPress = () => {
 		if (fromPage === 'categories') {
 			navigation.navigate(Routes.PRODUCTS, {
 				from: fromPage,
-				title: item.name || 'title',
+				title: item.name || '',
 				categoryId: item.id,
 			});
 		}
 		if (fromPage === 'brands') {
 			navigation.navigate(Routes.PRODUCTS, {
 				from: fromPage,
-				title: item.title || 'title',
+				title: item.title || '',
 				categoryId: item.id,
 			});
 		}
 	};
+
+	let image = item.image;
+	if (image?.indexOf('https://') === -1) {
+		image = image?.replace('http://', 'https://');
+	}
 
 	return (
 		<Pressable onPress={onPress}>
@@ -42,7 +63,7 @@ const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
 				<View style={styles.container}>
 					<Image
 						source={{
-							uri: item.image,
+							uri: image,
 						}}
 						style={{
 							width: 90,
@@ -56,7 +77,7 @@ const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
 					numberOfLines={1}
 					style={styles.title}
 				>
-					{item.name}
+					{name}
 				</Text>
 			</View>
 		</Pressable>

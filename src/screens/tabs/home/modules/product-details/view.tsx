@@ -38,9 +38,10 @@ import {
 	removeItem,
 	selectFavorites,
 } from 'store/slices/favoritesSlice';
-import { selectDollarRate } from 'store/slices/userSlice';
+import { selectDollarRate, selectUser } from 'store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'utils/hooks';
 import { styles } from './style';
+import SweetAlert from 'react-native-sweet-alert';
 
 export interface ProductDetailsViewProps {
 	setActiveSlide: (e: number) => void;
@@ -72,12 +73,13 @@ const ProductDetailsView = ({
 	let dispatch = useAppDispatch();
 	let dollarRate = useAppSelector(selectDollarRate);
 
+	let user = useAppSelector(selectUser);
+
 	const [modalVisible, setModalVisible] = useState(false);
 	const closeModal = () => {
 		if (modalVisible) {
 			setModalVisible(false);
 		}
-		return true
 	};
 
 	useEffect(() => {
@@ -130,6 +132,26 @@ const ProductDetailsView = ({
 	};
 
 	let onHindPress = () => {
+		if (!user?.token) {
+			SweetAlert.showAlertWithOptions(
+				{
+					title: strings.warning,
+					subTitle: strings.plzLogin,
+					confirmButtonTitle: 'OK',
+					confirmButtonColor: '#000',
+					otherButtonTitle: 'Cancel',
+					otherButtonColor: '#dedede',
+					style: 'error',
+					cancellable: true,
+				},
+				() =>
+					//@ts-ignore
+					navigation.navigate(Routes.WITHOUT_TABS, {
+						screen: Routes.LOGIN,
+					})
+			);
+			return;
+		}
 		navigation.navigate(Routes.WITHOUT_TABS, {
 			screen: Routes.INSTALLMENT,
 			params: { data: details },
@@ -160,7 +182,7 @@ const ProductDetailsView = ({
 		</View>
 	) : (
 		<View style={styles.container}>
-			<Header hasBorder hasCartIcon title={strings.smartphone} />
+			<Header hasBorder hasCartIcon title={details.name} />
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.bgw}>
 					<Carousel

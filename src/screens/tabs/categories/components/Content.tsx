@@ -44,6 +44,8 @@ const Content = ({
 	// 	default:
 	// 		title = item.title_uz;
 	// }
+	console.log({ lang, lng: store.getState().user.languageIndex });
+
 	switch (store.getState().user.languageIndex) {
 		case 0:
 			title = item.title_qr;
@@ -54,9 +56,9 @@ const Content = ({
 		default:
 			title = item.title_uz;
 	}
-	if (lang !== title) {
-		strings.setLanguage(title);
-	}
+	// if (lang !== title) {
+	// 	strings.setLanguage(title);
+	// }
 	return (
 		<View>
 			{disableTitle ? null : <Text style={styles.title}>{title}</Text>}

@@ -11,6 +11,7 @@ interface IDefaultSelectProps {
 	setValue: (e: string) => void;
 	placeholder: string;
 	values: string[];
+	shouldSelect?: boolean;
 }
 
 const DefaultSelect = ({
@@ -18,6 +19,7 @@ const DefaultSelect = ({
 	setValue,
 	placeholder,
 	values,
+	shouldSelect = true,
 }: IDefaultSelectProps) => {
 	const [modalShow, setModalShow] = useState(false);
 
@@ -28,7 +30,11 @@ const DefaultSelect = ({
 
 	return (
 		<View style={styles.container}>
-			<Pressable onPress={() => setModalShow(!modalShow)}>
+			<Pressable
+				onPress={
+					shouldSelect ? () => setModalShow(!modalShow) : () => {}
+				}
+			>
 				<View style={styles.box}>
 					<Text style={value ? styles.text1 : styles.text2}>
 						{value || placeholder}

@@ -50,8 +50,6 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 	};
 
 	let effect = async () => {
-		console.log(route?.params);
-
 		if (loading) {
 			return;
 		}
@@ -59,6 +57,8 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 		let params = {
 			...(route.params || {}),
 		};
+		let { from, title, ...rest } = params;
+		params = rest;
 		if (activeIndex !== -1) {
 			params = {
 				...params,
@@ -71,6 +71,7 @@ const ProductsView = ({ route, navigation }: IProductsView) => {
 				page,
 				pageSize: 10,
 			});
+			console.log({ params, res: res.data.data });
 			setProducts([...products, ...res.data.data]);
 			setPage((e) => e + 1);
 		} catch (error) {}

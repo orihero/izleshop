@@ -54,7 +54,13 @@ const Header = ({
 					)}
 				</View>
 				<View>
-					<Text style={[styles.title, styles.bold]}>{title}</Text>
+					<Text
+						style={[styles.title, styles.bold]}
+						numberOfLines={1}
+						ellipsizeMode="tail"
+					>
+						{title}
+					</Text>
 				</View>
 				<TouchableOpacity onPress={onNextPress} style={styles.box}>
 					<View style={styles.rightEdge}>{rightEdge()}</View>

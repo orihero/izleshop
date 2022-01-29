@@ -42,7 +42,7 @@ const SettingsView = ({ onCreate }: ISettingViewProps) => {
 
 	let img = require('assets/images/ru.png');
 	if (user.languageIndex === 0) {
-		img = require('assets/images/qq.jpg');
+		img = require('assets/images/qq.png');
 	}
 	if (user.languageIndex === 2) {
 		img = require('assets/images/flag.png');

@@ -277,7 +277,8 @@ const ChecoutView = ({ route }: ICheckoutViewProps) => {
 								value={district}
 								values={regs}
 								setValue={setDistrict}
-								placeholder={strings.cityNotSelected || ''}
+								placeholder={strings.districtNotSelected || ''}
+								shouldSelect={!!city}
 							/>
 						</View>
 						<View style={styles.mt9}>

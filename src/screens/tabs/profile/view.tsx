@@ -50,13 +50,13 @@ const ProfileView = ({}: IProfileViewProps) => {
 		{
 			string: strings.awaitingDispatch,
 			icon: BagIcon,
-			status: null,
+			status: 2,
 			size: 25,
 		},
 		{
 			string: strings.orderSent,
 			icon: CarIcon,
-			status: null,
+			status: 3,
 			size: 27,
 		},
 		{
@@ -123,7 +123,7 @@ const ProfileView = ({}: IProfileViewProps) => {
 
 	let img = require('assets/images/ru.png');
 	if (user.languageIndex === 0) {
-		img = require('assets/images/qq.jpg');
+		img = require('assets/images/qq.png');
 	}
 	if (user.languageIndex === 2) {
 		img = require('assets/images/flag.png');
@@ -328,16 +328,9 @@ const ProfileView = ({}: IProfileViewProps) => {
 					</Pressable>
 				) : (
 					<>
-						<View>
-							<TouchableOpacity onPress={onLanguage}>
-								<View style={styles.languageBox}>
-									<Text style={styles.languageText}>
-										{strings.SelectLanguage}
-									</Text>
-									<ChevronRightIcon />
-								</View>
-							</TouchableOpacity>
-						</View>
+						<Pressable to onPress={onLanguage}>
+							<MenuLink text={strings.SelectLanguage} />
+						</Pressable>
 					</>
 				)}
 			</View>

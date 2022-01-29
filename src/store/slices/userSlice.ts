@@ -85,7 +85,7 @@ let userSlice = createSlice({
 			};
 		},
 		userLoggedOut: (state) => {
-			return { dollarRate: state.dollarRate };
+			return { dollarRate: state.dollarRate, languageIndex: 1 };
 		},
 		setProfileData: (state, action: PayloadAction<UserData>) => {
 			return { ...state, userData: action.payload };
