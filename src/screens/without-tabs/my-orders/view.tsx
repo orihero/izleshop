@@ -24,6 +24,24 @@ export interface MyOrdersViewProps {
 }
 
 const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
+	let ordersMap = [
+		{
+			string: strings.paymentPending,
+			status: 0,
+		},
+		{
+			string: strings.awaitingDispatch,
+			status: 2,
+		},
+		{
+			string: strings.orderSent,
+			status: 3,
+		},
+		{
+			string: strings.reviewAwaiteng,
+			size: 27,
+		},
+	];
 	let navigation = useNavigation();
 	let user = useAppSelector(selectUser);
 	let { dollarRate } = useAppSelector(selectUser);
@@ -78,12 +96,9 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 				<View style={styles.container}>
 					{userOrders &&
 						userOrders?.map((e) => {
-							let status = strings.waiting;
-							switch (e.status) {
-								case 1:
-									status = strings.payed;
-									break;
-							}
+							let s = ordersMap.find(
+								(el) => el.status === e.status
+							)?.string;
 							let time = new Date(e.created_at);
 							let p = e.price
 								.toString()
@@ -171,7 +186,7 @@ const MyOrdersView = ({ userOrders, products, loading }: MyOrdersViewProps) => {
 										</View>
 										<View style={styles.row}>
 											<Text style={styles.textRow}>
-												{status}
+												{s}
 											</Text>
 											<Text style={styles.textRow}>
 												{e.amount}
