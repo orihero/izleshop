@@ -14,6 +14,7 @@ import RangeSlider from 'components/general/range-slider/RangeSlider';
 import { Routes } from 'constants/routes';
 import { useAppSelector } from 'utils/hooks';
 import { selectUser } from 'store/slices/userSlice';
+import { store } from 'store/configureStore';
 
 interface IFilterView {
 	navigation: FilterScreenNavigationProp;
@@ -45,18 +46,33 @@ const FilterView = ({ navigation, route, categories = [] }: IFilterView) => {
 					{isCategory ? strings.categories : strings.manufacturers}
 				</Text>
 				<View style={styles.box}>
-					{categories?.map((e, i) => (
-						<TouchableOpacity
-							onPress={() => setSelected(i)}
-							key={i}
-							style={styles.row}
-						>
-							<Text style={styles.text}>{e.title}</Text>
-							<View style={styles.circle}>
-								{selected === i && <View style={styles.dot} />}
-							</View>
-						</TouchableOpacity>
-					))}
+					{categories?.map((e, i) => {
+						let title = e.title;
+						switch (store.getState().user.languageIndex) {
+							case 0:
+								title = e.title_qr;
+								break;
+							case 1:
+								title = e.title;
+								break;
+							default:
+								title = e.title_uz;
+						}
+						return (
+							<TouchableOpacity
+								onPress={() => setSelected(i)}
+								key={e.id}
+								style={styles.row}
+							>
+								<Text style={styles.text}>{title}</Text>
+								<View style={styles.circle}>
+									{selected === i && (
+										<View style={styles.dot} />
+									)}
+								</View>
+							</TouchableOpacity>
+						);
+					})}
 				</View>
 				<View style={styles.buttonRow}>
 					<SecondButton

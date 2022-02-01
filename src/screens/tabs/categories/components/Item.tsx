@@ -39,7 +39,7 @@ const Item = ({ item }: ListRenderItemInfo<typeof el>) => {
 		if (fromPage === 'categories') {
 			navigation.navigate(Routes.PRODUCTS, {
 				from: fromPage,
-				title: item.name || '',
+				title: name || '',
 				categoryId: item.id,
 			});
 		}
