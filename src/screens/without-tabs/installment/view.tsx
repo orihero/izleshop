@@ -14,7 +14,6 @@ import { SearchIcon } from 'assets/icons/icons';
 import { colors } from 'constants/colors';
 import DefaultButton from 'components/general/DefaultButton';
 import { useNavigation, useRoute } from '@react-navigation/core';
-import SweetAlert from 'react-native-sweet-alert';
 import { Routes } from 'constants/routes';
 import { useSelector } from 'react-redux';
 import { selectDollarRate } from 'store/slices/userSlice';

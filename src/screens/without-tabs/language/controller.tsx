@@ -10,7 +10,7 @@ import { strings } from 'locales/locales';
 import { useSelector } from 'react-redux';
 import { DevSettings } from 'react-native';
 
-const arr = ['Karakalpakstan', 'Русский', 'O’zbekcha'];
+const arr = ['Qaraqalpaqsha', 'Русский', 'O’zbekcha'];
 
 export type LoginScreenNavigationProp = NativeStackNavigationProp<
 	WithoutStackParamList,
